@@ -1,0 +1,4 @@
+\contentsline {chapter}{\nameref {ch:preface}}{i}{chapter*.1}%
+\contentsline {chapter}{\numberline {1}Mathematical Introduction}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Magnetic Incline System}{3}{chapter.2}%
+\contentsfinish 

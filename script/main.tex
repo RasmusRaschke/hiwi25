@@ -1,0 +1,63 @@
+\documentclass[working]{tuftebook}
+
+\input{preamble.tex}
+\input{symbols.tex}
+\usepackage{pdfpages}
+
+\usepackage{lipsum}
+\usepackage{parskip}
+\usepackage{titletoc}
+
+\newcommand\circled[1]{
+    \begin{tikzpicture}[baseline=(char.base)]%
+        \node[circle,draw,inner sep=1pt] (char) {\textsf{#1}};%
+\end{tikzpicture}}
+% minicircle for in figures!
+\newcommand\mc[1]{\footnotesize\circled{#1}}
+
+\usepackage{cmbright}
+\usepackage{bm}
+
+% \usepackage{eso-pic}                % put things into background 
+% \usepackage{lipsum}                 % for sample text
+
+% \definecolor{reallylightgray}{HTML}{FAFAFA}
+% \AddToShipoutPicture{% from package eso-pic: put something to the background
+%     \ifthenelse{\isodd{\thepage}}{
+%           % ODD page: left bar
+%           \AtPageLowerLeft{% start the bar at the left bottom of the page
+%             \put(\LenToUnit{\dimexpr\paperwidth-222pt},0){% move it to the top right
+%                 \color{reallylightgray}\rule{222pt}{297mm}%
+%               }%
+%           }%
+%       }%
+%       {%
+%         \AtPageLowerLeft{% put it at the left bottom of the page
+%           \color{reallylightgray}\rule{222pt}{297mm}%
+%         }%
+%    }%
+% }
+
+\title{Classical Magnetic Systems}
+\date{Academic year 2025--2026}
+\begin{document}
+    
+    \renewcommand{\thepage}{\roman{page}}
+    \thispagestyle{empty}
+    \pagestyle{plain}
+    \includepdf{frontpage/front.pdf}
+    \setcounter{page}{0}
+    \input{preface.tex}
+    \listofsymbols
+    \tableofcontents
+    \cleardoublepage
+    \renewcommand{\thepage}{\arabic{page}}
+    \setcounter{page}{1}
+    \pagestyle{normal}
+    \input{chap0.tex}
+    \input{chap1.tex}
+
+
+    \printbibliography
+
+\end{document}
