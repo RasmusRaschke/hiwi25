@@ -5,4 +5,45 @@
 % \startcontents[chapters]
 % \printcontents[chapters]{}{1}{}
 
-We start by giving a short introduction to the necessary mathematical background for this project.
+We start with the necessary mathematical theory. If the reader already feels comfortable with the theory of smooth manifolds, variational calculus on aforementioned spaces, (Lie) groups as well as autonomous differential equations, they may skip this chapter. We assume basic knowledge of linear algebra and calculus.
+
+\section{Group Theory}
+We need some fundamental group theory.
+\begin{definition}[Group]
+\marginnote{One should think of groups in terms of symmetries: A symmetry of an abstract object can be thought of as a collection of operations leaving said object invariant.}
+A \textbf{Group} is a pair $(G, \circ)$ consisting of a set $G$ and an operation $\circ$ such that the following axioms are satisfied:
+\begin{enumerate}[({G}1)]
+    \item $\forall a,b,c \in G: a \circ (b \circ c) = (a \circ b) \circ c$
+    \item $\forall a \in G \, \exists a^{-1} \in G: a \circ a^{-1} = 1$
+    \item $\exists e \in G \, \forall a \in G: e \circ a = a$
+\end{enumerate}
+If the operation is commutative, we call the group \textbf{abelian}.
+\end{definition}
+There are plenty of examples of groups important in physics:
+\begin{eg}
+        \marginnote{Note that this coordinate-free definition reduces to the usual definition by real $n \times n$-matrices if we choose any basis of $V$ and represent the endomorphism in this basis.}
+Let $V \cong \mathbb{R}^n$ be a real vector space endowed with a scalar product \[\langle \cdot, \cdot \rangle: V \times V \to \mathbb{R}.\] We call an endomorphism \[T: V \to V\] \emph{orthogonal} if for all $v,w \in V$ the scalar product is preserved: \[\langle T(v), T(w) \rangle = \langle v,w \rangle.\] Define the \emph{orthogonal Group} $O(n)$ of dimension $n$ as set of all orthogonal endomorphisms on $V$ with group multiplication given by composition. Note that this group is not abelian.
+In the same setting, we define the \emph{special orthogonal group} as
+            \begin{equation}
+                SO(n):=\{T \in O(n) \mid \det T = 1\} \leq O(n).
+            \end{equation}
+        This group is also often called \emph{rotation group} in physics. We will use this group heavily later on.
+\end{eg}
+
+
+
+\section{Configuration Manifolds and Lie groups}
+
+\begin{definition}[Smooth Manifold]
+\marginnote{Sometimes, we need special charts centered at a point $p \in M$. This means that $\phi(p)=0$.}
+    A \textbf{smooth $n$-manifold} is a topological space $M$ such that:
+    \begin{enumerate}
+        \item $M$ has the Hausdorff property.
+        \item $M$ is second-countable.
+        \item $M$ is locally euclidean of class $\mathcal{C}^\infty$: For every $p \in M$ there is an open neighbourhood $U \sub M$ of $p$ and a $\mathcal{C}^\infty$-diffeomorphism $\phi: U \to V$ such that $V \sub \mathbb{R}^n$ is open. We call $(\phi, U)$ a \textbf{chart} on $M$.
+    \end{enumerate}
+\end{definition}
+We will be working exclusively in this smooth category to ensure the existence of smooth $k$-forms on any given manifold. Furthermore, we use the Einstein summation convention:    
+\section{Variational Calculus}
+
+\section{Ordinary Differential Equations}
