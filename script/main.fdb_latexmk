@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1757959307.09215 "main.bcf" "main.bbl" "main" 1758036925.52468 2
+["biber main"] 1757959307.09215 "main.bcf" "main.bbl" "main" 1758304578.82685 2
   "bibliography.bib" 1757958799.9044 2684 a22cfc598c9cdf1a329229b3bd468d06 ""
-  "main.bcf" 1758036925.42624 108557 8c3299d6df4004860fa0308c72250d26 "pdflatex"
+  "main.bcf" 1758304578.7298 108557 8c3299d6df4004860fa0308c72250d26 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1758036924.34756 "main.tex" "main.pdf" "main" 1758036925.52496 0
+["pdflatex"] 1758304577.65942 "main.tex" "main.pdf" "main" 1758304578.8271 2
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1136768653 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
@@ -265,17 +265,18 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1749797494 5523539 cbe340ff87ac4cfddcdc6361a84e52ac ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1749797535 3599565 9654882f00888f2602bca2b12f0df0df ""
   "/usr/local/texlive/2025/texmf.cnf" 1749797490.30351 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "chap0.tex" 1758036922.35924 3169 60cf46a62c3366c574bad8fb23f1f5b5 ""
+  "chap0.tex" 1758037049.40724 3228 e017597ddcc28c77697d4295bd49ea09 ""
   "chap1.tex" 1756803278.0262 135 427a0dcb4a375e01a5d001c3412ca990 ""
   "frontpage/front.pdf" 1756804992.38743 54869 4e4d3578ed5ad81a90de9373b4b3353d ""
-  "main.aux" 1758036925.42401 2750 6b46149489a77ad7940d2a8e975640d6 "pdflatex"
-  "main.bbl" 1758034950.19721 0 d41d8cd98f00b204e9800998ecf8427e "biber main"
-  "main.out" 1758036925.42474 1159 bfe50138a061e5ad8c87180e55e23283 "pdflatex"
-  "main.run.xml" 1758036925.42754 2313 300f39656d2ca573330f9b1b6a90dbb1 "pdflatex"
-  "main.tex" 1757089368.4149 1684 9e416598877ead5b417b485bc240ca6a ""
-  "main.toc" 1758036925.42754 581 65d2c0ed21a4b810a515e783246f1783 "pdflatex"
+  "main.aux" 1758304578.7268 2750 7c4304c3fd997ae03631d6c225941731 "pdflatex"
+  "main.bbl" 1758234017.5937 0 d41d8cd98f00b204e9800998ecf8427e "biber main"
+  "main.out" 1758304578.72807 1159 bfe50138a061e5ad8c87180e55e23283 "pdflatex"
+  "main.run.xml" 1758304578.73086 2313 300f39656d2ca573330f9b1b6a90dbb1 "pdflatex"
+  "main.tex" 1758304572.86514 1709 cecbf3df3588e3f2d1168f8fd757fd17 ""
+  "main.toc" 1758304578.73086 581 65d2c0ed21a4b810a515e783246f1783 "pdflatex"
   "marginfix.sty" 1755724034.19059 13634 1adff3b3f20a436e0dc24761eed9d07b ""
-  "preamble.tex" 1756805221.98635 12356 3408eceb2aee436be48f01c5e62d3af8 ""
+  "mathpreamble.tex" 1758304437.9079 478 1758b9aacb04a312ec279c8c0a8a250a ""
+  "preamble.tex" 1758304417.97743 5111 d01ff5847d7708e9620e904639d85f1a ""
   "preface.tex" 1757959305.84143 813 50d34f8afc772e42af509d4e468508df ""
   "symbols.tex" 1756805236.85289 2986 6d19500c717b6e272a077dfd2b22b8cd ""
   "tuftebook.cls" 1755724034.19079 5939 9621f865dee56dd007dd5cdedf790b8e ""

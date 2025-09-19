@@ -390,6 +390,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/transparent/transparent-nomet
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/transparent/transparent-nometadata.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/multirow/multirow.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT ./mathpreamble.tex
+INPUT ./mathpreamble.tex
+INPUT mathpreamble.tex
 INPUT ./symbols.tex
 INPUT ./symbols.tex
 INPUT symbols.tex
