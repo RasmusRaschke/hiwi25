@@ -8,42 +8,71 @@
 We start with the necessary mathematical theory. If the reader already feels comfortable with the theory of smooth manifolds, variational calculus on aforementioned spaces, (Lie) groups as well as autonomous differential equations, they may skip this chapter. We assume basic knowledge of linear algebra and calculus.
 
 \section{Group Theory}
-We need some fundamental group theory.
+We need some fundamental group theory. From here on, all vector spaces are finite-dimensional.
 \begin{definition}[Group]
 \marginnote{One should think of groups in terms of symmetries: A symmetry of an abstract object can be thought of as a collection of operations leaving said object invariant.}
 A \textbf{Group} is a pair $(G, \circ)$ consisting of a set $G$ and an operation $\circ$ such that the following axioms are satisfied:
-\begin{enumerate}[({G}1)]
+\begin{itemize}
     \item $\forall a,b,c \in G: a \circ (b \circ c) = (a \circ b) \circ c$
     \item $\forall a \in G \, \exists a^{-1} \in G: a \circ a^{-1} = 1$
     \item $\exists e \in G \, \forall a \in G: e \circ a = a$
-\end{enumerate}
+\end{itemize}
 If the operation is commutative, we call the group \textbf{abelian}.
 \end{definition}
 There are plenty of examples of groups important in physics:
 \begin{eg}
-        \marginnote{Note that this coordinate-free definition reduces to the usual definition by real $n \times n$-matrices if we choose any basis of $V$ and represent the endomorphism in this basis.}
-Let $V \cong \mathbb{R}^n$ be a real vector space endowed with a scalar product \[\langle \cdot, \cdot \rangle: V \times V \to \mathbb{R}.\] We call an endomorphism \[T: V \to V\] \emph{orthogonal} if for all $v,w \in V$ the scalar product is preserved: \[\langle T(v), T(w) \rangle = \langle v,w \rangle.\] Define the \emph{orthogonal Group} $O(n)$ of dimension $n$ as set of all orthogonal endomorphisms on $V$ with group multiplication given by composition. Note that this group is not abelian.
-In the same setting, we define the \emph{special orthogonal group} as
-            \begin{equation}
-                SO(n):=\{T \in O(n) \mid \det T = 1\} \leq O(n).
-            \end{equation}
-        This group is also often called \emph{rotation group} in physics. We will use this group heavily later on.
+\marginnote{
+        Note that every vector space over $\mathbb{R}$ has a basis. Choosing one and representing automorphisms as $n \times n$-matrices yields the usual group structure by matrix multiplication. This also clearly demonstrates that groups of linear maps cannot be abelian in general.}
+    Let $V$ be a real vector space. The automorphisms $V \to V$ consitute a group under composition, the \emph{general linear group} of dimension $n$, $\GL_n(V)$.
+    There are several important subgroups of $\GL(\mathbb{R}^n)$ we will heavily use later. Let \[\langle \cdot, \cdot \rangle: \mathbb{R}^n \to \mathbb{R}\] be the euclidean scalar product on $\mathbb{R}^n$ and $T \in \GL(\mathbb{R}^n)$. We define the \emph{orthogonal group} as
+\[\O(n):=\{Q \in \GL(\mathbb{R}^n) \mid QQ^top = Q^\top Q = \id\} \leq \GL(\mathbb{R}^n).\]  
+Further restricting our attention to orthogonal automorphisms with unit determinant yields the \emph{special orthogonal group} \[
+    \SO(n) := \{R \in \O(n) \mid \det R = 1\} \leq \O(n).
+.\] 
 \end{eg}
-
-
-
+In physics, we are usually concerned with how a certain group acts on a physical system. For that, we need actions and representations.
+\begin{definition}[Group Action]
+    Let $G$ be a group with identity $e$ and $M$ be a set. A \textbf{right-action} of $G$ on $M$ is a map \[
+    \alpha: G \times X \to X
+    .\] 
+    such that:
+    \begin{itemize}
+        \item $\alpha(e,x) = x$
+        \item $\alpha(h, \alpha(g,x))=\alpha(gh,x)$
+    \end{itemize}
+    is satisfied. We write $G \acts M$ and $\alpha(g,x)=:g.x$ for short.
+\end{definition}
+\begin{definition}[Representation]
+    Let $V$ be a real vector space and $G$ be a group. A \textbf{real $G$-representation} is a group homomorphism \[
+    \rho: V \to \GL(V)
+    .\] 
+    We call $V$ \textbf{representation space} and $\deg V$ the degree of the representation.
+    
+\end{definition}
 \section{Configuration Manifolds and Lie groups}
 
 \begin{definition}[Smooth Manifold]
-\marginnote{Sometimes, we need special charts centered at a point $p \in M$. This means that $\phi(p)=0$.}
     A \textbf{smooth $n$-manifold} is a topological space $M$ such that:
-    \begin{enumerate}
+    \begin{itemize}
         \item $M$ has the Hausdorff property.
         \item $M$ is second-countable.
-        \item $M$ is locally euclidean of class $\mathcal{C}^\infty$: For every $p \in M$ there is an open neighbourhood $U \sub M$ of $p$ and a $\mathcal{C}^\infty$-diffeomorphism $\phi: U \to V$ such that $V \sub \mathbb{R}^n$ is open. We call $(\phi, U)$ a \textbf{chart} on $M$.
-    \end{enumerate}
+        \item $M$ is locally euclidean of class $\mathcal{C}^\infty$: For every $p \in M$ there is an open neighbourhood $U \subseteq M$ of $p$ and a $\mathcal{C}^\infty$-diffeomorphism $\phi: U \to V$ such that $V \subseteq \mathbb{R}^n$ is open. We call $(\phi, U)$ a \textbf{chart} on $M$.
+    \end{itemize}
 \end{definition}
-We will be working exclusively in this smooth category to ensure the existence of smooth $k$-forms on any given manifold. Furthermore, we use the Einstein summation convention:    
+We will be working exclusively in this smooth category to ensure the existence of smooth $k$-forms on any given manifold. Since we want to apply the formalism in concrete examples, we will often work in local coordinates. Note that with the standard basis of $\mathbb{R}^n$, we can write a chart map as 
+\[
+\phi(p)=(\phi_1(p), \dots, \phi_n(p)) =: (x^1(p), \dots, x^n(p))
+.\] where $x^i: M \to \mathbb{R}$ are the chart components. Since the charts are diffeomorphisms, they can be locally inverted to a map $\phi^{-1}: V \to U$, inwhich case we call $\phi^{-1}$ a \emph{local parametrization} of $M$.
+\begin{eg}
+    \begin{itemize}
+        \item Trivially, the real euclidean space $\mathbb{R}^n$ is an $n$-dimensional smooth manifold with the identity $\id$ being a global chart.
+        \item The $n$-sphere $\mathbb{S}^n$ is a smooth manifold with local charts given by projection onto the coordinate axes.
+    \item The $n$-torus \[T^n = \underbrace{\mathbb{S} \times \cdots \times \mathbb{S}}_{n\text{ times}}\] is a smooth $n$-manifold. In the case of $T^2$, one obtains local charts easily as the $2$-torus is a surface of revolution. 
+    \end{itemize}
+    
+\end{eg}
+
+
 \section{Variational Calculus}
 
 \section{Ordinary Differential Equations}

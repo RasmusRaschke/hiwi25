@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.13)  19 SEP 2025 19:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.13)  19 SEP 2025 23:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1372,12 +1372,13 @@ Package biblatex Info: Automatic encoding selection.
 \openout3 = `main.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' found.
- (./main.bbl)
+Package biblatex Info: ... file 'main.bbl' not found.
+
+No file main.bbl.
 Package biblatex Info: Reference section=0 on input line 44.
 Package biblatex Info: Reference segment=0 on input line 44.
 Package hyperref Info: Link coloring ON on input line 44.
- (./main.out) (./main.out)
+(./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
@@ -1515,40 +1516,35 @@ Package mdframed Info: mdframed detected package amsthm
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 12.
 Package marginnote Info: Margin note 9.1 is on absolute page 9 on input line 14.
 Package marginnote Info: xpos seems to be 157.8599pt on input line 14.
+LaTeX Font Info:    Trying to load font information for TS1+cmbr on input line 16.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
+File: ts1cmbr.fd 2005/04/13 v8.1 (WaS)
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmbr' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 Package hyperref Info: bookmark level for unknown eg defaults to 0 on input line 24.
-Package marginnote Info: Margin note 9.2 is on absolute page 9 on input line 25.
-Package marginnote Info: xpos seems to be 106.38615pt on input line 25.
+Package marginnote Info: Margin note 9.2 is on absolute page 9 on input line 26.
+Package marginnote Info: xpos seems to be 106.06189pt on input line 26.
+Package mdframed Info: mdframed works in twoside mode on input line 34.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 34.
 
 
 [1
 
-]
-Package mdframed Info: mdframed works in twoside mode on input line 37.
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Package mdframed Info: mdframed works in twoside mode on input line 45.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 37.
-Package marginnote Info: Margin note 10.1 is on absolute page 10 on input line 39.
-Package marginnote Info: xpos seems to be 397.15071pt on input line 39.
+(mdframed)              on input line 45.
+Package mdframed Info: mdframed works in twoside mode on input line 54.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 54.
 
-./chap0.tex:43: Undefined control sequence.
-l.43 ... M$ there is an open neighbourhood $U \sub
-                                                   M$ of $p$ and a $\mathcal...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./chap0.tex:43: Undefined control sequence.
-l.43 ...morphism $\phi: U \to V$ such that $V \sub
-                                                   \mathbb{R}^n$ is open. We...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-) (./chap1.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1557,7 +1553,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
-[2]
+[2]) (./chap1.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.0pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
+
+[3]
+
+[4
+
+]
 Chapter 2.
 )
 
@@ -1565,9 +1574,7 @@ LaTeX Warning: Empty bibliography on input line 62.
 
 
 
-[3
-
-] (./main.aux)
+[5] (./main.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
@@ -1588,18 +1595,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40921 strings out of 467886
- 789945 string characters out of 5434045
- 1726550 words of memory out of 5000000
- 68671 multiletter control sequences out of 15000+600000
- 648150 words of font info for 133 fonts, out of 8000000 for 9000
+ 40987 strings out of 467886
+ 790980 string characters out of 5434045
+ 1729704 words of memory out of 5000000
+ 68709 multiletter control sequences out of 15000+600000
+ 650984 words of font info for 148 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  93i,17n,105p,1193b,1303s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbras10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmo10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmr8.pfb>
-Output written on main.pdf (11 pages, 177069 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbras10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmo10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmr8.pfb>
+Output written on main.pdf (13 pages, 202802 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
- 26708 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 228 PDF objects out of 1000 (max. 8388607)
+ 171 compressed objects within 2 object streams
+ 34 named destinations out of 1000 (max. 500000)
+ 32852 words of extra memory for PDF output out of 35830 (max. 10000000)
 
