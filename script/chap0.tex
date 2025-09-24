@@ -51,28 +51,41 @@ In physics, we are usually concerned with how a certain group acts on a physical
 \end{definition}
 \section{Configuration Manifolds and Lie groups}
 
-\begin{definition}[Smooth Manifold]
-    A \textbf{smooth $n$-manifold} is a topological space $M$ such that:
+\begin{definition}[Topological Manifold]
+    A \textbf{topological $n$-manifold} is a topological space $M$ such that:
     \begin{itemize}
         \item $M$ has the Hausdorff property.
         \item $M$ is second-countable.
-        \item $M$ is locally euclidean of class $\mathcal{C}^\infty$: For every $p \in M$ there is an open neighbourhood $U \subseteq M$ of $p$ and a $\mathcal{C}^\infty$-diffeomorphism $\phi: U \to V$ such that $V \subseteq \mathbb{R}^n$ is open. We call $(\phi, U)$ a \textbf{chart} on $M$.
+        \item $M$ is locally euclidean: For every $p \in M$ there is an open neighbourhood $U \subseteq M$ of $p$ and a homeomorphism $\phi: U \to V$ such that $V \subseteq \mathbb{R}^n$ is open. We call $(\phi, U)$ a \textbf{chart} on $M$.
     \end{itemize}
 \end{definition}
-We will be working exclusively in this smooth category to ensure the existence of smooth $k$-forms on any given manifold. Since we want to apply the formalism in concrete examples, we will often work in local coordinates. Note that with the standard basis of $\mathbb{R}^n$, we can write a chart map as 
+Since we want to apply the formalism in concrete examples, we will often work in local coordinates. Note that with the standard basis of $\mathbb{R}^n$, we can write a chart map as 
 \[
 \phi(p)=(\phi_1(p), \dots, \phi_n(p)) =: (x^1(p), \dots, x^n(p))
-.\] where $x^i: M \to \mathbb{R}$ are the chart components. Since the charts are diffeomorphisms, they can be locally inverted to a map $\phi^{-1}: V \to U$, inwhich case we call $\phi^{-1}$ a \emph{local parametrization} of $M$.
+.\] where $x^i: M \to \mathbb{R}$ are the chart components. Since the charts are homeomorphisms, they can be locally inverted to a map $\phi^{-1}: V \to U$, in which case we call $\phi^{-1}$ a \emph{local parametrization} of $M$.
 \begin{eg}
     \begin{itemize}
         \item Trivially, the real euclidean space $\mathbb{R}^n$ is an $n$-dimensional smooth manifold with the identity $\id$ being a global chart.
         \item The $n$-sphere $\mathbb{S}^n$ is a smooth manifold with local charts given by projection onto the coordinate axes.
     \item The $n$-torus \[T^n = \underbrace{\mathbb{S} \times \cdots \times \mathbb{S}}_{n\text{ times}}\] is a smooth $n$-manifold. In the case of $T^2$, one obtains local charts easily as the $2$-torus is a surface of revolution. 
     \end{itemize}
-    
 \end{eg}
-
-
+We need the notion of smoothness on manifolds.
+\begin{definition}[Smooth Manifold]
+    \marginnote{Note that with this, we get a notion of smooth maps on abstract manifolds: If $M,N$ are smooth manifolds and $F: M \to N$ is a map, we call it smooth if for every $p \in M$ there is a chart $(U,\phi)$ with $p \in U$ and a smooth chart $(V, \psi)$ with $F(p) \in V$ such that \[ \psi \circ F \circ \phi^{-1}: \mathbb{R}^m \to \mathbb{R}^n\] is smooth in the usual sense.}
+    A \textbf{maximal atlas} for a topological manifold $M$ is a collection $\mathfrak{A}$ of charts of $M$ such that every $p \in M$ is contained in some chart and $\mathfrak{A}$ is not properly contained in some other atlas. We call $\mathfrak{A}$ smooth if for any two charts $(U,\phi),(V,\psi) \in \mathfrak{A}$ we have either $U \cap V = \emptyset$ or \[
+        \phi^{-1} \circ \psi: V \to U
+    .\] is a smooth ($\mathcal{C}^\infty$) map, called \textbf{chart transition map}. A \textbf{smooth manifold} is a pair $(M, \mathfrak{A})$ such that $M$ is a topological manifold and $\mathfrak{A}$ is a maximal smooth atlas.
+\end{definition}
+There are many examples important to physics:
+\begin{eg}
+    \begin{itemize}
+        \item The $\mathbb{R}^n$ obtains a smooth maximal atlas by means of the identity.
+        \item The sphere $\mathbb{S}^2$ has a smooth atlas with two charts $\mathbb{S}^2 \setminus N$ and $\mathbb{S}^2 \setminus S$, where $N$ and $S$ are north and south pole, respectively. The chart map is given by the \emph{stereographic projection} $\sigma: \mathbb{S}^2 \setminus N \to \mathbb{R}^2$. 
+        \item Any finite-dimensional real normed vector space $V$ is a smooth manifold. The choice of a basis determines an isomorphism $\mathbb{R}^n \cong V$ which we take as global chart. For any other basis, one obtains a basis transformation matrix which is linear, hence a $\mathcal{C}^\infty$ chart transition.
+        \item Any open subset $U \subseteq \mathbb{R}^n$ is a smooth manifold on its own with the smooth atlas $\{U, \id_U\}$. We call such a manifold an \emph{open submanifold} of $\mathbb{R}^n$.
+    \end{itemize}
+\end{eg}
 \section{Variational Calculus}
 
 \section{Ordinary Differential Equations}
