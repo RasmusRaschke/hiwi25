@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber main"] 1758315398.89259 "main.bcf" "main.bbl" "main" 1758728569.4243 2
-  "main.bcf" 1758728569.32249 108557 8c3299d6df4004860fa0308c72250d26 "pdflatex"
+["biber main"] 1758315398.89259 "main.bcf" "main.bbl" "main" 1758842092.59968 2
+  "main.bcf" 1758842092.4958 108557 8c3299d6df4004860fa0308c72250d26 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1758728568.20711 "main.tex" "main.pdf" "main" 1758728569.42456 0
+["pdflatex"] 1758842091.33425 "main.tex" "main.pdf" "main" 1758842092.6 0
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -46,7 +46,6 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmr8.pfb" 1215737283 93763 147b5ddee129c9f70f569c1abfc1fa24 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb" 1136849748 25127 0f921359adc22e3a8c6368d4f349f585 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb" 1136849748 25336 d135e63f9368b9204815755abad3f346 ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbras10.pfb" 1136849748 42753 5ff75e4bb01f51125559ee53a181bf48 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb" 1136849748 55166 5e2babdc8b661f5b67fd2775c8b6f50e ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs8.pfb" 1136849748 55689 5e1c3b943f5d51a5bec6d8333661726d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb" 1136849748 34889 a5ba8b20a45b3437534c87396d980b48 ""
@@ -275,20 +274,20 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1749797494 5523539 cbe340ff87ac4cfddcdc6361a84e52ac ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1749797535 3599565 9654882f00888f2602bca2b12f0df0df ""
   "/usr/local/texlive/2025/texmf.cnf" 1749797490.30351 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "chap0.tex" 1758728565.16953 6989 8251674b350bc6d86521d89adced22a2 ""
-  "chap1.tex" 1756803278.0262 135 427a0dcb4a375e01a5d001c3412ca990 ""
+  "chap0.tex" 1758842083.0248 10386 28e5caeb5591097d2627a08883d172f6 ""
+  "chap1.tex" 1758842089.98727 370 6278fb9fcb12f0ae24ff504806f85c00 ""
   "frontpage/front.pdf" 1756804992.38743 54869 4e4d3578ed5ad81a90de9373b4b3353d ""
-  "main.aux" 1758728569.32083 3952 a98e6753dd91f9d313bc4d5214b90057 "pdflatex"
+  "main.aux" 1758842092.49341 4937 fcefaa99a7b4f0115ca07a911dcc2163 "pdflatex"
   "main.bbl" 0 -1 0 "biber main"
-  "main.out" 1758728569.3217 1159 bfe50138a061e5ad8c87180e55e23283 "pdflatex"
-  "main.run.xml" 1758728569.32445 2313 300f39656d2ca573330f9b1b6a90dbb1 "pdflatex"
-  "main.tex" 1758304572.86514 1709 cecbf3df3588e3f2d1168f8fd757fd17 ""
-  "main.toc" 1758728569.32445 581 eb35cdd64078dd17c2368ed3c4c16170 "pdflatex"
+  "main.out" 1758842092.49415 1352 5faa97c4fca5d453953dd1c154d5f9b9 "pdflatex"
+  "main.run.xml" 1758842092.49701 2313 300f39656d2ca573330f9b1b6a90dbb1 "pdflatex"
+  "main.tex" 1758823491.43973 1714 376b51f4b2d70edcd1b9f6b789af5cf2 ""
+  "main.toc" 1758842092.49701 667 9f13ee69e326ff1a9c9b7cc1bc8f5940 "pdflatex"
   "marginfix.sty" 1755724034.19059 13634 1adff3b3f20a436e0dc24761eed9d07b ""
-  "mathpreamble.tex" 1758725362.1629 602 19670709cd3aff8c6c6c9b4be41a055b ""
-  "preamble.tex" 1758317877.04196 5117 51fb285e28358b881275dd7fefde5960 ""
+  "mathpreamble.tex" 1758819494.91993 527 6f770d13ba1298557fad465cabb443aa ""
+  "preamble.tex" 1758813175.33325 5117 51fb285e28358b881275dd7fefde5960 ""
   "preface.tex" 1757959305.84143 813 50d34f8afc772e42af509d4e468508df ""
-  "symbols.tex" 1756805236.85289 2986 6d19500c717b6e272a077dfd2b22b8cd ""
+  "symbols.tex" 1758823456.41873 1479 7ecbee48b977f683119e7794fe4772e6 ""
   "tuftebook.cls" 1755724034.19079 5939 9621f865dee56dd007dd5cdedf790b8e ""
   (generated)
   "main.aux"

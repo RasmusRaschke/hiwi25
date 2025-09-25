@@ -50,7 +50,7 @@ In physics, we are usually concerned with how a certain group acts on a physical
     
 \end{definition}
 \section{Configuration Manifolds and Lie groups}
-
+From now on, we use the Einstein summation convention.
 \begin{definition}[Topological Manifold]
     A \textbf{topological $n$-manifold} is a topological space $M$ such that:
     \begin{itemize}
@@ -86,6 +86,52 @@ There are many examples important to physics:
         \item Any open subset $U \subseteq \mathbb{R}^n$ is a smooth manifold on its own with the smooth atlas $\{U, \id_U\}$. We call such a manifold an \emph{open submanifold} of $\mathbb{R}^n$.
     \end{itemize}
 \end{eg}
+With smooth maps on manifolds, we are already able to talk about curves or paths on such spaces. However, in physics one is especially interested in velocity and acceleration. For this, we will need two additional structures: The tangent bundle, which comes naturally with every smooth manifold, and a metric to measure distances and angles.
+We define a \textbf{curve} on a manifold $M$ to be a smooth map \[
+\gamma: I \to M
+\] 
+where $I \subseteq \mathbb{R}$ is some interval.
+\begin{definition}[Tangent Bundle]
+    Let $M$ be a smooth manifold and $p \in M$. We declare two smooth curves $\gamma_i: I \to M$, $i \in \{1,2\}$ to be equivalent if for any chart $(U,\phi)$ of $p$ we have 
+    \begin{equation}
+        \left.\frac{d}{dt} (\phi \circ \gamma_1)\right|_{t=0} = \left.\frac{d}{dt} (\phi \circ \gamma_2)\right|_{t=0}.
+    \end{equation}
+    \marginnote{
+        Note that while the tangent space at a point on an $n$-manifold is an $n$-dimensional real vector space (and hence isomorphic to a copy of $\mathbb{R}^n$), the tangent bundle is a $2n$-dimensional space and indeed also a smooth manifold. However, it is not always possible to identify $TM \cong M \times \mathbb{R}^n$. A point in $TM$ is a pair $(p,v)$, where $p \in M$ and $v \in T_pM$. We also have a natural projection $\pi: TM \to M$, given by $\pi(p,v)=p$.
+    }
+    
+    The space of equivalence classes of such curves is called \textbf{tangent space} at $p$ and denoted $T_pM$. The \textbf{tangent bundle} of $M$ is the disjoint union  \[
+        TM := \coprod_{p \in M} T_pM
+    .\] 
+\end{definition}
+Tangent vectors act on smooth functions $f: M \to \mathbb{R}$ by
+\[
+    v(f)=\left.\frac{d}{dt}\right|_{t=0}(f \circ \gamma)(t)
+.\] 
+where $\gamma$ represents one path with $\dot{\gamma}|_{t=0}=v$. 
+\marginnote{Note that this gives rise to the usual partial derivative of a function $g: \mathbb{R}^n \to \mathbb{R}$ by setting \[
+        \frac{\partial g}{\partial x^i}\mid_{y}:=\frac{d}{dt}g(y+te_i)
+.\] }
+Using the fact that for every $p \in M$ there is a chart $(U, (x^1, \dots, x^n))$ centered around $p$, we are able to pull back the basis of $T_{\phi(p)}\mathbb{R}^n$ to $T_pM$. The basis of $T_{\phi(p)}\mathbb{R}^n$ is given by paths of the form $t \mapsto \phi(p) +te_i$, where $e_i$ is the $i$-th canonical basis vector of $\mathbb{R}^n$. Writing this basis as $(\partial_{x^1}, \dots, \partial_{x^n})$, we can pull back along $\phi^{-1}$ to obtain a basis of $T_pM$, defined as
+\[
+    \partial_i|_p := \phi^{-1}(\phi(p)+te_i)
+.\] This expression acts on a smooth function as above by
+\[
+    \partial_i|_p f = \left.\frac{\partial(f \circ \phi^{-1})}{\partial x^i}\right|_{\phi(p)}
+.\] 
+\begin{definition}[Differential]
+    Let $F: M \to N$ be a smooth map between smooth manifolds. The \textbf{differential} of $F$ at $p \in M$ is a linear map 
+    \[
+        dF_p: T_pM \to T_{F(p)}N
+    \]
+    given by \[
+        dF_p([\gamma])=[F \circ \gamma]
+    .\] where $[\gamma]$ is an equivalence class of curves through $p$.
+\end{definition}
+Given local charts $(U, (x^1, \dots, x^m))$ around $p$ and $(V, y^1, \dots, y^n)$ around $F(p)$, the differential can be expressed in local coordinates as
+\[
+    dF_p (\partial_i) = \partial_i F^j|_p \hat{\partial}_j|_{F(p)}
+.\] with $F^j = y^j \circ F$ and $\hat{\partial}_j$ being a basis vector of $T_{F(p)}N$.
 \section{Variational Calculus}
 
 \section{Ordinary Differential Equations}

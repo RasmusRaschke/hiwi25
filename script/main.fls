@@ -93,7 +93,7 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT ./preamble.tex
 INPUT ./preamble.tex
-INPUT preamble.tex
+INPUT ./preamble.tex
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
@@ -392,7 +392,7 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/multirow/multirow.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/multirow/multirow.sty
 INPUT ./mathpreamble.tex
 INPUT ./mathpreamble.tex
-INPUT mathpreamble.tex
+INPUT ./mathpreamble.tex
 INPUT ./symbols.tex
 INPUT ./symbols.tex
 INPUT symbols.tex
@@ -467,6 +467,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/ebbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/ebmr10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/ebmo10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
+INPUT ./main.toc
+INPUT ./main.toc
+INPUT main.toc
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/ot1cmbr.fd
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/ot1cmbr.fd
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/ot1cmbr.fd
@@ -508,9 +511,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrmb10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrmb10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrmb10.tfm
-INPUT ./main.toc
-INPUT ./main.toc
-INPUT main.toc
 OUTPUT main.toc
 INPUT ./chap0.tex
 INPUT ./chap0.tex
@@ -557,6 +557,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-euf.cfg
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-euf.cfg
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm5.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm
 INPUT ./chap1.tex
 INPUT ./chap1.tex
 INPUT chap1.tex
@@ -573,7 +575,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.p
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbras10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs8.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb
