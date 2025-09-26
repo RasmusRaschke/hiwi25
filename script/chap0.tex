@@ -49,7 +49,8 @@ In physics, we are usually concerned with how a certain group acts on a physical
     We call $V$ \textbf{representation space} and $\deg V$ the degree of the representation.
     
 \end{definition}
-\section{Configuration Manifolds and Lie groups}
+\section{Differential Geometry}
+\subsection*{Smooth Manifolds and Tangent Spaces}
 From now on, we use the Einstein summation convention.
 \begin{definition}[Topological Manifold]
     A \textbf{topological $n$-manifold} is a topological space $M$ such that:
@@ -132,6 +133,123 @@ Given local charts $(U, (x^1, \dots, x^m))$ around $p$ and $(V, y^1, \dots, y^n)
 \[
     dF_p (\partial_i) = \partial_i F^j|_p \hat{\partial}_j|_{F(p)}
 .\] with $F^j = y^j \circ F$ and $\hat{\partial}_j$ being a basis vector of $T_{F(p)}N$.
-\section{Variational Calculus}
-
+We conclude this section with the definition of smooth vector fields.
+\begin{definition}[Vector Fields]
+    Let $M$ be a smooth manifold. A \textbf{smooth vector field} is a smooth section
+    \[
+    V: M \to TM
+    \] such that $\pi \circ V = \id_M$ with the natural projection $\pi: TM \to M$. The space of smooth sections on $M$ is denoted $\mathfrak{X}(M)$. 
+\end{definition} 
+    \marginnote{Note that vector fields also act naturally on smooth functions $f: M \to \mathbb{R}$ by means of partial derivation: \[
+            (Xf)(p)= X_p f = X^i(p) \, \partial_i|_p(f)
+    .\] }
+Once more, we desire a local coordinate expression. If $(U, (x^1, \dots, x^n))$ is a local chart, we can use the basis of $T_pM$ defined above for all $p \in U$ to write
+\[
+X_p = X^i(p)\partial_i|_p
+\] 
+where $X^i: M \to \mathbb{R}$ are the component functions of $X$. If a collection of vector fields $(X_1, \dots, X_n)$ spans $T_pM$ locally or globally, we call it a \textbf{local or global frame}.
+Directing our attention one last time to curves, we can now define curves whose velocity vectors form a given vector field.
+\begin{definition}[Integral Curves]
+    Let $M$ be a smooth manifolds and $V \in \mathfrak{X}(M)$. An \textbf{integral curve} of $V$ is a smooth curve $\gamma: I \to M$ such that
+    \[
+        \frac{d}{dt}\gamma(t)=V_{\gamma(t)}
+    \] for all $t \in I$. 
+\end{definition}
+We need this notion of walking along the path prescribed by a vector field later for Hamiltonian phase flows. In general, a flow is the rigorous version of this intuitive idea of following a field:
+\begin{definition}[Flow]
+    \marginnote{Intuitively, one should think of $t \in \mathbb{R}$ as time. A global flow then shifts the whole manifold along some vector field, e.g. the torus rotates under the global flow of a radial vector field.}
+    Suppose $M$ is a smooth manifold with $V \in \mathfrak{X}(M)$ such that a unique global integral curve of $V$ exists for all $p \in M$. Denoting the integral curve at $p$ by $\gamma_p: \mathbb{R} \to M$, a \textbf{global flow} is a continuous action of $\mathbb{R}$ on $M$:
+    \begin{align*}
+        \theta: M \times \mathbb{R} &\to M\\
+        (p, t) &\mapsto \gamma_p(t).
+    \end{align*}
+\end{definition}
+\subsection*{Riemannian Metrics}
+To measure distances and angles, we need additional structure on our smooth manifolds. Dual to the tangent bundle of $M$, we introduce the \textbf{cotangent bundle}
+\[
+    T^\ast M:= \coprod_{p \in M} (T_pM)^\ast
+\] which is, as usual in linear algebra, given by the space of linear forms
+\[
+\omega: TM \to \mathbb{R}
+.\] The basis dual to $(\partial_1, \dots, \partial_n)$ will be denoted $(dx^1, \dots, dx^n)$. 
+\begin{definition}[Riemmanian Manifolds]
+    A \textbf{Riemannian metric} on a smooth manifold $M$ is a smooth, symmetric and positive-definite bilinear form
+    \[
+    g: TM \times TM \to \mathbb{R}
+    .\] The pair $(M,g)$ is called \textbf{Riemannian manifold}.
+\end{definition}
+\marginnote{This also yields the usual notions obtained with a scalar product on $\mathbb{R}^n$: We have a norm on each $T_pM$ defined by \[
+        \|v\|_g := \sqrt{\langle v, v \rangle}
+\] and an angle given by \[
+\cos \sphericalangle (v,w) := \frac{\langle v,w \rangle}{\|v\| \|w\|} \in [0, \pi]
+.\] Since each $g_p$ is non-degenerate, we even have the well-known musical isomorphisms $T_pM \cong T_p^\ast M$. If $X=X^i \partial_i$ is a vector field, we identify it with $X^\flat = g_{ij}X^i dx^j$. A covector field $\omega = \omega_i dx^i$ is identified with $\omega^\sharp = g^{ij} \omega_i \partial_j$ where $g^{ij}=g_{ij}^{-1}$. }
+In local coordinates at some $p \in M$, we can use the canonical basis of $T_pM$ to write $g_p: T_pM \times T_p M \to \mathbb{R}$ as
+\[
+    g_p(v,w) = g_p(v^i \partial_i|_p, w^j \partial_j|_p) =: \langle v^i\partial_i|_p, w^j \partial_j|_p \rangle =  v^i w^j g_{ij}
+\] where $g_{ij}=g_p(\partial_i|_p, \partial_j|_p)$ denotes the matrix representation of the metric $g$. The most important definition arising from the existence of a metric function is in our case the arc length.
+\begin{definition}[Length]
+    Let $(M,g)$ be a smooth Riemannian manifold and $\gamma: I \to M$ be a smooth curve. The \textbf{length} of $\gamma$ is given by the functional
+    \[
+        L[\gamma]:= \int_I \| \partial_t \gamma(t)\|_g \, dt.
+    .\] 
+\end{definition}
+We will now connect those concepts with physics' formalism.
+\section{Lagrangian Mechanics}
+\begin{definition}[Configuration Manifold]
+    The \textbf{configuration manifold} $Q$ of a system of $N$ point masses consists of all possible positions of those $N$ masses. We call $\dim Q$ the \textbf{degrees of freedom}.
+\end{definition}{Configuration Manifold}
+\begin{eg}
+    \begin{itemize}
+        \item The configuration manifold of $N$ free point masses in Euclidean $3$-space is given by $\mathbb{R}^{3N}$ as each particle is free to move in three spacial directions independently.
+        \item The two-dimensional double pendulum has the configuration manifold $Q=\mathbb{S}^1 \times \mathbb{S}^1$ as each point can move in one copy of $\mathbb{S}^1$. Note that $\mathbb{S}^1 \times \mathbb{S}^1 \cong T$, so we can think of $Q$ as a $2$-torus.
+        \item A rigid rod in Euclidean $2$-space is free to rotate around an axis at its end. The configuration manifold is $Q=\mathbb{R}^2 \times \mathbb{S}^1$ since we need two coordinates $(q^1,q^2)$ to describe the position of the axis of rotation and one angle $q^3 \in [0, 2\pi]$ to describe the rotation itself.
+    \end{itemize}
+\end{eg}
+From classical physics we know very well that positions are not sufficient to characterize a system fully, one also needs velocities.
+\begin{definition}[Velocity Phase Space]
+    \marginnote{In physical notation, we write a local coordinate system of $TQ$ as $(q^1, \dots, q^n, \dot{q}^1, \dots, \dot{q}^n)$.}
+    Let $Q$ be the configuration manifold of a physical system. The \textbf{velocity phase space} of $Q$ is the tangent bundle $TQ$.
+\end{definition}
+With this complete description of our system, we are ready to define the fundamental quantities needed to solve for the equations of motion.
+\begin{definition}[Kinetic and Potential Energy]
+    \marginnote{Unless specified otherwise, we use the Euclidean metric for $\mathbb{R}^{3N}$. This means that every submanifold $Q$ is endowed with the restricted Euclidean metric, hence kinetic energy is well-defined.}
+    Let $TQ$ be the velocity phase space of a physical system $Q$. The \textbf{kinetic energy} is a quadratic form given locally at $q \in Q$ by
+    \begin{align*}
+        T: T_qQ &\to \mathbb{R}\\
+        v &\mapsto \frac{\|v\|^2}{2}
+    \end{align*}
+    and the \textbf{potential energy} is some smooth function
+    \[
+    U: Q \to \mathbb{R}
+    .\] 
+\end{definition}
+Note that in the examples above, many systems are constrained to move on some $m$-dimensional submanifold $Q$ of $\mathbb{R}^{3N}$. We call such constraints \textbf{holonomic} if $Q$ is given by $3N-m$ \emph{independent} equations of the type
+\[
+    f_k(x^1, \dots, x^{3N})=0
+\] with $1 \leq k \leq 3N-m$, $(x^1, \dots, x^{3N})$ being global coordinates of $\mathbb{R}^{3N}$ and $f$ being some smooth function in those coordinates. 
+\begin{definition}[Lagrangian]
+    Let $Q \subset \mathbb{R}^{3N}$ be the configuration $m$-manifold of $N$ point masses $m_1, \dots, m_N$ with $3N-m=k$ holonomic constraints. The \textbf{Lagrangian} is a smooth function
+    \begin{align}
+        \mathscr{L}: TQ \to \mathbb{R}.
+    \end{align}
+    We call $\mathscr{L}$ natural if it can be written as 
+    \[
+    \mathscr{L}=T-U
+    \] for some kinetic energy $T$ and some potential energy $U$. 
+\end{definition}
+With this, we formulate our two main theorems:
+\begin{theorem}[Lagrangian System of Motion]
+    Let $Q$ be a configuration space, $TQ$ be its velocity phase space, and $\mathscr{L}: TQ \to \mathbb{R}$ be a Lagrangian. A curve $\gamma: I \to Q$ is a motion of $Q$ if it is an extremal of the \textbf{action functional}
+    \begin{align}
+        S[\gamma]= \int_I \mathscr{L}(\dot{\gamma}) \, dt.
+    \end{align}
+\end{theorem}
+This should be understood as the principal axiom classical mechanical motion seems to obey to our best understanding. By methodes of variational calculus, one shows that this is equal to the following theorem:
+\begin{theorem}[Euler-Lagrange]
+    In the situation above, let $(q^1, \dots, q^m)=y(t)$ denote a local coordinate description of a point on a motion of $Q$ and $\mathscr{L}\equiv \mathscr{L}(q,\dot{q})$ denote the Lagrangian in local coordinates. Then the evolution of $\gamma(t)$ with $t$ is such that the \textbf{Euler-Lagrange equations}
+    \begin{align}
+        \frac{d}{dt}\frac{\partial \mathscr{L}}{\partial \dot{q}} - \frac{\partial \mathscr{L}}{\partial q}=0
+    \end{align}
+    are satisfied.
+\end{theorem}
 \section{Ordinary Differential Equations}
