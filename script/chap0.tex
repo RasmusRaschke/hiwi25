@@ -195,9 +195,22 @@ In local coordinates at some $p \in M$, we can use the canonical basis of $T_pM$
 \end{definition}
 We will now connect those concepts with physics' formalism.
 \section{Lagrangian Mechanics}
+\subsection*{Calculus of Variations}
+The central concept is concerned with a special function, the \emph{Lagrangian}. While its definition may seem abstract and purely mathematical, it will turn out to be central to a formulation of classical physics on par with Newton's axioms.
+\begin{definition}[Lagrangian]
+    Let $M$ be a smooth manifold with tangent bundle $TM$. A \textbf{Lagrangian} is a smooth function \[
+    \mathcal{L}: TM \times \mathbb{R} \to \mathbb{R}
+    .\] If $\mathcal{L}$ is constant in the second argument, we call it \textbf{autonomous}. 
+\end{definition}
+A priori, we do not impose any given form on $\mathcal{L}$. If we choose local coordinates $\Phi=(x^1, \dots, x^n, \partial_1, \dots, \partial_n)$, the Lagrangian can be expressed as \[
+    \mathcal{L}(x^1, \dots, x^n, \partial_1, \dots, \partial_n,t):= \mathcal{L} \circ \Phi^{-1}: \mathbb{R}^{2n} \times \mathbb{R} \to \mathbb{R}
+.\] 
+Bridging between smooth manifolds and physical systems is the concept of configuration manifolds and (velocity) phase spaces as well as the theorem of Euler-Lagrange.
 \begin{definition}[Configuration Manifold]
-    The \textbf{configuration manifold} $Q$ of a system of $N$ point masses consists of all possible positions of those $N$ masses. We call $\dim Q$ the \textbf{degrees of freedom}.
-\end{definition}{Configuration Manifold}
+    \marginnote{To be consistent with notational conventions in physics, we will choose the letter $q$ for coordinates on configuration manifolds. Hence, local coordinates are now given as $\phi=(q^1, \dots, q^n)$.}
+    The \textbf{configuration manifold} $Q$ of a system of $N$ point masses consists of all possible positions of those $N$ masses in Euclidean $3$-space. We call $\dim Q$ the \textbf{degrees of freedom}.
+\end{definition}
+With this definition, which will suffice for the systems considered later, all configuration manifolds are some subsets of $\mathbb{R}^{3N}$. However, we aim at descibing configuration manifolds more precisely than that.
 \begin{eg}
     \begin{itemize}
         \item The configuration manifold of $N$ free point masses in Euclidean $3$-space is given by $\mathbb{R}^{3N}$ as each particle is free to move in three spacial directions independently.
@@ -207,49 +220,217 @@ We will now connect those concepts with physics' formalism.
 \end{eg}
 From classical physics we know very well that positions are not sufficient to characterize a system fully, one also needs velocities.
 \begin{definition}[Velocity Phase Space]
-    \marginnote{In physical notation, we write a local coordinate system of $TQ$ as $(q^1, \dots, q^n, \dot{q}^1, \dots, \dot{q}^n)$.}
+    \marginnote{To give a quick overview: We have $\dim TQ = 2 \cdot \dim Q$, so we need twice as much coordinates on $TQ$. Those are given by the $n$ positions $(q^1, \dots, q^n)$ of our system at some time $t$ together with the $n$ velocities $(\dot{q}_1, \dots, \dot{q}_n)$ at the same time.}
     Let $Q$ be the configuration manifold of a physical system. The \textbf{velocity phase space} of $Q$ is the tangent bundle $TQ$.
 \end{definition}
-With this complete description of our system, we are ready to define the fundamental quantities needed to solve for the equations of motion.
+We also have to specify what we are looking for. In physics, one is interested in an \emph{equation of motion} for the considered system. To this end, a \textbf{motion} is a smooth curve
+\[
+\gamma: I \subseteq \mathbb{R} \to Q
+.\] 
+We think about $I$ as a time interval, so $\gamma$ specifies one evolution of the system $Q$. The one evolution $\gamma$ actually taken by the system is what we call our \emph{equation of motion}. To obtain such $\gamma$, we have to rely on one empirical axiom.
+\begin{axiom}[Hamilton's Principle of Extremal Action]
+    \marginnote{We do not define what a Lagrangian system is, since this is quite difficult to answer. To our knowledge, it is possible to conjure some Lagrangian yielding equations of motion. However, this is anything but straightforward outside of classical mechanics.}
+    Let $Q$ be a configuration space of a Lagrangian physical system with tangent bundle $TQ$ and Lagrangian $\mathcal{L}$. If and only if a given smooth curve $\gamma: I \to Q$ is an extremal of the \textbf{action functional}
+    \[
+        S[\mathcal{L}] := \int_I \mathcal{L}(\gamma(t), \dot{\gamma}(t),t)\, dt
+    ,\] it is a motion of $Q$. 
+\end{axiom}
+Using this axiom directly to calculate $\gamma$ from a given Lagrangian is quite cumbersome. The following theorem simplifies this procedure a bit.
+\begin{theorem}[Euler-Lagrange]
+    \marginnote{Note that while we want to apply this in a physical context, those equations are much more general since we only demand of $\mathcal{L}$ to be smooth. A famous other example of these equations is finding minimal surfaces, found in nature as the thin films soapy water forms on geometrical shapes. To make matters more confusing, one can use these equations to minimize the length functional of the previous section, in which case we call the equations \textbf{Euler equations} or, especially if expressed in local coordinates, \textbf{Geodesic equations}.}
+    Let $Q$ be a smooth manifold and $\mathcal{L}$ be a Lagrangian on $TQ \times \mathbb{R}$. A smooth curve $\gamma: I \to Q$ extremizes the action functional $S[\gamma]$ if and only if the following set of equations is satisfied for all $t \in I$:
+    \begin{equation}
+        \frac{d}{dt} \left( \frac{\partial \mathcal{L}}{\partial \dot{\gamma}^i} \right) - \frac{\partial \mathcal{L}}{\partial \gamma^i} = 0
+    \end{equation}
+    where $\gamma_i$ are the components of $\gamma$ in some local chart \emph{spanning $TM$}. These differential equations are called \textbf{Lagrange Equations of the second kind}.
+\end{theorem}
+Since our treatment of the novel physical system relies on this theorem, we want to prove it. We are, however, using a lemma without a proof.
+\begin{lemma}[Fundamental Lemma of Variational Calculus]
+    Let $f: (a,b) \to \mathbb{R}$ be continuous. If 
+    \[
+        \int_a^b f(t) \nu (t) \, dt = 0
+    \] is satisfied for all smooth functions $\nu: (a,b) \to \mathbb{R}$ with compact support, then $f \equiv 0$. 
+\end{lemma}
+\begin{proof}
+    Since we work with a locally trivializing chart of $TQ$ (meaning the coordinates are a full orthogonal system), the equation $\delta S[\mathcal{L}]=0$ has to hold for each component $\gamma^i$. Hence, all components $\gamma^i$ have to satisfy this equation separately, reducing the problem to one dimension. Therefore, take a path $\gamma: (t_0,t_1) \to \mathbb{R}$ (we read $\gamma$ directly in local coordinates). A variation of $\gamma$ with fixed endpoints is a smooth function \[
+    \delta \gamma: (t_0,t_1) \to \mathbb{R}
+\] with $\delta \gamma (t_0) = \delta \gamma (t_1)=0$. If $S$ has an extremum at $\gamma$, the functional derivative vanishes for $\gamma$. Using this, we calculate:
+\begin{align*}
+    0 &= \delta S[\gamma] = \left.\frac{d}{d \epsilon}\right|_{\epsilon = 0} \int_{t_0}^{t_1} \mathcal{L}(\gamma+ \epsilon \cdot \delta \gamma, \dot{\gamma}+ \epsilon \cdot \dot{\delta \gamma},t) \, dt \\
+      &= \int_{t_0}^{t_1}\left\{ \frac{\partial \mathcal{L}}{\partial \gamma} \cdot \delta \gamma + \frac{\partial \mathcal{L}}{\partial \dot{\gamma}} \cdot \frac{\partial \delta \gamma}{\partial t} + \frac{d \mathcal{L}}{dt} \right\} \, dt
+\end{align*}
+Concentrating on the second term, we can integrate by parts:
+\begin{align*}
+    \int_{t_0}^{t^1} \frac{\partial \mathcal{L}}{\partial \dot{\gamma}} \cdot \frac{\partial \delta \gamma}{\partial t} \, dt &= \frac{\partial \mathcal{L}}{\partial \dot{\gamma}} \cdot \delta \gamma \mid_{t_0}^{t_1} - \int_{t_0}^{t_1} \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{\gamma}} \cdot \delta \gamma \, dt\\
+                                                                                                                              &= -\int_{t_0}^{t_1} \frac{\partial \mathcal{L}}{\partial \dot{\gamma}} \cdot \delta \gamma \, dt.
+\end{align*}
+The first term vanished as $\delta \gamma$ is a variation with fixed endpoints. Plugging this back in yields
+\[
+    0 = \int_{t_0}^{t_1} \left\{ \frac{\partial \mathcal{L}}{\partial \gamma} - \frac{d}{dt} \left( \frac{\partial \mathcal{L}}{\partial \dot{\gamma}}\right) \right\} \delta \gamma \, dt
+.\] 
+Since $\delta \gamma$ is compactly supported by definition, we apply the fundamental theorem of calculus to obtain our claim.\\
+For the other direction, the proof can practically be read backwards.
+\end{proof}
+\subsection*{Physical Lagrangians and Constraints}
+After accepting that nature seems to follow a universal extremal principle, we want to explore the different important forms a Lagrangian can take. The easiest examples are such that $\mathcal{L}$ is connected with potential and kinetic energy.
 \begin{definition}[Kinetic and Potential Energy]
     \marginnote{Unless specified otherwise, we use the Euclidean metric for $\mathbb{R}^{3N}$. This means that every submanifold $Q$ is endowed with the restricted Euclidean metric, hence kinetic energy is well-defined.}
     Let $TQ$ be the velocity phase space of a physical system $Q$. The \textbf{kinetic energy} is a quadratic form given locally at $q \in Q$ by
     \begin{align*}
-        T: T_qQ &\to \mathbb{R}\\
-        v &\mapsto \frac{\|v\|^2}{2}
+        T: T_qQ  \times \mathbb{R} &\to \mathbb{R}\\
+        \dot{q} &\mapsto \frac{\|\dot{q}\|^2}{2}
     \end{align*}
     and the \textbf{potential energy} is some smooth function
     \[
-    U: Q \to \mathbb{R}
-    .\] 
+    U: Q \times \mathbb{R} \to \mathbb{R}
+    .\] If the system is autonomous, $T$ and $U$ are independent of the second argument.
 \end{definition}
+\begin{definition}[Natural System]
+    \marginnote{Again, there are autonomous and non-autonomous natural systems. All systems we consider will be autonomous, so $T$ and $U$ only depend on $t$ indirectly through the time dependence of a path $(\gamma, \dot{\gamma})$.}
+    A Lagrangian physical system $Q$ is called \textbf{natural} if the Lagrangian is given by
+    \[
+        \mathcal{L}(q,\dot{q},t):=T(q,\dot{q},t) - U(q,t)
+    \] where $T: TQ \times \mathbb{R} \to \mathbb{R}$ is a kinetic energy and $U: Q \times \mathbb{R} \to \mathbb{R}$ is a potential. 
+\end{definition}
+\marginnote{If one is not satisfied with this explanation, one can be more physical: Imagine some curve a free particle in a plane can take. Now imagine a constaint as a force acting in one coordinate direction $q^1$ of the local chart $(q^1,q^2)$. If we consider this potential to go to infinity, the particle is forced to move in direction $q^2$ in the limit. It is possible to prove the following proposition by making this idea rigorous.}
 Note that in the examples above, many systems are constrained to move on some $m$-dimensional submanifold $Q$ of $\mathbb{R}^{3N}$. We call such constraints \textbf{holonomic} if $Q$ is given by $3N-m$ \emph{independent} equations of the type
 \[
-    f_k(x^1, \dots, x^{3N})=0
-\] with $1 \leq k \leq 3N-m$, $(x^1, \dots, x^{3N})$ being global coordinates of $\mathbb{R}^{3N}$ and $f$ being some smooth function in those coordinates. 
-\begin{definition}[Lagrangian]
-    Let $Q \subset \mathbb{R}^{3N}$ be the configuration $m$-manifold of $N$ point masses $m_1, \dots, m_N$ with $3N-m=k$ holonomic constraints. The \textbf{Lagrangian} is a smooth function
-    \begin{align}
-        \mathscr{L}: TQ \to \mathbb{R}.
-    \end{align}
-    We call $\mathscr{L}$ natural if it can be written as 
-    \[
-    \mathscr{L}=T-U
-    \] for some kinetic energy $T$ and some potential energy $U$. 
+    f_k(q^1, \dots, q^{3N},t)=0
+\] with $1 \leq k \leq 3N-m$, $(q^1, \dots, q^{3N})$ being global coordinates of $\mathbb{R}^{3N}$ and $f$ being some smooth function in those coordinates. If $f_k$ is independent of $t$, we call it \textbf{scleronomous}, else it is called \textbf{rheonomous}.
+\begin{theorem}[Holonomic Systems]
+    A physical system with purely holonomic constraints is natural.
+\end{theorem}
+\begin{eg}
+        A free particle with mass $m$ in $\mathbb{R}^{3}$ has the kinetic energy 
+            \[
+                T(\dot{q}^1,\dot{q}^2,\dot{q}^3)= \frac{m}{2} \delta^{ij} \dot{q}_i \dot{q}_j  
+            .\] Its Lagrangian is just $\mathcal{L}=T$. The Lagrange equations of the second kind read as
+            \[
+                0 = \frac{d}{dt}\left( \frac{\partial T}{\partial \dot{\gamma}^i}\right) = m\dot{\gamma}^i.
+        \]
+            Given a set of initial conditions $\gamma^i(t_0)=A_i$ and $\dot{\gamma}^i(t_0)=B_i$, we obtain the motion \[
+            \gamma^i(t) = A_it+B_i
+            .\] 
+        
+\end{eg}
+\subsection*{Conservation Laws}
+One huge advantage over the Newtonian formalism is that the Lagrangian directly provides means to connect symmetries of a given system with conservation laws which aid massively in solving for the equations of motion.
+\begin{definition}[Symmetry]
+    Let $Q$ be a configuration manifold with Lagrangian $\mathcal{L}$. We say that $Q$ admits a \textbf{symmetry} if there is a one-parameter group of diffeomorphisms \[
+    \Phi: Q \times  \mathbb{R} \times \mathbb{R} \to M
+    \] such that \[
+    \mathcal{L}(d\varphi^s (\mathbf{q}, \dot{\mathbf{q}},t))=\mathcal{L}(\mathbf{q},\dot{\mathbf{q}},t)
+    \] for all $s \in \mathbb{R}$,
+    where we write $\varphi^s(\mathbf{q},t):=\Phi(\mathbf{q},t,s)$.  
 \end{definition}
-With this, we formulate our two main theorems:
-\begin{theorem}[Lagrangian System of Motion]
-    Let $Q$ be a configuration space, $TQ$ be its velocity phase space, and $\mathscr{L}: TQ \to \mathbb{R}$ be a Lagrangian. A curve $\gamma: I \to Q$ is a motion of $Q$ if it is an extremal of the \textbf{action functional}
-    \begin{align}
-        S[\gamma]= \int_I \mathscr{L}(\dot{\gamma}) \, dt.
-    \end{align}
+\begin{eg}
+    The most common examples of symmetries are spacial translation \[
+    \varphi^s(q^1,\dots, q^i, \dots,q^n,t)=(q^1, \dots, q^i+s, \dots, q^n,t)
+    \] and temporal translation
+    \[
+    \varphi^s(\mathbf{q},t)=(\mathbf{q},t+s)
+    .\] 
+\end{eg}
+The celebrated theorem of Emmy Noether will connect symmetries to so-called first integrals. If we have a system of ordinary differential equations
+\[
+    f(x(t),\dot{x}(t),t)=0
+\] with solutions $x: I \subseteq \mathbb{R} \to \mathbb{R}^n$, a \textbf{first integral} of this equation is a smooth function $\mathcal{I}: \mathbb{R}^n \times \mathbb{R} \to \mathbb{R}$ such that
+\[
+\frac{d}{dt}\mathcal{I}(x(t),t)=0
+\] for any solution $x$. This means that first integrals are constant along solutions of Lagrangian equations. Their importance arises from the fact that a first integral can always be integrated to reduce the number of unknowns by $1$. 
+\begin{theorem}[Noether]
+    If the Lagrangian system $(Q,\mathcal{L})$ admits a symmetry $\Phi$, then the Lagrangian equations have a first integral \[
+    \mathcal{I}: TM \to \mathbb{R}
+    \] given in local coordinates by \[
+    \mathcal{I}(\mathbf{q}, \dot{\mathbf{q}},t)=\frac{\partial \mathcal{L}}{\partial \dot{\mathbf{q}}} \left. \frac{d \Phi(\mathbf{q})}{ds} \right|_{s=0}
+    .\] 
 \end{theorem}
-This should be understood as the principal axiom classical mechanical motion seems to obey to our best understanding. By methodes of variational calculus, one shows that this is equal to the following theorem:
-\begin{theorem}[Euler-Lagrange]
-    In the situation above, let $(q^1, \dots, q^m)=y(t)$ denote a local coordinate description of a point on a motion of $Q$ and $\mathscr{L}\equiv \mathscr{L}(q,\dot{q})$ denote the Lagrangian in local coordinates. Then the evolution of $\gamma(t)$ with $t$ is such that the \textbf{Euler-Lagrange equations}
-    \begin{align}
-        \frac{d}{dt}\frac{\partial \mathscr{L}}{\partial \dot{q}} - \frac{\partial \mathscr{L}}{\partial q}=0
-    \end{align}
-    are satisfied.
+\begin{eg}
+    We consider the case of translational invariance along some axis. Take $N$ point masses $m_i$ in $\mathbb{R}^3$ with $N$ constraints $f_j(\mathbf{q}_j)=0$ and a potential $U=U(\mathbf{q})$ which admits translation in $q_j^1$-direction. The Lagrangian is given by
+    \[
+        \mathcal{L}=\sum_i \frac{m_i}{2} \delta^{jk} \dot{q}_{ij} \dot{q}_{ik} + U(\mathbf{q})
+    .\] The symmetry is given by
+    \[
+        \varphi^s: q_{i1} \mapsto q_{i1} + s
+    .\] The first integral is
+    \[
+        \mathcal{I}=\sum_i m_i \dot{q}_{i1} = \sum_i p_{i1}
+    \] where $p_{i1}$ is the mechanical momentum of the $i$-th particle in direction of $q^1$. This shows that translational symmetry corresponds to conservation of linear, mechanical momentum.
+\end{eg}
+\subsection*{Non-holonomic Systems}
+We want to conclude the section on Lagrangian systems with a short treatment of the case of non-holonomic constraints. Looking back at our system with $3N-m$ degrees of freedom, we use the $m$ holonomic constraints $f_k(\mathbf{q},t)=0$ to eliminate $m$ coordinates by integration. This yields the orthogonal trivialization of $TQ$ which we needed to justify that the coordinate components in the Euler-Lagrange equation vanish independently of each other. Now, we are confronted with $m$ non-holonomic constraints \[
+g_k(\mathbf{q}, \dot{\mathbf{q}}, \ddot{\mathbf{q}}, \dots, t)=0
+\] which employ a dependence of the coordinates on one another without being integrable. We will not be able to solve this problem in general, but there are noteworthy special cases.\\
+If we assume that the constraints are still holonomic but we did not integrate them and therefore still have $\dim Q$ coordinates and $m$ first integrals, we can use Lagrange multipliers to save our principle of extremal action.
+\begin{theorem}[Lagrangian Multipliers]
+    \marginnote{This notion of a force of constraint fits nicely with our ealier intuitive explanation that constraints can be considered as very strong force fields.}
+    Let $(Q, \mathcal{L})$ be a Lagrangian system with $m$ holonomic constraints $f(\mathbf{q},t)=0$. In this case, a smooth path $\gamma: I \to Q$ is an extremal of $S$ if and only if the \textbf{Lagrange Equations of the First Kind}
+    \[
+        \frac{\partial \mathcal{L}}{\partial \gamma^i} - \frac{d}{dt} \left( \frac{\partial \mathcal{L}}{\partial \dot{\gamma}_i}\right) + \sum_{k=1}^m \lambda_k(t) \frac{\partial f_k}{\partial \gamma^i}=0
+    \] are satisfied, where the $\lambda_k(t)$ are Lagrangian multipliers. The term 
+    \[
+        Q_i = \sum_{k=1}^m \lambda_k(t) \frac{\partial f_k}{\partial \gamma^i}
+    \] is called \textbf{force of constraint} or \textbf{generalized force}. 
 \end{theorem}
+We can apply this equation for a very specific set of non-holonomic constraints.
+\begin{definition}[Semi-Holonomic Constraint]
+    Let $(Q, \mathcal{L})$ be a Lagrangian system with $m$ constraints of the form 
+    \[
+        \omega_k = a_{ik}(\mathbf{q},\dot{\mathbf{q}},t) \, dq^i + a_{k0}(\mathbf{q},\dot{\mathbf{q}},t) \, dt = 0
+    \] where $1 \leq k \leq m$ and the $\omega_k$ are Pfaffian forms. In this case, the constraints are called \textbf{semi-holonomic}.  
+\end{definition}
+Unfortunately, this is not enough to apply the Lagrange equations of the first kind.
+\begin{theorem}[Integrable Semi-Holonomic Constraints]
+    A Langrangian system $(Q, \mathcal{L})$ with a semi-holonomic constraint $\omega$ is equivalent to a holonomic system if and only if there is an integrating factor $\lambda \neq 0$ and a one-form $\eta$ such that
+    \[
+    \lambda \cdot \omega + f \cdot \eta = df,
+    \] where $f$ is the holonomic constraint and $df$ is the exterior derivative of $f$. 
+\end{theorem}
+\begin{eg}
+    A simple example is a hoop rolling down a two-dimensional incline of height $h$ and angle $\alpha$ without slipping. The obvious choice of generalized coordinates are the distance from the starting point and the rotational angle of the hoop, so our first guess at the configuration manifold is $\mathbb{R} \times \mathbb{S}^1$. The kinetic energy is the sum of rotational and translational energy
+\[
+    T= \frac{m}{2}(\|\dot{q}\|^2+R^2 \|\dot{\theta}\|^2)
+\] and the potential is dependent on the height, hence also on $q$:
+\[
+U= (h-q \sin \alpha)mg
+.\] The rolling condition reads as
+\[
+    \dot{q} - R \dot{\theta}=0
+\] which is equivalent to the Pfaffian form
+\[
+0 = dq-Rd\theta
+\] and hence semi-holonomic. One can immediately see that this is integrable, but for the sake of demonstration, we use one Lagrangian multiplier. The modified Lagrangian is
+\[
+    \mathcal{L}(q,\theta,t,\lambda)=\frac{m}{2}(\|\dot{q}\|^2 + R^2 \|\dot{\theta}\|^2) + (q \sin \alpha - h)mg + \lambda (\dot{q}-R\dot{\theta})
+\] and the Lagrange equations of the second kind yield
+\[
+    m\ddot{q}-mg \sin \alpha + \lambda = 0
+\] and \[
+m R^2 \ddot{\theta}-\lambda R =0
+.\]  Together with our equation of constraint $R \ddot{\theta}= \ddot{q}$, we obtain the following family of solutions
+\[
+\begin{cases}
+    \ddot{q}= \frac{g \sin \alpha}{2}\\
+    \ddot{\theta} = \frac{g \sin \alpha}{2R}\\
+    \lambda = \frac{mg \sin \alpha}{2}
+\end{cases}
+.\]  
+\end{eg}
 \section{Ordinary Differential Equations}
+This section is just meant to quickly list the differential equations we will encounter later and give methods to solve them. In this, and only in this, chapter we will do separation of variables in ODEs by seemingly separating differentials of the form $\frac{dx}{dt}$.
+\subsection*{Autonomous ODE}
+\begin{definition}[Second-Order Autonomous ODE]
+    A \textbf{second-order autonomous first-order ODE} is of the form
+    \begin{equation}
+        \ddot{x}(t)=f(x, \dot{x})
+    \end{equation}
+    where $x: \Omega \subseteq \mathbb{R} \to \mathbb{R}$ is at least twice differentiable and $f: \Omega \times \mathbb{R} \to \mathbb{R}$ is continuous.
+\end{definition}
+We consider the special case where $f(x,\dot{x})=f(x)$. The substitution $y:=\frac{dx}{dt}$ yields
+\[
+    \int y \, dy = \int f(x) \, dx \implies v= \pm \sqrt{2 \int f(x) \, dx + C_1}
+\] where $C_1 \in \mathbb{R}$ is some constant of integration. Plugging back yields the implicit solution set
+\begin{equation}
+    \pm \int \frac{dx}{\sqrt{2 \int f(x)\, dx + C_1}} = t +C_2
+\end{equation}
+with a second constant $C_2 \in \mathbb{R}$. 

@@ -7,6 +7,45 @@
 
 \section{Two-Dimensional System}
 \label{sec:twodim}
+\subsection*{Lagrangian Equation of Motion}
+We start our investigation by considering a very simplified model of a rigid two-dimensional disk of mass $M$ with a constant magnetic moment $\mathbf{m}$ rolling on an inclined plane of length $l$ and angle $\alpha$ without slipping in the earth magnetic field $\mathbf{B}$. The moment of inertia is $I=\frac{MR^2}{2}$. Similar to the example of semi-holonomic constraints, our generalized coordinates are the rolling distance $q$ and the rotational angle $\theta$. Note that while $\mathbf{m}$ is constant in the rolling frame of the disk, the angle between $\mathbf{m}$ and $\mathbf{B}$ changes with the rolling motion. We have again the same semi-holonomic constraint 
+\[
+dq-Rd\theta = 0
+.\] This is a first integral, yielding \[
+q(t) - q_0= R\theta(t) - \theta_0 
+\] where we set $q_0:=q(0)$ and $\theta_0 := \theta(0)$. For simplicity, we choose the coordinates in such a way that w.l.o.g. $q_0=0=\theta_0$. The kinetic energy is given by
+\[
+    T(q, \dot{q}) = \frac{M}{2} \|\dot{q}\|^2 + \frac{I}{2} \|\dot{\theta}\|^2 = \frac{3M}{4} \dot{q}^2
+\] where we substituted $\theta = \frac{q}{R}$. We have two potentials acting on the disk, the first being gravity
+\[
+    U_\text{g}(q) = Mgh = (q-l)Mg \sin \alpha
+.\] The second is due to the magnetic moment of the disk interacting with the earth field. Assuming an ideal magnetic dipole interaction, the potential is governed by the angle between $\mathbf{m}$ and $\mathbf{B}$. 
+\marginnote{Allowing $\beta$ to be arbitrary is probably not necessary for the practical experiment as the dipole will align itself with the outer field if one does not impair this movement until the disk starts rolling.}
+Assuming an initial angle of $\beta$ at $t=0$, the angle at time $t$ is simply $\beta + \theta$. Therefore, the electromagnetic potential is
+\[
+    U_\text{em}(q)=- \langle \mathbf{m}, \mathbf{B} \rangle = -mB\cos(\beta + \frac{x}{R})
+\] with $m=\|\mathbf{m}\|$ and $B=\|\mathbf{B}\|^2$.\\
+We obtain the Lagrangian
+\[
+    \mathcal{L}(q,\dot{q})= T-U_\text{g}-U_\text{em}= \frac{3M}{4} \|\dot{q}(t)\|^2+ (l-q(t))Mg\sin \alpha + mB \cos\left(\beta + \frac{q(t)}{R}\right)
+\] which gives rise to just one Lagrangian equation of the second kind:
+\begin{equation}
+    \frac{d}{dt} \left( \frac{\partial \mathcal{L}}{\partial \dot{q}}\right) - \frac{\partial \mathcal{L}}{\partial q}= 0
+\end{equation}
+This yields the ODE \[
+    \ddot{q}(t)= \frac{2g}{3} \sin \alpha  + \frac{2mB}{3MR}\sin\left(\beta + \frac{q}{R}\right) = f(q(t))
+\] which is a second-order autonomous ODE. We already discussed how to solve such an equation. The first integral needed is
+\begin{align*}
+    \int_{q_0=0}^q f(\tau) \, d\tau &= \int_{q_0=0}^q \left( \frac{2g}{3}\sin \alpha + \frac{2mB}{3MR} \sin \left(\beta + \frac{q}{R} \right) \right)\, d\tau \\
+                                  &= \frac{2g}{3}\sin(\alpha)q - \frac{2mB}{3M} \left( \cos\left(\beta + \frac{q}{R}\right)- \cos\beta\right)
+\end{align*}
+We make some abbreviations to keep everything readable. Define $A:= \frac{4g}{3} \sin \alpha$, $B := -\frac{4mB}{3M}$ and $C:=\frac{4mB}{3M} \cos \beta$. The implicit solution is then given by
+\begin{equation}
+t = \pm \int_0^{q(t)} \frac{1}{\sqrt{Aq - B \cos(\beta + \frac{q}{R}) + C}} \, dq.
+\end{equation}
+The bad news is that this integral cannot be solved analytically. The only option is to calculate the integral numerically, for example my means of a Taylor series, and then invert pointwise to obtain $q=q(t)$. We will focus on some aspects which can be derived in limiting cases.
+\subsection*{Symmetries}
+The derived Lagrangian is not very abundant in symmeties. As $\mathcal{L}$ is autonomous, the system admits time translation symmetry and hence conservation of energy. However, this is not very surprising as we did not enforce the rolling condition by means of a dissipative Lagrangian but instead as semi-holonomic integrable constraint. The variable $q$ does appear explicitly in the Lagrangian, so it can not be cyclic. The only symmetry remains time symmetry. 
 
-We start our investigation by considering a very simplified model of a rigid two-dimensional disk with a constant magnetic moment rolling on an inclined plane without slipping.
-
+\subsection*{Conclusion}
+While it is quite surprising that such a simple system does not admit a closed-form analytic solution, we gain some first insight in the general usefulness of the Lagrangian formalism to derive equations of motion. However, our hope to solve the more complicated three-dimensional system is very much reduced, expecially since the three-dimensional rolling constraint is not always semi-holonomic.
