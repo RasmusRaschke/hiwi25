@@ -49,6 +49,30 @@ In physics, we are usually concerned with how a certain group acts on a physical
     We call $V$ \textbf{representation space} and $\deg V$ the degree of the representation.
     
 \end{definition}
+Apart from that, we will need the notion of an algebra, which equips vector spaces with additional structure.
+\begin{definition}[Algebra]
+    \marginnote{Again, we do not demand commutativity. In contrast to groups, we do not demand associativity nor the existence of an identity either. Hence, associative resp. commutative algebras are explicitly denoted. An algebra with identity is called \textbf{unital}.}
+    An \textbf{$\mathbb{R}$-algebra} is a pair $(V,[\cdot,\cdot])$ where $V$ is a real vector space and \[
+        [\cdot, \cdot]: V \times V \to V
+    \] is a \emph{bilinear operation}, i.e. for all $u,v,w \in V$ and all $\lambda, \mu \in \mathbb{R}$ the following holds:
+    \begin{itemize}
+        \item Left distributivity: $[(u+v),w]=[u,w]+[v,w]$
+        \item Right distributivity: $[u, (v+w)]=[u,v]+[u,w]$
+        \item Scalar Compatibitity: $[\lambda v, \mu w]=(\lambda \mu)[v,w]$.
+    \end{itemize}
+\end{definition}
+While this may seem abstract at first, there are plenty of important examples in physics. 
+\begin{eg}
+    We start with some easy examples from physics.
+    The first algebra encountered in physics is probably the vector space $\mathbb{R}^3$ with the vector cross product $\times$. This is also a non-commutative, non-associative, non-unital algebra, which in turn satisfies the \emph{Jacobi identity} \[
+                (u \times (v \times w))+(b \times (c \times a))+(c \times (a \times b))=0
+        .\] 
+
+\end{eg}
+\begin{eg}
+    In maths, the first example is usually the division algebra of the complex field $\mathbb{C}$ with multiplication of complex numbers. It is commutative, associative and unital. The term \emph{division algebra} arises from the fact that multiplicative inverses but no zero divisors exist.
+Higher-dimensional variants of the complex numbers are still algebras, but less well-behaved ones. The \emph{quaternions} $\mathbb{H}$ are still an associative and unital division algebra, but not commutative. The octonions $\mathbb{Q}$ also lose associativity.
+\end{eg}
 \section{Differential Geometry}
 \subsection*{Smooth Manifolds and Tangent Spaces}
 From now on, we use the Einstein summation convention.
@@ -416,6 +440,16 @@ m R^2 \ddot{\theta}-\lambda R =0
 \end{cases}
 .\]  
 \end{eg}
+\subsection*{Lie Groups and Algebras}
+Lie groups will appear in the Lagrangian treatment of our magnetic system. In this section, we explore Lie groups and their associated algebras, which can be seen as a combination of groups and smooth manifolds.
+\begin{definition}[Lie Group]
+    A \textbf{smooth Lie group} is a triple $(M, \circ, \mathfrak{A})$ such that $(M, \circ)$ is a group, $(M, \mathfrak{A})$ is a smooth manifold with atlas $\mathfrak{A}$, and \[
+        (g,h) \mapsto g \circ h
+    \]
+    as well as \[
+        g \mapsto g^{-1}
+    \] are smooth maps. 
+\end{definition}
 \section{Ordinary Differential Equations}
 This section is just meant to quickly list the differential equations we will encounter later and give methods to solve them. In this, and only in this, chapter we will do separation of variables in ODEs by seemingly separating differentials of the form $\frac{dx}{dt}$.
 \subsection*{Autonomous ODE}

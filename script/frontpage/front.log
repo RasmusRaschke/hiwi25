@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.13)  2 SEP 2025 11:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.13)  3 OCT 2025 20:08
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **front.tex
 (./front.tex
@@ -22,48 +23,37 @@ File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen148
-)
-(./KTHEEtitlepage.sty
+) (./KTHEEtitlepage.sty
 Package: KTHEEtitlepage 2004/09/21 KTH EE titlepage package
 File: here_the_logos 2004/09/21 KTH logo English, BW
 File: here_the_logos 2004/09/21 KTH logo Swedish, BW
 File: here_the_logos 2004/09/21 KTH logo Swedish, colour
 File: here_the_logos 2004/09/21 KTH logo Swedish, colour
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
-)
-(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-)
-(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen149
 \Gin@req@width=\dimen150
-)
-(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-(/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
 \calc@Acount=\count283
 \calc@Bcount=\count284
@@ -83,42 +73,27 @@ LaTeX Info: Redefining \addtolength on input line 87.
 \titlep@getextheight=\skip58
 \titlep@getopmargin=\skip59
 \tmpl@ngth=\skip60
-)
-(/usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks18
 \inpenc@posthook=\toks19
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/base/cp1252.def
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/base/cp1252.def
 File: cp1252.def 2024/02/08 v1.3d Input encoding file
-LaTeX Encoding Info:    Ignoring declaration for text command \textdegree (enco
-ding ?) on input line 47.
-LaTeX Encoding Info:    Ignoring declaration for text command \textonehalf (enc
-oding ?) on input line 48.
-LaTeX Encoding Info:    Ignoring declaration for text command \textonequarter (
-encoding ?) on input line 49.
-LaTeX Encoding Info:    Ignoring declaration for text command \textthreequarter
-s (encoding ?) on input line 50.
-LaTeX Encoding Info:    Ignoring declaration for text command \textflorin (enco
-ding ?) on input line 51.
-LaTeX Encoding Info:    Ignoring declaration for text command \textcent (encodi
-ng ?) on input line 52.
-LaTeX Encoding Info:    Ignoring declaration for text command \textyen (encodin
-g ?) on input line 54.
-LaTeX Encoding Info:    Ignoring declaration for text command \texteuro (encodi
-ng ?) on input line 56.
-LaTeX Encoding Info:    Ignoring declaration for text command \textcurrency (en
-coding ?) on input line 58.
-LaTeX Encoding Info:    Ignoring declaration for text command \textbrokenbar (e
-ncoding ?) on input line 60.
-LaTeX Encoding Info:    Ignoring declaration for text command \textperthousand 
-(encoding ?) on input line 62.
-))
-(/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+LaTeX Encoding Info:    Ignoring declaration for text command \textdegree (encoding ?) on input line 47.
+LaTeX Encoding Info:    Ignoring declaration for text command \textonehalf (encoding ?) on input line 48.
+LaTeX Encoding Info:    Ignoring declaration for text command \textonequarter (encoding ?) on input line 49.
+LaTeX Encoding Info:    Ignoring declaration for text command \textthreequarters (encoding ?) on input line 50.
+LaTeX Encoding Info:    Ignoring declaration for text command \textflorin (encoding ?) on input line 51.
+LaTeX Encoding Info:    Ignoring declaration for text command \textcent (encoding ?) on input line 52.
+LaTeX Encoding Info:    Ignoring declaration for text command \textyen (encoding ?) on input line 54.
+LaTeX Encoding Info:    Ignoring declaration for text command \texteuro (encoding ?) on input line 56.
+LaTeX Encoding Info:    Ignoring declaration for text command \textcurrency (encoding ?) on input line 58.
+LaTeX Encoding Info:    Ignoring declaration for text command \textbrokenbar (encoding ?) on input line 60.
+LaTeX Encoding Info:    Ignoring declaration for text command \textperthousand (encoding ?) on input line 62.
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-04-14 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count286
-)
-(./front.aux)
+) (./front.aux)
 \openout1 = `front.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
@@ -135,8 +110,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
-
-(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count287
 \scratchdimen=\dimen153
@@ -151,45 +125,33 @@ LaTeX Font Info:    ... okay on input line 6.
 \everyMPtoPDFconversion=\toks21
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-
-(/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-)
-(/usr/local/texlive/2025/texmf-dist/tex/latex/grfext/grfext.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/grfext/grfext.sty
 Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-
-(/usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-
-(/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-)
-(/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-))
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
+)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 504.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <20> not available
@@ -204,8 +166,7 @@ Package pdftex.def Info: figures/logo.pdf  used on input line 13.
 
 [0
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./figur
-es/logo.pdf>] (./front.aux)
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./figures/logo.pdf>] (./front.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
@@ -224,10 +185,8 @@ Here is how much of TeX's memory you used:
  628048 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,13n,79p,212b,326s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb>
-Output written on front.pdf (1 page, 54869 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb>
+Output written on front.pdf (1 page, 54867 bytes).
 PDF statistics:
  27 PDF objects out of 1000 (max. 8388607)
  15 compressed objects within 1 object stream

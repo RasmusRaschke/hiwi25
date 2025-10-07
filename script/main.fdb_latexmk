@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1759016907.41387 "main.bcf" "main.bbl" "main" 1759018629.32264 2
+["biber main"] 1759705396.79982 "main.bcf" "main.bbl" "main" 1759848604.41348 2
   "bibliography.bib" 1757958799.9044 2684 a22cfc598c9cdf1a329229b3bd468d06 ""
-  "main.bcf" 1759018629.20704 108557 8c3299d6df4004860fa0308c72250d26 "pdflatex"
+  "main.bcf" 1759848604.27946 108557 8c3299d6df4004860fa0308c72250d26 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1759018627.77262 "main.tex" "main.pdf" "main" 1759018629.32293 0
+["pdflatex"] 1759848602.73983 "main.tex" "main.pdf" "main" 1759848604.41382 0
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -91,6 +91,7 @@
   "/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex" 1601326656 35249 abd4adf948f960299a4b3d27c5dddf46 ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex" 1673816307 22012 81b34a0aa8fa1a6158cc6220b00e4f10 ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex" 1601326656 8893 e851de2175338fdf7c17f3e091d94618 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryangles.code.tex" 1673816307 3644 e9b9c24022f5a439aa80f5032fb9b6c6 ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex" 1673816307 4228 c39d423dc1a80da31c8c67bf1067f384 ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex" 1673816307 3970 c199216b190c70e45bff870bacf0da00 ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex" 1608933718 11518 738408f795261b70ce8dd47459171309 ""
@@ -281,15 +282,17 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1749797494 5523539 cbe340ff87ac4cfddcdc6361a84e52ac ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1749797535 3599565 9654882f00888f2602bca2b12f0df0df ""
   "/usr/local/texlive/2025/texmf.cnf" 1749797490.30351 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "chap0.tex" 1759013978.74316 35124 f291390d7454b65382a1d8486a04e235 ""
-  "chap1.tex" 1759018627.65604 4674 f9094d87d5f2dfed7b214c068d0fb5b6 ""
-  "frontpage/front.pdf" 1756804992.38743 54869 4e4d3578ed5ad81a90de9373b4b3353d ""
-  "main.aux" 1759018629.20404 12615 5a498ab1d147e6c660089388e8f6931d "pdflatex"
+  "chap0.tex" 1759848600.35346 37737 7084f997485c7da99892a4baf95c6c9f ""
+  "chap1.tex" 1759844181.27961 5209 99ff8840cd5fff2ff37e569d963d0a13 ""
+  "figures/2dramp.aux" 1759848604.25646 4344 49a59a7b10b8884330a35d897a393dcd "pdflatex"
+  "figures/2dramp.tex" 1759842907.28765 1211 1a361bd237273581e1152b748afb19f5 ""
+  "frontpage/front.pdf" 1759514933.54366 54867 d660c1e1577de8ceb9d6518035556e10 ""
+  "main.aux" 1759848604.27646 14773 5a6192d29cc1a1ac60dceb750b819c68 "pdflatex"
   "main.bbl" 0 -1 0 "biber main"
-  "main.out" 1759018629.20504 1258 3ff572cb51b17ef4248e5793153b820a "pdflatex"
-  "main.run.xml" 1759018629.20828 2313 300f39656d2ca573330f9b1b6a90dbb1 "pdflatex"
+  "main.out" 1759848604.27832 1527 2d086ad886f6261ef8ed1b5b9bb2ab70 "pdflatex"
+  "main.run.xml" 1759848604.28119 2313 300f39656d2ca573330f9b1b6a90dbb1 "pdflatex"
   "main.tex" 1758823491.43973 1714 376b51f4b2d70edcd1b9f6b789af5cf2 ""
-  "main.toc" 1759018629.20828 653 323cfed4631633be8499b92dd5affecd "pdflatex"
+  "main.toc" 1759848604.28119 754 762e2c000780ae21e9f64675fe1008ad "pdflatex"
   "marginfix.sty" 1755724034.19059 13634 1adff3b3f20a436e0dc24761eed9d07b ""
   "mathpreamble.tex" 1758819494.91993 527 6f770d13ba1298557fad465cabb443aa ""
   "preamble.tex" 1758995892.38362 5189 b53d42174ecef309cb8d5893f1dae4fe ""
@@ -297,6 +300,7 @@
   "symbols.tex" 1758823456.41873 1479 7ecbee48b977f683119e7794fe4772e6 ""
   "tuftebook.cls" 1755724034.19079 5939 9621f865dee56dd007dd5cdedf790b8e ""
   (generated)
+  "figures/2dramp.aux"
   "main.aux"
   "main.bcf"
   "main.log"

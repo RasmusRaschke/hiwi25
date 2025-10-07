@@ -417,6 +417,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/bm.sty
 INPUT ./main.aux
 INPUT ./main.aux
 INPUT main.aux
+INPUT ./figures/2dramp.aux
+INPUT ./figures/2dramp.aux
+INPUT figures/2dramp.aux
 OUTPUT main.aux
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fmtcount/fc-english.def
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/fmtcount/fc-english.def
@@ -546,6 +549,7 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrmb10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrmb10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/ebsr8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/ebmr10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/ebbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/ebmr8.tfm
@@ -561,7 +565,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.t
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm5.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/ebsr8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
@@ -570,9 +573,20 @@ INPUT ./chap1.tex
 INPUT chap1.tex
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
+INPUT ./figures/2dramp.tex
+INPUT ./figures/2dramp.tex
+OUTPUT figures/2dramp.aux
+INPUT ./figures/2dramp.tex
+INPUT ./figures/2dramp.tex
+INPUT figures/2dramp.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryangles.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryangles.code.tex
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
 INPUT main.aux
+INPUT ./figures/2dramp.aux
+INPUT ./figures/2dramp.aux
+INPUT figures/2dramp.aux
 INPUT ./main.out
 INPUT ./main.out
 INPUT main.run.xml
