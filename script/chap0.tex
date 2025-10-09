@@ -440,8 +440,8 @@ m R^2 \ddot{\theta}-\lambda R =0
 \end{cases}
 .\]  
 \end{eg}
-\subsection*{Lie Groups and Algebras}
-Lie groups will appear in the Lagrangian treatment of our magnetic system. In this section, we explore Lie groups and their associated algebras, which can be seen as a combination of groups and smooth manifolds.
+\section{Lie Groups and Lie Algebras}
+The preceeding chapters dealt with the category of groups and the category of smooth manifolds, respectively. Those two categories can be combined to form a new category which will turn out to be important for the rotational configuration space of a rigid body. After a gentle introduction, we continue by treating the Lie group most important to us: $\SO(3)$.
 \begin{definition}[Lie Group]
     A \textbf{smooth Lie group} is a triple $(M, \circ, \mathfrak{A})$ such that $(M, \circ)$ is a group, $(M, \mathfrak{A})$ is a smooth manifold with atlas $\mathfrak{A}$, and \[
         (g,h) \mapsto g \circ h
@@ -450,6 +450,82 @@ Lie groups will appear in the Lagrangian treatment of our magnetic system. In th
         g \mapsto g^{-1}
     \] are smooth maps. 
 \end{definition}
+
+\begin{eg}
+    The most important examples to physicists are certainly matrix Lie groups. We already mentioned the real \emph{general linear group} $\GL_n(\mathbb{R})$, which is also a Lie group. So are the (Lie) subgroups $\SO(n)$ and $\O (n)$. It is expected that groups of linear maps have smooth multiplication and inversion as linear maps are smooth in general. However, this can only be made rigorous by topologizing $\GL_n$ with the metric topology of $\mathbb{R}^{n^2}$ element-wise. All mentioned subgroups then inherit the subspace topology, yielding a Lie group structure.
+\end{eg}
+The main reason for the importance of Lie groups is their connection to symmetry. To understand this, we let some Lie group $G$ act on another smooth manifold $M$. Expanding our definition of action, we call such an action
+\[
+\rho: G \times M \to M
+\] smooth if for all $g \in G$ and $x \in M$, the map
+\[
+\rho_g: M \to M, \, x \mapsto \rho_g(x)=g.x
+\] is a smooth map between manifolds.
+
+\marginnote{
+    One example for such a structure would, of course, be a metric. If an action $\rho$ preserves a metric $g$ on $M$, we can write this explicitly as \[
+    g(\rho_h(x),\rho_h(y))=g(h.x,h.y)=g(x,y)
+\] for all $h \in G$ and $x,y \in M$.
+}
+
+Our notion of symmetry arises from this definition, but we keep it somewhat informal. A \textbf{symmetry} of a manifold $M$ with some structure is the action of some Lie group on $M$ preserving the structure. 
+\begin{eg}
+    One of the most striking examples of the importance of Lie groups is the fact that different flavours of geometry arise from Lie group actions. Consider the Euclidean space $\mathbb{R}^n$ as Lie Group: Obviously, it is a smooth manifold by definition, it just remains to choose addition as group operation to obtain a Lie group. 
+    \marginnote{
+        This semidirect product group may seem confusing at first, but this case can be made very intuitive by thinking about a physical system in $\mathbb{R}^n$ with fixed time (for now) and considering only $\SO(n) \leq \O(n)$. Then, the action of $\mathbb{R}^n \rtimes \SO(n)$ first rotates $v$ by the rotation matrix $R$ and then translates the rotated frame by $\tau$. This also demonstrates why the interior group multiplication has to have this particular form: If one applies first a rotation $R'$ and then a translation $\tau'$, followed by the same procedure with $(R, \tau)$, the second rotation $R$ has to be done from the perspective of the rotated frame, so we rotate $\tau'$ by $R$ before adding the second translation $\tau$. Considering $\text{E}(n)$ again, we allow all transformations preserving orthogonality (e.g. reflection), but the same idea applies.
+    }
+    Then, the \textbf{Euclidean group} \[
+        E(n) := \mathbb{R}^{n} \rtimes \O(n)
+    \] acts on $\mathbb{R}^n$ by \[
+    \rho_{\tau, A}(v):=\tau+A(v) 
+\]  where $\tau,v \in \mathbb{R}^n$ and $A \in \O(n)$. The multiplication inside $\text{E}(n)$ is given by the usual semidirect product multiplication: \[
+(\tau, A) \circ (\tau', A') = (\tau + A(\tau'), AA')
+.\] This action is at the core of Euclidean geometry, meaning that Euclidean geometry studies objects invariant under the action of $\text{E}(n)$. If one replaces $\O(n)$ for example by the whole of $\GL_n$, we arrive at affine geometry. More physically motivated examples would be the action of the Lorenz group on Minkowski space-time (modeled as $\mathbb{R}^4$ with the Minkowski metric) or the action of the symplectic group on symplectic manifolds, which govern Hamiltonian mechanics.
+\end{eg}
+With this idea in mind, we take a look at representations again. Of special interest are so-called \emph{faithful} representations $\varrho: G \to \GL_n$ of some Lie group $G$ which are \emph{injective}.
+\begin{eg}
+    We continue with the study of $\text{E}(n)$.\\
+    Luckily, matrix Lie groups are already subgroups of $\GL_n$, so we can just take the inclusion as representation. The representation of $\E(n)$ needs to take care of one additional translation, which is not represented by $\GL(n)$. We obtain a map $\varrho: \E(n) \to \GL_n$ which sends $(\tau, A) \in \E(n)$ to \[
+        \varrho(\tau, A):= \begin{pmatrix} A&b\\0&1 \end{pmatrix} \in \GL(n+1, \mathbb{R})
+    .\] 
+\end{eg}
+Lie groups do not only interact well with manifolds, but are also interesting by themselves. We want to shortly explore the tangent space of a Lie group. Since every Lie group has a smooth multiplication, we always have an action \[
+L_h: G \times G \to G, \, g \mapsto L_h(g)=h \circ g
+\] for some fixed $h \in G$. This is called \textbf{left translation}. It gives rise to a map
+\[
+    (dL_h)_g: T_hG \to T_hG
+\] via the usual differential. Now, we consider smooth vector fields on our Lie group and give them more structure.
+\begin{definition}[Lie Bracket]
+    \marginnote{
+        Note that the Lie bracket itself can be defined for arbitrary smooth manifolds, not only Lie groups. Also, we have an expression in local coordinates as
+        \[
+            [X,Y]=\left(X^i \partial_i Y^j-Y^i \partial_i X^j \right) \partial_j
+        .\] 
+    }
+    Let $M$ be a smooth manifold and $X,Y \in \mathfrak{X}(M)$. The \textbf{Lie bracket} is an operator
+    \[
+        [\cdot, \cdot]: \mathcal{C}^\infty(M) \to \mathcal{C}^\infty(M), 
+    \]  mapping a smooth function $f: M \to \mathbb{R}$ to another smooth function defined by
+    \[
+        [X,Y]f=XY(f)-YX(f)
+    .\]
+\end{definition}
+We can directly see that for left invariant vector fields $X,Y$, the Lie bracket is also left invariant. Hence, the vector space of left invariant vector spaces is closed under one additional operation. This hints at another structure we already touched upon.
+\begin{definition}[Lie Algebra]
+    A \textbf{Lie Algebra} over $\mathbb{R}$ is an algebra $(\mathfrak{G}, [\cdot, \cdot]$ such that two additional identities hold:
+\begin{itemize}
+    \item Antisymmetry: $[X,Y]=-[Y,X]$
+    \item Jacobi Identity: $[X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]$.
+\end{itemize}
+\end{definition}
+\begin{eg}
+    The most important example is the one we just constructed. Given a Lie group $G$, the space of smooth, left invariant vector fields on $L$, denoted $\mathfrak{g}$, is a Lie algebra with the Lie bracket.
+    Separated from Lie groups, one can consider smooth vector fields on a smooth manifold in general. Another example of a Lie algebra is $\mathbb{R}^3$ together with the vector cross product, which we already encountered and will encounter again.
+\end{eg}
+Now, we conclude the general discussion with a theorem, yielding fundamental insight into the relationship of a Lie group and its associated algebra.
+\begin{theorem}[Lie Group-Algebra Correspondence]
+    k
+\end{theorem}
 \section{Ordinary Differential Equations}
 This section is just meant to quickly list the differential equations we will encounter later and give methods to solve them. In this, and only in this, chapter we will do separation of variables in ODEs by seemingly separating differentials of the form $\frac{dx}{dt}$.
 \subsection*{Autonomous ODE}

@@ -3,8 +3,9 @@
 \contentsline {section}{\numberline {1.1}Group Theory}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Differential Geometry}{3}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Lagrangian Mechanics}{6}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Ordinary Differential Equations}{13}{section.1.4}%
-\contentsline {chapter}{\numberline {2}Magnetic Ball on an Incline}{15}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Two-Dimensional System}{15}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Magnetic Balls in Earth's Magnetic Field}{16}{section.2.2}%
+\contentsline {section}{\numberline {1.4}Lie Groups and Lie Algebras}{13}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Ordinary Differential Equations}{16}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Magnetic Ball on an Incline}{17}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Two-Dimensional System}{17}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Magnetic Balls in Earth's Magnetic Field}{18}{section.2.2}%
 \contentsfinish 
