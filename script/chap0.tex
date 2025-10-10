@@ -493,7 +493,7 @@ Lie groups do not only interact well with manifolds, but are also interesting by
 L_h: G \times G \to G, \, g \mapsto L_h(g)=h \circ g
 \] for some fixed $h \in G$. This is called \textbf{left translation}. It gives rise to a map
 \[
-    (dL_h)_g: T_hG \to T_hG
+    (dL_h)_g: T_gG \to T_gG
 \] via the usual differential. Now, we consider smooth vector fields on our Lie group and give them more structure.
 \begin{definition}[Lie Bracket]
     \marginnote{
@@ -512,7 +512,7 @@ L_h: G \times G \to G, \, g \mapsto L_h(g)=h \circ g
 \end{definition}
 We can directly see that for left invariant vector fields $X,Y$, the Lie bracket is also left invariant. Hence, the vector space of left invariant vector spaces is closed under one additional operation. This hints at another structure we already touched upon.
 \begin{definition}[Lie Algebra]
-    A \textbf{Lie Algebra} over $\mathbb{R}$ is an algebra $(\mathfrak{G}, [\cdot, \cdot]$ such that two additional identities hold:
+    A \textbf{Lie Algebra} over $\mathbb{R}$ is an algebra $(\mathfrak{G}, [\cdot, \cdot])$ such that two additional identities hold:
 \begin{itemize}
     \item Antisymmetry: $[X,Y]=-[Y,X]$
     \item Jacobi Identity: $[X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]$.
@@ -524,8 +524,19 @@ We can directly see that for left invariant vector fields $X,Y$, the Lie bracket
 \end{eg}
 Now, we conclude the general discussion with a theorem, yielding fundamental insight into the relationship of a Lie group and its associated algebra.
 \begin{theorem}[Lie Group-Algebra Correspondence]
-    k
+    Let $G$ be a Lie group with identity $\id \in G$ and let $\mathfrak{g}$ be the Lie algebra of left-invariant vector fields on $G$. Then the evaluation \[
+        \mathfrak{g} \ni X \mapsto X|_{\id} \in T_{\id}G
+    \] of a left-invariant vector field at the identity is a vector space isomorphism $T_{\id} G  \cong \mathfrak{g}$.
 \end{theorem}
+This means that the best linear approximation of a Lie group at the identity is its Lie algebra. In lieu of group theory, one calles Lie algebras linearized Lie groups.
+\begin{eg}
+    Bridging to our discussion of $\SO(3)$, we demonstrate how to calculate the Lie algebra $\mathfrak{s}\mathfrak{o}(3)$. By the preceeding theorem, the Lie algebra is isomorphic to a tangent vector at the identity matrix $\id \in \SO(3)$. Hence, choose a smooth path \[
+    \mathbb{R} \ni t \mapsto A(t) \in \SO(3)
+    \] with $A(0)=\id$. We can expand up to first order as
+    \[
+    A(t) = \id + B(t)t + \mathcal{O}(t^2)
+\] such that $\dot{A}|_{t=0} = B(0)$. 
+\end{eg}
 \section{Ordinary Differential Equations}
 This section is just meant to quickly list the differential equations we will encounter later and give methods to solve them. In this, and only in this, chapter we will do separation of variables in ODEs by seemingly separating differentials of the form $\frac{dx}{dt}$.
 \subsection*{Autonomous ODE}
