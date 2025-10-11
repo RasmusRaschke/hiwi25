@@ -57,5 +57,25 @@ The derived Lagrangian is not very abundant in symmetries. As $\mathcal{L}$ is a
 \subsection*{Conclusion}
 While it is quite surprising that such a simple system does not admit a closed-form analytic solution, we gain some first insight in the general usefulness of the Lagrangian formalism to derive equations of motion. However, our hope to solve the more complicated three-dimensional system is very much reduced, expecially since the three-dimensional rolling constraint is not always semi-holonomic.
 
-\section{Magnetic Balls in Earth's Magnetic Field}
+\section{Three-dimensional System}
+\subsection{Lagrangian Equations of Motion}
+Now, we want to adress the more complicated problem of a three-dimensional, spherical, solid magnetic dipole moving on an inclined plane in earth's magnetic field. Following \cite{rundquist}, we are dropping the restriction of the plane being an incline and consider two-dimensional smooth submanifolds of $\mathbb{R}^2$ as subsurface for the rolling ball. The system is characterized fully by three coordinates $(q^1,q^2,q^3)\in \mathbb{R}^3$ describing the center-of-mass motion with respect to a fixed coordinate frame and three Euler angles $(\phi, \psi , \theta) \in T^3$ describing the rotation of the body coordinate system. Hence, the configuration space is given by \[
+Q = \mathbb{R}^3 \times \SO(3) 
+.\] Taking a path $t \mapsto (q^1(t),q^2(t),q^3(t), \phi(t), \psi(t), \theta(t))$, we obtain the linear kinetic energy
+\[
+    T_\text{lin} (\dot{q}^1, \dot{q}^2, \dot{q}^3)=\frac{M}{2} \|\dot{\mathbf{q}}\|^2 
+\] and the rotational kinetic energy 
+\begin{align*}
+    T_\text{rot}(\phi, \psi, \theta, \dot{\phi}, \dot{\psi}, \dot{\theta}) &= \frac{I}{2} \|\boldsymbol{\omega}\|^2\\
+                                                                       &= \frac{MR^2}{5} (- \dot{\psi} s_\phi + \dot{\theta}s_\psi c_\phi + \dot{\psi} c_\phi + \dot{\theta} s_\psi s_\phi + \dot{\phi} + \dot{\theta} c_\psi)
+.\end{align*} Assume that the hypersurface restricing the motion of the ball in $q^3$-direction is given by an implicit equation \[
+f(q^1(t), q^2(t))=q^3(t)
+.\] Then, the gravitational potential is just
+\[
+    U_\text{grav}(q^1,q^2)=M \cdot g \cdot f(q^1(t), q^2(t))
+.\] The magnetic moment of the ball is a vector $\mathbf{m} \in \mathbb{R}^3$ with $m := \|\mathbf{m}\|$ fixed in the rotating body frame but rotating from the view of the stationary frame. The magnetic field of the earth is a constant vector $\mathbf{B} \in \mathbb{R}^3$ with $B:=\|\mathbf{B}\|$. Assuming ideal magnetic dipole interaction, we need the scalar product $\langle \mathbf{m}, \mathbf{B}$ to get an expression for $U_\text{em}$ in Euler angles. For this, choose $(\phi_0, \psi_0, \theta_0)$ such that the body $z$-axis is aligned with the magnetic moment: $\mathbf{z} \perp \mathbf{m}$. Using that Euler angles are a local parametrization of $\SO(3)$, we can obtain the direction of the rotating $z$-axis at time $t$ by the action of the corresponding rotation matrix on $\mathbf{z}|_{t=0}$. The scalar product then decomposes into the easier form $mB\langle A_t(\phi, \psi, \theta) \mathbf{z}_{t=0}, \mathbf{B} \rangle$ with $A_t$ being a one-parameter subgroup corresponding to the chosen path, and we obtain
+\begin{align*}
+    U_\text{em} (\phi,\psi,\theta)&= - \langle \mathbf{m}, \mathbf{B} \rangle= - mB \langle A_t \mathbf{z}_{t=0}, \mathbf{B} \rangle\\
+                                  &= -m(c_\psi s_\theta B_1+ s_\psi s_\theta B_2 + c_\theta B_3).
+\end{align*} 
 

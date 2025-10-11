@@ -530,13 +530,107 @@ Now, we conclude the general discussion with a theorem, yielding fundamental ins
 \end{theorem}
 This means that the best linear approximation of a Lie group at the identity is its Lie algebra. In lieu of group theory, one calles Lie algebras linearized Lie groups.
 \begin{eg}
-    Bridging to our discussion of $\SO(3)$, we demonstrate how to calculate the Lie algebra $\mathfrak{s}\mathfrak{o}(3)$. By the preceeding theorem, the Lie algebra is isomorphic to a tangent vector at the identity matrix $\id \in \SO(3)$. Hence, choose a smooth path \[
-    \mathbb{R} \ni t \mapsto A(t) \in \SO(3)
+    Bridging to our discussion of $\SO(3)$, we demonstrate how to calculate the Lie algebra $\mathfrak{s}\mathfrak{o}(3)$. By the preceeding theorem, the Lie algebra is isomorphic to a tangent vector at the identity matrix $\id \in \SO(3)$. For now, we avoid parametrizing elements of $\SO(3)$ and utilize the Taylor expansion for manifolds. Hence, choose a smooth path \[
+        (-\epsilon, \epsilon) \ni t \mapsto A(t) \in \SO(3)
     \] with $A(0)=\id$. We can expand up to first order as
     \[
-    A(t) = \id + B(t)t + \mathcal{O}(t^2)
-\] such that $\dot{A}|_{t=0} = B(0)$. 
+        A(t) = \id + \dot{A}|_{t=0} t + \mathcal{O}(t^2)
+    .\] Since $A(t)$ is in $\SO(3)$ for all $t$, we demand $A(t)A^\top (t)=\id$. Writing $\dot{A} \equiv \dot{A}|_{t=0}$ and plugging in, we obtain
+\[
+    \id = A(t)A^\top (t) = (id+\dot{A}+\mathcal{O}(t^2))(id + \dot{A}+\mathcal{O}(t^2))^\top = \id + (\dot{A} + \dot{A}^\top) \cdot t + \mathcal{O}(t^2)
+.\] Dropping all non-linear terms, we obtain \[
+\dot{A}^\top= - \dot{A}
+.\] Thus, $T_{\id}\SO(3)$ consists of anti-symmetric $3 \times 3$-matrices and we can write
+\[
+\mathfrak{s}\mathfrak{o}(3)=\{\Omega \in \Mat_3(\mathbb{R}) \mid \Omega^\top = - \Omega \} 
+.\] Skew-symmetric matrices have only three degrees of freedom. Choose three real numbers $(\omega_1,\omega_2, \omega_3)$. Then, we can write a general element of $\so(3)$ as
+\[
+    \Omega = \begin{pmatrix} 0 &- \omega_3 & \omega_2 \\ \omega_3 & 0 & - \omega_1 \\ - \omega_2 & \omega_1 & 0  \end{pmatrix}
+.\] This yields a basis for $\so(3)$ in terms of three matrices:
+\[
+    (\xi_1, \xi_2, \xi_3) = \left( \begin{pmatrix} 0&0&0\\ 0&0&-1\\ 0&-1&0 \end{pmatrix}, \begin{pmatrix} 0&0&1\\ 0&0&0\\ -1&0&0 \end{pmatrix}, \begin{pmatrix} 0&-1&0\\ 1&0&0\\ 0&0&0 \end{pmatrix} \right)
+.\] Considering those numbers as vector $\omega = (\omega_1, \omega_2, \omega_3) \in \mathbb{R}^3$, we obtain a Lie algebra isomorphism
+\[
+    (\mathbb{R}^3, \times) \cong (\so(3), [\cdot, \cdot])
+,\] where $\times$ is the vector cross product and $[A,B]=AB-BA$ is the usual matrix commutator.
 \end{eg}
+We summarize this discussion in a proposition and investigate $\SO(3)$ deeper.
+\begin{theorem}[Infinitesimal Rotation Algebra]
+    The Lie algebra $\so(3)$ corresponding to the Lie group $\SO(3)$ is the space of skew-symmetric, real, $3 \times 3$-matrices with basis $(\xi_1,\xi_2,\xi_3)$. The $\xi_i$ are called \textbf{infinitesimal generators} of $\so(3)$. There is a Lie algebra isomorphism
+    \[
+    \so(3) \cong \mathbb{R}^3
+    ,\] mapping $\mathbb{R}^3 \ni \omega \mapsto \sum \omega_i\xi_i \in \so(3)$.
+\end{theorem}
+\marginnote{Purposefully, we already chose notations fitting with the physical interpretation: The vector $\omega \in \mathbb{R}^3$ is an \emph{axis-angle vector}, where $\varpi := \frac{\omega}{\|\omega\|}$ defines the axis of rotation and $\|\omega\|$ defines the angle of rotation. If we consider a rigid body rotating at a point fixed in space, we can assign a coordinate frame of $\mathbb{R}^3$ to that body, rotating synchronous with it. The state of that frame at any time $t$ can then be described as a rotation of the initial system, hence as an element of $\SO(3)$ acting on a vector in $\mathbb{R}^3$. The infinitesimal generators of rotation with respect to the rotating frame are then elements of $\so(3)$. Additionally, if the body is free to move in space we add a stationary frame to describe the center of mass motion. The motion of the system is then a curve $t \mapsto \mathbb{R}^3 \times \SO(3)$. As of yet, we are devoid of a chart for $\SO(3)$, which will be needed to do practical calculations.}
+While $\so(3)$ is remarkably easy to parametrize, $SO(3)$ is much more complicated. We begin by stating a result demonstating the best case for charts on $SO(3)$.
+\begin{theorem}[Lusternik-Schnirelmann Theorem]
+    Let $M$ be a smooth compact manifold and $\text{crit}(M)$ be the minimum number of critical points a smooth function $f: M \to \mathbb{R}$ can have. Then, \[
+        \mathtt{LSC}(M) \leq \text{crit}(M)-1
+    ,\] where $\mathtt{LSC}$ denotes the Lusternik-Schnirelmann category.
+\end{theorem}
+This may seem weirdly abstract at first, but it is well-known that $\SO(3) \cong \mathbb{R}P^3$ as groups, and another result of Lusternik-Schnirelmann states that $\mathtt{LSC}(\mathbb{R}P^3)=5$. Hence, any smooth function on $\SO(3)$ has at least four critical points. This proves the following:
+\begin{corollary}[Maximal Atlas of $\SO(3)$]
+    A maximal atlas of $\SO(3)$ consists of at least four charts.
+\end{corollary}
+Our first attempt to obtain such a minimal chart will concern the question how much of a Lie group can be recovered from the linearized version at the origin - the Lie algebra. We need the notion of \emph{one-parameter subgroups}, which are just Lie group homomorphisms \[
+\gamma: (\mathbb{R}, +) \to G,
+,\] where $G$ is some Lie group. It turns out that these subgroups are precisely maximal integral curves of left-invariant vector fields on $G$ starting at $\id \in G$.
+\begin{definition}[Lie Exponential]
+   Let $G$ be a Lie group with corresponding Lie algebra $\mathfrak{g}$. The map 
+   \begin{align*}
+       \exp: \mathfrak{g} &\to G\\
+       X &\mapsto \exp(X):=\gamma_X(1)
+   \end{align*}
+   where $\gamma_X$ is the one-parameter subgroup generated by $X$ is called \textbf{(Lie) exponential}.
+\end{definition}
+Fortunately, this exponential coincides with the usual matrix exponential
+\[
+    \exp(A)=\sum_{k=0}^\infty \frac{A^k}{k!}
+\] for matrix Lie groups such as $\SO(3)$. Indeed, $\exp$ is smooth and non-singular at the identity. Hence, by the inverse function theorem $\exp$ is a diffeomorphism around a small enough neighbourhood of the identity (it can not be a global diffeomorphism since we know that $\so(3) \cong \mathbb{R}^3 \cancel{\cong} \SO(3)$). 
+\begin{theorem}[Rodrigues' Theorem]
+    Given an axis-angle rotation vector $\omega \in \mathbb{R}^3$ and setting $\theta = \| \omega \|$ as well as $\varpi = \frac{\omega}{\theta}$, we identify $\omega$ and $\varpi$ with their corresponding skew-symmetric matrices in $\so(3)$ as above. Then, the Lie exponential is given by \emph{Rodrigues Rotation Formula}
+    \begin{equation}
+        \exp(\omega) = \id + \frac{\sin \theta}{\theta} \omega + \frac{1-\cos \theta}{\theta^2} \omega^2.
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Writing an arbitrary axis-angle vector $\omega \in \mathbb{R}^3$ as $\omega = \theta \varpi$, we can use the isomorphism $\mathbb{R}^3 \cong \so(3)$ to identify $\varpi$ with its skew-symmetric matrix as above. This yields 
+    \[
+        \exp(\omega) = \sum_{k=0}^\infty \frac{(\theta \varpi)^k}{k!}
+    .\] Now, we calculate the charateristic polynomial of $\varpi$:
+    \[
+    p_\varpi(t)=\det(\varpi - t \cdot \id)= \det \begin{pmatrix} -t & - \varpi_1 & \varpi_2\\ \varpi_1 & -t & -\varpi_3\\ - \varpi_2 & \varpi_3 & t \end{pmatrix} = -(t^3+t)
+    \] where we used that $\sum \varpi_i^2 = 0$ as $\varpi$ is normalized. By the Cayley-Hamilton theorem, $p_\varpi(\varpi) = 0$. It follows that $\varpi^3 = - \varpi$. This means that the power series repeats after the third power with $\varpi^3 = - \varpi$, $\varpi^4 = - \varpi^2$ and $\varpi^5 = \varpi$, cycling like this indefinitely. Rearranging the matrix exponential, we obtain
+    \[
+        \exp(\omega) = \id + \left( \sum_{k=0}^\infty (-1)^k \frac{\theta^{2k+1}}{(2k+1)!}  \right) \varpi + \left( 1 - \sum_{k=1}^\infty (-1)^n \frac{\theta^{2k}}{(2k)!} \right) \varpi^2 
+    ,\] but this is nothing other than the trigonometric Taylor series of $\sin$ and $\cos$. Resubstituting $\varpi$ with $\omega$, we obtain our claim:
+    \[
+    \exp(\omega)=\id+\frac{\sin \theta}{\theta} \omega + \frac{1- \cos \theta}{\theta^2} \omega^2
+    .\] 
+\end{proof}
+With this explicit formula, we see that $\exp$ serves only as local chart, just like we predicted, since there are obvious degeneracies at $\theta = \pi$ and $\theta=0$. We conclude with our first minimal atlas.
+\begin{theorem}[Geodesic Polar Chart]
+    \marginnote{The name of this chart is not arbitrary: The Lie exponential conincides with the Geodesic exponential in this case. This means that exponential polar charts indeed describe the fastest path between an element of $\SO(3)$ and the identity, provided one stays in the domain where $\exp$ is a local diffeomorphism.}
+    The \emph{Geodesic Polar Chart} of $\SO(3)$ is the Lie exponential
+    \[
+        \exp: \{\Omega \in \so(3) \mid \| \Omega \| < \pi \} \to \SO(3) 
+    ,\] which is a proper chart with inverse
+    \[
+        \log: \SO(3) \setminus \{ R \in \SO(3) \mid \trace R = -1\} \to \so(3)
+    .\]
+\end{theorem}
+One can show that the main chart given by $\exp$ together with three maps composed of $\exp$ and a rotation around respectively one of the three spacial orientations by $\pi$ suffices to obtain an atlas.\\
+Now, we want to investigate another chart which takes a more direct approach. Knowing that $\SO(3)$ represents rotations in $\mathbb{R}^3$, we can describe any rotation by a combination of three rotations around (rotated) basis vectors. This gives rise to $12$ possible ways of decomposing a rotation into three basis rotations, each of the three being chrarcterized by an angle. These angles are called Euler angles, and they yield a minimal global atlas on $\SO(3)$. We will work with the $zy'z''$-convention, first rotating around $z$ by $\phi$, then around the rotated $y$-axis $y'$ by $\psi$, and finally around the rotated $z$-axis $z''$ by $\theta$. 
+\begin{theorem}[Euler Angle Chart]
+    \marginnote{For rotation matrices, we write $\sin x \equiv s_x$ and $\cos x \equiv c_x$.}
+    The map
+    \begin{align*}
+        \mathfrak{E}: T^3 &\to \SO(3)\\
+        (\phi, \psi, \theta) &\mapsto \begin{pmatrix} c_\phi c_\psi c_\theta- s_\phi s_\psi & - c_\phi c_\psi c_\theta - s_\phi s_\psi & s_\theta c_\psi \\ s_\psi s_\theta c_\phi + s_\phi c_\psi & -s_\psi c_\phi c_\theta + s_\phi c_\psi & s_\psi s_\theta \\ -s_\theta c_\phi & s_\phi s_\theta & c_\theta \end{pmatrix}
+    \end{align*}
+    restricts to four local charts covering $\SO(3)$.
+\end{theorem}
+It is noteworthy that this is really not a covering in the sense of topological spaces: The Euler angle map has singularities at which $\mathfrak{E}$ fails to be a local homeomorphism. This is called \emph{gimbal lock}. With this, we are ready to tackle the full three-dimensional magnetic system.
 \section{Ordinary Differential Equations}
 This section is just meant to quickly list the differential equations we will encounter later and give methods to solve them. In this, and only in this, chapter we will do separation of variables in ODEs by seemingly separating differentials of the form $\frac{dx}{dt}$.
 \subsection*{Autonomous ODE}
