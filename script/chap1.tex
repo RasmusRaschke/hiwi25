@@ -59,7 +59,7 @@ While it is quite surprising that such a simple system does not admit a closed-f
 
 \section{Three-dimensional System}
 \subsection{Lagrangian Equations of Motion}
-Now, we want to adress the more complicated problem of a three-dimensional, spherical, solid magnetic dipole moving on an inclined plane in earth's magnetic field. Following \cite{rundquist}, we are dropping the restriction of the plane being an incline and consider two-dimensional smooth submanifolds of $\mathbb{R}^2$ as subsurface for the rolling ball. The system is characterized fully by three coordinates $(q^1,q^2,q^3)\in \mathbb{R}^3$ describing the center-of-mass motion with respect to a fixed coordinate frame and three Euler angles $(\phi, \psi , \theta) \in T^3$ describing the rotation of the body coordinate system. Hence, the configuration space is given by \[
+We want to adress the more complicated problem of a three-dimensional, spherical, solid magnetic dipole moving on an inclined plane in earth's magnetic field. Following \cite{rundquist}, we are dropping the restriction of the plane being an incline and consider two-dimensional smooth submanifolds of $\mathbb{R}^2$ as subsurface for the rolling ball. The system is characterized fully by three coordinates $(q^1,q^2,q^3)\in \mathbb{R}^3$ describing the center-of-mass motion with respect to a fixed coordinate frame and three Euler angles $(\phi, \psi , \theta) \in T^3$ describing the rotation of the body coordinate system. Hence, the configuration space is given by \[
 Q = \mathbb{R}^3 \times \SO(3) 
 .\] Taking a path $t \mapsto (q^1(t),q^2(t),q^3(t), \phi(t), \psi(t), \theta(t))$, we obtain the linear kinetic energy
 \[
@@ -68,7 +68,7 @@ Q = \mathbb{R}^3 \times \SO(3)
 \begin{align*}
     T_\text{rot}(\phi, \psi, \theta, \dot{\phi}, \dot{\psi}, \dot{\theta}) &= \frac{I}{2} \|\boldsymbol{\omega}\|^2\\
                                                                        &= \frac{MR^2}{5} (- \dot{\psi} s_\phi + \dot{\theta}s_\psi c_\phi + \dot{\psi} c_\phi + \dot{\theta} s_\psi s_\phi + \dot{\phi} + \dot{\theta} c_\psi)
-.\end{align*} Assume that the hypersurface restricing the motion of the ball in $q^3$-direction is given by an implicit equation \[
+    \end{align*} where we wrote $\dot{\mathbf{q}}:=(\dot{q}^1,\dot{q}^2,\dot{q}^3)$ and $\boldsymbol{\omega}:=(\omega_1, \omega_2, \omega_3)$ for brevity. Assume that the hypersurface restricing the motion of the ball in $q^3$-direction is given by an implicit equation \[
 f(q^1(t), q^2(t))=q^3(t)
 .\] Then, the gravitational potential is just
 \[
@@ -78,4 +78,12 @@ f(q^1(t), q^2(t))=q^3(t)
     U_\text{em} (\phi,\psi,\theta)&= - \langle \mathbf{m}, \mathbf{B} \rangle= - mB \langle A_t \mathbf{z}_{t=0}, \mathbf{B} \rangle\\
                                   &= -m(c_\psi s_\theta B_1+ s_\psi s_\theta B_2 + c_\theta B_3).
 \end{align*} 
-
+The energies can be simplified by the rolling constraint, but doing so is more subtle than in the two-dimensional case. Our goal is to replace the cumbersome expression of $\omega_i$ in Eulerian angles by some function of the $q^i$. Setting $\omega=\|\boldsymbol{\omega}\|$, we know that the magnitude is constrained to be \[
+    \omega = \frac{\|\dot{\mathbf{q}}\|}{R}
+.\] Define the auxilliary function
+\[
+F(q^1,q^2,q^3) := q^3-f(q^1,q^2)
+.\] If the body rolls, $\boldsymbol{\omega}$ is perpendicular to the normal vector of the surface and the direction of rolling at all times. Since we know that our surface is given by $F$ implicitly, we know that the gradient field of $F$ is normal to the surface. Additionally, $\mathbf{q}$ points in the rolling direction by definition. This leads to
+\begin{align*}
+    \boldsymbol{\omega} &= \omega \cdot \left( \frac{\grad F}{\|\grad F\|} \times \frac{\dot{\mathbf{q}}}{\| \dot{ \mathbf{q}}\|}\right) = \frac{R}{\|\grad F\|} \cdot \left( \begin{pmatrix} - \partial_1 f \\ - \partial_2 f \\ 1 \end{pmatrix} \times \dot{\mathbf{q}}\right)
+\end{align*}
