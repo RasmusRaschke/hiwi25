@@ -66,24 +66,55 @@ Q = \mathbb{R}^3 \times \SO(3)
     T_\text{lin} (\dot{q}^1, \dot{q}^2, \dot{q}^3)=\frac{M}{2} \|\dot{\mathbf{q}}\|^2 
 \] and the rotational kinetic energy 
 \begin{align*}
-    T_\text{rot}(\phi, \psi, \theta, \dot{\phi}, \dot{\psi}, \dot{\theta}) &= \frac{I}{2} \|\boldsymbol{\omega}\|^2\\
-                                                                       &= \frac{MR^2}{5} (- \dot{\psi} s_\phi + \dot{\theta}s_\psi c_\phi + \dot{\psi} c_\phi + \dot{\theta} s_\psi s_\phi + \dot{\phi} + \dot{\theta} c_\psi)
-    \end{align*} where we wrote $\dot{\mathbf{q}}:=(\dot{q}^1,\dot{q}^2,\dot{q}^3)$ and $\boldsymbol{\omega}:=(\omega_1, \omega_2, \omega_3)$ for brevity. Assume that the hypersurface restricing the motion of the ball in $q^3$-direction is given by an implicit equation \[
+    T_\text{rot}(\phi, \psi, \theta, \dot{\phi}, \dot{\psi}, \dot{\theta}) &= \frac{I}{2} \|\boldsymbol{\omega}\|^2
+    \end{align*} where we wrote $\dot{\mathbf{q}}:=(\dot{q}^1,\dot{q}^2,\dot{q}^3)$ and $\boldsymbol{\omega}:=(\omega_1, \omega_2, \omega_3)$ for brevity.\marginnote{
+        In our case, we are interested in a very simple surface describing a ramp in the $(q^1,q^2)$-plane. The most naive way to describe this is to restrict the configuration space to be the right half-space \[
+        \mathbb{R}_+^3 = \left\{(x^1,x^2,x^3) \in \mathbb{R}^3 \mid x^2 \geq 0\right\} 
+        .\] Then, we can define a continuous function $f: \mathbb{R}^3_+ \to \mathbb{R}$ given by \[
+        f(q^2) := \begin{cases}\alpha q^2 + \beta &q^2 > \frac{\beta}{\alpha}\\0 &q^2 \leq \frac{\beta}{\alpha}\end{cases}
+        \] where $\alpha \in \mathbb{R}$ is the slope and $\beta \in \mathbb{R}$ is the maximal hight of the ramp. Clearly, this $f$ cannot be smooth at $q^2 = \frac{\beta}{\alpha}$ which will be a problem if we have to take directional derivatives later. While an ideal ramp will always suffer from a non-differentiable line parallel to the $q^1$-axis, we can replace it by the smooth function
+        \[
+            f_\delta(q^2):=\begin{cases}-\frac{\alpha x-\beta}{1-\exp(-\delta(\alpha x-\beta))} &q^2\neq \frac{\beta}{\alpha}\\ \frac{1}{\alpha} &q^2=\frac{\beta}{\alpha}\end{cases}
+        ,\] where for $\delta \to \infty$, we recover the ideal ramp with slope $\alpha$ and $q^2$-intersection $\beta$.
+    } Assume that the hypersurface restricing the motion of the ball in $q^3$-direction is given by an implicit equation \[
 f(q^1(t), q^2(t))=q^3(t)
-.\] Then, the gravitational potential is just
+.\] Then, the gravitational potential is
 \[
     U_\text{grav}(q^1,q^2)=M \cdot g \cdot f(q^1(t), q^2(t))
-.\] The magnetic moment of the ball is a vector $\mathbf{m} \in \mathbb{R}^3$ with $m := \|\mathbf{m}\|$ fixed in the rotating body frame but rotating from the view of the stationary frame. The magnetic field of the earth is a constant vector $\mathbf{B} \in \mathbb{R}^3$ with $B:=\|\mathbf{B}\|$. Assuming ideal magnetic dipole interaction, we need the scalar product $\langle \mathbf{m}, \mathbf{B}$ to get an expression for $U_\text{em}$ in Euler angles. For this, choose $(\phi_0, \psi_0, \theta_0)$ such that the body $z$-axis is aligned with the magnetic moment: $\mathbf{z} \perp \mathbf{m}$. Using that Euler angles are a local parametrization of $\SO(3)$, we can obtain the direction of the rotating $z$-axis at time $t$ by the action of the corresponding rotation matrix on $\mathbf{z}|_{t=0}$. The scalar product then decomposes into the easier form $mB\langle A_t(\phi, \psi, \theta) \mathbf{z}_{t=0}, \mathbf{B} \rangle$ with $A_t$ being a one-parameter subgroup corresponding to the chosen path, and we obtain
+.\]
+The magnetic moment of the ball is a vector $\mathbf{m} \in \mathbb{R}^3$ with $m := \|\mathbf{m}\|$ fixed in the rotating body frame but rotating from the view of the stationary frame. The magnetic field of the earth is a constant vector $\mathbf{B} \in \mathbb{R}^3$ with $B:=\|\mathbf{B}\|$. Assuming ideal magnetic dipole interaction, we need the scalar product $\langle \mathbf{m}, \mathbf{B} \rangle$ to get an expression for $U_\text{em}$ in Euler angles. For this, choose $(\phi_0, \psi_0, \theta_0)$ such that the body $z$-axis is aligned with the magnetic moment: $\mathbf{z} \perp \mathbf{m}$. Using that Euler angles are a local parametrization of $\SO(3)$, we can obtain the direction of the rotating $z$-axis at time $t$ by the action of the corresponding rotation matrix on $\mathbf{z}|_{t=0}$. The scalar product then decomposes into the easier form $mB\langle A_t(\phi, \psi, \theta) \mathbf{z}_{t=0}, \mathbf{B} \rangle$ with $A_t$ being a one-parameter subgroup corresponding to the chosen path, and we obtain
 \begin{align*}
     U_\text{em} (\phi,\psi,\theta)&= - \langle \mathbf{m}, \mathbf{B} \rangle= - mB \langle A_t \mathbf{z}_{t=0}, \mathbf{B} \rangle\\
-                                  &= -m(c_\psi s_\theta B_1+ s_\psi s_\theta B_2 + c_\theta B_3).
+                                  &= -m(c_\psi s_\theta B_1+ s_\psi s_\theta B_2 + c_\theta B_3) = U_\text{em}(\psi, \theta).
 \end{align*} 
-The energies can be simplified by the rolling constraint, but doing so is more subtle than in the two-dimensional case. Our goal is to replace the cumbersome expression of $\omega_i$ in Eulerian angles by some function of the $q^i$. Setting $\omega=\|\boldsymbol{\omega}\|$, we know that the magnitude is constrained to be \[
-    \omega = \frac{\|\dot{\mathbf{q}}\|}{R}
-.\] Define the auxilliary function
+The rolling constraint yields \[
+    \|\boldsymbol{\omega}\| = \frac{\|\dot{\boldsymbol{q}}\|}{R}
+\] and hence we can simplify \[
+T_\text{rot}(\boldsymbol{q})=\frac{I}{2R^2} \|\dot{\boldsymbol{q}}\| 
+,\]  eliminating the dependence on the Euler angles.\marginnote{
+    Note that while we can eliminate $\boldsymbol{\omega}$ completely, we may need to recover this vector if we aspire to animate the results. While we could just solve for the Euler angles, it is easiert to note that the rolling condition also guarantees that \[
+        \dot{\mathbf{q}} \perp \boldsymbol{\omega} \perp \mathbf{n}
+    ,\] where $\mathbf{n}$ is the surface normal. Defining an auxilliary function \[
+    F(\mathbf{q}):= q^3-f(q^1,q^2)
+    \] which is the implicit equation of the surface, we can obtain the normal as \[
+    \mathbf{n} = \frac{\grad F}{\| \grad F \|}
+.\] With this, $\boldsymbol{\omega}$ can be fully reconstructed from the cartesian part of the configuration space:
 \[
-F(q^1,q^2,q^3) := q^3-f(q^1,q^2)
-.\] If the body rolls, $\boldsymbol{\omega}$ is perpendicular to the normal vector of the surface and the direction of rolling at all times. Since we know that our surface is given by $F$ implicitly, we know that the gradient field of $F$ is normal to the surface. Additionally, $\mathbf{q}$ points in the rolling direction by definition. This leads to
-\begin{align*}
-    \boldsymbol{\omega} &= \omega \cdot \left( \frac{\grad F}{\|\grad F\|} \times \frac{\dot{\mathbf{q}}}{\| \dot{ \mathbf{q}}\|}\right) = \frac{R}{\|\grad F\|} \cdot \left( \begin{pmatrix} - \partial_1 f \\ - \partial_2 f \\ 1 \end{pmatrix} \times \dot{\mathbf{q}}\right)
-\end{align*}
+    \boldsymbol{\omega} = \frac{\|\dot{\mathbf{q}}\|}{R} \left( \frac{\grad F}{\|\grad F\|} \times \dot{\mathbf{q}} \right)
+.\] 
+} Using $I=\frac{2MR^2}{5}$ for an ideal ball, we can denote the Lagrangian as 
+\begin{equation}
+    \begin{split}
+        \mathcal{L}(\boldsymbol{q}, \dot{\boldsymbol{q}}, \psi, \theta) &= U_\text{grav} + U_\text{em} - T_\text{kin} - T_\text{rot} \\
+                                                                        &= Mgf(q^1, q^2) + -m(c_\psi s_\theta B_1 + s_\psi s_\theta B_2 + c_\theta B_3) - \frac{7M}{10} \|\dot{\boldsymbol{q}}\|^2
+\end{split}
+\end{equation}
+This yields five Lagrangian equations of the second kind:
+\begin{align}
+    0 &= \frac{7M}{5}\dot{q}^1 + Mg \partial_1 f = \frac{7M}{5} \dot{q}^1\\
+    0 &= \frac{7M}{5}\dot{q}^2 + Mg \partial_2 f \approx \frac{7M}{5}\dot{q}^2 + \alpha\\
+    0 &= \frac{7M}{5}\dot{q}^3\\
+0 &= m(-s_\psi s_\theta B_1 + c_\psi s_\theta B_2)\\
+    0 &= m(c_\psi s_\theta B_1 + s_\psi c_\theta B_2 - s_\theta B_3) 
+\end{align}
+where we took the limit $\delta \to \infty$ in $f$ away from the non-differentiable points.

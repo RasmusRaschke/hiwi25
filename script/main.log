@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.12)  14 OCT 2025 18:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.13)  26 OCT 2025 01:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2009,6 +2009,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
 [22]
+Package marginnote Info: Margin note 29.1 is on absolute page 29 on input line 79.
+Package marginnote Info: xpos seems to be 329.25092pt on input line 79.
+Package marginnote Info: Margin note 29.2 is on absolute page 30 on input line 105.
+Package marginnote Info: xpos seems to be 439.73912pt on input line 105.
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2051,18 +2056,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41877 strings out of 467886
- 806935 string characters out of 5434045
- 1741704 words of memory out of 5000000
- 69252 multiletter control sequences out of 15000+600000
- 666801 words of font info for 269 fonts, out of 8000000 for 9000
+ 41891 strings out of 467886
+ 807140 string characters out of 5434045
+ 1747754 words of memory out of 5000000
+ 69260 multiletter control sequences out of 15000+600000
+ 666830 words of font info for 269 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  93i,17n,105p,1193b,1315s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbras8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmb10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hftl10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmo10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmo8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbsr8.pfb>
-Output written on main.pdf (30 pages, 400269 bytes).
+Output written on main.pdf (30 pages, 408551 bytes).
 PDF statistics:
- 489 PDF objects out of 1000 (max. 8388607)
- 397 compressed objects within 4 object streams
- 158 named destinations out of 1000 (max. 500000)
+ 497 PDF objects out of 1000 (max. 8388607)
+ 404 compressed objects within 5 object streams
+ 164 named destinations out of 1000 (max. 500000)
  58484 words of extra memory for PDF output out of 61914 (max. 10000000)
 
