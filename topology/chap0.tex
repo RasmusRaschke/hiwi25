@@ -1,0 +1,101 @@
+\chapter{Preliminaries}
+\label{chap:matint}
+\vspace*{-0.9cm}
+
+% \startcontents[chapters]
+% \printcontents[chapters]{}{1}{}
+
+The goal of this text is nothing more but a short \textbf{very informal} introduction to algebraic topology, focussed on introducing useful techniques from maths for determining algebraic invariants which are of physical significance.
+
+\section{Homeomorphisms}
+In the past, I noticed that words as \emph{homeomorphism}, \emph{diffeomorphism}, \emph{homotopy equivalence} and \emph{homotopy} get mixed up, so I want to make their differences clear and motivate them. I think this becomes especially clear if one considers categories and functors between them to understand those definitions, but we can be more explicit. We start with a topological setup:
+\begin{definition}[Topological Space]
+\marginnote{
+    One should think of topological spaces as generalizations of metric spaces. In metric spaces like $\mathbb{R}^n$, open subsets are determined by the Euclidean metric. If one thinks about the properties such open subsets satisfy, (T1)-(T3) are almost immediate.
+}
+    A \textbf{topology} on a set $X$ is a family $\mathcal{T}$ of subsets of $X$ such that:
+    \begin{enumerate}[({T}1)]
+        \item $X \in \mathcal{T}$ and $\emptyset \in \mathcal{T}$
+        \item If $I$ is an arbitrary indexing family and $\forall i \in I: U_i \in \mathcal{T}$, we also have $$\bigcup_{i \in I} U_i \in \mathcal{T}$$
+        \item For all $U,V \in \mathcal{T}$, $U \cap V \in \mathcal{T}$.
+    \end{enumerate}
+    Then, we call $\mathcal{T}$ \textbf{topology} on $X$ and $(X,\mathcal{T})$ \textbf{topological space}. The sets $U \in \mathcal{T}$ are called \textbf{open sets} of $X$.
+\end{definition}
+\begin{eg}
+    There are many important examples:
+    \begin{itemize}
+        \item Every metric space is a topological space by taking the topology to be induced by the metric. This makes $\mathbb{R}^n$ and $\mathbb{C}^n$ topological spaces in particular. Since subsets of metric spaces are metric, those are also topological spaces.
+        \item \marginnote{Note two things here: Firstly, being a topological space is really not difficult. However, having an actually useful topology is a whole different story. Secondly, topologies are clearly not unique: We can give $\mathbb{R}^n$ the metric topology, but also the discrete or the indiscrete topology. The obvious choice is of course the first one, which is why we call it canonical.} Every set can be turned into a topological space by declaring all possible subsets of that set to be open. This is called the \textbf{discrete topology}.
+        \item Similarly, we can take any set $X$ and define a topology by saying $X$ and $\emptyset$ are the only open sets. This is the \textbf{indiscrete topology}.  
+    \end{itemize}
+\end{eg}
+In physics, one often only deals with topologies induced by a metric, so feel free to take $\mathbb{R}^n$ as playground for imagination. Now we have sets with new structure, but there is no reason why a function $f: X \to Y$ should preserve this stucture, i.d. there is no reason for $f^{-1}(V)$ to be open in $X$ even if $V$ is open in $Y$.
+\begin{definition}[Continuity]
+    A function $f: X \to Y$ between topological spaces is continuous if for all open subsets $V$ of $Y$, $f^{-1}(V)$ is open in $X$. 
+\end{definition}
+For the usual metric spaces, this agrees with the $epsilon$-$delta$-definition of continuity.
+For two sets $A,B$, we said that $A \cong B$, or $A$ isomorphic to $B$, if there is a bijective map between $A$ and $B$. We want to extend this to topological spaces with their additional structure:
+\begin{definition}[Homeomorphism]
+    A function $f: (X, \mathcal{T}) \to (Y, \mathcal{T}')$ is called \textbf{homeomorphism} if $f$ is bijective and $f$ as well as $f^{-1}$ are continuous. In this case, we write $(X, \mathcal{T}) \cong (Y, \mathcal{T}')$ and say that $X$ and $Y$ are \textbf{homeomorphic} or \textbf{isomorphic as top. spaces}.
+\end{definition}
+This means when we think about topological spaces, continuous functions with continuous inverses are all we could ask for: They preserve all topological structure. Intuitively, one has to take care of two things: The map cannot tear or crease as it is continuous, and it has to be bijective, so no information should be lost.
+\begin{eg}
+    \begin{itemize}
+        \item Every open interval $(a,b) \subseteq \mathbb{R}$ is homeomorphic to $\mathbb{R}$ itself. We can always blow it up or shrink it down as necessary.
+        \item Charts of manifolds are homeomorphisms, so every manifold is \textbf{locally} homeomorphic to $\mathbb{R}^n$.
+        \item A point $x \in \mathbb{R}$ can never be homeomorphic to some open interval in $\mathbb{R}$ since there cannot exist a bijection between a finite and an uncountably infinite set. Similarly, $\mathbb{S}^1$ cannot be homeomorphic to an open interval as $\mathbb{S}^1$ is compact while open intervals are not.
+    \end{itemize}
+\end{eg}
+\section{Algebraic Invariants and the Fundamental Group}
+Homeomorphisms are great. They preserve all possible topological structure. However, they are also often very difficult or do not exist at all between two given spaces. Therefore, we want to look for means to compare topological spaces that are less strict, but still fine enough to be actually useful. In practice, we are looking for algebraic invariants: Informally speaking, algebraic invariants are algebraic objects we can assign to a topological space which are preserved under some kind of map. This makes it possible to characterize spaces in regard to some designated property, stripping the space of all unnecessary data for the problem at hand. Those invariants often come in the form of special numbers (e.g. Euler characteristic) or groups.
+
+\begin{definition}[Path]
+    \marginnote{One can think of continuous maps $\mathbb{S}^1 \to X$ as throwing lassos into the space.}
+    Let $X$ be a topological space. A \textbf{path} in $X$ is a continuous map $$\gamma: [0,1] \to X.$$ We say that $\gamma$ is closed if $\gamma(0)=\gamma(1)$, or equivalently, $\gamma$ is a continuous map $\mathbb{S}^1 \to X$.
+\end{definition}
+Our goal is to detect fundamental properties of spaces with paths. One can immediately think of holes: Somehow, the main difference between the torus and a sphere should be that the torus has a hole, while the sphere does not. Which kind of map does preserve at least holes?
+\begin{definition}[Path homotopy]
+    Two paths $\gamma, \omega: [0,1] \to X$ are \textbf{path-homotopic} if $\gamma(0)=\omega(0)=:x_0$, $\gamma(1)=\omega(1)=:x_1$, and there is a continuous map $$H: [0,1] \times [0,1] \to X$$ with:
+    \begin{itemize}
+        \item $H(s,0)=H_0(s)=\gamma(s)$
+        \item $H(s,1)=H_1(s)=\omega(s)$
+        \item $H(0,t)=H_t(0)=x_0$
+        \item $H(1,t)=H_t(1)=x_1$
+    \end{itemize}
+    We call $H$ a \textbf{path homotopy} and write $\gamma \simeq \omega$.
+\end{definition}
+\begin{eg}
+    Consider the punctured plane $\mathbb{R}^2 \setminus \{0\}$. The paths $\gamma_1(t):=(\cos \pi t, \sin \pi t)$ and $\gamma(t):=(\cos \pi t, n \cdot \sin \pi t)$ are path-homotopic for all $n > 0$. One just connects $\gamma_1$ and $\gamma_2$ by straight lines and slides all points along them. This is a homotopy. However, $\gamma_1$ is never homotopic to $\gamma_3(t):=(\cos \pi t, - \sin \pi t)$, as every homotopy would have to pass through the origin, which was removed by assumption.
+\end{eg}
+This should give a hunch about why homotopies discern certain paths. We are ready to define the first algebraic invariant:
+\begin{definition}[Fundamental Group]
+    Let $X$ be a topological space. The \textbf{fundamental group} of $X$ with base point $x_0 \in X$, written $\pi_1(X,x_0)$, is given by homotopy classes of closed paths $\mathbb{S}^1 \to X$.
+\end{definition}
+So if two paths have a homotopy between them, the fundamental group does treat them as the same path. Why is this a group? The proof is a bit annoying, but we do some heuristics: Two paths can be concatenated to a new path if the endpoint of the first path is the starting point of the second path. The inverse of a path is given by going backwards, i.e. reparametrizing $t \mapsto -t$, and the identity is just standing around, i.e. the constant path $\gamma(t)=x_0$.
+We still need to know when two spaces are "identical enough" to have the same fundamental group.
+\begin{definition}[Homotopy Equivalence]
+    Two topological spaces $X$ and $Y$ are said to be \textbf{homotopy equivalent} if there are maps $f: X \to Y$ and $g: Y \to X$ such that $f \circ g  \simeq \id_Y$ and $g \circ f \simeq \id_X$, where $\simeq$ means that there exists a homotopy (not necessarily a path-homotopy). We write $X \simeq Y$.
+\end{definition}
+So this is our criterion for the fundamental group to be equal:
+\begin{prop}
+ Let $X,Y$ be topological spaces, $x_0 \in X$, $y_0 \in Y$. The fundamental groups are isomorphic $$\pi_1(X,x_0) \cong \pi_1(Y,y_0)$$ if one of the following conditions holds:
+ \begin{itemize}
+     \item $X$ and $Y$ are homeomorphic.
+     \item $X$ and $Y$ are homotopy equivalent. 
+ \end{itemize}
+\end{prop}
+\begin{eg}
+    Every homeomorphism gives rise to a homotopy equivalence as the first one is much stronger, like we discussed. But when are homotopy eqivalences not homeomorphisms? This occurs often because of failure of bijectivity. One of the funniest examples is that the letter X and the letter Y are homotopy equivalent, but not homeomorphic. The equivalence is given by shortening one of the spikes of $X$ to the center of the letter X. This maps the letter X to Y. We map Y to X by mapping the three spikes of Y to three out of four spikes of X. Performing these moves in succession is just the identity, we end up with either X or Y. But the maps are very clearly non-surjective and non-injective.
+\end{eg}
+One should be careful. So far, this seems very intuitive, but actually calculating the fundamental group directly is a mess, even for such well-behaved spaces as $\mathbb{S}^1$. We will need some machinery to access $\pi_1$. However, in general it can be extremely difficult to calculate $\pi_1$ for some given space.
+\section{Homology}
+If $\pi_1$ is to complicated, we could try to simplify it as a group. $\pi_1$ is pretty clearly non-abelian, so $\gamma_1 \star \gamma_2 \neq \gamma_2 \star \gamma_1$ in general. What happens if we just force all non-commuting paths to commute?\marginnote{This is done in group theory by abelianizing: We take the quotient of the non-abelian group by the subgroup generated by all elements of the form $aba^{-1}b^{-1}$.} Unfortunately, this is a bit more involved than defining $\pi_1$, but in return we get directly all homology groups, not only the first one.
+We denote the $n$-simplex by $\Delta^n$. This is just a hypertriangle, if one wants to imagine it like that: For $n=1$, we have a point. For $n=2$, we have a straigt line, i.e. the interval $[0,1]$. For $n=3$, we have a filled-out triangle. For $n=4$, we have a filled-out tetrahedron, and so on. Given a top. space $X$, a \textbf{singular n-simplex} is a continuous map $$\sigma: \Delta^n \to X$$. There is a map $\partial_n: \Delta^n \to \Delta^{n-1}$ for any $n$ which delets the interior of the $n$-simplex, leaving a sum of $n-1$-simplices. \marginnote{Take $\Delta^3$. The boundary consists of four filled-out triangles, so a formal sum of four $\Delta^2$, as claimed.} We call this the \textbf{boundary operator}.
+\begin{definition}[Homology]
+   The $n$-th homology group is given by 
+   $$
+   H_n(X):=\ker(\partial_n) / \text{im}(\partial_{n+1}).
+   $$
+\end{definition}
+What does this mean? We take the kernel of the $n$-th boundary map, so everything that gets mapped to zero by $\partial_n$. Thinking in $n=2$, so paths, this means that paths without any boundary are in the kernel. This are precisely the closed paths, since an open path has its two endpoints as boundary. What is the image of $\partial_{n+1}$? This consists of paths which are boundaries of "deformed" triangles in $X$. Take for example the torus: The path wrapping around the meridian cannot be a boundary since there is no room in between the hole to have a $3$-simplex with the path as boundary. So this element is in $H_2(T)$. Same goes for the longitudinal path. The image consists of paths not wrapping around one of the holes, these are considered trivial and removed from $H_2(T)$. So we have two generators in $H_2(T)$ of infinite order. This yields heuristically $$H_2(T) \cong \mathbb{Z} \times \mathbb{Z}.$$
+In higher dimensions, there is not really a nice intuition anymore. However, notice the difference to $\pi_1$: We do not demand any base point of our space. In fact, if one is concerned with counting holes of spaces, $H_n(X)$ is the way to go.
