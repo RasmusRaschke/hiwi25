@@ -9,12 +9,13 @@ import odes as ode
 ###Parameters###
 R = 0.635  # radius
 M = 10  # mass
-m = 1090.0  # dipole moment
-alpha = -1  # slope
+m = .0  # dipole moment
+alpha = -100  # slope
 g = 981.0  # gravitational acceleration
-B1, B2, B3 = .0, .1, 0.0  # earth magnetic field
+B1, B2, B3 = .0, .0, 0.0  # earth magnetic field
 A1, A2 = 0.0, 0.0  # constants of integration
-t0, t1, dt = .0, 1.0, .00001 #time in seconds
+t0, t1, dt = .0, 1, .0001 #time in seconds
+gamma = .0 #damping coefficient
 
 
 ###Quaternion Normalizer, input quaternion as numpy array###
@@ -27,9 +28,9 @@ def norm(quat):
 
 ###Initial Data with normalized quaternion###
 pos0 = np.array([0.0, 0.0])
-quat0 = np.array([1.0, 0.0, 0.0, 0.0])
+quat0 = np.array([1.0, 0.00, .00, 0.0])
 quat0 = norm(quat0)
-vel0 = np.array([0.0, 0.01, 0.0, 0.0])
+vel0 = np.array([.0, 0.00, .0, 0.0])
 state0 = np.concatenate((pos0, quat0, vel0))
 
     
@@ -45,9 +46,11 @@ def equations(t, X, Y, Q0, Q1, Q2, Q3, Vq0, Vq1, Vq2, Vq3, radius, mass, dipole,
     f[7] = ode.ddQ1(t, Q0, Q1, Q2, Q3, Vq0, Vq1, Vq2, Vq3, radius, mass, dipole, slope, grav, field1, field2, field3, const1, const2)
     f[8] = ode.ddQ2(t, Q0, Q1, Q2, Q3, Vq0, Vq1, Vq2, Vq3, radius, mass, dipole, slope, grav, field1, field2, field3, const1, const2)
     f[9] = ode.ddQ3(t, Q0, Q1, Q2, Q3, Vq0, Vq1, Vq2, Vq3, radius, mass, dipole, slope, grav, field1, field2, field3, const1, const2)
+    #Rayleigh dissipation
+    if gamma > 0.0:
+        f[0] -= (gamma / M) * ode.dX(t, Q0, Q1, Q2, Q3, Vq0, Vq1, Vq2, Vq3, radius, mass, dipole, slope, grav, field1, field2, field3, const1, const2)
+        f[1] -= (gamma / M) * ode.dY(t, Q0, Q1, Q2, Q3, Vq0, Vq1, Vq2, Vq3, radius, mass, dipole, slope, grav, field1, field2, field3, const1, const2)
     return f
-
-
 
 def rk4(state0, t0, t1, dt, radius, mass, dipole, slope, grav, field1, field2, field3, const1, const2):
     time = np.arange(t0, t1+dt, dt)
@@ -65,11 +68,6 @@ def rk4(state0, t0, t1, dt, radius, mass, dipole, slope, grav, field1, field2, f
         q = f_step[2:6]
         q /= np.linalg.norm(q)
         f_step[2:6] = q
-        '''
-        v = f_step[6:10]
-        v -= np.dot(q, v) * q
-        f_step[6:10] = v
-        '''
         state[i] = f_step
     return time, state
 
