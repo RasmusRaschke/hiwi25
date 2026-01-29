@@ -428,6 +428,11 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 OUTPUT main.bcf
+INPUT main.bbl
+INPUT ./main.bbl
+INPUT ./main.bbl
+INPUT ./main.bbl
+INPUT main.bbl
 INPUT ./main.out
 INPUT ./main.out
 INPUT main.out
@@ -565,11 +570,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.t
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm5.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/ebmr8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/ebmo8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/ot1cmtl.fd
@@ -580,6 +580,11 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmtl10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmtl10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmtl10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmtl10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
 INPUT ./chap1.tex
 INPUT ./chap1.tex
 INPUT chap1.tex
@@ -594,6 +599,10 @@ INPUT ./figures/2dramp.tex
 INPUT figures/2dramp.tex
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryangles.code.tex
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryangles.code.tex
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/t1cmtl.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/t1cmtl.fd
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/t1cmtl.fd
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/ebtl10.tfm
 INPUT main.aux
 INPUT ./figures/2dramp.aux
 INPUT ./figures/2dramp.aux
@@ -627,3 +636,4 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmo8.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmr8.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbsr8.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbtl10.pfb

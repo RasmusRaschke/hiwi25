@@ -10,20 +10,20 @@ import os
 M      = 8.15                           # mass of the ball
 m      = 1090.0                         # magnetic dipole modulus
 R      = 0.635                          # radius of the ball
-alpha  = .2                           # slope of the incline 
+alpha  = 0.2                           # slope of the incline 
 g      = 981                            # gravitational acceleration
-B      = np.array([0.0, 0.25, 0.1])    # magnetic field B=(B1,B2,B3)
+B      = np.array([0.0, 0.00, 0.05])    # magnetic field B=(B1,B2,B3)
 mu     = np.array([m,0,0])              # magnetic dipole moment
 
 #####---Initial Values---#####
 x0, y0 = 0.0, 0.0                       # initial position
-vx0, vy0 = 0.0, 0.0                     # initial linear velocity
+vx0, vy0 = 0.0, 50.0                     # initial linear velocity
 s0 = 0.0                                # initial spin
 q0 = np.array([1.0,0.0,0.0,0.0])        # initial orientation
 
 #####---Integrator---#####
 t0, t1 = 0.0, 10.0                      # start and end time
-dt = .002                               # timestep
+dt = .0005                               # timestep
 rk4 = True                             # Runge-Kutta 4 or simple differential?
 save = True                            # Save plots?
 output_dir = os.getcwd()                
