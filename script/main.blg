@@ -1,17 +1,18 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'main.blg'
-[38] biber:340> INFO - === Thu Jan 29, 2026, 22:00:23
-[48] Biber.pm:420> INFO - Reading 'main.bcf'
-[87] Biber.pm:994> INFO - Found 2 citekeys in bib section 0
-[95] Biber.pm:4463> INFO - Processing section 0
-[102] Biber.pm:4654> INFO - Looking for bibtex file 'bibliography.bib' for section 0
-[102] bibtex.pm:1713> INFO - LaTeX decoding ...
-[108] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
-[131] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[131] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[131] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[131] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[132] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[133] bbl.pm:779> INFO - Output to main.bbl
-[133] Biber.pm:131> WARN - I didn't find a database entry for 'rundquist' (section 0)
-[133] Biber.pm:133> INFO - WARNINGS: 1
+[43] biber:340> INFO - === Wed Feb 11, 2026, 22:27:23
+[54] Biber.pm:420> INFO - Reading 'main.bcf'
+[97] Biber.pm:994> INFO - Found 3 citekeys in bib section 0
+[107] Biber.pm:4463> INFO - Processing section 0
+[114] Biber.pm:4654> INFO - Looking for bibtex file 'bibliography.bib' for section 0
+[115] bibtex.pm:1713> INFO - LaTeX decoding ...
+[120] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
+[146] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[146] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[146] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[146] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[148] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[149] bbl.pm:779> INFO - Output to main.bbl
+[149] Biber.pm:131> WARN - I didn't find a database entry for 'rundquist' (section 0)
+[149] Biber.pm:131> WARN - I didn't find a database entry for '.' (section 0)
+[149] Biber.pm:133> INFO - WARNINGS: 2

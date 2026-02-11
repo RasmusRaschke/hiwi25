@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.13)  29 JAN 2026 23:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.13)  12 FEB 2026 00:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1380,6 +1380,13 @@ Package biblatex Info: ... file 'main.bbl' found.
 
 Package biblatex Warning: The following entry could not be found
 (biblatex)                in the database:
+(biblatex)                .
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
 (biblatex)                rundquist
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
@@ -1420,12 +1427,12 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
 Couldn't patch \deferred@thm@head!
-<frontpage/front.pdf, id=63, 597.50829pt x 845.0471pt>
+<frontpage/front.pdf, id=67, 597.50829pt x 845.0471pt>
 File: frontpage/front.pdf Graphic file (type pdf)
 <use frontpage/front.pdf>
 Package pdftex.def Info: frontpage/front.pdf  used on input line 48.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
-<frontpage/front.pdf, id=65, page=1, 597.50829pt x 845.0471pt>
+<frontpage/front.pdf, id=69, page=1, 597.50829pt x 845.0471pt>
 File: frontpage/front.pdf Graphic file (type pdf)
 <use frontpage/front.pdf, page 1>
 Package pdftex.def Info: frontpage/front.pdf , page1 used on input line 48.
@@ -2061,7 +2068,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
-[25])
+[25]
+
+LaTeX Warning: Citation '.' on page 26 undefined on input line 123.
+
+Package marginnote Info: Margin note 32.1 is on absolute page 32 on input line 127.
+Package marginnote Info: xpos seems to be 338.34256pt on input line 127.
+Package marginnote Info: Margin note 32.2 is on absolute page 33 on input line 141.
+Package marginnote Info: xpos seems to be 169.8855pt on input line 141.
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2071,6 +2086,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
 
 [26]
+Package marginnote Info: Suggest that margin note 33.1 will be on
+(marginnote)             absolute page 33.
+(marginnote)             This may be wrong on input line 162.
+Package marginnote Info: xpos seems to be \@mn@currxpos  on input line 162.
+Package marginnote Info: Margin note 33.2 is on absolute page 33 on input line 162.
+Package marginnote Info: xpos seems to be 71.45963pt on input line 162.
+Package marginnote Info: Margin note 33.3 is on absolute page 33 on input line 171.
+Package marginnote Info: xpos seems to be 80.97179pt on input line 171.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.0pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
+
+[27])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.0pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.0pt}.
+
+[28]
 LaTeX Font Info:    Trying to load font information for T1+cmtl on input line 59.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/t1cmtl.fd
 File: t1cmtl.fd 2005/04/13 v8.1 (WaS)
@@ -2081,7 +2123,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 
-[27
+[29
 
 ] (./main.aux (./figures/2dramp.aux))
  ***********
@@ -2089,25 +2131,25 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-05-26>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5E0FA4E3A920D6B5E8B04E630BF18632;2580.
+(rerunfilecheck)             Checksum: 54BE867F4020217632B72D70A0BAEB25;2823.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41990 strings out of 467886
- 809089 string characters out of 5434045
- 1748181 words of memory out of 5000000
- 69329 multiletter control sequences out of 15000+600000
- 667404 words of font info for 273 fonts, out of 8000000 for 9000
+ 42005 strings out of 467886
+ 809256 string characters out of 5434045
+ 1748253 words of memory out of 5000000
+ 69335 multiletter control sequences out of 15000+600000
+ 667521 words of font info for 275 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 93i,17n,105p,1193b,1528s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,19n,105p,1193b,1528s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbras8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmb10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hftl10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmo10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmo8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbsr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbtl10.p
 fb>
-Output written on main.pdf (33 pages, 441648 bytes).
+Output written on main.pdf (35 pages, 451164 bytes).
 PDF statistics:
- 549 PDF objects out of 1000 (max. 8388607)
- 451 compressed objects within 5 object streams
- 182 named destinations out of 1000 (max. 500000)
- 59020 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 565 PDF objects out of 1000 (max. 8388607)
+ 465 compressed objects within 5 object streams
+ 187 named destinations out of 1000 (max. 500000)
+ 59028 words of extra memory for PDF output out of 61914 (max. 10000000)
 

@@ -58,7 +58,7 @@ The derived Lagrangian is not very abundant in symmetries. As $\mathcal{L}$ is a
 While it is quite surprising that such a simple system does not admit a closed-form analytic solution, we gain some first insight in the general usefulness of the Lagrangian formalism to derive equations of motion. However, our hope to solve the more complicated three-dimensional system is very much reduced, expecially since the three-dimensional rolling constraint is not always semi-holonomic.
 
 \section{Three-dimensional System}
-\subsection{Lagrangian Equations of Motion}
+\subsection{Euler-Lagrangian Mechanics}
 We want to adress the more complicated problem of a three-dimensional, spherical, solid magnetic dipole moving on an inclined plane in earth's magnetic field. Following \cite{rundquist}, we are dropping the restriction of the plane being an incline and consider two-dimensional smooth submanifolds of $\mathbb{R}^2$ as subsurface for the rolling ball. The system is characterized fully by three coordinates $(q^1,q^2,q^3)\in \mathbb{R}^3$ describing the center-of-mass motion with respect to a fixed coordinate frame and three Euler angles $(\phi, \psi , \theta) \in T^3$ describing the rotation of the body coordinate system. Hence, the configuration space is given by \[
 Q = \mathbb{R}^3 \times \SO(3) 
 .\] Taking a path $t \mapsto (q^1(t),q^2(t),q^3(t), \phi(t), \psi(t), \theta(t))$, we obtain the linear kinetic energy
@@ -117,4 +117,72 @@ This yields five Lagrangian equations of the second kind:
 0 &= m(-s_\psi s_\theta B_1 + c_\psi s_\theta B_2)\\
     0 &= m(c_\psi s_\theta B_1 + s_\psi c_\theta B_2 - s_\theta B_3) 
 \end{align}
-where we took the limit $\delta \to \infty$ in $f$ away from the non-differentiable points.
+where we took the limit $\delta \to \infty$ in $f$ away from the non-differentiable points.\\
+Unfortunately, the high non-linear nature of the equations makes simulations very difficult, so we considered another approach.
+\subsection{Non-Holonomic Mechanics: The Rigid Ball}
+We follow \cite[Bloch]. Consider a perfect homogeneous solid ball of mass $M$, radius $R$, and inertia scalar $I=\frac{2}{5}MR^2$ rolling without slipping on an incline of slope $\alpha \in \mathbb{R}$. Write $r = (x,y,z)^\top \in \mathbb{R}^3$ for the bodies inertial coordinates and $P \in \SO(3)$ for the rotational coordinates, $\Omega=(\Omega_1,\Omega_2,\Omega_3)^\top$ for the bodies inertial rotational velocity, and $\omega = (\omega_1,\omega_2,\omega_3)^\top$ for the rotational velocity in the body frame. Furthermore, given a vector $v=(v_1,v_2,v_3)^\top \in \mathbb{R}^3$, we define the associated cross-product operator  \[
+    \hat{v}: \mathbb{R}^3 \to \mathbb{R}^3
+\] as matrix operator \[
+\marginnote{Note that this matrix is skew-symmetric. Strictly speaking, this operator arises by the isomorphism $\so(3) \cong \mathbb{R}^3$.}
+\hat{v}:=
+\begin{pmatrix}
+    0 & -v_3 & v_2 \\ v_3 & 0 & - v_1\\ -v_2 & v_1 & 0
+\end{pmatrix}
+.\]
+Denote by $(e_1,e_2,e_3)$ the canonical Euclidean basis of $\mathbb{R}^3$. Our goal is to derive analytical equations of motion for $r(t)$ and $P(t)$ under the influence of gravity $U=Mge_3$. The incline is described as a zero set of $F(y,z)=z-\alpha y$, yielding the surface normal field \[
+    n= \frac{\grad F}{\|\grad F\|} = \frac{(0,-\alpha,1)}{\sqrt{\alpha^2+1}}
+.\] 
+The Lagrangian of this system is evidently given as
+\begin{equation}
+    \mathcal{L}=T-U=\frac{M}{2} \|\dot{r} \|^2 + \frac{I}{2} \|\Omega\|^2 - Mgz.
+\end{equation}
+The virtual displacements are $\delta r$ and $\delta P$. Since a virtual rotation is induced by the cross product on $\so(3)$, we can introduce the virtual rotation vector $\delta \theta$ such that $\delta P = \widehat{\delta \theta}(P)$. It is very useful to split the rotational degree of freedoms into parts normal and tangential to the incline. Write \[
+    \marginnote{Physically, this reflects that we expect the rotation around the axis normal to the plane to be conserved as it does not influence the rolling. One can also think about this in terms of Noethers' Theorem since symmetry in this direction is unbroken.}
+\Omega = \Omega_\perp n + \Omega_\|
+\] with $\Omega_\perp = \langle \Omega,n  \rangle$ and $\Omega_\| = \Omega - \Omega_\perp n$. The same splitting also applies to the angular variation \[
+\delta \theta = \delta \theta_\perp n+\delta \theta_\|
+.\] Since the ball rolls without slipping, we get the constraint \[
+\dot{r}=R \Omega \times n
+.\] 
+This implies that the admissible variations are resticted by \[
+    \delta r = R \delta \theta \times n = R (\delta \theta_\perp n + \delta \theta_\|) \times n = R \delta \theta_\| \times n  = R \widehat{\delta \theta_\|}(n)
+.\]
+With this, we can either do a variation of $\mathcal{L}$ or use the d'Alembertian principle directly since the forces are easily derived as \[
+    F_r=-M \ddot{r} - Mge_3
+\] and
+\[
+    F_\theta=-I \dot{\Omega}
+.\] 
+Now we calculate virtual work under the assumption of d'Alembert's principle:
+\begin{align*}
+    \marginnote{We use multiple identities: Firstly, $\langle a,b \times c  \rangle = \langle b,c \times a  \rangle$, then $a \times b = -b \times a$, and lastly symmetry of the scalar product. }
+    0 &= \delta W= \langle F_r,\delta r  \rangle + \langle F_\theta, \delta \theta  \rangle = \langle -M(\ddot{r} + ge_3),\delta r  \rangle -\langle I \dot{\Omega},\delta \theta  \rangle \\
+      &= \langle -M(\ddot{r}+ge_3),R\delta \theta \times n  \rangle - \langle I \dot{\Omega},\delta \theta  \rangle \\
+      &= \langle (MR \ddot{r}+ MR ge_3) \times n -I\dot{\Omega},\delta \theta  \rangle 
+\end{align*}
+We know that the scalar product is non-degenerate, so for arbitrary $\delta \theta$, it can only vanish if the first argument vanishes. This yields \[
+    \dot{\Omega}= \frac{RM}{I} (\ddot{r}+ge_3)\times n
+.\] Differentiating the rolling constraint, we obtain \[
+\ddot{r}=R \dot{\Omega} \times n + R \Omega \times \dot{n}=R \dot{\Omega} \times n
+.\] Plugging in yields \[
+\marginnote{We used \[
+        (a \times b) \times c = -\langle c,b  \rangle a + \langle c,a  \rangle b  
+\] and $\dot{\Omega}_\perp - \dot{\Omega} = \dot{\Omega}_\|$. }
+\dot{\Omega} = \frac{RM}{I} (R \dot{\Omega} \times n+ge_3) \times n = \frac{R^2M}{I} \dot{\Omega}_\| + \frac{RMg}{I} e_3 \times n 
+.\] 
+We define projection operators $\pi_\perp=n n^\top$ onto $\spn\{n\}$ and $\pi_\|=\id - nn^\top$ onto $\spn\{n\}^\perp$. The tangential equation reads \[
+    \pi_\| \dot{\Omega}=\dot{\Omega}_\| = \frac{R^2M}{I}\dot{\Omega}_\| + \frac{RMg}{I} e_3 \times n
+.\] Rearranging yields \[
+\dot{\Omega}_\| = \frac{RMg}{I-R^2M} e_3 \times n
+.\] 
+This means that angular velocity parallel to the incline changes with a constant factor determined by the incline and the sphere's parameters. The normal equation is \[
+    \pi_\perp \dot{\Omega}=\dot{\Omega}_\perp = 0
+,\] so the angular velocity normal to the incline is conserved. Substituting back into the rolling constraint, we obtain \[
+\ddot{r}=R\dot{\Omega} \times n = \frac{RMg}{I-R^2M} (\langle e_3 , n \rangle n - e_3 )
+.\] Hence the linear acceleration is constant, the sphere moves like a mass point at the center of gravity. In the given case $I=\frac{2}{5}MR^2$, we collect the complete solution:
+\begin{equation}
+    \left.\begin{cases}
+    \ddot{r} = 
+    \end{cases} 
+\right\}
+\end{equation}
