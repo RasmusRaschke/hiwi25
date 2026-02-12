@@ -155,34 +155,52 @@ With this, we can either do a variation of $\mathcal{L}$ or use the d'Alembertia
 .\] 
 Now we calculate virtual work under the assumption of d'Alembert's principle:
 \begin{align*}
-    \marginnote{We use multiple identities: Firstly, $\langle a,b \times c  \rangle = \langle b,c \times a  \rangle$, then $a \times b = -b \times a$, and lastly symmetry of the scalar product. }
+    \marginnote{We used $\langle a,b \times c  \rangle = \langle b,c \times a  \rangle$ and symmetry of the scalar product. }
     0 &= \delta W= \langle F_r,\delta r  \rangle + \langle F_\theta, \delta \theta  \rangle = \langle -M(\ddot{r} + ge_3),\delta r  \rangle -\langle I \dot{\Omega},\delta \theta  \rangle \\
       &= \langle -M(\ddot{r}+ge_3),R\delta \theta \times n  \rangle - \langle I \dot{\Omega},\delta \theta  \rangle \\
-      &= \langle (MR \ddot{r}+ MR ge_3) \times n -I\dot{\Omega},\delta \theta  \rangle 
+      &= \langle MRn \times (- \ddot{r}-ge_3) -I\dot{\Omega},\delta \theta  \rangle 
 \end{align*}
 We know that the scalar product is non-degenerate, so for arbitrary $\delta \theta$, it can only vanish if the first argument vanishes. This yields \[
-    \dot{\Omega}= \frac{RM}{I} (\ddot{r}+ge_3)\times n
+    I\dot{\Omega}= MRn \times (-\ddot{r}-ge_3)
 .\] Differentiating the rolling constraint, we obtain \[
 \ddot{r}=R \dot{\Omega} \times n + R \Omega \times \dot{n}=R \dot{\Omega} \times n
 .\] Plugging in yields \[
 \marginnote{We used \[
         (a \times b) \times c = -\langle c,b  \rangle a + \langle c,a  \rangle b  
 \] and $\dot{\Omega}_\perp - \dot{\Omega} = \dot{\Omega}_\|$. }
-\dot{\Omega} = \frac{RM}{I} (R \dot{\Omega} \times n+ge_3) \times n = \frac{R^2M}{I} \dot{\Omega}_\| + \frac{RMg}{I} e_3 \times n 
+I \dot{\Omega} = RMn \times (R \dot{\Omega} \times n+ge_3) = -R^2M \dot{\Omega}_\| - RMg n \times e_3 
 .\] 
 We define projection operators $\pi_\perp=n n^\top$ onto $\spn\{n\}$ and $\pi_\|=\id - nn^\top$ onto $\spn\{n\}^\perp$. The tangential equation reads \[
-    \pi_\| \dot{\Omega}=\dot{\Omega}_\| = \frac{R^2M}{I}\dot{\Omega}_\| + \frac{RMg}{I} e_3 \times n
+    I \pi_\| \dot{\Omega}=I\dot{\Omega}_\| = -R^2M\dot{\Omega}_\| - RMg e_3 \times n
 .\] Rearranging yields \[
-\dot{\Omega}_\| = \frac{RMg}{I-R^2M} e_3 \times n
+\dot{\Omega}_\| = \frac{RMg}{I+R^2M} n \times e_3
 .\] 
 This means that angular velocity parallel to the incline changes with a constant factor determined by the incline and the sphere's parameters. The normal equation is \[
     \pi_\perp \dot{\Omega}=\dot{\Omega}_\perp = 0
 ,\] so the angular velocity normal to the incline is conserved. Substituting back into the rolling constraint, we obtain \[
-\ddot{r}=R\dot{\Omega} \times n = \frac{RMg}{I-R^2M} (\langle e_3 , n \rangle n - e_3 )
-.\] Hence the linear acceleration is constant, the sphere moves like a mass point at the center of gravity. In the given case $I=\frac{2}{5}MR^2$, we collect the complete solution:
+\ddot{r}=R\dot{\Omega} \times n = \frac{RMg}{I+R^2M} (e_3-\langle n, e_3 \rangle n )
+.\] Hence the linear acceleration is constant, the sphere moves like a mass point at the center of gravity. Collecting everything, we have the complete solution
 \begin{equation}
     \left.\begin{cases}
-    \ddot{r} = 
-    \end{cases} 
+    \ddot{r} = \frac{R^2 Mg}{I+R^2M}(e_3 - \langle n,e_3  \rangle n )\\
+    \dot{P}(t)= \widehat{\Omega}(P(t))\\
+    \dot{\Omega}_\| = \frac{RMg}{I+R^2M}(n \times e_3) \\
+    \dot{\Omega}_\perp = 0\\
+    \omega = P^\top(t)\Omega
+    \end{cases}. 
 \right\}
 \end{equation}
+For the case at hand, use $I= \frac{2}{5} MR^2$ to obtain
+\begin{equation}
+    \left.\begin{cases}
+    \ddot{r} = \frac{5g}{7}(e_3 - \langle n,e_3  \rangle n )\\
+    \dot{P}(t)= \widehat{\Omega}(P(t))\\
+    \dot{\Omega}_\| = \frac{5g}{7}(n \times e_3) \\
+    \dot{\Omega}_\perp = 0\\
+    \omega = P^\top(t)\Omega
+    \end{cases} .
+\right\}
+\end{equation}
+We see that $r$ is determined by a second-order ODE and $\Omega$ is determined by a first-order ODE, so we are free to choose three initial values $r_0, v_0, \Omega_0 \in \mathbb{R}^3$. The initial value problem is then uniquely solvable by the Existence and Uniqueness Theorem for ODEs.
+\paragraph*{The Quaternion Map}
+For numerical reasons, we want to replace rotational matrices by the computationally more appropriate unit quaternions.
