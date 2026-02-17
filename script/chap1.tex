@@ -214,3 +214,64 @@ We see that $\bm{r}(t)$ is determined by a second-order ODE and $\Omega$ is dete
 \right\}.
 \end{equation}
 In the case where all initial values are chosen to vanish, we see that motion is governed by gravitational force in the same way as it is for a point mass. Rotation is only caused by gravitational acceleration in the corresponding direction, while all other rotations are conserved.
+\paragraph*{Versor Representation}
+For computational reasons, we want to convert rotational matrices to versors. Instead of a rotational matrix $P \in \SO(3)$, we describe the orientation now by a versor $\bm{q} \in \mathbb{S}^3$ and identify all vectors $\bm{v} \in \mathbb{R}^3$ with $(0, \bm{v}) \in \Im \mathbb{H} \subset \mathbb{H}$, their corresponding pure quaternion. We obtain:
+\begin{equation*}
+    \marginnote{Note that we made heavy use of $(0,\bm{v})(0,\bm{w})=(-\langle \bm{v},\bm{w}  \rangle, \bm{v} \times \bm{w})$.}
+    \left.\begin{cases}
+            (0,\ddot{\bm{r}}) = \frac{R^2 Mg}{I+R^2M}((0,\bm{e}_3) +\Re((0,\bm{n})(0,\bm{e}_3)) (0,\bm{n}) )\\
+            \dot{\bm{q}}(t)= \frac{1}{2} (0,\bm{\Omega})\bm{q}\\
+    \dot{\bm{\Omega}}_\| = \frac{RMg}{I+R^2M}(\Im((0,\bm{n}) (0,\bm{e}_3))) \\
+    \dot{\bm{\Omega}}_\perp = 0\\
+    \bm{\omega} = \Im(\bm{q}^{-1}(0,\bm{\Omega})\bm{q})
+    \end{cases} 
+\right\}.
+\end{equation*}
+\subsection{Non-Holonomic Mechanics: The Magnetic Sphere}
+Keeping all notations and parameters from the previous subsection, we add a permanent magnetic dipole $\bm{\mu}\in \mathbb{R}^3$ to our solid sphere and introduce a constant homogeneous magnetic field $\bm{B} \in \mathbb{R}^3$. Note that there is now a subtle difference in the two frames: In the body frame, $\bm{\mu}$ is a constant vector revolving with the sphere, but the magnetic field moves from the perspective of the ball, so $\bm{B}_\text{body}(t)=P(t)^\top\bm{B}$. Viewing the situation from the inertial frame, $\bm{B}$ is constant, but $\bm{\mu}_\text{inert}(t)=P(t)\bm{\mu}$. We obtain a potential $U_\text{em}(t)=-\langle \bm{\mu},  \bm{B}\rangle$ and a new Lagrangian 
+\begin{equation}
+    \mathcal{L}=T-U = \frac{M}{2}\|\dot{\bm{r}}\|^2+\frac{I}{2}\|\bm{\Omega}\|^2 - Mgz + \langle \bm{\mu},\bm{B}  \rangle.
+\end{equation}
+Again, we can skip the variational step and use Newton's law to obtain the new forces \[
+    \bm{F}_r = -M \ddot{\bm{r}}-Mg\bm{e}_3
+\] and
+\[
+    \bm{F}_\theta = -I \dot{\bm{\Omega}} + \bm{\mu} \times \bm{B}
+.\] 
+Our previous calculation still applies, so d'Alemberts principle yields
+\[
+    I\dot{\bm{\Omega}} = -R^2M \dot{\bm{\Omega}}_\| - RMg \bm{n} \times \bm{e}_3 + \bm{\mu} \times \bm{B}
+.\] 
+Projecting, we obtain the tangential equation 
+\[
+   I \dot{\bm{\Omega}}_\| = -R^2M\dot{\bm{\Omega}}_\| - RMg \bm{n}\times \bm{e}_3 + \pi_\|(\bm{\mu} \times \bm{B})
+\] and the normal equation \[
+I\dot{\bm{\Omega}}_\perp = \pi_\perp (\bm{\mu} \times \bm{B})
+.\] 
+Again, we obtain the linear acceleration
+\[\marginnote{The normal part of $\dot{\bm{\Omega}}$ does not contribute since its cross product with $\bm{n}$ vanishes.}
+    \ddot{\bm{r}}(t)=R\dot{\bm{\Omega}}\times \bm{n}= \frac{RMg}{I+R^2M} (\bm{e}_3 - \langle \bm{n},\bm{e}_3  \rangle \bm{n} ) + \frac{R}{I+R^2M} \pi_\|(\bm{\mu}\times \bm{B}) \times \bm{n}
+.\] 
+We can directly observe multiple things:
+\begin{enumerate}
+    \item The linear motion only depends on the tangential part of the magnetic torque. If the torque is a scalar multiple of $\bm{n}$, the center-of-mass motion will be just as in the non-magnetic case, but the rotation may still be more complicated.
+    \item The spin about the third axis is no longer conserved in general. It is only conserved if the torque is fully tangential to the plane.
+    \item Even if the torque is fully tangential, the equations of motion become considerably more difficult as long as $\bm{\mu}$ and $\bm{B}$ enter as they are time-dependent, so accelerations are no longer constant and we do not expect the sphere to behave like a point mass at the centre of gravity.
+\end{enumerate}
+We do not expect the full equations to be analytically solvable since they are non-linear in the general case: The rotational matrices always introduce trigonometric terms via the torque. However, extreme cases may be of interest to understand the system. Also, the Lagrangian allows for analysis of symmetries by Noether's theorem. To consider this, we collect the full equations for our system in particular in the magnetic case, denoting the torque by $\bm{\tau}:=\bm{\mu} \times \bm{B}$ with tangential part $\bm{\tau}_\|$ and normal part $\tau_\perp$:
+\begin{equation*}
+    \left.\begin{cases}
+            \ddot{\bm{r}} = \frac{5g}{7}(0, \sin (\varphi) \cos (\varphi), 1-\cos(\varphi))^\top + \frac{5\cos(\varphi)}{7RM}(\bm{\tau}_\| \times (0,-\alpha,1)^\top)\\
+            \dot{\bm{\Omega}}_\| = -\frac{5g\sin(\varphi)}{7}\bm{e}_1 + \frac{5}{2RM} \bm{\tau}_\|\\
+            \dot{\Omega}_\perp = \frac{5}{2R^2M} \tau_\perp\\
+    \bm{\omega} = P^\top(t)\bm{\Omega}\\
+    \dot{P}(t)= \widehat{\bm{\Omega}}(P(t))
+    \end{cases} 
+\right\}.
+\end{equation*}
+\paragraph*{The Normal Torque}
+The first edge case is a fully normal torque $\bm{\tau}=\tau_\perp \bm{n}$. The parallel part vanishes, the centre-of-mass motion reduces to the non-magnetic case, as does the tangential rotation. The differential equations for $\ddot{\bm{r}}$ and $\dot{\bm{\Omega}}_\|$ remain analytically solvable, but we have to take a closer look at $\dot{\Omega}_\perp$. In the inertial frame, we have \[
+    \bm{\tau}(t)=(P(t)\bm{\mu}) \times \bm{B}
+.\] Applying the normal projection, we obtain \[
+\tau_\perp= \langle ((P(t)\bm{\mu})\times \bm{B}), \bm{n} \rangle \bm{n}
+.\] 

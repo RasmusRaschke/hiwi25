@@ -416,7 +416,84 @@ Now, we want to investigate another chart which takes a more direct approach. Kn
 It is noteworthy that this is really not a covering in the sense of topological spaces: The Euler angle map has singularities at which $\mathfrak{E}$ fails to be a local homeomorphism. This is called \emph{gimbal lock}.
 \paragraph*{Quaternion Coordinates}
 The singularities of the Euler chart are cumbersome to deal with numerically, so we desire a chart without singularities. Also, we will see that unit quaternions are always representing a rotation. This means that as long as a unit quaternion is varied appropriately, we will not end up with a quaternion which is not a rotation anymore (which is obviously not the case for e.g. orthogonal matrices). The drawback will be a higher degree of redundancy compared to the other charts.\\
-Since the Euler chart fails to be a covering space because of singular points, it seems reasonable to start with a topological covering of $\SO(3)$: The universal cover
+Since the Euler chart fails to be a covering space because of singular points, it seems reasonable to start with a topological covering of $\SO(3)$: The universal covering space $\SU(2)$. We begin by defining all relevant parts of the \textbf{quaternion algebra}, denoted $\mathbb{H}$.\\
+The quaternions are a real $4$-dimensional vector space with basis \[
+    \bm{1}:=(1,0,0,0)^\top, \, \bm{i}:=(0,1,0,0)^\top, \, \bm{j}:=(0,0,1,0)^\top, \, \bm{k}:= (0,0,0,1)^\top
+\] and component-wise vector addition and scalar multiplication. We define a multiplication on $\mathbb{H}$, called \textbf{Hamilton product}, by specifying the rules on the basis and extending by distributivity. The \textbf{scalar quaternion} $\bm{1}$ will be the two-sided identity:
+\[
+    \bm{1i}=\bm{i1}=\bm{i}, \, \bm{1j}=\bm{j1}=\bm{j}, \, \bm{1k}=\bm{k1}=\bm{k}
+.\] 
+The \textbf{vector quaternions} obey the following laws:
+\[
+    \bm{ij}=-\bm{ji}=\bm{k}, \, \bm{jk}=-\bm{kj}=\bm{i}, \, \bm{ki}=-\bm{ik}=\bm{j}
+\] and \[
+\bm{i}^2=\bm{j}^2=\bm{k}^2 \bm{ijk}=-1
+.\] This turns $\mathbb{H}$ into a skew field, i.e. a field without commutativity. We have a unary operation on $\mathbb{H}$, called \textbf{conjugation}. Given a quaternion $\bm{q}=a+b\bm{i}+c\bm{j}+d\bm{k}$, define the conjugate as \[
+\bm{q}^\ast := a - (b \bm{i}+c\bm{j}+d\bm{k})
+.\] Furthermore, $\mathbb{H}$ is a normed vector space with norm given by \[
+\|\bm{q}\|:=\sqrt{\bm{q}\bm{q}^\ast}
+.\] We denote the scalar or real part by $\Re(\bm{q}):=a$ and the vector or imaginary part by $\Im(\bm{q}):=b\bm{i}+c\bm{j}+d\bm{k}$. With this, we define the subspace of unit quaternions or \textbf{versors}, i.e. the $3$-sphere of $\mathbb{H}$:
+\[
+    \mathbb{S}^3 := \left\{\bm{q} \in \mathbb{H} \mid \|\bm{q}\|=1 \right\} \subset \mathbb{H}
+.\] The versors form a group with the Hamilton product. 
+\marginnote{This may seem obvious, but a desireable consequence of versors being a subgroup is that they are closed under multiplication, i.e. multiplying two versors will always produce another versor.}
+In addition, Eulers formula generalizes to $\mathbb{S}^3$:
+\begin{prop}[Euler's Formula]
+    Any versor $\bm{u} \in \mathbb{S}^3$ can be written as 
+    \[
+        \bm{u}=\exp(\theta \bm{\varpi}) = \cos (\theta) + \bm{\varpi} \sin(\theta)
+    \] where $\theta$ is the polar angle \[
+    \theta := \arccos(\Re(\bm{u})) \in [0, \pi]
+\] and  $\bm{\varpi}$ is an imaginary unit quaternion
+\[
+    \bm{\varpi}:= \frac{\Im(\bm{u})}{\|\Im(\bm{u})\|}
+.\] 
+\end{prop}
+We will now identify $\mathbb{R}^3$ with the space of pure quaternions \\$\Im \mathbb{H}:= \left\{\bm{v} \in \mathbb{H} \mid \Re(\bm{v})=0 \right\},$ i.e. $\mathbb{R}^3 \ni (a,b,c)^\top \leftrightarrow a \bm{i}+b\bm{j}+c\bm{k} \in \Im \mathbb{H}.$ It is obvious that as vector spaces, vector addition and scalar multiplication are precisely the same. The question is how the multiplicative structure on $\mathbb{H}$ relates to the cross product on $\mathbb{R}^3$. Direct calculation shows that for $\bm{u}=a \bm{i}+b\bm{j}+c\bm{d},\, \bm{v}=d \bm{i}+e \bm{j}+f\bm{k} \in \mathbb{R}^3 \cong \Im \mathbb{H}$, we have 
+\[
+    \bm{u}\bm{v}=(- \langle \bm{u} ,\bm{v}  \rangle, \bm{u} \times \bm{v}) 
+.\] 
+With scalar and cross products, we have enough tools to describe rotation with quaternions. In $\mathbb{R}^3$, we already saw that rotations are parametrized by an angle of rotation $\theta$ around a rotational axis unit vector $\bm{\varpi}$. Under the correspondence, $\bm{\varpi}=\varpi_1 \bm{i}+\varpi_2\bm{j}+\varpi_3 \bm{k}$. We define a unit quaternion \[
+    \marginnote{The reader may verify that $\bm{\varpi}$ interpreted as a pure quaternion is indeed also a unit quaternion.}
+    \bm{u} := \exp\left(\frac{\theta}{2} \bm{\varpi} \right)=\cos \frac{\theta}{2}+ \bm{\varpi} \sin \frac{\theta}{2}
+.\] Define the \textbf{linear conjugation transformation} 
+\begin{align*}
+    L: \Im \mathbb{H} &\to \Im \mathbb{H}\\
+    \bm{p} &\mapsto L_{\bm{q}}(\bm{p}):=\bm{q}\bm{p}\bm{q}^{-1}
+\end{align*}
+for some $\bm{q} \in \mathbb{S}^3$. By calculation, one can show that an arbitrary vector $\bm{p} \in \mathbb{R}^3$ is mapped to $L_{\bm{u}}(\bm{p})$ under the rotation represented by $\bm{u}$. Hence any rotation can be represented as a unit quaternion. However, a rotation about $\bm{\varpi}$ by $\theta$ and a rotation about $-\bm{\varpi}$ by $2\pi - \theta$ produces the same physical result (just with a different path). In versor representation, if the positive rotation corresponds to $\bm{u}$, the negative one corresponds to $-\bm{u}$, but $\bm{u}\neq -\bm{u}$ in $\mathbb{H}$. This means that the map $\mathbb{S}\to \SO(3)$ fails to be injective globally, it is a double cover. 
+\begin{theorem}[Quaternion Coordinates]
+    \label{thm:quatcoord}
+    The map 
+    \begin{align*}
+        \mathfrak{Q}: \mathbb{S}^3 &\to \SO(3)\\
+        \bm{q} &\mapsto 
+        \begin{pmatrix}
+            1-2(q_2^2+q_3^2) & 2(q_1q_2-q_3q_0) & 2(q_1q_3+q_2q_0)\\
+            2(q_1q_2+q_3q_0) & 1-2(q_1^2+q_3^2) & 2(q_2q_3-q_1q_0)\\
+            2(q_1q_3 -q_2q_0) & 2(q_2q_3+q_1q_0) & 1-2(q_1^2+q_2^2)
+        \end{pmatrix}
+    \end{align*}
+    is the universal covering space of $\SO(3)$, a double cover, and restricts to local charts.
+\end{theorem}
+    Lastly, we also want local conversion formula between quaternions and other charts:
+    \begin{lemma}[Axis-Angle Conversion]
+        Given a versor $\bm{u} \in \mathbb{S}^3$, the axis of rotation is given by \[
+            \bm{\varpi} = \frac{\Im(\bm{u})}{\|\Im(\bm{u})\|}
+        \] and the angle of rotation is given by \[
+        \marginnote{We denote by $\arctan2(x,y)$ the two-argument arc-tangent which returns the angle between the ray through $(x,y)$ and the $x$-axis, i.e. the argument of $y+ix \in \mathbb{C}$.}
+        \theta = 2 \arctan2 (\|\Im(\bm{u})\|,\Re(\bm{u}))
+        .\]  
+        Given an axis-angle rotation $(\theta, \bm{\varpi})$, we have already seen that the representing quaternion is \[
+            \bm{u}= \exp \left( \frac{\theta}{2}\bm{\varpi}\right)
+        .\] 
+    \end{lemma}
+    \begin{lemma}[Rotational Matrix Conversion]
+        Given a versor, we already saw the covering map restricing to local charts in Theorem \ref{thm:quatcoord}. Given a rotational matrix $R$, we can diagonalize it to obtain the eigenvector $\bm{\varpi}$ of the eigenvalue $1$, which is the axis of rotation. The angle is given by $\theta = \arcsin\left(\frac{\trace(R)-1}{2}\right)$. With that, we reduced to the axis-angle conversion already solved above.
+    \end{lemma}
+    The last noteworthy formula concernes the carry-over of vector-valued derivatives in $\mathbb{R}^3$ with the cross product. Given a vector $\bm{p}\in \mathbb{R}^3 \cong \Im \mathbb{H}$ and a rotation $\bm{q} \in \mathbb{S}^3$, we have \[
+        \frac{d L_{\bm{q}}(\bm{p})}{d\bm{q}}= \bm{qp}-(\bm{qp})^\ast + [(\bm{qpi})^\ast- \bm{qpi}]\bm{i}+[(\bm{qpj})^\ast - \bm{qpj}]\bm{j} + [(\bm{qpk})^\ast - \bm{qpk}]\bm{k}
+    .\]  
 \section{Lagrangian Mechanics}
 \subsection{Calculus of Variations}
 The central concept is concerned with a special function, the \emph{Lagrangian}. While its definition may seem abstract and purely mathematical, it will turn out to be central to a formulation of classical physics on par with Newton's axioms.
