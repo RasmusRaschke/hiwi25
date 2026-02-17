@@ -220,6 +220,7 @@ In local coordinates at some $p \in M$, we can use the canonical basis of $T_pM$
 We will now connect those concepts with physics' formalism.
 
 \section{Lie Groups and Lie Algebras}
+\subsection{Definitions and Properties}
 The preceeding chapters dealt with the category of groups and the category of smooth manifolds, respectively. Those two categories can be combined to form a new category which will turn out to be important for the rotational configuration space of a rigid body. After a gentle introduction, we continue by treating the Lie group most important to us: $\SO(3)$.
 \begin{definition}[Lie Group]
     A \textbf{smooth Lie group} is a triple $(M, \circ, \mathfrak{A})$ such that $(M, \circ)$ is a group, $(M, \mathfrak{A})$ is a smooth manifold with atlas $\mathfrak{A}$, and \[
@@ -308,6 +309,7 @@ Now, we conclude the general discussion with a theorem, yielding fundamental ins
     \] of a left-invariant vector field at the identity is a vector space isomorphism $T_{\id} G  \cong \mathfrak{g}$.
 \end{theorem}
 This means that the best linear approximation of a Lie group at the identity is its Lie algebra. In lieu of group theory, one calles Lie algebras linearized Lie groups.
+\subsection{The Special Orthogonal Group}
 \begin{eg}
     Bridging to our discussion of $\SO(3)$, we demonstrate how to calculate the Lie algebra $\mathfrak{s}\mathfrak{o}(3)$. By the preceeding theorem, the Lie algebra is isomorphic to a tangent vector at the identity matrix $\id \in \SO(3)$. For now, we avoid parametrizing elements of $\SO(3)$ and utilize the Taylor expansion for manifolds. Hence, choose a smooth path \[
         (-\epsilon, \epsilon) \ni t \mapsto A(t) \in \SO(3)
@@ -351,6 +353,7 @@ This may seem weirdly abstract at first, but it is well-known that $\SO(3) \cong
 \begin{corollary}[Maximal Atlas of $\SO(3)$]
     A maximal atlas of $\SO(3)$ consists of at least four charts.
 \end{corollary}
+\paragraph*{Geodesic Polar Coordinates}
 Our first attempt to obtain such a minimal chart will concern the question how much of a Lie group can be recovered from the linearized version at the origin - the Lie algebra. We need the notion of \emph{one-parameter subgroups}, which are just Lie group homomorphisms \[
 \gamma: (\mathbb{R}, +) \to G,
 ,\] where $G$ is some Lie group. It turns out that these subgroups are precisely maximal integral curves of left-invariant vector fields on $G$ starting at $\id \in G$.
@@ -398,7 +401,8 @@ With this explicit formula, we see that $\exp$ serves only as local chart, just 
         \log: \SO(3) \setminus \{ R \in \SO(3) \mid \trace R = -1\} \to \so(3)
     .\]
 \end{theorem}
-One can show that the main chart given by $\exp$ together with three maps composed of $\exp$ and a rotation around respectively one of the three spacial orientations by $\pi$ suffices to obtain an atlas.\\
+One can show that the main chart given by $\exp$ together with three maps composed of $\exp$ and a rotation around respectively one of the three spacial orientations by $\pi$ suffices to obtain an atlas.
+\paragraph*{Euler Coordinates}
 Now, we want to investigate another chart which takes a more direct approach. Knowing that $\SO(3)$ represents rotations in $\mathbb{R}^3$, we can describe any rotation by a combination of three rotations around (rotated) basis vectors. This gives rise to $12$ possible ways of decomposing a rotation into three basis rotations, each of the three being chrarcterized by an angle. These angles are called Euler angles, and they yield a minimal global atlas on $\SO(3)$. We will work with the $zy'z''$-convention, first rotating around $z$ by $\phi$, then around the rotated $y$-axis $y'$ by $\psi$, and finally around the rotated $z$-axis $z''$ by $\theta$. 
 \begin{theorem}[Euler Angle Chart]
     \marginnote{For rotation matrices, we write $\sin x \equiv s_x$ and $\cos x \equiv c_x$.}
@@ -409,10 +413,12 @@ Now, we want to investigate another chart which takes a more direct approach. Kn
     \end{align*}
     restricts to four local charts covering $\SO(3)$.
 \end{theorem}
-It is noteworthy that this is really not a covering in the sense of topological spaces: The Euler angle map has singularities at which $\mathfrak{E}$ fails to be a local homeomorphism. This is called \emph{gimbal lock}. With this, we are ready to tackle the full three-dimensional magnetic system.
-
+It is noteworthy that this is really not a covering in the sense of topological spaces: The Euler angle map has singularities at which $\mathfrak{E}$ fails to be a local homeomorphism. This is called \emph{gimbal lock}.
+\paragraph*{Quaternion Coordinates}
+The singularities of the Euler chart are cumbersome to deal with numerically, so we desire a chart without singularities. Also, we will see that unit quaternions are always representing a rotation. This means that as long as a unit quaternion is varied appropriately, we will not end up with a quaternion which is not a rotation anymore (which is obviously not the case for e.g. orthogonal matrices). The drawback will be a higher degree of redundancy compared to the other charts.\\
+Since the Euler chart fails to be a covering space because of singular points, it seems reasonable to start with a topological covering of $\SO(3)$: The universal cover
 \section{Lagrangian Mechanics}
-\subsection*{Calculus of Variations}
+\subsection{Calculus of Variations}
 The central concept is concerned with a special function, the \emph{Lagrangian}. While its definition may seem abstract and purely mathematical, it will turn out to be central to a formulation of classical physics on par with Newton's axioms.
 \begin{definition}[Lagrangian]
     Let $M$ be a smooth manifold with tangent bundle $TM$. A \textbf{Lagrangian} is a smooth function \[
@@ -678,7 +684,26 @@ In this case, this theorem is actually not the most natural way of arriving at t
 One can show that these equations are precisely equivalent to the variational formulation for the action integral. 
 The main difference to the Euler-Lagrange approach is the order in which we impose the constraints: In this case, we impose the constraints before doing any variation, so we constrain the admissible variations themselves. In the Euler-Lagrange case, we impose the constraints by using a modified Lagrangian incorporating the Lagrangian Multipliers, so we actually constrain the velocities of admissible variations. These two ways of constraining do sometimes commute, but not in general. As it turns out, the Lagrangian-d'Alembert equations predict the correct dynamical mechanical behaviour, while the variational problem answers the question of optimal control. 
 \section{Ordinary Differential Equations}
-This section is just meant to quickly list the differential equations we will encounter later and give methods to solve them. In this, and only in this, chapter we will do separation of variables in ODEs by seemingly separating differentials of the form $\frac{dx}{dt}$.
+This section is just meant to quickly list the differential equations we will encounter later and give methods to solve them.
+The general solvability is governed by the following property and theorem.
+\begin{definition}[Lipschitz Continuity]
+    Let $D \subseteq \mathbb{R}^n \times \mathbb{R}^m$ be an open subset and $f: D \to \mathbb{R}^k$ be a function. If there exists a constant $L \geq 0$ such that \[
+    \|f(s,x)-f(s,y)\| \leq L\|x-y\|
+    \] for all $(s,x),(s,y) \in D$, we call $f$ \textbf{globally Lipschitz continuous} with respect to $x$ with \textbf{Lipschitz constant} $L$.
+    If for any $p \in D$ there is a neighbourhood $U$ of $p$ such that $f$ restricted to $U \cap D$ is Lipschitz, we call $f$ \textbf{locally Lipschitz (continuous)}.
+\end{definition}
+\begin{theorem}[Picard-Lindelöf]
+   Let $D \subseteq \mathbb{R} \times \mathbb{R}^n$ be an open subset and $f: D \to \mathbb{R}^n$ be a continuous function which is Lipschitz continuous w.r.t. $x$. Then any initial value problem of the form
+   \begin{equation*}
+       \left.\begin{cases}
+           \dot{x}=f(t,x)\\
+           x(t_0)=x_0\\
+           (t_0,x_0) \in D
+       \end{cases}\right\}
+   \end{equation*}
+   is locally uniquely solvable.
+\end{theorem}
+In this, and only in this, chapter we will do separation of variables in ODEs by seemingly separating differentials of the form $\frac{dx}{dt}$.
 \subsection*{Autonomous ODE}
 \begin{definition}[Second-Order Autonomous ODE]
     A \textbf{second-order autonomous first-order ODE} is of the form

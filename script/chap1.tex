@@ -120,7 +120,7 @@ This yields five Lagrangian equations of the second kind:
 where we took the limit $\delta \to \infty$ in $f$ away from the non-differentiable points.\\
 Unfortunately, the high non-linear nature of the equations makes simulations very difficult, so we considered another approach.
 \subsection{Non-Holonomic Mechanics: The Rigid Ball}
-We follow \cite[Bloch]. Consider a perfect homogeneous solid ball of mass $M$, radius $R$, and inertia scalar $I=\frac{2}{5}MR^2$ rolling without slipping on an incline of slope $\alpha \in \mathbb{R}$. Write $r = (x,y,z)^\top \in \mathbb{R}^3$ for the bodies inertial coordinates and $P \in \SO(3)$ for the rotational coordinates, $\Omega=(\Omega_1,\Omega_2,\Omega_3)^\top$ for the bodies inertial rotational velocity, and $\omega = (\omega_1,\omega_2,\omega_3)^\top$ for the rotational velocity in the body frame. Furthermore, given a vector $v=(v_1,v_2,v_3)^\top \in \mathbb{R}^3$, we define the associated cross-product operator  \[
+We follow \cite[Bloch]. Consider a perfect homogeneous solid ball of mass $M$, radius $R$, and inertia scalar $I=\frac{2}{5}MR^2$ rolling without slipping on an incline of slope $\alpha \in \mathbb{R}$. Write $\bm{r} = (x,y,z)^\top \in \mathbb{R}^3$ for the bodies inertial coordinates and $P \in \SO(3)$ for the rotational coordinates, $\bm{\Omega}=(\Omega_1,\Omega_2,\Omega_3)^\top$ for the bodies inertial rotational velocity, and $\bm{\omega} = (\omega_1,\omega_2,\omega_3)^\top$ for the rotational velocity in the body frame. Furthermore, given a vector $\bm{v}=(v_1,v_2,v_3)^\top \in \mathbb{R}^3$, we define the associated cross-product operator  \[
     \hat{v}: \mathbb{R}^3 \to \mathbb{R}^3
 \] as matrix operator \[
 \marginnote{Note that this matrix is skew-symmetric. Strictly speaking, this operator arises by the isomorphism $\so(3) \cong \mathbb{R}^3$.}
@@ -129,78 +129,88 @@ We follow \cite[Bloch]. Consider a perfect homogeneous solid ball of mass $M$, r
     0 & -v_3 & v_2 \\ v_3 & 0 & - v_1\\ -v_2 & v_1 & 0
 \end{pmatrix}
 .\]
-Denote by $(e_1,e_2,e_3)$ the canonical Euclidean basis of $\mathbb{R}^3$. Our goal is to derive analytical equations of motion for $r(t)$ and $P(t)$ under the influence of gravity $U=Mge_3$. The incline is described as a zero set of $F(y,z)=z-\alpha y$, yielding the surface normal field \[
-    n= \frac{\grad F}{\|\grad F\|} = \frac{(0,-\alpha,1)}{\sqrt{\alpha^2+1}}
+Denote by $(\bm{e}_1,\bm{e}_2,\bm{e}_3)$ the canonical Euclidean basis of $\mathbb{R}^3$. Our goal is to derive analytical equations of motion for $\bm{r}(t)$ and $P(t)$ under the influence of gravity $U=Mgz$. The incline is described as a zero set of $F(y,z)=z-\alpha y$, yielding the surface normal field \[
+    \bm{n}= \frac{\grad F}{\|\grad F\|} = \frac{(0,-\alpha,1)}{\sqrt{\alpha^2+1}}
 .\] 
 The Lagrangian of this system is evidently given as
 \begin{equation}
-    \mathcal{L}=T-U=\frac{M}{2} \|\dot{r} \|^2 + \frac{I}{2} \|\Omega\|^2 - Mgz.
+    \mathcal{L}=T-U=\frac{M}{2} \|\dot{\bm{r}} \|^2 + \frac{I}{2} \|\bm{\Omega}\|^2 - Mgz.
 \end{equation}
-The virtual displacements are $\delta r$ and $\delta P$. Since a virtual rotation is induced by the cross product on $\so(3)$, we can introduce the virtual rotation vector $\delta \theta$ such that $\delta P = \widehat{\delta \theta}(P)$. It is very useful to split the rotational degree of freedoms into parts normal and tangential to the incline. Write \[
+The virtual displacements are $\delta \bm{r}$ and $\delta P$. Since a virtual rotation is induced by the cross product on $\so(3)$, we can introduce the virtual rotation vector $\delta \bm{\theta}$ such that $\delta P = \widehat{\delta \bm{\theta}}(P)$. It is very useful to split the rotational degree of freedoms into parts normal and tangential to the incline. Write \[
     \marginnote{Physically, this reflects that we expect the rotation around the axis normal to the plane to be conserved as it does not influence the rolling. One can also think about this in terms of Noethers' Theorem since symmetry in this direction is unbroken.}
-\Omega = \Omega_\perp n + \Omega_\|
-\] with $\Omega_\perp = \langle \Omega,n  \rangle$ and $\Omega_\| = \Omega - \Omega_\perp n$. The same splitting also applies to the angular variation \[
-\delta \theta = \delta \theta_\perp n+\delta \theta_\|
+    \bm{\Omega} = \Omega_\perp \bm{n} + \bm{\Omega_\|}
+    \] with $\Omega_\perp = \langle \bm{\Omega},\bm{n}  \rangle$ and $\bm{\Omega}_\| = \bm{\Omega} - \Omega_\perp \bm{n}$. The same splitting also applies to the angular variation \[
+    \bm{\delta \theta} = \delta \theta_\perp \bm{n}+\bm{\delta \theta}_\|
 .\] Since the ball rolls without slipping, we get the constraint \[
-\dot{r}=R \Omega \times n
+\dot{\bm{r}}=R \bm{\Omega} \times \bm{n}
 .\] 
 This implies that the admissible variations are resticted by \[
-    \delta r = R \delta \theta \times n = R (\delta \theta_\perp n + \delta \theta_\|) \times n = R \delta \theta_\| \times n  = R \widehat{\delta \theta_\|}(n)
+    \delta \bm{r} = R \delta \bm{\theta} \times \bm{n} = R (\delta \theta_\perp \bm{n} + \delta \bm{\theta}_\|) \times \bm{n} = R \delta \bm{\theta}_\| \times \bm{n}  = R \widehat{\delta \bm{\theta}_\|}(\bm{n})
 .\]
 With this, we can either do a variation of $\mathcal{L}$ or use the d'Alembertian principle directly since the forces are easily derived as \[
-    F_r=-M \ddot{r} - Mge_3
+    \bm{F}_r=-M \ddot{\bm{r}} - Mg\bm{e}_3
 \] and
 \[
-    F_\theta=-I \dot{\Omega}
+    \bm{F}_\theta=-I \dot{\bm{\Omega}}
 .\] 
 Now we calculate virtual work under the assumption of d'Alembert's principle:
 \begin{align*}
-    \marginnote{We used $\langle a,b \times c  \rangle = \langle b,c \times a  \rangle$ and symmetry of the scalar product. }
-    0 &= \delta W= \langle F_r,\delta r  \rangle + \langle F_\theta, \delta \theta  \rangle = \langle -M(\ddot{r} + ge_3),\delta r  \rangle -\langle I \dot{\Omega},\delta \theta  \rangle \\
-      &= \langle -M(\ddot{r}+ge_3),R\delta \theta \times n  \rangle - \langle I \dot{\Omega},\delta \theta  \rangle \\
-      &= \langle MRn \times (- \ddot{r}-ge_3) -I\dot{\Omega},\delta \theta  \rangle 
+    \marginnote{We used $\langle \bm{a},\bm{b} \times \bm{c}  \rangle = \langle \bm{b},\bm{c} \times \bm{a}  \rangle$ and symmetry of the scalar product. }
+    0 &= \delta W= \langle \bm{F}_r,\delta \bm{r}  \rangle + \langle \bm{F}_\theta, \delta \bm{\theta}  \rangle = \langle -M(\ddot{\bm{r}} + g\bm{e}_3),\delta \bm{r}  \rangle -\langle I \dot{\bm{\Omega}},\delta \bm{\theta}  \rangle \\
+      &= \langle -M(\ddot{\bm{r}}+g\bm{e}_3),R\delta \bm{\theta} \times \bm{n}  \rangle - \langle I \dot{\bm{\Omega}},\delta \bm{\theta}  \rangle \\
+      &= \langle MR\bm{n} \times (- \ddot{\bm{r}}-g\bm{e}_3) -I\dot{\bm{\Omega}},\delta \bm{\theta}  \rangle 
 \end{align*}
-We know that the scalar product is non-degenerate, so for arbitrary $\delta \theta$, it can only vanish if the first argument vanishes. This yields \[
-    I\dot{\Omega}= MRn \times (-\ddot{r}-ge_3)
+We know that the scalar product is non-degenerate, so for arbitrary $\delta \bm{\theta}$, it can only vanish if the first argument vanishes. This yields \[
+    I\dot{\bm{\Omega}}= MR\bm{n} \times (-\ddot{\bm{r}}-g\bm{e}_3)
 .\] Differentiating the rolling constraint, we obtain \[
-\ddot{r}=R \dot{\Omega} \times n + R \Omega \times \dot{n}=R \dot{\Omega} \times n
+\ddot{\bm{r}}=R \dot{\bm{\Omega}} \times \bm{n} + R \bm{\Omega} \times \dot{\bm{n}}=R \dot{\bm{\Omega}} \times \bm{n}
 .\] Plugging in yields \[
 \marginnote{We used \[
-        (a \times b) \times c = -\langle c,b  \rangle a + \langle c,a  \rangle b  
-\] and $\dot{\Omega}_\perp - \dot{\Omega} = \dot{\Omega}_\|$. }
-I \dot{\Omega} = RMn \times (R \dot{\Omega} \times n+ge_3) = -R^2M \dot{\Omega}_\| - RMg n \times e_3 
+        (\bm{a} \times \bm{b}) \times \bm{c} = -\langle \bm{c},\bm{b}  \rangle \bm{a} + \langle \bm{c},\bm{a}  \rangle \bm{b}  
+\] and $\dot{\Omega}_\perp \bm{n} - \dot{\bm{\Omega}} = \dot{\bm{\Omega}}_\|$. }
+I \dot{\bm{\Omega}} = RM\bm{n} \times (R \dot{\bm{\Omega}} \times \bm{n}+g\bm{e}_3) = -R^2M \dot{\bm{\Omega}}_\| - RMg \bm{n} \times \bm{e}_3 
 .\] 
-We define projection operators $\pi_\perp=n n^\top$ onto $\spn\{n\}$ and $\pi_\|=\id - nn^\top$ onto $\spn\{n\}^\perp$. The tangential equation reads \[
-    I \pi_\| \dot{\Omega}=I\dot{\Omega}_\| = -R^2M\dot{\Omega}_\| - RMg e_3 \times n
+We define projection operators $\pi_\perp=\bm{n} \bm{n}^\top$ onto $\spn\{\bm{n}\}$ and $\pi_\|=\id - \bm{nn}^\top$ onto $\spn\{\bm{n}\}^\perp$. The tangential equation reads \[
+    I \pi_\| \dot{\bm{\Omega}}=I\dot{\bm{\Omega}}_\| = -R^2M\dot{\bm{\Omega}}_\| - RMg \bm{e}_3 \times \bm{n}
 .\] Rearranging yields \[
-\dot{\Omega}_\| = \frac{RMg}{I+R^2M} n \times e_3
+\dot{\bm{\Omega}}_\| = \frac{RMg}{I+R^2M} \bm{n} \times \bm{e}_3
 .\] 
 This means that angular velocity parallel to the incline changes with a constant factor determined by the incline and the sphere's parameters. The normal equation is \[
-    \pi_\perp \dot{\Omega}=\dot{\Omega}_\perp = 0
+    \pi_\perp \dot{\bm{\Omega}}=\dot{\Omega}_\perp = 0
 ,\] so the angular velocity normal to the incline is conserved. Substituting back into the rolling constraint, we obtain \[
-\ddot{r}=R\dot{\Omega} \times n = \frac{RMg}{I+R^2M} (e_3-\langle n, e_3 \rangle n )
+\ddot{\bm{r}}=R\dot{\bm{\Omega}} \times \bm{n} = \frac{RMg}{I+R^2M} (\bm{e}_3-\langle \bm{n}, \bm{e}_3 \rangle \bm{n} )
 .\] Hence the linear acceleration is constant, the sphere moves like a mass point at the center of gravity. Collecting everything, we have the complete solution
 \begin{equation}
     \left.\begin{cases}
-    \ddot{r} = \frac{R^2 Mg}{I+R^2M}(e_3 - \langle n,e_3  \rangle n )\\
+            \ddot{\bm{r}} = \frac{R^2 Mg}{I+R^2M}(\bm{e}_3 - \langle \bm{n},\bm{e}_3  \rangle \bm{n} )\\
     \dot{P}(t)= \widehat{\Omega}(P(t))\\
-    \dot{\Omega}_\| = \frac{RMg}{I+R^2M}(n \times e_3) \\
-    \dot{\Omega}_\perp = 0\\
-    \omega = P^\top(t)\Omega
+    \dot{\bm{\Omega}}_\| = \frac{RMg}{I+R^2M}(\bm{n} \times \bm{e}_3) \\
+    \dot{\bm{\Omega}}_\perp = 0\\
+    \bm{\omega} = P(t)^\top\bm{\Omega}
     \end{cases}. 
 \right\}
 \end{equation}
-For the case at hand, use $I= \frac{2}{5} MR^2$ to obtain
+For the case at hand, we can restrict $\alpha \in [0,\frac{\pi}{2})$ and substitute $\alpha = \tan(\varphi)$, so $\bm{n}=\frac{(0,-\tan(\varphi),1)^\top}{\sec(\varphi)}=(0, -\sin(\varphi), \cos(\varphi))^\top$, yielding
+\begin{equation*}
+    \left.\begin{cases}
+            \ddot{\bm{r}} = \frac{5g}{7}(0, \sin (\varphi) \cos (\varphi), 1-\cos(\varphi))^\top\\
+        \dot{\bm{\Omega}}_\| = -\frac{5g\sin(\varphi)}{7}\bm{e}_1 \\
+    \dot{\Omega}_\perp = 0\\
+    \bm{\omega} = P^\top(t)\bm{\Omega}\\
+    \dot{P}(t)= \widehat{\bm{\Omega}}(P(t))
+    \end{cases} 
+\right\}.
+\end{equation*}
+We see that $\bm{r}(t)$ is determined by a second-order ODE and $\Omega$ is determined by a first-order ODE, so we are free to choose three vector-valued initial conditions $\bm{r}_0, \bm{v}_0, \bm{\Omega}_0 \in \mathbb{R}^3$. The initial value problem is then uniquely solvable by Picard-Lindelöf's Theorem with solution 
 \begin{equation}
     \left.\begin{cases}
-    \ddot{r} = \frac{5g}{7}(e_3 - \langle n,e_3  \rangle n )\\
-    \dot{P}(t)= \widehat{\Omega}(P(t))\\
-    \dot{\Omega}_\| = \frac{5g}{7}(n \times e_3) \\
-    \dot{\Omega}_\perp = 0\\
-    \omega = P^\top(t)\Omega
-    \end{cases} .
-\right\}
+            x(t)=v_{x,0}t+x_0\\
+            y(t)=-\frac{5g}{14}\sin(\varphi)\cos(\varphi)t^2+v_{y,0}t+y_0\\
+            z(t)=\frac{5g}{14}(1-\cos(\varphi))t^2+v_{z,0}t+z_0\\
+            \Omega_1(t)=- \frac{5g}{7}\sin(\varphi)t + \Omega_{1,0}\\
+            \Omega_2(t)= \Omega_{2,0}\\
+            \Omega_3(t)=\Omega_{3,0}=:s
+    \end{cases} 
+\right\}.
 \end{equation}
-We see that $r$ is determined by a second-order ODE and $\Omega$ is determined by a first-order ODE, so we are free to choose three initial values $r_0, v_0, \Omega_0 \in \mathbb{R}^3$. The initial value problem is then uniquely solvable by the Existence and Uniqueness Theorem for ODEs.
-\paragraph*{The Quaternion Map}
-For numerical reasons, we want to replace rotational matrices by the computationally more appropriate unit quaternions.
+In the case where all initial values are chosen to vanish, we see that motion is governed by gravitational force in the same way as it is for a point mass. Rotation is only caused by gravitational acceleration in the corresponding direction, while all other rotations are conserved.
