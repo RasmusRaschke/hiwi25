@@ -258,7 +258,8 @@ We can directly observe multiple things:
     \item The spin about the third axis is no longer conserved in general. It is only conserved if the torque is fully tangential to the plane.
     \item Even if the torque is fully tangential, the equations of motion become considerably more difficult as long as $\bm{\mu}$ and $\bm{B}$ enter as they are time-dependent, so accelerations are no longer constant and we do not expect the sphere to behave like a point mass at the centre of gravity.
 \end{enumerate}
-We do not expect the full equations to be analytically solvable since they are non-linear in the general case: The rotational matrices always introduce trigonometric terms via the torque. However, extreme cases may be of interest to understand the system. Also, the Lagrangian allows for analysis of symmetries by Noether's theorem. To consider this, we collect the full equations for our system in particular in the magnetic case, denoting the torque by $\bm{\tau}:=\bm{\mu} \times \bm{B}$ with tangential part $\bm{\tau}_\|$ and normal part $\tau_\perp$:
+We do not expect the full equations to be analytically solvable since they are non-linear in the general case: The rotational matrices always introduce trigonometric terms via the torque. However, extreme cases may be of interest to understand the system.
+To consider this, we collect the full equations for our system in particular in the magnetic case, denoting the torque by $\bm{\tau}:=\bm{\mu} \times \bm{B}$ with tangential part $\bm{\tau}_\|$ and normal part $\tau_\perp$:
 \begin{equation*}
     \left.\begin{cases}
             \ddot{\bm{r}} = \frac{5g}{7}(0, \sin (\varphi) \cos (\varphi), 1-\cos(\varphi))^\top + \frac{5\cos(\varphi)}{7RM}(\bm{\tau}_\| \times (0,-\alpha,1)^\top)\\
@@ -270,8 +271,48 @@ We do not expect the full equations to be analytically solvable since they are n
 \right\}.
 \end{equation*}
 \paragraph*{The Normal Torque}
-The first edge case is a fully normal torque $\bm{\tau}=\tau_\perp \bm{n}$. The parallel part vanishes, the centre-of-mass motion reduces to the non-magnetic case, as does the tangential rotation. The differential equations for $\ddot{\bm{r}}$ and $\dot{\bm{\Omega}}_\|$ remain analytically solvable, but we have to take a closer look at $\dot{\Omega}_\perp$. In the inertial frame, we have \[
+The first special case is concerned with a fully normal torque $\bm{\tau}=\tau_\perp \bm{n}$. The parallel part vanishes, the centre-of-mass motion reduces to the non-magnetic case, as does the tangential rotation. The differential equations for $\ddot{\bm{r}}$ and $\dot{\bm{\Omega}}_\|$ remain analytically solvable, but we have to take a closer look at $\dot{\Omega}_\perp$. In the inertial frame, we have \[
     \bm{\tau}(t)=(P(t)\bm{\mu}) \times \bm{B}
-.\] Applying the normal projection, we obtain \[
-\tau_\perp= \langle ((P(t)\bm{\mu})\times \bm{B}), \bm{n} \rangle \bm{n}
+.\] The normal component is given by \[
+\tau_\perp= \langle ((P(t)\bm{\mu})\times \bm{B}), \bm{n} \rangle 
+.\] For arbitrary $P \in \SO(3)$, this equation remains highly non-linear, so we still depend on numerical solutions.
+\paragraph*{The Tangential Torque}
+We turn our attention to the opposite extreme: $\bm{\tau}=\bm{\tau}_\|$. This tells us that $\dot{\Omega}_\perp=0$, so spin around the normal remains conserved. However, $\ddot{\bm{r}}$ and $\dot{\bm{\Omega}}_\|$ are now determined by non-linear ODEs and therefore likely not solvable. 
+\marginnote{Note to myself: The special cases are still to complicated to yield something analytical.}
+\paragraph*{Minimal Initial Energy}
+We assume for simplicity that $\bm{B}=\bm{e}_3$, ignoring units for the time being. If we allow the sphere to relax ideally before letting it roll, we can assume $\bm{\mu}(0)=\bm{e}_3$. This yields \[
+    \bm{\tau}(t)=(P(t)\bm{e}_3) \times \bm{e}_3 = (s_\theta c_\psi, s_\psi s_\theta, c_\theta)^\top \times \bm{e}_3 = (s_\psi s_\theta, -s_\theta c_\psi, 0)^\top
 .\] 
+The projections are
+\[
+    \tau_\perp(t) = \langle \bm{\tau},\bm{n}  \rangle = -\frac{\alpha}{\sqrt{\alpha^2 +1}}\sin \theta(t) \cos \psi(t) \rightarrow \tau_\perp(t)= \sin \varphi \sin \theta(t) \cos \psi(t)
+\] 
+and
+\[
+    \bm{\tau}_\|(t)= \bm{\tau}-\tau_\perp \bm{n}=
+    \begin{pmatrix}
+    \sin \psi(t) \sin \theta(t)\\ - \cos^2 \varphi \sin \theta(t) \cos \psi(t)\\ -\sin \varphi \cos \varphi \sin \theta(t) \cos \psi(t)
+\end{pmatrix}
+.\] 
+\paragraph*{Flat Surface}
+Consider $\varphi =0$ with $\bm{B}=B\bm{e}_3$ and $\bm{\mu}|_{t=0}=\mu (\bm{e}_1+\bm{e}_3)$. We have $\bm{n}=\bm{e}_3$, so the motion is not influenced by gravity. Since the magnetic torque is fully directed in $\bm{e}_2$-direction, we can parametrize $\bm{\mu}(t)=\mu(\sin \beta(t),0,\cos \beta (t))^\top$ with the angle $\beta$ between $\bm{\mu}$ and $\bm{e}_3$. Plugging everything in the equations of motion, we obtain \[
+    \ddot{r}_3(t)= - \frac{R\mu B}{I+R^2M} \sin \beta (t)
+    .\] Assuming that $\beta(0)$ is small enough, we write $\sin \beta (t)\approx \beta(t)$. In addition, the rolling constraint yields $\ddot{r}_3=R\ddot{\beta}(t)$, and we obtain 
+\[
+\ddot{\beta}(t) + \frac{\mu B}{I+R^2M} \beta(t)=0
+.\] 
+This is a second order linear ODE with analytic solution \[
+\beta(t)=\beta(0)\cos(\omega t)
+,\] where $\omega^2 = \frac{\mu B}{I+R^2M}$. 
+\subsection{Non-Holonomic Mechanics: Damping}
+Up until now, the magnetic system is not subject to any dissipative forces. Especially the exclusion of friction is a simplification too severe to make quantitative predictions. We start by introducing rolling friction. The frictional force is proportional to the modulus $N:=Mg\langle \bm{n},\bm{e}_3 \rangle$ of the surface normal force with proportionality constant $\nu_r$. It acts opposed to the direction of motion, hence we can write 
+\[
+    \bm{f}_r:= - \nu_r N \sgn(\langle \dot{\bm{r}},\bm{t}  \rangle )\bm{t}
+\] where $\bm{t}:= -\frac{\bm{e}_3 - \langle \bm{e}_3,\bm{n}\rangle  \bm{n}}{\| \bm{e}_3 - \langle \bm{e}_3,\bm{n}  \rangle \bm{n} \|}$ is the unit tangent field. The new force is an angular force, so we adapt \[
+\bm{F}_\theta = -I\dot{\bm{\Omega}} + \bm{mu} \times \bm{B} - R \bm{n} \times \bm{f}_r
+\] and obtain
+\[
+    I \dot{\bm{\Omega}} = -R^2M \dot{\bm{\Omega}}_\| - RMg \bm{n} \times \bm{e}_3 + \bm{\mu} \times \bm{B} - R \bm{n} \times \bm{f}_r
+.\] 
+This yields analogously the equations of motions which can be solved numerically.
+

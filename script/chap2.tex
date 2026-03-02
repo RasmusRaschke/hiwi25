@@ -1,0 +1,79 @@
+\chapter{Numerical Simulation}
+\label{chap:numsim}
+\vspace*{-0.9cm}
+
+% \startcontents[chapters]
+% \printcontents[chapters]{}{1}{}
+
+\section{Numerics in C++}
+We begin by defining the exponential $\exp: \so(3)\cong \mathbb{R}^3 \to \SO(3)$, which takes a vector in $\mathbb{R}^3$ describing a rotation and maps it to the corresponding unit quaternion:
+\begin{lstlisting}
+static quat exponential(const vec3 &rotvec){
+    double theta = rotvec.norm();
+    if (theta < 1e-15) return quat::Identity();
+    vec3 axis = rotvec / theta;
+    double a = cos(0.5 * theta);
+    double b = sin(0.5 * theta);
+    return quat(a, b * axis.x(), b * axis.y(), b * axis.z());
+}
+\end{lstlisting}
+Furthermore, we need to be able to rotate a vector by a quaternion, which is already implemented in \verb|Eigen| as follows:
+\begin{lstlisting}
+static vec3 rotate(const quat &q, const vec3 &v){
+    return q * v;
+}
+\end{lstlisting}
+To calculate the torque, we first rotate the magnetic moment $\mu$ fixed to the body frame to the current position in the inertial frame and form the cross product:
+\begin{lstlisting}
+static vec3 torque(const quat &q, const vec3 &mu, const vec3 &B){
+    vec3 mu_init = rotate(q, mu);
+    return mu_init.cross(B);
+}
+\end{lstlisting}
+Using this, we can calculate $\dot{\bm{\Omega}}$ by splitting into parallel and normal part from given parameters using the derived equation:
+\begin{lstlisting}
+static vec3 getOmega(const vec3 &Omega, const quat &q, const Parameters &p){
+    const vec3 e3(0.,0.,1.);
+    vec3 tau = torque(q, p.mu_body, p.B_inert);
+    vec3 dotOmega_t = - ((5 * p.g) / (7 * p.R)) * p.n.cross(e3) + (5 / (7 * p.R * p.R * p.M)) * (tau - (p.n.dot(tau)) * p.n);
+    double dotOmega_n = (p.n.dot(tau)) / p.I;
+    return (dotOmega_t + dotOmega_n * p.n);
+}
+
+static vec3 getr(const vec3 &Omega, const Parameters &p){
+    return p.R * Omega.cross(p.n);
+}
+\end{lstlisting}
+As one can see, $\ddot{\bm{r}}$ is easily obtained from $\dot{\bm{\Omega}}$. The integrator itself uses a Runge-Kutta-Munthe-Kaas (RKMK) method as integrator. The general problem with using a naive RK approach ist that it assumes a non-curved manifold, i.e. $\mathbb{R}^4$, to advance the functions. However, unit quaternions constitute $\mathbb{S}^3$, so an arbitrary step in $\mathbb{R}^4$ need not preserve the $3$-sphere, eventually yielding a quaternion not representing any physical rotation. The RKMK approach uses the exponential to guarantee that one only advances by quaternionic multiplication. Since unit quaternions are a proper subgroup, they are closed under multiplication, so RKMK never diverges from the $3$-sphere apart from precision errors. The idea is to advance $\ddot{\bm{r}}$ and $\dot{\bm{\Omega}}$ by typical RK4 and use the exponential map to obtain the quaternionic steps. Therefore, $\bm{\Omega}(t_{n+1})$ is obtained from $\bm{\Omega}(t_n)$ by RK4, $\bm{r}(t_{n+1})$ is obtained from $\bm{r}(t_n)$, but $\bm{q}$ is obtained as \[
+    \bm{q}(t_{n+1})=\exp \left( \frac{\bm{\Omega}(t_n)+\bm{\Omega}(t_{n+1})}{2}dt\right)
+.\]  
+Code-wise, this was implemented as 
+\begin{lstlisting}
+static State integrator(const State &s, double dt, const Parameters &p){
+    vec3 Omega1 = s.Omega;
+    //RKMK Steps
+    quat q1 = s.q;
+    vec3 k1_O = getOmega(Omega1, q1, p);
+    vec3 k1_r = getr(Omega1, p);
+    vec3 Omega2 = s.Omega + 0.5 * dt * k1_O;
+    quat q2 = exponential(0.5 * dt * Omega1) * s.q;
+    vec3 k2_O = getOmega(Omega2, q2, p);
+    vec3 k2_r = getr(Omega2, p);
+    vec3 Omega3 = s.Omega + 0.5 * dt * k2_O;
+    quat q3 = exponential(0.5 * dt * Omega2) * s.q;
+    vec3 k3_O = getOmega(Omega3, q3, p);
+    vec3 k3_r = getr(Omega3, p);
+    vec3 Omega4 = s.Omega + dt * k3_O;
+    quat q4 = exponential(dt * Omega3) * s.q;
+    vec3 k4_O = getOmega(Omega4, q4, p);
+    vec3 k4_r = getr(Omega4, p);  
+    //RKMK Evaluation
+    vec3 Omega_update = s.Omega + (dt / 6.0) * (k1_O + 2.0 * k2_O + 2.0 * k3_O + k4_O);
+    vec3 r_update = s.r + (dt / 6.0) * (k1_r + 2.0 * k2_r + 2.0 * k3_r + k4_r);
+    //Quaternion Update
+    quat dq = exponential(dt * 0.5 * (s.Omega + Omega_update));
+    quat q_update = dq * s.q;
+    return State{r_update, Omega_update, q_update};
+}
+\end{lstlisting}
+The accuracy of the integration w.r.t. the unit sphere can be measured by calculating the quaternion norm at each step. The algorithm sufficiently preserves energy if time is finely enough discretized, but it does not do so because of geometrical restraints (as opposed to the unit quaternion preservation).
