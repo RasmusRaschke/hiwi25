@@ -109,7 +109,7 @@ static vec3 torque(const quat &q, const vec3 &mu, const vec3 &B){
     return mu_init.cross(B);
 }
 
-static vec3 getOmega(const vec3 &Omega, const quat &q, const Parameters &p){
+static vec3 getOmega(const vec3 &Omega, const quat &q, const Parameters &p, vec3 &Fr, vec3 &Fd, vec3 &Fext){
     // calculate inertial and body normals
     const vec3 e3(0.,0.,1.);
     double N = p.M * p.g * p.n.dot(e3);
@@ -118,7 +118,7 @@ static vec3 getOmega(const vec3 &Omega, const quat &q, const Parameters &p){
     vec3 v = - p.R * Omega.cross(p.n);
     vec3 v_t = v - p.n * (p.n.dot(v));
     double speed = v_t.norm();
-    vec3 Fr = vec3::Zero();
+    Fr.setZero();
     if (p.roll == 1) {
         double sgn = (speed > eps) ? tanh(p.k * speed) : 0.0;
         if (speed > eps) Fr = - p.nu * N * sgn * (v_t / speed);
@@ -127,13 +127,17 @@ static vec3 getOmega(const vec3 &Omega, const quat &q, const Parameters &p){
     else if (p.roll == 2) {
         Fr = - p.nu * v_t;
     }
-    vec3 Fd = vec3::Zero();
+    else if (p.roll == 3) {
+        if (speed > eps) Fr = - p.nu * N * (v_t / speed);
+        else Fr.setZero(); 
+    }
+    Fd.setZero();
     if (p.air) {
         double modulus = 0.5 * p.rho * p.drag * p.area * speed * speed;
         if (speed > eps) Fd =  - modulus * (v_t / speed);
         else Fd.setZero();
     }
-    vec3 Fext = Fr + Fd;
+    Fext = Fr + Fd;
     vec3 tau_ext = - p.R * (p.n.cross(Fext));
     vec3 tau_mag = torque(q, p.mu_body, p.B_inert);
     vec3 tau_grav = - ((5.0 * p.g) / (7.0 * p.R)) * p.n.cross(e3);
@@ -148,23 +152,23 @@ static vec3 getr(const vec3 &Omega, const Parameters &p){
 
 // ALGORITHM
 
-static State integrator(const State &s, double dt, const Parameters &p){
+static State integrator(const State &s, double dt, const Parameters &p, vec3 &Fr, vec3 &Fd, vec3 &Fext){
     vec3 Omega1 = s.Omega;
     //RKMK Steps
     quat q1 = s.q;
-    vec3 k1_O = getOmega(Omega1, q1, p);
+    vec3 k1_O = getOmega(Omega1, q1, p, Fr, Fd, Fext);
     vec3 k1_r = getr(Omega1, p);
     vec3 Omega2 = s.Omega + 0.5 * dt * k1_O;
     quat q2 = exponential(0.5 * dt * Omega1) * s.q;
-    vec3 k2_O = getOmega(Omega2, q2, p);
+    vec3 k2_O = getOmega(Omega2, q2, p, Fr, Fd, Fext);
     vec3 k2_r = getr(Omega2, p);
     vec3 Omega3 = s.Omega + 0.5 * dt * k2_O;
     quat q3 = exponential(0.5 * dt * Omega2) * s.q;
-    vec3 k3_O = getOmega(Omega3, q3, p);
+    vec3 k3_O = getOmega(Omega3, q3, p, Fr, Fd, Fext);
     vec3 k3_r = getr(Omega3, p);
     vec3 Omega4 = s.Omega + dt * k3_O;
     quat q4 = exponential(dt * Omega3) * s.q;
-    vec3 k4_O = getOmega(Omega4, q4, p);
+    vec3 k4_O = getOmega(Omega4, q4, p, Fr, Fd, Fext);
     vec3 k4_r = getr(Omega4, p);  
     //RKMK Evaluation
     vec3 Omega_update = s.Omega + (dt / 6.0) * (k1_O + 2.0 * k2_O + 2.0 * k3_O + k4_O);
@@ -212,15 +216,20 @@ int main(){
     int steps = int(t_end / dt);
 
     State s;
-    s.r = vec3(0.0, 0.0, p.R*(1.0 - p.n.dot(vec3(0,0,1))));
+    double x0 = get_next<double>();
+    double y0 = get_next<double>();
+    s.r = vec3(x0, y0, p.R*(1.0 - p.n.dot(vec3(0,0,1))));
     s.Omega = p.n * p.spin;
     s.q = quat::Identity();
     
     ofstream out("data.csv");
     out << scientific << setprecision(9);
     out << "t,x,y,z,Ox,Oy,Oz,q0,q1,q2,q3,";
-    out << "vx, vy, vz, T_trans, T_rot, U_gr, U_em, E, q_norm\n";
+    out << "vx, vy, vz, T_trans, T_rot, U_gr, U_em, E, q_norm,";
+    out << "Frx, Fry, Frz, Fdx, Fdy, Fdz, Fextx, Fexty, Fextz\n";
     for (int i=0; i <= steps; ++i){
+        vec3 Fr, Fd, Fext;
+        s = integrator(s, dt, p, Fr, Fd, Fext);
         if ((i % 10) == 0){
             vec3 v = getr(s.Omega, p);
             double T_trans = 0.5 * p.M * v.squaredNorm();
@@ -232,9 +241,9 @@ int main(){
             out << t << "," << s.r.x() << "," << s.r.y() << "," << s.r.z() << ","
             << s.Omega.x() << "," << s.Omega.y() << "," << s.Omega.z() << ","
             << s.q.w() << "," << s.q.x() << "," << s.q.y() << "," << s.q.z() << ","
-            << v.x() << "," << v.y() << "," << v.z() << "," << T_trans << "," << T_rot << "," << U_gr << "," << U_em << "," << E << "," << q_norm << "\n";
+            << v.x() << "," << v.y() << "," << v.z() << "," << T_trans << "," << T_rot << "," << U_gr << "," << U_em << "," << E << "," << q_norm << ","
+            << Fr.x() << "," << Fr.y() << "," << Fr.z() << "," << Fd.x() << "," << Fd.y() << "," << Fd.z() << "," << Fext.x() << "," << Fext.y() << "," << Fext.z() << "\n";
         }
-        s = integrator(s, dt, p);
         t += dt;
     }
     out.close();
