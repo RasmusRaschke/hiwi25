@@ -373,14 +373,14 @@ Numerically, it may be desireable to avoid a jump discontinuity. Rather, one cou
 \end{itemize}
 The underdamped case has an exponential envelope which can be used to judge the quality of the $\tanh$ approximation of $\sgn$. We expect a transition between the linear and exponential envelopes numerically as $\dot{\beta}$ gets increasingly smaller.
 \paragraph*{Smooth Flat Surface with Spin}
-Consider the same flat surface without friction, but now assume that $\bm{\Omega}(0)=(0,0,\Omega_0)^\top$ and $\bm{\mu}(0)=(u,v,1)^\top$ for $u,v$ small enough to assume $\|\bm{\mu}\|=\mu=1$. Equation \ref{eq:euler} now reads \[
-    I \dot{\bm{\Omega}} = R^2M \dot{\bm{\Omega}} + B (v,-u,0)^\top
+Consider the same flat surface without friction, but now assume that $\bm{\Omega}(0)=(0,0,\Omega_0)^\top$ and $\bm{\mu}(0)=\mu(u,v,1)^\top$ for $u,v$ small enough to assume $\|\bm{\mu}\|=\mu=1$. Equation \ref{eq:euler} now reads \[
+    I \dot{\bm{\Omega}} = R^2M \dot{\bm{\Omega}} + B\mu (v,-u,0)^\top
 .\] The trivial normal component yields \[
 \Omega_3(t)=\Omega_0
 ,\] i.e. normal spin is conserved. The parallel part has coupled solutions \[
-\dot{\Omega}_1 = \frac{B}{I+R^2M} v
+\dot{\Omega}_1 = \frac{B\mu}{I+R^2M} v
 \]  and \[
-\dot{\Omega}_2 = -\frac{B}{I+R^2M} u
+\dot{\Omega}_2 = -\frac{B\mu}{I+R^2M} u
 .\] The derivative of the magnetic moment is induced by the action of $\so(3)$, so we obtain \[
 \dot{\bm{\mu}}(t)=\bm{\Omega} \times \bm{\mu}(t)
 ,\] yielding the system of equations
@@ -388,27 +388,32 @@ Consider the same flat surface without friction, but now assume that $\bm{\Omega
     \dot{u}(t)&=\Omega_2 - \Omega_0 v(t) \\ \dot{v}(t)&= \Omega_0 u(t) - \Omega_1 \\ \Omega_1 v(t)&=\Omega_2 u(t)
 .
 \end{align*}
-Substitute $w(t) := u(t)+iv(t)$. This reduces the system to \[
-    \dot{w}(t)=(\Omega_2 - i \Omega_1) + i \Omega_0 w(t)
-.\] 
+Substitute $w(t) := u(t)+iv(t)$. This reduces the system to
+\begin{equation}
+    \label{eq:reduced}
+    \dot{w}(t)=(\Omega_2 - i \Omega_1) + i \Omega_0 w(t).
+\end{equation}
 Differentiating and substituting the expressions for $\dot{\bm{\Omega}}$ yields the ODE 
 \begin{equation}
-    \ddot{w} - i \Omega_0 \dot{w} + \omega_0^2 w = 0
+    \ddot{w} - i \Omega_0 \dot{w} + \eta_0^2 w = 0
 \end{equation}
-for $\omega_0 = \frac{B}{I+R^2M}$. This is a coupled harmonic oscillator equation solved by 
+for $\eta_0 = \frac{B}{I+R^2M}$. This is a coupled harmonic oscillator equation solved by 
 \begin{equation*}
-    w(t)=\lambda_+ \exp(i\omega_+ t) + \lambda_- \exp(i \omega_- t)
+    w(t)=\lambda_+ \exp(i\eta_+ t) + \lambda_- \exp(i \eta_- t)
 \end{equation*}
-with characteristic angular frequencies $\omega_\pm = \frac{\Omega_0 \pm \sqrt{\Omega_0^2 +4\omega_0^2}}{2}$ and initial constants $\lambda_\pm$. If $\dot{\bm{\mu}}(0)=\bm{0}$, we can write $w(0)=:w_0$ and simplify to obtain 
-\begin{equation}
-    w(t)=\frac{w_0}{\omega_- - \omega_+}(\omega_- \exp(i\omega_+ t) - \omega_+ \exp(i \omega_- t)).
-\end{equation}
-Now use Equation \ref{eq:rolling} to write $\dot{x}(t)=R\Omega_2$ and $\dot{y}(t)=-R\Omega_1$. With this, we obtain the equation of motion as follows:
-\begin{align*}
-    \marginnote{Using the ODE, it is easy to see that \[\dot{x}+i\dot{y}=R(\Omega_2 -i\Omega_1)=\dot{w}-i\Omega_0w.\] }
-    x(t)+iy(t) &= x_0 + iy_0 + R\int_0^t (\dot{w}(\tau)-i\Omega_0 w(\tau))\, d\tau \\
-               &= x_0+iy_0+R (w(t)-w_0) \\
-               & \frac{iR\Omega_0 w_0}{\omega_+ - \omega_-} \int_0^t(\omega_- \exp(i\omega_+\tau)-\omega_+\exp(i\omega_-\tau)) \, d\tau \\
-    =& x_0+iy_0 + \frac{Rw_0}{\omega_- - \omega_+}\left( \frac{\Omega_0 \omega_-}{\omega_+} - \frac{\Omega_0 \omega_+}{\omega_-} - \omega_0\right)\\
-     &= \frac{R\omega_- w_0}{\omega_- - \omega_+} \exp(i\omega_+t)\left(1 - \frac{\Omega_0}{\omega_+} \right) + \frac{R \omega_+ w_0}{\omega_+ - \omega_-} \exp(i \omega_- t) \left(1 - \frac{\Omega_0}{\omega_-}\right)
-\end{align*}
+with characteristic angular frequencies $\eta_\pm = \frac{\Omega_0 \pm \Delta}{2},$ discriminant $\Delta := \sqrt{\Omega_0^2 +4\omega_0^2}$, and initial constants $\lambda_\pm$. Writing $w(0)=:w_0$ and $\dot{w}(0)=:\dot{w}_0$, we can express the coefficients as \[
+    w(t)=\frac{\dot{w}_0 - i w_0 \eta_-}{i\Delta} \exp(i\eta_+t)- \frac{\dot{w}_0 -iw_0 \eta_+ }{i\Delta} \exp(i \eta_- t)
+.\] From Equation \ref{eq:reduced}, the initial condition $\dot{w}_0=i\Omega_0w_0$ is enforced. Substituting this into the equation, we get \[
+w(t)=\frac{w_0}{\Delta}\left[\eta_+\exp(i\eta_+ t) - \eta_- \exp(i\eta_-t)\right] 
+.\] 
+Now use Equation \ref{eq:rolling} to write $\dot{x}(t)=R\Omega_2$ and $\dot{y}(t)=-R\Omega_1$. Define the complex position $q(t):=x(t)+iy(t)$. Equation \ref{eq:reduced} yields \[
+    \dot{q}(t)= R\dot{w}(t)-i\Omega_0 w(t)
+.\] Integrating, we obtain
+\[
+    q(t)=q_0 + \frac{w_0R}{\Delta}\left[-\eta_- (\exp(i\eta_+ t)-1)+\eta_+ (\exp(i\eta_-t)-1)\right]
+.\] 
+The equations of motion follow by taking the real and imaginary parts.\\
+While this form of the e. o. m. may be useful for implementation, it is not very revealing. We can produce a clearer form by resubstituting $\eta_\pm = \frac{\Omega_0}{2} \pm \frac{\Delta}{2}$ and carefully separating the terms. This yields \[
+    q(t)=q_0-w_0R+w_0R \exp\left(\frac{i\Omega_0t}{2}\right)\left[ \cos \left( \frac{\Delta t}{2}\right)- i\frac{\Omega_0}{\Delta} \sin\left( \frac{\Delta t}{2}\right)\right]
+.\] This characterizes the expected motion: We have a rotation factor controlled by the initial rotation which is modulated by an oscillatory envelope whose modulation frequency is dertermined by the discriminant of the system. \\
+Also, note that the spin direction introduces a fundamental asymmetry in the equations of motion: The permutation $x \leftrightarrow y$ does not leave the system invariant. However, the more subtle rotational symmetry $(x+iy) \mapsto \exp(i \theta) (x+iy)$ for any $\theta$ persists. Noether's Theorem thus implies that $\Omega_0$ must be conserved.

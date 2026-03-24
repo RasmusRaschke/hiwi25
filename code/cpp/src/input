@@ -1,16 +1,16 @@
 1e-5        # time step in seconds
-15.0         # simulated time in seconds
+10.0         # simulated time in seconds
 0.004       # mass in kilograms
 0.005       # radius in meters
 9.80665     # gravitational acceleration in kilograms per second squared
-15.0         # incline angle in degrees
-0.005         # magnetic moment (x component) in Ampere times meter squared
-0.005      # magnetic moment (y component) in Ampere times meter squared
-0.995       # magnetic moment (z component) in Ampere times meter squared 
+0.0         # incline angle in degrees
+0.1         # magnetic moment (x component) in Ampere times meter squared
+0.1      # magnetic moment (y component) in Ampere times meter squared
+1.0       # magnetic moment (z component) in Ampere times meter squared 
 0.0         # outer magnetic field (x component) in Tesla
 0.0         # outer magnetic field (y component) in Tesla
 5.0e-5      # outer magnetic field (z component) in Tesla
-0.0        # normal initial angular momentum in degrees per second
+999.0        # normal initial angular momentum in degrees per second
 3           # rolling resistance: 0 = none, 1 = coulomb, 2 = viscous, 3 = unsmoothed Coulomb (dry)
 0.002       # rolling resistance coefficient
 100.0       # steepness of smooth approximation for sign
