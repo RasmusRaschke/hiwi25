@@ -294,18 +294,6 @@ and
     \sin \psi(t) \sin \theta(t)\\ - \cos^2 \varphi \sin \theta(t) \cos \psi(t)\\ -\sin \varphi \cos \varphi \sin \theta(t) \cos \psi(t)
 \end{pmatrix}
 .\] 
-\paragraph*{Flat Surface}
-Consider $\varphi =0$ with $\bm{B}=B\bm{e}_3$ and $\bm{\mu}|_{t=0}=\mu (\bm{e}_2+\bm{e}_3)$. Assume that the ball is initially at rest. We have $\bm{n}=\bm{e}_3$, so the motion is not influenced by gravity. Since the magnetic torque is fully directed in $\bm{e}_1$-direction, we can parametrize $\bm{\mu}(t)=\mu(0,\sin \beta (t),\cos \beta (t))^\top$ with the angle $\beta$ between $\bm{\mu}$ and $\bm{e}_3$. Plugging everything in the equations of motion, we obtain \[
-    \ddot{r}_2(t)= - \frac{R\mu B}{I+R^2M} \sin \beta (t)
-    .\] Assuming that $\beta(0)$ is small enough, we write $\sin \beta (t)\approx \beta(t)$. In addition, the rolling constraint yields $\ddot{r}_2=R\ddot{\beta}(t)$, and we obtain 
-\[
-\ddot{\beta}(t) + \frac{\mu B}{I+R^2M} \beta(t)=0
-.\] 
-This is a second order linear ODE with analytic solution \[
-\beta(t)=\beta_0\cos(\omega t)
-,\] where $\omega^2 = \frac{\mu B}{I+R^2M}$. The period of oscillation is $T=\frac{1}{2\pi} \sqrt{\frac{I+R^2M}{\mu B}}$. We can use the rolling constraint to obtain the equation of motion \[
-y(t)=y_0 + R (\beta(t) - \beta_0) = y_0 + R \beta_0(\cos(\omega t)-1)
-.\] 
 \subsection{Non-Holonomic Mechanics: Damping}
 Up until now, the magnetic system is not subject to any dissipative forces. Especially the exclusion of friction is a simplification too severe to make quantitative predictions. We start by introducing rolling resistance. The frictional force is proportional to the modulus $N:=Mg\langle \bm{n},\bm{e}_3 \rangle$ of the surface normal force with proportionality constant $\nu_r$. It acts opposed to the direction of motion, hence we can write 
 \[
@@ -321,18 +309,39 @@ Up until now, the magnetic system is not subject to any dissipative forces. Espe
     I \dot{\bm{\Omega}} = -R^2M \dot{\bm{\Omega}}_\| - RMg \bm{n} \times \bm{e}_3 + \bm{\mu} \times \bm{B} - R \bm{n} \times \bm{f}_r
 .\] 
 This yields analogously the equations of motions. 
-\paragraph*{Flat Surface with Friction}
+\subsection{Analytical Toy Models}
+\label{subsec:antoy}
+To test whether our approach creates meaningful physical results, we need analytically solvable systems which can serve as a standard to compare with. To that end, we present several toy models and their analytical solutions in this section. Two fundamental equations will be used to procure analytical results: The Euler Equation
+\begin{equation}
+    \label{eq:euler}
+    I \dot{\bm{\Omega}} = -R^2 M \dot{\bm{\Omega}}_\| - RMg \bm{n} \times \bm{e}_3 + \bm{\mu} \times \bm{B} - R \bm{n} \times \bm{f}_r
+\end{equation}
+and the rolling constraint
+\begin{equation}
+    \label{eq:rolling}
+    \dot{\bm{r}}=R\bm{\Omega}\times \bm{n}.
+\end{equation}
+\paragraph*{Smooth Flat Surface}
+Consider $\varphi =0$ with $\bm{B}=B\bm{e}_3$ and $\bm{\mu}|_{t=0}=\mu (\bm{e}_2+\bm{e}_3)$. Assume that the ball is initially at rest. We have $\bm{n}=\bm{e}_3$, so the motion is not influenced by gravity. Since the magnetic torque is fully directed in $\bm{e}_1$-direction, we can parametrize $\bm{\mu}(t)=\mu(0,\sin \beta (t),\cos \beta (t))^\top$ with the angle $\beta$ between $\bm{\mu}$ and $\bm{e}_3$. Plugging everything into Equation \ref{eq:euler} and assuming small angles, we obtain \[
+    \ddot{\Omega}_2 = \ddot{\beta}(t)= - \frac{\mu B}{I+R^2M} \sin \beta (t) \approx - \frac{\mu B}{I+R^2M} \beta(t)
+    .\] 
+This is a second order linear ODE with analytical solution \[
+\beta(t)=\beta_0\cos(\omega t)
+,\] where $\omega^2 = \frac{\mu B}{I+R^2M}$. The period of oscillation is $T=\frac{1}{2\pi} \sqrt{\frac{I+R^2M}{\mu B}}$. We can use the rolling constraint to obtain the equation of motion \[
+y(t)=y_0 + R (\beta(t) - \beta_0) = y_0 + R \beta_0(\cos(\omega t)-1)
+.\] 
+\paragraph*{Rough Flat Surface}
 We reconsider the flat surface system with $\varphi=0$, $\bm{\mu}=(0,\mu_2 \sin \beta(t),\mu_3 \cos \beta(t))^\top$, and $\bm{B}=B_3 \bm{e}_3$. Assume no initial velocity. We can relate the velocity vector directly with $\dot{\beta}$ as $v_i = \delta_{i2} R\dot{\beta}$.
 We obtain \[
-    \dot{\bm{\Omega}}= (0,\ddot{\beta}(t),0)^\top = \left[\frac{\mu B}{I+R^2M} \sin \beta(t) - \frac{R^2\nu_rMg}{I+R^2M} \sgn(\dot{\beta}(t)) \right] \bm{e}_2
+    \dot{\bm{\Omega}}= (0,\ddot{\beta}(t),0)^\top = \left[\frac{\mu B}{I+R^2M} \sin \beta(t) - \frac{R\nu_rMg}{I+R^2M} \sgn(R\dot{\beta}(t)) \right] \bm{e}_2
 \] and hence \[
-\ddot{\beta}(t)+ \frac{\mu B}{I+R^2M} \sin \beta (t) - R^2 \nu_r M g \sgn \dot{\beta}(t)=0
+\ddot{\beta}(t)+ \frac{\mu B}{I+R^2M} \sin \beta (t) - R \nu_r M g \sgn \dot{\beta}(t)=0
 .\]  
-To obtain the canonical form of the ODE, define the undamped angular frequency $\omega_0 := \sqrt{\frac{\mu B}{I+R^2M}}$ and the damping ratio $\zeta := \frac{R^2\nu_r Mg}{2(I+R^2M) \omega_0}$, yielding \[
+To obtain the canonical form of the ODE, define the undamped angular frequency $\omega_0 := \sqrt{\frac{\mu B}{I+R^2M}}$ and the damping ratio $\zeta := \frac{R\nu_r Mg}{2(I+R^2M) \omega_0}$, yielding \[
     \marginnote{Note that for the sphere, we have nicer expressions: \[
             \omega_0 = \sqrt{\frac{5\mu B}{7R^2M}}
     \] and \[
-    \zeta=\frac{5\nu_r g}{14 \omega_0}
+    \zeta=\frac{5\nu_r g}{14 R\omega_0}
     .\]  }
     \ddot{\beta}(t) + \omega_0^2 \sin \beta(t)+  2 \zeta \omega_0 \sgn \dot{\beta}(t) = 0
 .\] We again assume $\sin \beta(t) \approx \beta(t)$. The discontinuity at $\dot{\beta}(t)=0$ is a numerical problem. Analytically, we can treat the cases $\dot{\beta}<0$ and $\dot{\beta}>0$ separately, for which the equation is a simple harmonic oscillator with dry friction, solved by 
@@ -342,12 +351,12 @@ To obtain the canonical form of the ODE, define the undamped angular frequency $
 At $\dot{\beta}=0$, the two solutions are joined continuously. Note the difference to the viscously damped oscillator: Assuming $\beta(0)=\beta_0$ and $\dot{\beta}(0)=0$, but $\dot{\beta}(t)<0$ shortly after $t=0$, we obtain the piecewise solution \[
 \beta_-(t) = (\beta_0 + 2 \omega_0 \zeta) \cos(\omega_0 t) + 2 \omega_0 \zeta  
 .\]
-This holds up until the first turning point at $t_1=\frac{\pi}{\omega_0}$, where it assumes the value $a_1 = 4 \omega_0 \zeta - \beta_0$. There, the solution's sign switches, and we obtain the amplitude $a_2 = \beta_0 - 4 \omega_0 \zeta$. This continues recursively, yielding \[
-a_n = a_0 - n 2 \omega_0 \zeta
-\] for the amplitude at the $n$-th turning point. \emph{Henceforth, the dry-damped oscillator has a linear envelope, not an exponential one.}
-Numerically, it may be desireable to avoid a jump discontinuity. Rather, one could use a smooth approximation, e.g. $\sgn(\dot{\beta}) \approx \tanh(\lambda x)$, where $\lambda >0$ is a coefficient determining how rapid $\tanh$ converges to $\sgn$ away from $\dot{\beta}=0$. This smooth interpolation is, however, not ideal. If $\lambda$ is chosen too small or $\dot{\beta}$ approaches $0$ very closely, the small angle approximation yields $\tanh(\lambda \dot{\beta}) \approx \lambda \dot{\beta}$, so we obtain \[
+This holds up until the first turning point at $t_1=\frac{\pi}{\omega_0}$, where it assumes the value $a_1:=\beta(t_1) = 4 \omega_0 \zeta - \beta_0$. There, the solution's sign switches, and we obtain the amplitude $a_2 = \beta_0 - 4 \omega_0 \zeta$. This continues recursively, yielding \[
+a_n = a_0 - n \cdot 2 \omega_0 \zeta
+\] for the amplitude at the $n$-th turning point. \emph{Henceforth, the dry-damped oscillator has a linear envelope, not an exponential one.}\\
+Numerically, it may be desireable to avoid a jump discontinuity. Rather, one could use a smooth approximation, e.g. $\sgn(R\dot{\beta}) \approx \tanh(R \lambda x)$, where $\lambda >0$ is a coefficient determining how rapid $\tanh$ converges to $\sgn$ away from $\dot{\beta}=0$. This smooth interpolation is, however, not ideal. If $\lambda$ is chosen too small or $\dot{\beta}$ approaches zero very closely, the small angle approximation yields $\tanh(R \lambda \dot{\beta}) \approx R \lambda \dot{\beta}$, so we obtain \[
     \ddot{\beta}(t) + 2 \omega_0 \overline{\zeta} \dot{\beta}(t)+ \omega_0^2 \beta(t)  =0
-,\] where $\overline{\zeta} = \lambda \zeta$. This is the classical viscously damped harmonic oscillator, displaying the three different behaviours depending on $\overline{\zeta}$:
+,\] where $\overline{\zeta} = R \lambda \zeta$. This is the classical linearly damped harmonic oscillator, displaying the characteristical three different behaviours depending on $\overline{\zeta}$:
 \begin{itemize}
     \item If $0<\overline{\zeta} < 1$, we have the underdamped case with solution 
         \begin{equation}
@@ -362,4 +371,44 @@ Numerically, it may be desireable to avoid a jump discontinuity. Rather, one cou
             \beta(t)= \frac{\beta_0}{\lambda_1 - \lambda_2} (-\lambda_2 \exp(\lambda_1 t) + \lambda_1 \exp(\lambda_2 t))
         \end{equation} for $\lambda_{1,2}:=-\overline{\zeta} \omega_0 \pm \omega_0 \sqrt{\overline{\zeta}^2-1}$.
 \end{itemize}
-The underdamped case displays the characteristical exponential envelope, which can be used to judge the quality of the $\tanh$ approximation of $\sgn$. We expect a transition between the linear and exponential envelopes numerically as $\dot{\beta}$ gets increasingly smaller.
+The underdamped case has an exponential envelope which can be used to judge the quality of the $\tanh$ approximation of $\sgn$. We expect a transition between the linear and exponential envelopes numerically as $\dot{\beta}$ gets increasingly smaller.
+\paragraph*{Smooth Flat Surface with Spin}
+Consider the same flat surface without friction, but now assume that $\bm{\Omega}(0)=(0,0,\Omega_0)^\top$ and $\bm{\mu}(0)=(u,v,1)^\top$ for $u,v$ small enough to assume $\|\bm{\mu}\|=\mu=1$. Equation \ref{eq:euler} now reads \[
+    I \dot{\bm{\Omega}} = R^2M \dot{\bm{\Omega}} + B (v,-u,0)^\top
+.\] The trivial normal component yields \[
+\Omega_3(t)=\Omega_0
+,\] i.e. normal spin is conserved. The parallel part has coupled solutions \[
+\dot{\Omega}_1 = \frac{B}{I+R^2M} v
+\]  and \[
+\dot{\Omega}_2 = -\frac{B}{I+R^2M} u
+.\] The derivative of the magnetic moment is induced by the action of $\so(3)$, so we obtain \[
+\dot{\bm{\mu}}(t)=\bm{\Omega} \times \bm{\mu}(t)
+,\] yielding the system of equations
+\begin{align*}
+    \dot{u}(t)&=\Omega_2 - \Omega_0 v(t) \\ \dot{v}(t)&= \Omega_0 u(t) - \Omega_1 \\ \Omega_1 v(t)&=\Omega_2 u(t)
+.
+\end{align*}
+Substitute $w(t) := u(t)+iv(t)$. This reduces the system to \[
+    \dot{w}(t)=(\Omega_2 - i \Omega_1) + i \Omega_0 w(t)
+.\] 
+Differentiating and substituting the expressions for $\dot{\bm{\Omega}}$ yields the ODE 
+\begin{equation}
+    \ddot{w} - i \Omega_0 \dot{w} + \omega_0^2 w = 0
+\end{equation}
+for $\omega_0 = \frac{B}{I+R^2M}$. This is a coupled harmonic oscillator equation solved by 
+\begin{equation*}
+    w(t)=\lambda_+ \exp(i\omega_+ t) + \lambda_- \exp(i \omega_- t)
+\end{equation*}
+with characteristic angular frequencies $\omega_\pm = \frac{\Omega_0 \pm \sqrt{\Omega_0^2 +4\omega_0^2}}{2}$ and initial constants $\lambda_\pm$. If $\dot{\bm{\mu}}(0)=\bm{0}$, we can write $w(0)=:w_0$ and simplify to obtain 
+\begin{equation}
+    w(t)=\frac{w_0}{\omega_- - \omega_+}(\omega_- \exp(i\omega_+ t) - \omega_+ \exp(i \omega_- t)).
+\end{equation}
+Now use Equation \ref{eq:rolling} to write $\dot{x}(t)=R\Omega_2$ and $\dot{y}(t)=-R\Omega_1$. With this, we obtain the equation of motion as follows:
+\begin{align*}
+    \marginnote{Using the ODE, it is easy to see that \[\dot{x}+i\dot{y}=R(\Omega_2 -i\Omega_1)=\dot{w}-i\Omega_0w.\] }
+    x(t)+iy(t) &= x_0 + iy_0 + R\int_0^t (\dot{w}(\tau)-i\Omega_0 w(\tau))\, d\tau \\
+               &= x_0+iy_0+R (w(t)-w_0) \\
+               & \frac{iR\Omega_0 w_0}{\omega_+ - \omega_-} \int_0^t(\omega_- \exp(i\omega_+\tau)-\omega_+\exp(i\omega_-\tau)) \, d\tau \\
+    =& x_0+iy_0 + \frac{Rw_0}{\omega_- - \omega_+}\left( \frac{\Omega_0 \omega_-}{\omega_+} - \frac{\Omega_0 \omega_+}{\omega_-} - \omega_0\right)\\
+     &= \frac{R\omega_- w_0}{\omega_- - \omega_+} \exp(i\omega_+t)\left(1 - \frac{\Omega_0}{\omega_+} \right) + \frac{R \omega_+ w_0}{\omega_+ - \omega_-} \exp(i \omega_- t) \left(1 - \frac{\Omega_0}{\omega_-}\right)
+\end{align*}
