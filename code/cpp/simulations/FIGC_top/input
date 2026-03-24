@@ -1,0 +1,264 @@
+#f_0s_0x_0y
+1e-5        # time step in seconds
+15.0         # simulated time in seconds
+0.004       # mass in kilograms
+0.005       # radius in meters
+9.80665     # gravitational acceleration in kilograms per second squared
+0.0         # incline angle in degrees
+0.0         # magnetic moment (x component) in Ampere times meter squared
+1.0       # magnetic moment (y component) in Ampere times meter squared
+0.0       # magnetic moment (z component) in Ampere times meter squared 
+0.0         # outer magnetic field (x component) in Tesla
+0.0         # outer magnetic field (y component) in Tesla
+5.0e-5      # outer magnetic field (z component) in Tesla
+0.0        # normal initial angular momentum in degrees per second
+3           # rolling resistance: 0 = none, 1 = coulomb, 2 = viscous, 3 = unsmoothed Coulomb (dry)
+0.002       # rolling resistance coefficient
+100.0       # steepness of smooth approximation for sign
+1           # true for including air resistance, false for neglecting it 
+1.2         # mass density of the surrounding fluid in kilogram per meter cubed
+0.47        # drag coefficient of a sphere
+0.0         # x at t=0
+0.0         # y at t=0 
+#f_0s_x_y
+1e-5        # time step in seconds
+15.0         # simulated time in seconds
+0.004       # mass in kilograms
+0.005       # radius in meters
+9.80665     # gravitational acceleration in kilograms per second squared
+0.0         # incline angle in degrees
+0.707         # magnetic moment (x component) in Ampere times meter squared
+0.707       # magnetic moment (y component) in Ampere times meter squared
+0.0       # magnetic moment (z component) in Ampere times meter squared 
+0.0         # outer magnetic field (x component) in Tesla
+0.0         # outer magnetic field (y component) in Tesla
+5.0e-5      # outer magnetic field (z component) in Tesla
+0.0        # normal initial angular momentum in degrees per second
+3           # rolling resistance: 0 = none, 1 = coulomb, 2 = viscous, 3 = unsmoothed Coulomb (dry)
+0.002       # rolling resistance coefficient
+100.0       # steepness of smooth approximation for sign
+1           # true for including air resistance, false for neglecting it 
+1.2         # mass density of the surrounding fluid in kilogram per meter cubed
+0.47        # drag coefficient of a sphere
+0.0         # x at t=0
+0.0         # y at t=0 
+#f_10s_y
+1e-5        # time step in seconds
+15.0         # simulated time in seconds
+0.004       # mass in kilograms
+0.005       # radius in meters
+9.80665     # gravitational acceleration in kilograms per second squared
+0.0         # incline angle in degrees
+0.0         # magnetic moment (x component) in Ampere times meter squared
+1.0       # magnetic moment (y component) in Ampere times meter squared
+0.0       # magnetic moment (z component) in Ampere times meter squared 
+0.0         # outer magnetic field (x component) in Tesla
+0.0         # outer magnetic field (y component) in Tesla
+5.0e-5      # outer magnetic field (z component) in Tesla
+10.0        # normal initial angular momentum in degrees per second
+3           # rolling resistance: 0 = none, 1 = coulomb, 2 = viscous, 3 = unsmoothed Coulomb (dry)
+0.002       # rolling resistance coefficient
+100.0       # steepness of smooth approximation for sign
+1           # true for including air resistance, false for neglecting it 
+1.2         # mass density of the surrounding fluid in kilogram per meter cubed
+0.47        # drag coefficient of a sphere
+0.0         # x at t=0
+0.0         # y at t=0 
+#f_10s_x_y
+1e-5        # time step in seconds
+15.0         # simulated time in seconds
+0.004       # mass in kilograms
+0.005       # radius in meters
+9.80665     # gravitational acceleration in kilograms per second squared
+0.0         # incline angle in degrees
+0.707         # magnetic moment (x component) in Ampere times meter squared
+0.707       # magnetic moment (y component) in Ampere times meter squared
+0.0       # magnetic moment (z component) in Ampere times meter squared 
+0.0         # outer magnetic field (x component) in Tesla
+0.0         # outer magnetic field (y component) in Tesla
+5.0e-5      # outer magnetic field (z component) in Tesla
+10.0        # normal initial angular momentum in degrees per second
+3           # rolling resistance: 0 = none, 1 = coulomb, 2 = viscous, 3 = unsmoothed Coulomb (dry)
+0.002       # rolling resistance coefficient
+100.0       # steepness of smooth approximation for sign
+1           # true for including air resistance, false for neglecting it 
+1.2         # mass density of the surrounding fluid in kilogram per meter cubed
+0.47        # drag coefficient of a sphere
+0.0         # x at t=0
+0.0         # y at t=0 
+#f_s100_y
+1e-5        # time step in seconds
+15.0         # simulated time in seconds
+0.004       # mass in kilograms
+0.005       # radius in meters
+9.80665     # gravitational acceleration in kilograms per second squared
+0.0         # incline angle in degrees
+0.0         # magnetic moment (x component) in Ampere times meter squared
+1.0       # magnetic moment (y component) in Ampere times meter squared
+0.0       # magnetic moment (z component) in Ampere times meter squared 
+0.0         # outer magnetic field (x component) in Tesla
+0.0         # outer magnetic field (y component) in Tesla
+5.0e-5      # outer magnetic field (z component) in Tesla
+100.0        # normal initial angular momentum in degrees per second
+3           # rolling resistance: 0 = none, 1 = coulomb, 2 = viscous, 3 = unsmoothed Coulomb (dry)
+0.002       # rolling resistance coefficient
+100.0       # steepness of smooth approximation for sign
+1           # true for including air resistance, false for neglecting it 
+1.2         # mass density of the surrounding fluid in kilogram per meter cubed
+0.47        # drag coefficient of a sphere
+0.0         # x at t=0
+0.0         # y at t=0 
+#f_s100_x_y
+1e-5        # time step in seconds
+15.0         # simulated time in seconds
+0.004       # mass in kilograms
+0.005       # radius in meters
+9.80665     # gravitational acceleration in kilograms per second squared
+0.0         # incline angle in degrees
+0.707         # magnetic moment (x component) in Ampere times meter squared
+0.707       # magnetic moment (y component) in Ampere times meter squared
+0.0       # magnetic moment (z component) in Ampere times meter squared 
+0.0         # outer magnetic field (x component) in Tesla
+0.0         # outer magnetic field (y component) in Tesla
+5.0e-5      # outer magnetic field (z component) in Tesla
+100.0        # normal initial angular momentum in degrees per second
+3           # rolling resistance: 0 = none, 1 = coulomb, 2 = viscous, 3 = unsmoothed Coulomb (dry)
+0.002       # rolling resistance coefficient
+100.0       # steepness of smooth approximation for sign
+1           # true for including air resistance, false for neglecting it 
+1.2         # mass density of the surrounding fluid in kilogram per meter cubed
+0.47        # drag coefficient of a sphere
+0.0         # x at t=0
+0.0         # y at t=0 
+#f_s1000_y
+1e-5        # time step in seconds
+15.0         # simulated time in seconds
+0.004       # mass in kilograms
+0.005       # radius in meters
+9.80665     # gravitational acceleration in kilograms per second squared
+0.0         # incline angle in degrees
+0.0         # magnetic moment (x component) in Ampere times meter squared
+1.0       # magnetic moment (y component) in Ampere times meter squared
+0.0       # magnetic moment (z component) in Ampere times meter squared 
+0.0         # outer magnetic field (x component) in Tesla
+0.0         # outer magnetic field (y component) in Tesla
+5.0e-5      # outer magnetic field (z component) in Tesla
+1000.0        # normal initial angular momentum in degrees per second
+3           # rolling resistance: 0 = none, 1 = coulomb, 2 = viscous, 3 = unsmoothed Coulomb (dry)
+0.002       # rolling resistance coefficient
+100.0       # steepness of smooth approximation for sign
+1           # true for including air resistance, false for neglecting it 
+1.2         # mass density of the surrounding fluid in kilogram per meter cubed
+0.47        # drag coefficient of a sphere
+0.0         # x at t=0
+0.0         # y at t=0 
+#f_s1000_x_y
+1e-5        # time step in seconds
+15.0         # simulated time in seconds
+0.004       # mass in kilograms
+0.005       # radius in meters
+9.80665     # gravitational acceleration in kilograms per second squared
+0.0         # incline angle in degrees
+0.707         # magnetic moment (x component) in Ampere times meter squared
+0.707       # magnetic moment (y component) in Ampere times meter squared
+0.0       # magnetic moment (z component) in Ampere times meter squared 
+0.0         # outer magnetic field (x component) in Tesla
+0.0         # outer magnetic field (y component) in Tesla
+5.0e-5      # outer magnetic field (z component) in Tesla
+1000.0        # normal initial angular momentum in degrees per second
+3           # rolling resistance: 0 = none, 1 = coulomb, 2 = viscous, 3 = unsmoothed Coulomb (dry)
+0.002       # rolling resistance coefficient
+100.0       # steepness of smooth approximation for sign
+1           # true for including air resistance, false for neglecting it 
+1.2         # mass density of the surrounding fluid in kilogram per meter cubed
+0.47        # drag coefficient of a sphere
+0.0         # x at t=0
+0.0         # y at t=0 
+f_5000s_y
+1e-5        # time step in seconds
+15.0         # simulated time in seconds
+0.004       # mass in kilograms
+0.005       # radius in meters
+9.80665     # gravitational acceleration in kilograms per second squared
+0.0         # incline angle in degrees
+0.0         # magnetic moment (x component) in Ampere times meter squared
+1.0      # magnetic moment (y component) in Ampere times meter squared
+0.0       # magnetic moment (z component) in Ampere times meter squared 
+0.0         # outer magnetic field (x component) in Tesla
+0.0         # outer magnetic field (y component) in Tesla
+5.0e-5      # outer magnetic field (z component) in Tesla
+5000.0        # normal initial angular momentum in degrees per second
+3           # rolling resistance: 0 = none, 1 = coulomb, 2 = viscous, 3 = unsmoothed Coulomb (dry)
+0.002       # rolling resistance coefficient
+100.0       # steepness of smooth approximation for sign
+1           # true for including air resistance, false for neglecting it 
+1.2         # mass density of the surrounding fluid in kilogram per meter cubed
+0.47        # drag coefficient of a sphere
+0.0         # x at t=0
+0.0         # y at t=0 
+#f_5000s_x_y
+1e-5        # time step in seconds
+15.0         # simulated time in seconds
+0.004       # mass in kilograms
+0.005       # radius in meters
+9.80665     # gravitational acceleration in kilograms per second squared
+0.0         # incline angle in degrees
+0.707         # magnetic moment (x component) in Ampere times meter squared
+0.707      # magnetic moment (y component) in Ampere times meter squared
+0.0       # magnetic moment (z component) in Ampere times meter squared 
+0.0         # outer magnetic field (x component) in Tesla
+0.0         # outer magnetic field (y component) in Tesla
+5.0e-5      # outer magnetic field (z component) in Tesla
+5000.0        # normal initial angular momentum in degrees per second
+3           # rolling resistance: 0 = none, 1 = coulomb, 2 = viscous, 3 = unsmoothed Coulomb (dry)
+0.002       # rolling resistance coefficient
+100.0       # steepness of smooth approximation for sign
+1           # true for including air resistance, false for neglecting it 
+1.2         # mass density of the surrounding fluid in kilogram per meter cubed
+0.47        # drag coefficient of a sphere
+0.0         # x at t=0
+0.0         # y at t=0 
+#f_2500s_y
+1e-5        # time step in seconds
+15.0         # simulated time in seconds
+0.004       # mass in kilograms
+0.005       # radius in meters
+9.80665     # gravitational acceleration in kilograms per second squared
+0.0         # incline angle in degrees
+0.0         # magnetic moment (x component) in Ampere times meter squared
+1.0      # magnetic moment (y component) in Ampere times meter squared
+0.0       # magnetic moment (z component) in Ampere times meter squared 
+0.0         # outer magnetic field (x component) in Tesla
+0.0         # outer magnetic field (y component) in Tesla
+5.0e-5      # outer magnetic field (z component) in Tesla
+2500.0        # normal initial angular momentum in degrees per second
+3           # rolling resistance: 0 = none, 1 = coulomb, 2 = viscous, 3 = unsmoothed Coulomb (dry)
+0.002       # rolling resistance coefficient
+100.0       # steepness of smooth approximation for sign
+1           # true for including air resistance, false for neglecting it 
+1.2         # mass density of the surrounding fluid in kilogram per meter cubed
+0.47        # drag coefficient of a sphere
+0.0         # x at t=0
+0.0         # y at t=0 
+#f_2500s_x_y
+1e-5        # time step in seconds
+15.0         # simulated time in seconds
+0.004       # mass in kilograms
+0.005       # radius in meters
+9.80665     # gravitational acceleration in kilograms per second squared
+0.0         # incline angle in degrees
+0.707         # magnetic moment (x component) in Ampere times meter squared
+0.707      # magnetic moment (y component) in Ampere times meter squared
+0.0       # magnetic moment (z component) in Ampere times meter squared 
+0.0         # outer magnetic field (x component) in Tesla
+0.0         # outer magnetic field (y component) in Tesla
+5.0e-5      # outer magnetic field (z component) in Tesla
+2500.0        # normal initial angular momentum in degrees per second
+3           # rolling resistance: 0 = none, 1 = coulomb, 2 = viscous, 3 = unsmoothed Coulomb (dry)
+0.002       # rolling resistance coefficient
+100.0       # steepness of smooth approximation for sign
+1           # true for including air resistance, false for neglecting it 
+1.2         # mass density of the surrounding fluid in kilogram per meter cubed
+0.47        # drag coefficient of a sphere
+0.0         # x at t=0
+0.0         # y at t=0 

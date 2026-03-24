@@ -255,7 +255,19 @@ ax6.set_ylim([-2,0.1])
 ax6.legend(loc='lower center', ncols=2)
 plt.savefig("FIGB6_dry_harm_osz_vgl.pdf", dpi=100)
 
-
+fig7, ax7 = plt.subplots(layout="constrained")
+ax7.plot(t, E_smooth*1e6, color='red', label=r"smoothed", lw=3.5)
+ax7.plot(t, E_uho*1e6, color='blue', label=r"underdamped", lw=3.5)
+ax7.plot(t, E_cho*1e6, color='aqua', label=r"critial", lw=3.5)
+ax7.plot(t, E_oho*1e6, color='darkblue', label=r"overdamped", lw=3.5)
+ax7.plot(t, E_dry*1e6, color='deeppink', label=r"dry", lw=3.5)
+ax7.set_xlabel(r"$t \, [\text{s}]$")
+ax7.set_ylabel(r"$E \, [\text{µJ}]$")
+ax7.tick_params(which='both', bottom=True, top=True, left=True, right=True, labelbottom=True, labelleft=True, labelright=False, labeltop=False)
+ax7.grid(True)
+ax7.set_xlim([0,3])
+ax7.legend(loc='upper right', ncols=2)
+plt.savefig("FIGB7_energies.pdf", dpi=100)
 
 '''
 fig2, ax2 = plt.subplots(layout='constrained')
