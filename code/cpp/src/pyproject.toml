@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["simutils"]
+
+[project]
+name = "simutils"
+version = "1.0.0"
+authors = [
+    {name = "Rasmus Raschke", email = "rasmus.raschke@uni-hamburg.de"},
+]
+description = "Provides a csv extractor and analytical functions to analyse magsphere's output."
+requires-python = ">= 3.14"
+dependencies = [
+    "numpy >= 2.4.2",
+]

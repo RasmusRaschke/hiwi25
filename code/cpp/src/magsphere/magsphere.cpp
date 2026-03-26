@@ -1,7 +1,7 @@
-/*
-Magnetic Sphere Simulator
-Written by Tim Matthies and Rasmus Raschke, University of Hamburg, 2026
-*/
+/*!
+ *Magnetic Sphere Simulator
+ *Written by Tim Matthies and Rasmus Raschke, University of Hamburg, 2026
+ */
 
 #include <fstream>
 #include <iomanip>
@@ -89,8 +89,11 @@ T get_next() {
     return get_input_variable<T>(line);
 }
 
-// MATH AND PHYSICS
-
+/*!
+ * Calculates the Lie theoretic exponential map so(3) -> SO(3) in quaternion representation
+ * @param rotvec Three-dimensional rotation vector describing axis and angle
+ * @return Returns the image of exp as quaternion type (Eigen)
+ */
 static quat exponential(const vec3 &rotvec){
     double theta = rotvec.norm();
     if (theta < 1e-15) return quat::Identity();
@@ -100,15 +103,38 @@ static quat exponential(const vec3 &rotvec){
     return quat(a, b * axis.x(), b * axis.y(), b * axis.z());
 }
 
+/*!
+ * Rotates a given vector by a quaternion
+ * @param q Quaternion descibing the rotation
+ * @param v 3-vector to be rotated
+ * @return Returns rotated vector as vec3 type
+ */
 static vec3 rotate(const quat &q, const vec3 &v){
     return q * v;
 }
 
+/*!
+ * Calculates the magnetic torque for a given rotational configuration
+ * @param q Unit quaternion describing the rotational state of mu
+ * @param mu Magnetic dipole vector at t=0
+ * @param B Magnetic field vector
+ * @return torque Magnetic torque as 3-vector
+ */
 static vec3 torque(const quat &q, const vec3 &mu, const vec3 &B){
     vec3 mu_init = rotate(q, mu);
     return mu_init.cross(B);
 }
 
+/*!
+ * Calculates angular acceleration with or without friction and updates forces
+ * @param Omega Angular velocity
+ * @param q Rotational state represented as quaternion
+ * @param p Parameter structure characterizing the system
+ * @param Fr Dry friction force
+ * @param Fd Air drag force
+ * @param Fext External forces
+ * @return Angular acceleration as 3-vector
+ */
 static vec3 getOmega(const vec3 &Omega, const quat &q, const Parameters &p, vec3 &Fr, vec3 &Fd, vec3 &Fext){
     // calculate inertial and body normals
     const vec3 e3(0.,0.,1.);
@@ -146,12 +172,26 @@ static vec3 getOmega(const vec3 &Omega, const quat &q, const Parameters &p, vec3
     return (dotOmega_t + dotOmega_n * p.n);
 }
 
+/*!
+ * Calculate the com velocity vector for given angular velocity
+ * @param Omega Angular velocity
+ * @param p Parameter structure characterizing the system
+ * @return COM-velocity as 3-vector
+ */
 static vec3 getr(const vec3 &Omega, const Parameters &p){
     return p.R * Omega.cross(p.n);
 }
 
-// ALGORITHM
-
+/*!
+ * Runge-Kutta-Munthe-Kaas (RKMK) algorithm calculates com trajectory, angular velocity and unit quaternions for given initial values
+ * @param s Instance of structure describing the state variables of the system at time t
+ * @param dt Timespan between two timesteps
+ * @param p Parameter structure characterizing the system
+ * @param Fr Dry friction force
+ * @param Fd Air drag force
+ * @param Fext External forces
+ * @return State of system at the next increment
+ */
 static State integrator(const State &s, double dt, const Parameters &p, vec3 &Fr, vec3 &Fd, vec3 &Fext){
     vec3 Omega1 = s.Omega;
     //RKMK Steps
@@ -179,7 +219,11 @@ static State integrator(const State &s, double dt, const Parameters &p, vec3 &Fr
     return State{r_update, Omega_update, q_update};
 }
 
+/*!
+ * Calculates equations of motion of sphere for given initial data in a text file and writes it to data.csv
+ */
 int main(){
+    cout << "Starting calculation..." << "\n";
     double t = 0.0;
     double dt = get_next<double>();
     double t_end = get_next<double>();
@@ -226,7 +270,7 @@ int main(){
     out << scientific << setprecision(9);
     out << "t,x,y,z,Ox,Oy,Oz,q0,q1,q2,q3,";
     out << "vx, vy, vz, T_trans, T_rot, U_gr, U_em, E, q_norm,";
-    out << "Frx, Fry, Frz, Fdx, Fdy, Fdz, Fextx, Fexty, Fextz\n";
+    out << "Frx, Fry, Frz, Fdx, Fdy, Fdz, Fextx, Fexty, Fextz, mu_x, mu_y, mu_z\n";
     for (int i=0; i <= steps; ++i){
         vec3 Fr, Fd, Fext;
         s = integrator(s, dt, p, Fr, Fd, Fext);
@@ -235,18 +279,20 @@ int main(){
             double T_trans = 0.5 * p.M * v.squaredNorm();
             double T_rot = 0.5 * p.I * s.Omega.squaredNorm();
             double U_gr = p.M * p.g * s.r.z();
-            double U_em = - (rotate(s.q, p.mu_body)).dot(p.B_inert);
+            vec3 mu_rot = rotate(s.q, p.mu_body);
+            double U_em = - mu_rot.dot(p.B_inert);
             double E = T_trans + T_rot + U_gr + U_em;
             double q_norm = s.q.norm();
             out << t << "," << s.r.x() << "," << s.r.y() << "," << s.r.z() << ","
             << s.Omega.x() << "," << s.Omega.y() << "," << s.Omega.z() << ","
             << s.q.w() << "," << s.q.x() << "," << s.q.y() << "," << s.q.z() << ","
             << v.x() << "," << v.y() << "," << v.z() << "," << T_trans << "," << T_rot << "," << U_gr << "," << U_em << "," << E << "," << q_norm << ","
-            << Fr.x() << "," << Fr.y() << "," << Fr.z() << "," << Fd.x() << "," << Fd.y() << "," << Fd.z() << "," << Fext.x() << "," << Fext.y() << "," << Fext.z() << "\n";
+            << Fr.x() << "," << Fr.y() << "," << Fr.z() << "," << Fd.x() << "," << Fd.y() << "," << Fd.z() << "," << Fext.x() << "," << Fext.y() << "," << Fext.z()
+            << "," << mu_rot.x() << "," << mu_rot.y() << "," << mu_rot.z() << "\n";
         }
         t += dt;
     }
     out.close();
-    cout << "Done";
+    cout << "Done" << "\n";
     return 0;
 }
