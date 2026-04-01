@@ -42,8 +42,8 @@ run_case() {
 # Example:
 # x-moment from 0 to 1 in steps of 0.01
 # y-moment from -0.5 to 0.5 in steps of 0.1
-mapfile -t mx_vals < <(vals 0 1 0.01)
-mapfile -t my_vals < <(vals -0.5 0.5 0.1)
+mapfile -t mx_vals < <(vals -1 1 0.1)
+mapfile -t my_vals < <(vals -1 1 0.1)
 
 for mx in "${mx_vals[@]}"; do
   for my in "${my_vals[@]}"; do

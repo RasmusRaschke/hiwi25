@@ -5,7 +5,9 @@ import numpy as np
 from pathlib import Path
 from typing import Union
 from types import SimpleNamespace
+import re
 
+_FILENAME_RE = re.compile(r"data_mx_(?P<mx>.+)_my_(?P<my>.+)\.csv$")
 PathLike = Union[str, Path]
 
 def load(path: PathLike) -> dict[str, np.ndarray]:
@@ -55,3 +57,50 @@ def extract(path: PathLike = ".") -> dict[str, SimpleNamespace]:
         cols = load(csv)
         datasets[key] = SimpleNamespace(**cols)
     return datasets
+
+def decode(tag: str) -> float:
+    """Decode filename tags to floats
+
+    Parameters
+    ----------
+    tag : str 
+        Tag to convert
+
+    Returns
+    -------
+    float
+        Tag as float
+    """
+    return float(tag.replace("m", "-").replace("p", "."))
+
+def batch_extract(path: PathLike = ".") -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Extract x values and mx, my tag from a big amount of data
+
+    Parameters
+    ----------
+    path : PathLike
+        Path to the data files
+    
+    Returns
+    -------
+    tuple[np.ndarray, np.ndarray, np.ndarray]
+        mx, my and last x value
+    """
+    folder = Path(path)
+    mx_list: list[float] = []
+    my_list: list[float] = []
+    x_list: list[float] = []
+
+    for csv in folder.glob("data_mx_*_my_*.csv"):
+        match = _FILENAME_RE.fullmatch(csv.name)
+        if match is None:
+            continue
+        
+        mx = decode(match.group("mx"))
+        my = decode(match.group("my"))
+        cols = load(csv)
+        x = np.asarray(cols["x"])[-1]
+        mx_list.append(mx)
+        my_list.append(my)
+        x_list.append(float(x))
+    return np.array(mx_list), np.array(my_list), np.array(x_list)

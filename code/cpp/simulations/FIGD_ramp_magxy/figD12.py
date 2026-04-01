@@ -1,7 +1,9 @@
 import numpy as np 
 import matplotlib.pyplot as plt 
+from matplotlib.colors import Normalize
+from matplotlib.cm import ScalarMappable
 import simutils as su
-
+from mpl_toolkits.mplot3d import axes3d
 plt.style.use('seaborn-v0_8-paper')
 plt.rcParams.update({
     "font.size": 16,        # general default
@@ -16,19 +18,73 @@ g = 9.80665
 B = 5.0e-5
 R = 0.005
 M = 0.004
+"""
+mx, my, z = su.batch_extract("mag_moment_data")
+np.savez("mag_moment_grid.npz", mx=mx, my=my, z=z)
+"""
+data = np.load("mag_moment_grid.npz")
+mx = data["mx"]
+my = data["my"]
+z = data["z"]
+mx_sort = np.sort(np.unique(mx))
+my_sort = np.sort(np.unique(my))
+Z = np.full((len(my_sort), len(mx_sort)), np.nan)
+mx_idx = {v: i for i,v in enumerate(mx_sort)}
+my_idx = {v: i for i,v in enumerate(my_sort)}
 
-datasets = su.extract()
+for mxi, myi, zi in zip(mx, my, z):
+    Z[my_idx[myi], mx_idx[mxi]] = zi
+cmap = plt.cm.plasma
+X, Y = np.meshgrid(mx_sort, my_sort)
+fig1 = plt.figure(figsize=(9,7), constrained_layout=True)
+ax1 = fig1.add_subplot(111, projection="3d")
+ax1.plot_surface(X, Y, Z*100, cmap=cmap, edgecolor="royalblue", lw=0.5, rstride=1, cstride=1, alpha=0.4)
+ax1.contour(X, Y, Z*100, zdir='x', offset=-1.5, cmap=cmap)
+ax1.contour(X, Y, Z*100, zdir='y', offset=1.5, cmap=cmap)
+#ax1.contour(X, Y, Z*100, zdir='z', offset=-40, cmap="coolwarm")
+ax1.set(xlim=(-1.5, 1.5), ylim=(-1.5, 1.5), zlim=(-40, 40))
+ax1.set_xlabel(r"$\mu_x \, [\text{Am}^2]$", labelpad=14)
+ax1.set_ylabel(r"$\mu_y \, [\text{Am}^2]$", labelpad=14)
+ax1.set_zlabel(r"$x \, [\text{cm}]$", labelpad=14)
+#plt.tight_layout()
+ax1.tick_params(axis="both", which="major", pad=7)
+plt.savefig("FIGD1_mag_mom_3d.pdf", dpi=300)
 
-t = datasets["test"].t
 
-fig1, ax1 = plt.subplots(layout='constrained')
-ax1.plot(x_test*1000, y_test*1000, lw=3, color='red')
-ax1.plot(datasets["test"].x *1000, datasets["test"].y *1000, "-o", markevery=1000, color='black', lw=1.0)
-ax1.grid(True)
-ax1.set_xlabel(r"$x \, [\text{mm}]$")
-ax1.set_ylabel(r"$y \, [\text{mm}]$")
-ax1.tick_params(which='both', bottom=True, top=True, left=True, right=True, labelbottom=True, labelleft=True, labelright=False, labeltop=False)
-plt.savefig("test.pdf", dpi=100)
+fig2, (ax2, ax3) = plt.subplots(1, 2, figsize=(13, 5), layout="constrained")
+vmin = min(mx_sort.min(), my_sort.min())
+vmax = max(mx_sort.max(), my_sort.max())
+norm = Normalize(vmin=vmin, vmax=vmax)
+for target in my_sort:
+    mask = np.isclose(my, target)
+    mx_line = mx[mask]
+    z_line = z[mask]
+    order = np.argsort(mx_line)
+    ax2.plot(mx_line[order], z_line[order]*100, color=cmap(norm(target)), lw=1.5)
+ax2.xaxis.set_major_locator(plt.MaxNLocator(5))
+ax2.set_xlabel(r"$\mu_x \, [\text{Am}^2]$")
+ax2.set_ylabel(r"$x \, [\text{cm}]$")
+ax2.set_xlim(-1,1)
+ax2.grid(True, alpha=0.3)
+
+for target in mx_sort:
+    mask = np.isclose(mx, target)
+    my_line = my[mask]
+    z_line = z[mask]
+    order = np.argsort(my_line)
+    ax3.plot(my_line[order], z_line[order]*100, color=cmap(norm(target)), lw=1.5)
+ax3.xaxis.set_major_locator(plt.MaxNLocator(5))
+ax3.set_xlabel(r"$\mu_y \, [\text{Am}^2]$")
+ax3.set_xlim(-1,1)
+#ax3.set_ylabel(r"$x \, [\text{cm}]$")
+ax3.grid(True, alpha=0.3)
+sm = ScalarMappable(norm=norm, cmap=cmap)
+sm.set_array([])
+cbar = fig2.colorbar(sm, ax=[ax2, ax3], location="right", pad=0.02)
+cbar.set_label(r"$\mu_{x,y}^{\text{slice}} \, [\text{Am}^2]$")
+cbar.ax.yaxis.set_major_locator(plt.MaxNLocator(4))
+plt.savefig("FIGD3_mag_mom_2d.pdf", dpi=300)
+
 '''
 
 fig1, ax1 = plt.subplots(layout='constrained')
