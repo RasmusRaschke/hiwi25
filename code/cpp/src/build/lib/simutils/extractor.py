@@ -6,9 +6,9 @@ from pathlib import Path
 from typing import Union
 from types import SimpleNamespace
 import re
-from functools import lru_cache
 
 _FILENAME_RE = re.compile(r"data_mx_(?P<mx>.+)_my_(?P<my>.+)\.csv$")
+_MZ_FILENAME_RE = re.compile(r"data_mz_(?P<mz>\d+)\.csv")
 PathLike = Union[str, Path]
 
 def load(path: PathLike) -> dict[str, np.ndarray]:
@@ -74,7 +74,6 @@ def decode(tag: str) -> float:
     """
     return float(tag.replace("m", "-").replace("p", "."))
 
-@lru_cache(maxsize=None)
 def batch_extract(path: PathLike = ".") -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Extract x values and mx, my tag from a big amount of data
 
@@ -106,3 +105,34 @@ def batch_extract(path: PathLike = ".") -> tuple[np.ndarray, np.ndarray, np.ndar
         my_list.append(my)
         x_list.append(float(x))
     return np.array(mx_list), np.array(my_list), np.array(x_list)
+
+def batch_extract_mz(path: PathLike = ".") -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Extract y values and mz tag from a big amount of data
+
+    Parameters
+    ----------
+    path : PathLike
+        Path to the data files
+    
+    Returns
+    -------
+    tuple[np.ndarray, np.ndarray, np.ndarray]
+        mx, my and last x value
+    """
+    folder = Path(path)
+    mz_list: list[float] = []
+    y_list: list[float] = []
+
+    for csv in folder.glob("data_mz_*.csv"):
+        match = _MZ_FILENAME_RE.fullmatch(csv.name)
+        if match is None:
+            continue
+
+        mz = int(match.group("mz")) / 100.0
+        cols = load(csv)
+        y = np.asarray(cols["y"])[-1]
+
+        mz_list.append(mz)
+        y_list.append(float(y))
+
+    return np.array(mz_list), np.array(y_list)

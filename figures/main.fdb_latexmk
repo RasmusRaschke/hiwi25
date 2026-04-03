@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1775081149.75202 "main.tex" "main.pdf" "main" 1775081150.05265 0
+["pdflatex"] 1775251649.21895 "main.tex" "main.pdf" "main" 1775251649.52511 0
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1246382020 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -66,9 +66,13 @@
   "FIGA1_no_mag_traj.pdf" 1774564762.5146 18029 12cd1e97fb4bb85fcb7c1786859289db ""
   "FIGA2_no_mag_fric_energ.pdf" 1774564762.9226 16058 76436629f43290742060c8939a8f03a4 ""
   "FIGA3_no_mag_fric_traj.pdf" 1774564763.3226 17250 d92afe355a74fc2b6e39a4d6a3f58dbd ""
+  "FIGD1_mag_mom_3d.pdf" 1775071078.31118 29438 4b293065d81394fbad393a1c5e13e416 ""
+  "FIGD2_mag_mom_2d.pdf" 1775071078.56017 20627 54ae404298dee0e8b6c1d470727c8f7f ""
+  "FIGD3_mag_mom_traj.pdf" 1775074012.71452 66809 94d63efbe22ea21db18cf71dd4f7e9e4 ""
+  "FIGE_mag_mom_z.pdf" 1775248369.36002 16423 dc3077fded927cd858bb169e4528b103 ""
   "flat.pdf" 1775079361.24796 8163 1693e8c3e7a32a4d563c6bb2b2577096 ""
-  "main.aux" 1775081150.02218 3259 fa23751d69efe0338a0af08dc6b9430c "pdflatex"
-  "main.tex" 1775081148.59464 3365 7448c6b66aabd1f2f985bcacdd27be41 ""
+  "main.aux" 1775251649.4894 7030 b1ec7fbf43b932c783fc60ea681b255c "pdflatex"
+  "main.tex" 1775251648.37667 7929 f3777114db55380fc604577d4547be5d ""
   "ramp.pdf" 1775079417.6306 13005 4ccd7a253bc4bf6916f0414aec870a12 ""
   (generated)
   "main.aux"
