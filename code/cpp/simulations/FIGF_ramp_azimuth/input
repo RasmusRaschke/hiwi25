@@ -1,11 +1,12 @@
+#FIGD1/2:
 1e-5        # time step in seconds
 1.0         # simulated time in seconds
 0.004       # mass in kilograms
 0.005       # radius in meters
 9.80665     # gravitational acceleration in kilograms per second squared
 10.0         # incline angle in degrees
-0.00         # magnetic moment (x component) in Ampere times meter squared
-0.00      # magnetic moment (y component) in Ampere times meter squared
+SWEPT WITH RUNNER.SH [-1.0,-0.9..1.0]
+SWEPT WITH RUNNDER.SH [-1.0,-0.9..1.0]
 0.00       # magnetic moment (z component) in Ampere times meter squared 
 0.0         # outer magnetic field (x component) in Tesla
 0.0         # outer magnetic field (y component) in Tesla

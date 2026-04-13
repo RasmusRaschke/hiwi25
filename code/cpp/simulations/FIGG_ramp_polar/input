@@ -1,3 +1,4 @@
+#figE
 1e-5        # time step in seconds
 1.0         # simulated time in seconds
 0.004       # mass in kilograms
@@ -6,7 +7,7 @@
 10.0         # incline angle in degrees
 0.00         # magnetic moment (x component) in Ampere times meter squared
 0.00      # magnetic moment (y component) in Ampere times meter squared
-0.00       # magnetic moment (z component) in Ampere times meter squared 
+1.00       # magnetic moment (z component) in Ampere times meter squared, VARIED OVER [0.0,0.01..1.0]
 0.0         # outer magnetic field (x component) in Tesla
 0.0         # outer magnetic field (y component) in Tesla
 5.0e-5      # outer magnetic field (z component) in Tesla
