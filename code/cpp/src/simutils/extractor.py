@@ -173,6 +173,37 @@ def batch_extract_azimuth(path: PathLike = ".") -> tuple[np.ndarray, np.ndarray]
 
     return np.array(azimuth_list), np.array(x_list)
 
+def batch_extract_polar(path: PathLike = ".") -> tuple[np.ndarray, np.ndarray]:
+    """Extract y values and polar tag from a big amount of data
+
+    Parameters
+    ----------
+    path : PathLike
+        Path to the data files
+    
+    Returns
+    -------
+    tuple[np.ndarray, np.ndarray]
+        polar angle and last x value
+    """
+    folder = Path(path)
+    azimuth_list: list[float] = []
+    y_list: list[float] = []
+
+    for csv in folder.glob("data_azimuth_*.csv"):
+        match = _AZIMUTH_FILENAME_RE.fullmatch(csv.name)
+        if match is None:
+            continue
+
+        azimuth = float(match.group("azimuth"))
+        cols = load(csv)
+        y = np.asarray(cols["y"])[-1]
+
+        azimuth_list.append(azimuth)
+        y_list.append(float(y))
+
+    return np.array(azimuth_list), np.array(y_list)
+
 
 def extract_intervals(path: PathLike = "mag_moment_data", n_intervals: int = 10):
     """

@@ -25,9 +25,9 @@ def _replace_leading_number(line, value):
 
 def make_input_file(template, theta, c, out_path):
     lines = template.read_text().splitlines(True)
-    mx = 0.0
+    mx = c * np.cos(theta)
     my = c * np.sin(theta)
-    mz = c * np.cos(theta)
+    mz = 0.0
     lines[6] = _replace_leading_number(lines[6], mx)
     lines[7] = _replace_leading_number(lines[7], my)
     lines[8] = _replace_leading_number(lines[8], mz)
@@ -67,7 +67,7 @@ def sweep_theta_and_c(
     exe = Path(exe).resolve()
     template = Path(template).resolve()
     output_dir = Path(output_dir).resolve()
-    thetas = np.linspace(-np.pi / 2, np.pi / 2, n_steps + 1)
+    thetas = np.linspace(0, np.pi, n_steps + 1)
     tasks = [
         (exe, template, float(theta), float(c), output_dir, "input.base", angle_digits)
         for c in c_values
@@ -84,10 +84,10 @@ if __name__ == "__main__":
     sweep_theta_and_c(
         exe = "./magsphere.out",
         template = "./input.base",
-        c_values = [1.0],
+        c_values = np.arange(0,2.6,0.1),
         n_steps = 200,
         output_dir = "./results",
         angle_digits = 3,
         c_digits = 3,
-        max_cores=12
+        max_cores=11
     )
