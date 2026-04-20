@@ -43,6 +43,8 @@ def pi_formatter(x, pos):
     elif d == 1:
         if n == 1:
             return r"$\pi$"
+        if n == -1:
+            return r"$-\pi$"
         else:
             return rf"${n}\pi$"
     else:
@@ -62,7 +64,7 @@ ax1.plot(x_points[1], y_points[1] * 100, "o", color="orange", ms=10)
 ax1.plot(x_points[2], y_points[2] * 100, "o", color="red", ms=10)
 ax1.set_xlabel(r"$\vartheta \, [rad]$")
 ax1.set_ylabel(r"$y \, [\text{cm}]$")
-ax1.set_xlim(-np.pi/2,np.pi/2)
+ax1.set_xlim(-np.pi,np.pi)
 ax1.xaxis.set_major_locator(tck.MultipleLocator(np.pi / 4))
 ax1.grid(True)
 ax2.plot(t, y1*100, label=r"$\vartheta = 1.178 \, \text{rad}$", lw=3.5, color="blue")

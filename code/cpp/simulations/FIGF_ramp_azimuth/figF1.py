@@ -20,31 +20,34 @@ g = 9.80665
 B = 5.0e-5
 R = 0.005
 M = 0.004
-"""
-azimuth0, x0 = su.batch_extract_azimuth("mag_moment_data/c0_0")
-azimuth1, x1 = su.batch_extract_azimuth("mag_moment_data/c0_5")
-azimuth2, x2 = su.batch_extract_azimuth("mag_moment_data/c1_0")
-azimuth3, x3 = su.batch_extract_azimuth("mag_moment_data/c1_5")
-azimuth4, x4 = su.batch_extract_azimuth("mag_moment_data/c2_0")
-np.savez("mag_moment_azimuth_0.npz", azimuth=azimuth0, x=x0)
-np.savez("mag_moment_azimuth_1.npz", azimuth=azimuth1, x=x1)
-np.savez("mag_moment_azimuth_2.npz", azimuth=azimuth2, x=x2)
-np.savez("mag_moment_azimuth_3.npz", azimuth=azimuth3, x=x3)
-np.savez("mag_moment_azimuth_4.npz", azimuth=azimuth4, x=x4)
-"""
 
-azimuth_sorted = []
-x_sorted = []
-for i in [0,1,2,3,4]:
-    d = np.load(f"mag_moment_azimuth_{i}.npz")
+mus = np.round(np.arange(0.0, 2.5 + 0.1, 0.1), 1)
+"""
+# All folders from c0_0 to c2_5 in 0.1 steps
+azimuth_data = {}
+x_data = {}
+for mu in mus:
+    folder = f"mag_moment_data/c{mu:.1f}".replace(".", "_")
+    azimuth, x = su.batch_extract_azimuth(folder)
+    azimuth_data[mu] = azimuth
+    x_data[mu] = x
+    out_name = f"mag_moment_azimuth_c{mu:.1f}".replace(".", "_") + ".npz"
+    np.savez(out_name, azimuth=azimuth, x=x)
+"""
+azimuth_sorted = {}
+x_sorted = {}
+
+for mu in mus:
+    fname = f"mag_moment_azimuth_c{mu:.1f}".replace(".", "_") + ".npz"
+    d = np.load(fname)
+
     azimuth = d["azimuth"]
     x = d["x"]
-    order = np.argsort(azimuth)
-    azimuth_sorted.append(azimuth[order])
-    x_sorted.append(x[order])
 
-colors = plt.cm.viridis(np.linspace(0,1,5))
-fig1, ax1 = plt.subplots(figsize=(7, 5), layout="constrained")
+    order = np.argsort(azimuth)
+    azimuth_sorted[mu] = azimuth[order]
+    x_sorted[mu] = x[order]
+
 def pi_formatter(x, pos):
     frac = Fraction(x / np.pi).limit_denominator(12)
     n, d = frac.numerator, frac.denominator
@@ -60,17 +63,63 @@ def pi_formatter(x, pos):
             return rf"$\frac{{\pi}}{{{d}}}$"
         else:
             return rf"$\frac{{{n}\pi}}{{{d}}}$"
+fig1, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5), layout="constrained")
 ax1.xaxis.set_major_formatter(tck.FuncFormatter(pi_formatter))
-ax1.plot(azimuth_sorted[0], x_sorted[0] * 100, lw=2.5, color=colors[0], label=r"$\mu = 0.0 \, [\text{Am}^2]$")
-ax1.plot(azimuth_sorted[1], x_sorted[1] * 100, lw=2.5, color=colors[1], label=r"$\mu = 0.5 \, [\text{Am}^2]$")
-ax1.plot(azimuth_sorted[2], x_sorted[2] * 100, lw=2.5, color=colors[2], label=r"$\mu = 1.0 \, [\text{Am}^2]$")
-ax1.plot(azimuth_sorted[3], x_sorted[3] * 100, lw=2.5, color=colors[3], label=r"$\mu = 1.5 \, [\text{Am}^2]$")
-ax1.plot(azimuth_sorted[4], x_sorted[4] * 100, lw=2.5, color=colors[4], label=r"$\mu = 2.0 \, [\text{Am}^2]$")
+ax2.xaxis.set_major_formatter(tck.FuncFormatter(pi_formatter))
+plot_mus = np.round(np.arange(0.0, 2.5 + 0.1, 0.1), 1)
+norm = Normalize(vmin=min(plot_mus), vmax=max(plot_mus))
+plot_mus_1 = np.round(np.arange(0.0, 0.9 + 0.1, 0.1), 1)
+plot_mus_2 = np.round(np.arange(1.0, 2.5 + 0.1, 0.1), 1)
+cmap = plt.cm.coolwarm
+for i, mu in enumerate(plot_mus_1):
+    ax1.plot(
+        azimuth_sorted[mu],
+        x_sorted[mu] * 100,
+        lw=2.5,
+        color=cmap(norm(mu)),
+    )
+for i, mu in enumerate(plot_mus_2):
+    ax2.plot(
+        azimuth_sorted[mu],
+        x_sorted[mu] * 100,
+        lw=2.5,
+        color=cmap(norm(mu)),
+    )
+sm = ScalarMappable(norm=norm, cmap=cmap)
+sm.set_array([])
+cbar = plt.colorbar(sm, ax=ax2)
+cbar.set_label(r"$\mu\,[\mathrm{Am}^2]$")
+ax1.xaxis.set_major_locator(tck.MultipleLocator(np.pi / 4))
+ax1.set_xlabel(r"$\varphi \, [\text{rad}]$")
+ax1.set_ylabel(r"$x \, [\text{cm}]$")
+ax1.set_xlim(0,np.pi)
+ax1.grid(True, alpha=0.3)
+ax2.xaxis.set_major_locator(tck.MultipleLocator(np.pi / 4))
+ax2.set_xlabel(r"$\varphi \, [\text{rad}]$")
+ax2.set_ylabel(r"$x \, [\text{cm}]$")
+ax2.set_xlim(0,np.pi)
+ax2.grid(True, alpha=0.3)
+#ax1.legend()
+plt.savefig("FIGF1_mag_azimuth.pdf", dpi=300)
+"""
+fig2, ax2 = plt.subplots(figsize=(7, 5), layout="constrained")
+ax2.xaxis.set_major_formatter(tck.FuncFormatter(pi_formatter))
+plot_mus = np.round(np.arange(1.0, 2.5 + 0.1, 0.1), 1)
+colors = plt.cm.plasma(np.linspace(0, 1, len(plot_mus)))
+
+for i, mu in enumerate(plot_mus):
+    ax1.plot(
+        azimuth_sorted[mu],
+        x_sorted[mu] * 100,
+        lw=2.5,
+        color=colors[i],
+        label=rf"$\mu = {mu:.1f} \, [\text{{Am}}^2]$"
+    )
 ax1.xaxis.set_major_locator(tck.MultipleLocator(np.pi / 4))
 ax1.set_xlabel(r"$\varphi \, [\text{rad}]$")
 ax1.set_ylabel(r"$x \, [\text{cm}]$")
 ax1.set_xlim(0,np.pi)
 ax1.grid(True)
-ax1.legend()
+#ax1.legend()
 plt.savefig("FIGF1_mag_azimuth.pdf", dpi=300)
-#"""
+"""

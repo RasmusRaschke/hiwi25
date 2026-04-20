@@ -1,5 +1,5 @@
 1e-5        # time step in seconds
-1.0         # simulated time in seconds
+10.0         # simulated time in seconds
 0.004       # mass in kilograms
 0.005       # radius in meters
 9.80665     # gravitational acceleration in kilograms per second squared

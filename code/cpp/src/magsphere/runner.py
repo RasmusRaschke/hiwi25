@@ -67,7 +67,8 @@ def sweep_theta_and_c(
     exe = Path(exe).resolve()
     template = Path(template).resolve()
     output_dir = Path(output_dir).resolve()
-    thetas = np.linspace(0, np.pi, n_steps + 1)
+    #thetas = np.linspace(-np.pi, np.pi, n_steps + 1)
+    thetas = np.array([0.0, np.pi / 5, 4 * np.pi / 5, np.pi])
     tasks = [
         (exe, template, float(theta), float(c), output_dir, "input.base", angle_digits)
         for c in c_values
@@ -84,10 +85,10 @@ if __name__ == "__main__":
     sweep_theta_and_c(
         exe = "./magsphere.out",
         template = "./input.base",
-        c_values = np.arange(0,2.6,0.1),
-        n_steps = 200,
+        c_values = [2.0],
+        n_steps = 400,
         output_dir = "./results",
         angle_digits = 3,
-        c_digits = 3,
+        c_digits = 2,
         max_cores=11
     )

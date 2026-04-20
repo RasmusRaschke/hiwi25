@@ -32,7 +32,7 @@ fig, axs = plt.subplots(1, 3, figsize=(15, 5), layout="constrained")
 for ax, key, title in zip(axs, keys, titles):
     d = data[key]
     for azimuth, x, y in zip(d["angle"], d["x"], d["y"]):
-        ax.plot(x * 100, y * 100, color=cmap(norm(azimuth)), lw=1.2)
+        ax.plot(x * 100, y * 100, color=cmap(norm(azimuth)), lw=1.5)
     ax.set_title(title)
     ax.set_xlabel(r"$x \, [\text{cm}]$")
     ax.set_ylabel(r"$y \, [\text{cm}]$")
