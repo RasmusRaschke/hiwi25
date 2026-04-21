@@ -22,15 +22,32 @@ def _replace_leading_number(line, value):
         count=1,
     )
 
-
+"""
 def make_input_file(template, theta, c, out_path):
     lines = template.read_text().splitlines(True)
-    mx = c * np.cos(theta)
-    my = c * np.sin(theta)
+    mx = c * np.sin(theta)
+    my = c * np.cos(theta)
     mz = 0.0
     lines[6] = _replace_leading_number(lines[6], mx)
     lines[7] = _replace_leading_number(lines[7], my)
     lines[8] = _replace_leading_number(lines[8], mz)
+    out_path.write_text("".join(lines))
+"""
+#for changing outer magnetic field
+def make_input_file(template, theta, c, out_path):
+    lines = template.read_text().splitlines(True)
+    mx = 0.5 * np.sin(np.pi / 200)
+    my = 0.0
+    mz = 0.5 * np.cos(theta)
+    Bx = 0.0
+    By = c * np.sin(theta)
+    Bz = c * np.cos(theta)
+    lines[6] = _replace_leading_number(lines[6], mx)
+    lines[7] = _replace_leading_number(lines[7], my)
+    lines[8] = _replace_leading_number(lines[8], mz)
+    lines[9] = _replace_leading_number(lines[9], Bx)
+    lines[10] = _replace_leading_number(lines[10], By)
+    lines[11] = _replace_leading_number(lines[11], Bz)
     out_path.write_text("".join(lines))
 
 
@@ -67,8 +84,10 @@ def sweep_theta_and_c(
     exe = Path(exe).resolve()
     template = Path(template).resolve()
     output_dir = Path(output_dir).resolve()
-    #thetas = np.linspace(-np.pi, np.pi, n_steps + 1)
-    thetas = np.array([0.0, np.pi / 5, 4 * np.pi / 5, np.pi])
+    thetas = np.linspace(-np.pi, np.pi, n_steps + 1)
+    #thetas = np.array([np.pi / 2, np.pi / 20, np.pi / 200, np.pi/2000, 0.0])
+    #thetas = np.array([0.0])
+    print(thetas)
     tasks = [
         (exe, template, float(theta), float(c), output_dir, "input.base", angle_digits)
         for c in c_values
@@ -85,10 +104,10 @@ if __name__ == "__main__":
     sweep_theta_and_c(
         exe = "./magsphere.out",
         template = "./input.base",
-        c_values = [2.0],
+        c_values = [5.0e-5],
         n_steps = 400,
         output_dir = "./results",
-        angle_digits = 3,
+        angle_digits = 6,
         c_digits = 2,
         max_cores=11
     )

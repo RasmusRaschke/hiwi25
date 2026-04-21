@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}\textcolor {blue}{Sketches of the System: In Paper}}{3}{}%
+\contentsline {section}{\numberline {2}\textcolor {blue}{Figure Family A: Appendix}}{5}{}%
+\contentsline {section}{\numberline {3}Figure Family B}{7}{}%
+\contentsline {section}{\numberline {4}Figure Family C}{8}{}%
+\contentsline {section}{\numberline {5}\textcolor {blue}{Figure Family F: In Paper}}{9}{}%
+\contentsline {section}{\numberline {6}\textcolor {blue}{Figure Family G: In Paper}}{11}{}%
+\contentsline {section}{\numberline {7}Figure Family H}{13}{}%
+\contentsline {section}{\numberline {8}Figure Family I: Not for paper}{16}{}%
+\contentsline {section}{\numberline {9}\textcolor {red}{Figure Family D-OLD: Replaced by F}}{17}{}%
+\contentsline {section}{\numberline {10}\textcolor {red}{Figure Family E-OLD: Replaced}}{20}{}%

@@ -48,18 +48,27 @@ for mu in mus:
     azimuth_sorted[mu] = azimuth[order]
     x_sorted[mu] = x[order]
 
+#NOTE: this formatter is technically a pullback along a reparametrization of the input, 
+# so yes, it does not make much sense out of context
 def pi_formatter(x, pos):
     frac = Fraction(x / np.pi).limit_denominator(12)
     n, d = frac.numerator, frac.denominator
     if n == 0:
-        return "0"
+        return r"$-\frac{\pi}{2}$"
     elif d == 1:
         if n == 1:
-            return r"$\pi$"
+            return r"$\frac{\pi}{2}$"
         else:
             return rf"${n}\pi$"
     else:
-        if n == 1:
+        if d == 2:
+            return r"$0$"
+        elif d == 4:
+            if n == 1:
+                return r"$- \frac{\pi}{4}$"
+            else:
+                return r"$\frac{\pi}{4}$"
+        elif n == 1:
             return rf"$\frac{{\pi}}{{{d}}}$"
         else:
             return rf"$\frac{{{n}\pi}}{{{d}}}$"
@@ -99,6 +108,18 @@ ax2.set_xlabel(r"$\varphi \, [\text{rad}]$")
 ax2.set_ylabel(r"$x \, [\text{cm}]$")
 ax2.set_xlim(0,np.pi)
 ax2.grid(True, alpha=0.3)
+ax1.text(
+        0.03, 0.97, "(a)",
+        transform=ax1.transAxes,
+        ha="left", va="top",
+        fontsize=16, fontweight="bold"
+)
+ax2.text(
+        0.03, 0.97, "(b)",
+        transform=ax2.transAxes,
+        ha="left", va="top",
+        fontsize=16, fontweight="bold"
+)
 #ax1.legend()
 plt.savefig("FIGF1_mag_azimuth.pdf", dpi=300)
 """

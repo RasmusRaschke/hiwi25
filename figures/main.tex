@@ -9,7 +9,21 @@
 \usepackage[table,xcdraw]{xcolor} 
 \usepackage{float}
 \begin{document}
-\section{Sketches of the System}
+\tableofcontents
+\newpage
+Standard Parameters of the system:
+\begin{itemize}
+    \item Time increment $dt= 10^{-5}s$
+    \item Mass $M=0.004kg$
+    \item Radius $R=0.005m$
+    \item Grav. acc. $g=9.80665 m /s^2$
+    \item Outer Magnetic Field $B_x=B_y=0$, $B_z = 5 \cdot 10^{-5}T$
+    \item Initial values $x_0=y_0=0$
+    \item Rolling Resistance coef. $\nu = 0.002$
+    \item Mass density of air $\rho = 1.2 kg m^3$
+    \item Drag coefficient of sphere $c = 0.47$
+\end{itemize}
+\section{\textcolor{blue}{Sketches of the System: In Paper}}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{ramp.pdf}
@@ -22,7 +36,8 @@
     \caption{Shown is a sketch of the flat system with sufficiently small initial displacement angle $\beta_0$ between the outer magnetic field $\bm{B}$ and the initial magnetic dipole vector $\bm{\mu}_0$. Note that the system is effectively reduced to two dimensions. The red vectors indicate the oscillation-driving electromagnetic force $\bm{F}_\text{em}$ and the damping frictional force $\bm{F}_\text{fric}$. The frictional force includes aerodynamical drag and rolling resistance.}
     \label{fig:flat}
 \end{figure}
-\section{Figure Family A}
+\newpage
+\section{\textcolor{blue}{Figure Family A: Appendix}}
 These figures are results of a proof-of-concept toy model: The incline without electromagnetic interaction. The goal is to compare numerical results to analytical equations.
 \renewcommand{\thefigure}{A1}
     \begin{figure}[H]
@@ -37,11 +52,110 @@ These figures are results of a proof-of-concept toy model: The incline without e
         \includegraphics[width=0.45\linewidth]{FIGA3_no_mag_fric_traj.pdf}
         \caption{The left plot shows the energy evolution $E(t)$ of the system over time $t$, while the right one depicts the $y$-COM-coordinate evolution. The data originates from the numerical simulation program. Compared are different friction models, where \emph{Coulomb} represents dry rolling resistance, \emph{viscous} represents a linear damping approximation to rolling resistance, and \emph{aerodynamic} represents spherical aerodynamic drag.}
     \end{figure}
+
+\newpage
+
 \section{Figure Family B}
+
+\newpage
 
 \section{Figure Family C}
 
-\section{Figure Family D}
+\newpage
+
+\section{\textcolor{blue}{Figure Family F: In Paper}}
+The fixed non-standard parameters were:
+\begin{itemize}
+    \item  $\Delta t = 1s$
+    \item $\phi = 10^\circ$
+    \item Rolling Resistance on, Aerodynamical drag on
+\end{itemize}
+while the initial magnetic dipole moment was parametrized as \[
+    \bm{\mu}(t=0) = \mu (\sin \varphi, \cos \varphi, 0)^\top
+\] with polar angle $\varphi$ and modulus $\mu = \|\bm{\mu}\|$. For each modulus $\mu \in \{0.0, 0.1, \dots, 2.5\}$, the polar angle was varied for $\varphi \in [- \frac{\pi}{2}, \frac{\pi}{2}]$ in $\frac{\pi}{399}$-steps, yielding $26 \cdot 400 = 10400$ data sets. The goal was to measure the influence of the magnetic moment on the deviation of the trajectory from a straight path.
+\renewcommand{\thefigure}{F1}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{FIGF1_mag_azimuth.pdf}
+        \caption{Final $x$-deviation w.r.t. polar angle and modulus. Figure (a) and (b) both show the $x$-value of a trajectory after $t=1 \, \text{s}$ depending on the initial polar angle. Each graph represents a modulus of $\bm{\mu}$, indicated by the color bar. The first ten graphs in (a) show that the trajectorial deviation incrases non-linearly with the angular misalignment between $\bm{\mu}$ and the $yz$-plane. As expected, the deviation is antisymmetric about the origin. For increasing values of $\mu$ and $\varphi$, the deviation saturates. In (b), the curves for the remaining moduli $\mu$ can be seen. In this range, the magnetic forces start to dominate over the gravitational force for high polar deviations. The extrema of the curves correspond to the point where trajectories begin to loop around the origin instead of following the incline.}
+    \end{figure}
+\renewcommand{\thefigure}{F2}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{FIGF2_mag_mom_traj.pdf}
+        \caption{Chosen trajectories for fixed moduli. Figures (a), (b), and (c) show trajectories projected on the $xy$-plane for fixed values of $\mu$ and eleven equally spaced polar angle samples. It can be seen that in all cases, higher angular deviations correspond to stronger deflection of the sphere from a straight path. Increasing the modulus increases the curvature of the trajectories which evolve from almost linear paths to near-circular arcs. Figure (c) also shows the behaviour past the critical points of Figure F1(b) where the outmost paths form closed loops.}
+    \end{figure}
+\newpage
+\section{\textcolor{blue}{Figure Family G: In Paper}}
+The fixed non-standard parameters were:
+\begin{itemize}
+    \item  $\Delta t = 1s$
+    \item $\phi = 10^\circ$
+    \item Rolling Resistance on, Aerodynamical drag on
+\end{itemize}
+while the initial magnetic dipole moment was parametrized as \[
+    \bm{\mu}(t=0) = (0, \sin \vartheta, \cos \vartheta)^\top
+\] with polar angle $\vartheta$ and modulus $\|\bm{\mu}(t=0)\|=1$. The goal was to analyze at which point the magnetic force, which aligns the magnetic moment with the outer field, is surpassed by gravity. 
+\renewcommand{\thefigure}{G}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{FIGG_polar.pdf}
+        \caption{Total $y$-displacement after $t=1 \, \text{s}$ for different polar angles (a) and associated representative $y$-projected trajectories (b). Figure (a) shows the total distance in $y$ the sphere has rolled after one second depending on the polar misalignment of $\bm{\mu}$ and $\bm{B}$. There are three discernible regions: For almost all positive and a small range of negative deviations, the sphere covers distances characteristic for downward rolling motion. In the negative regime and around zero, the sphere is remaining around the origin. Between these regions, there are two steep boundary regions indicating an aprupt change between downward motion and oscillation around the origin. Figure (b) shows the evolution of the $y$-coordinate in time for three representative trajectories as indicated by the points in (a). The non-downward motion corresponds clearly to oscillation around the origin, while the downward motion shows only very weak signs of oscillatory motion in the beginning. The intermediate curve displays strong oscillatory motion in the beginning which is then overcome by gravity.}
+    \end{figure}
+\newpage
+\section{Figure Family H}
+These figures were generated with the following non-standard parameters:
+\begin{itemize}
+    \item $\Delta t = 10 s$
+    \item $\phi = 5^\circ$
+    \item Rolling Resistance on, Aerodynamical Drag on
+\end{itemize}
+The magnetic moment at $t=0$ was again parametrized by 
+\[
+    \bm{\mu}=\mu \cdot (\sin \varphi, \cos \varphi, 0)^\top
+.\]
+The goal was to observe the behaviour of the magnetic moment vector in the rotating frame of the sphere. We considered two cases: Downward rolling motion for $\varphi = \frac{\pi}{5}$ and $\mu = 0.1 Am^2$ and looping motion for $\varphi = \frac{\pi}{2}$ and $\mu = 1.5 Am^2$. We lowered the slope and $\mu$ for the first one to obtain slower rotational velocities, making trajectories slightly easier to interpret. For the plots of $\bm{\mu}$ in time, we decomposed $\bm{\mu}=\mu_\| (\bm{e}_1 + \bm{e}_2) + \mu_\perp \bm{e}_3$.  The drawn out trajectories correspond to the $\mu_\|$-component, i.e. the projection of $\bm{\mu}$ onto the $xy$-plane. The origin was shifted against the current $x$- and $y$-values of the sphere (plottet like the mag. moment orbiting the sphere).
+\renewcommand{\thefigure}{H1}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{FIGH1_magnet_rolling.pdf}
+        \caption{}
+    \end{figure}
+\renewcommand{\thefigure}{H2}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{FIGH2_projection_rolling.pdf}
+        \caption{}
+    \end{figure}
+\renewcommand{\thefigure}{H3}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{FIGH3_projection_looping.pdf}
+        \caption{}
+    \end{figure}
+\renewcommand{\thefigure}{H4}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{FIGH4_magnet_looping.pdf}
+        \caption{}
+    \end{figure}
+\newpage
+\section{Figure Family I: Not for paper}
+The non-standard parameters are
+\begin{itemize}
+    \item $\Delta t = 10s$
+    \item $\phi = 30^\circ$
+    \item Rolling Resistance on, Aerodynamical Drag on
+\end{itemize}
+Goal of these calculations was to take a closer look at which inputs are close in orders of magnitude to the observed motion of the sphere. The idea is to assume that $\bm{B}=B_z \bm{e}_z$ and $\bm{\mu}(t=0)$ are almost perfectly aligned at rest, with a little polar perturbation in the $xy$-plane causing deflection of the path. To quantify the size of the perturbation, we considered $\varphi \in \{0, \frac{\pi}{20000}, \frac{\pi}{2000}, \frac{\pi}{200}, \frac{\pi}{20}, \frac{\pi}{2}\}$.
+\renewcommand{\thefigure}{I1}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{FIGI_comp_dev.pdf}
+        \caption{The paths show that only $\frac{\pi}{200}$ is in the correct range to be close to the experiment quantitatively.}
+    \end{figure}
+\newpage
+\section{\textcolor{red}{Figure Family D-OLD: Replaced by F}}
 The following figures are the results of running the simulation for $\Delta t = 1 \text{s}$ simulation time with an incline of $\varphi = 10^\circ$ for all possible values of $\mu_x(t=0)$ and $\mu_y(t=0)$ in $[-1,1]$ for increments of $0.1$, meaning these are the results of $441$ calculations. 
 \renewcommand{\thefigure}{D1}
     \begin{figure}[H]
@@ -61,7 +175,10 @@ The following figures are the results of running the simulation for $\Delta t = 
         \includegraphics[width=\linewidth]{FIGD3_mag_mom_traj.pdf}
         \caption{Visible are different trajectories of the sphere on the $xy$-plane for selected $\mu_y$-slices and all $\mu_x$-values corresponding to these slices. Here, the anomaly in D1 and D2 for large negative $\mu_y$-values can be seen immediately. For smaller negative and all positive $\mu_y$-slices, $\mu_y$ only controls the spread of the trajectories, while $\mu_x$ influences the deviation from a straight path. At $\mu_y=-1$, the magnetic force induced by the $\mu_y$-component as soon as the $\mu_x$-induced torque bends the trajectory out of the $yz$-plane overcompensates gravity and causes an upward motion. After that, the sphere moves in roughly elliptic loops.}
     \end{figure}
-\section{Figure Family E}
+
+    \newpage
+
+    \section{\textcolor{red}{Figure Family E-OLD: Replaced}}
 The following figure shows the behaviour of the $y$-coordinate for different values of $\mu_z(t=0)$ in $[0,1]$, incremented by $0.01$-steps. The goal was to see the transition point at which the magnetic force overcomes the gravitational force, so $\mu_x(t=0)=\mu_y(t=0)=0$.
 \renewcommand{\thefigure}{E}
     \begin{figure}[H]
