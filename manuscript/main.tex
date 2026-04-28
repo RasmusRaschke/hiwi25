@@ -10,11 +10,90 @@
 \usepackage{float}
 \DeclareMathOperator{\SO}{SO}
 \DeclareMathOperator{\so}{\mathfrak{so}}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Id}{id}
+\usepackage[
+    backend=biber,
+    style=numeric,
+    natbib=true,
+    url=false, 
+    doi=true,
+    eprint=false
+]{biblatex}
+\addbibresource{bibliography.bib}
 \begin{document}
 \section{Introduction}
 TBD
 \section{Equations of Motion}
-Consider an infinite uncurved hyperplane $H \subseteq \mathbb{R}^3$ of slope $s \in \mathbb{R}$ and a rigid solid sphere of radius $R$ and mass $m$ in contact with the plane. Additionally, the sphere behaves as ideal magnetic dipole with dipole moment $\bm{\mu}_0$. The configuration manifold of the sphere is $Q := H \times \SO(3) \subseteq \mathbb{R}^3 \times \SO(3)$, and hence the velocity phase space is 
-$$TQ=TH \times T\SO(3) \cong \mathbb{R}^2 \times \so(3) \cong \mathbb{R}^2 \times \mathbb{R}^3 \subseteq \mathbb{R}^6.$$
-Choose two global frames of $\mathbb{R}^3$, one constant frame $\{\bm{e}_x,\bm{e}_y,\bm{e}_z\}$ whose origin defines the position of the sphere at $t=0$, and one moving frame $\{\hat{\bm{e}}_x(t), \hat{\bm{e_y}}(t), \hat{\bm{e_z}}(t)\}$ attached to the center of mass (COM) of the sphere. We will first derive the general equations of motions in $\mathbb{R}^3 \times \SO(3)$ followed by transforming the equations to an $H$-adapted basis. All vectors measured with respect to the COM-frame will be denoted with a hat. 
+Consider a solid sphere of radius $R$ and mass $M$ rolling without slipping on a hyperplane
+\begin{equation}
+    \label{eq:hypersurface}
+    H := \{ (x,y,z) \in \mathbb{R}^3 \mid F:=z-\alpha y =0 \}\subseteq \mathbb{R}^3
+\end{equation}
+with unit normal field $\bm{n}:=\frac{\grad F}{\|\grad F\|}$.
+Additionally, assume that the sphere carries a dipole moment $\bm{\mu}_0$ interacting with a homogeneous, constant magnetic field $\bm{B}$. The configuration manifold is \[
+Q := H \times \SO(3) \subseteq \mathbb{R}^3 \times \SO(3)
+,\] and the velocity phase space is therefore given by \[
+TQ = TH \times T\SO(3) \cong TH \times \so(3) \cong \mathbb{R}^2 \times \mathbb{R}^3 \subseteq \mathbb{R}^6
+.\] We choose the trivial global chart on $\mathbb{R}^3$ and some local smooth chart $\phi: U \subseteq \SO(3) \to \mathbb{R}^3$ on $\SO(3)$.\footnote{Constraining the motion to $H$ reduces the system by one dimension, but we chose not to eliminate $z$ since we need the solution in the full frame for numerical analysis.} A motion is a function \[
+(\bm{r}, P): \mathbb{R} \supseteq I \to \mathbb{R}^3 \times \SO(3)
+.\] In local coordinates, define $\bm{\theta}:= \phi \circ P: I \to \mathbb{R}^3$. Our goal is to find equations of motion and their solutions \[
+(\bm{r},\bm{\theta})=(x,y,z,\theta_x,\theta_y,\theta_z): I \to \mathbb{R}^6
+\] in local coordinates. Using the canonical Euclidean basis $\mathcal{B}:=(\bm{e}_x,\bm{e}_y, \bm{e}_z)$, we define a non-moving (inertial) coordinate frame by choosing an arbitrary origin. Furthermore, we consider a moving coodinate frame by $\widehat{\mathcal{B}}(t):=P(t)\mathcal{B}$. The angular velocity in the inertial frame $\bm{\Omega}(t)=(\Omega_x, \Omega_y, \Omega_z)^\top$ is defined by the components of the cross product matrix $\Omega^\times = \dot{P}P^\top$. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{ramp.pdf}
+\caption{Projection of the system in the $yz$-plane. The hat vectors are vectors of the basis $\hat{\mathcal{B}}$ while vectors without hat refer to $\mathcal{B}$. Red vectors are projected and may have non-zero $\bm{e}_x$-components. The hyperplane has an angle of inclination $\varphi$ defined by $\alpha = \tan \varphi$. The outer magnetic field is kept fixed parallel to $\bm{e}_z$.}
+\end{figure}
+
+The kinetic energy form is given by 
+\begin{equation}
+    \label{eq:kinetic}
+    T(\bm{r},\bm{\Omega})=\frac{M}{2}\|\dot{\bm{r}}\|^2 + \frac{I}{2}\|\bm{\Omega}\|^2
+\end{equation}
+and the potential by
+\begin{equation}
+    \label{eq:potential}
+    U(z, \bm{\Omega})=-mgz+\langle \hat{\bm{\mu}}(t), \bm{B}\rangle,
+\end{equation}
+where $\hat{\bm{\mu}}(t):=P(t)\bm{\mu}_0$. We obtain a \emph{Lagrangian} $L(z,\bm{\Omega},\dot{\bm{r}}) := T - U$. Assuming that there is an external force $\bm{F}_\text{e}=\bm{F}_\text{e}(\bm{r})$ such as friction, the corresponding \emph{Lagrange-d'Alembert principle}\cite{Crepel2005}\cite{Lagrange1788} reads
+\begin{equation}
+    \label{eq:lagrangealembert}
+    \delta \int_0^t L(z(s),\bm{\Omega}(s), \dot{\bm{r}}(s)) \, ds + \int_0^t \langle \bm{F}_\text{e}(\bm{r}(s)), \delta \bm{r}(s)  \rangle \, ds=0 
+    .\end{equation} The torque can be written as \[
+\bm{\tau}= \bm{\tau}_\text{em} + \bm{\tau}_\text{e}
+\] where $\bm{\tau}_\text{em}:=\hat{\bm{\mu}}(t) \times \bm{B}$ and $\bm{\tau}_\text{e} := -R \bm{n} \times \bm{F}_\text{e}.$
+The phase space of the linear motion decomposes as $\mathbb{R}^3 \cong H \oplus H^\perp$, so we can decompose arbitrary $\bm{v} \in \mathbb{R}^3$ as $\bm{v}=\bm{v}_\| + v_\perp \bm{n}$.
+With the rolling constraint
+\begin{equation}
+    \label{eq:rollingconst}
+    \dot{\bm{r}} = R \bm{\Omega} \times \bm{n} \implies \delta \bm{r} = R \delta \bm{\theta} \times \bm{n},
+\end{equation}
+integration by parts, and non-degeneracy of the scalar product, one obtains tangential 
+\begin{equation}
+    \label{eq:tangangularvel}
+    \frac{d \bm{\Omega}_\|}{dt} = \frac{1}{I+MR^2} \bm{\tau}_\| - \frac{RMg}{I+MR^2}(\bm{n} \times \bm{e}_z) 
+\end{equation}
+and normal 
+\begin{equation}
+    \label{eq:normalangularvel}
+    \frac{d \Omega_\perp}{dt} = \frac{1}{I} \bm{\tau}_\perp
+\end{equation}
+equations for the angular acceleration from Equation \ref{eq:lagrangealembert}. Taking the derivative of Equation \ref{eq:rollingconst}, this fully determines the linear motion. Assuming dry friction and aerodynamical drag, the external force becomes \[
+    \bm{F}_\text{e} = - \nu_r Mg \langle \bm{n},\bm{e}_z\rangle \frac{\dot{\bm{r}}}{\|\dot{\bm{r}}\|}(\Theta(\dot{\bm{r}})+\Theta(-\dot{\bm{r}})) + \frac{\rho C A}{2} \|\dot{\bm{r}}\|^2
+,\] where $\nu_r$ is the rolling resistance coefficient, $\Theta$ is the \emph{Heaviside function}, $\rho$ is the fluid density of air, $C$ is the drag coefficient, and $A$ is the cross sectional area of the sphere. For numerical reasons, we reparametrize $P(t)$ by a unit quaternion chart such that $P(t)=P((q_0,\bm{q}))$, where $(q_0,\bm{q}) \in \mathbb{S}^3$ is a time-dependent unit quaternion. Collecting everything, the full eqations of motion are:
+\begin{equation}
+    \label{eq:eom}
+    \boxed{
+    \begin{aligned}
+        \frac{d^2 \bm{r}}{dt^2}&= \frac{5}{7M} \bm{\tau} \times \bm{n} - \frac{5g}{7} (\bm{e}_z)_\| \\
+        \frac{d\bm{\Omega}_\|}{dt} &= \frac{5}{7MR^2}\bm{\tau}_\| - \frac{5g}{7R} \bm{n} \times \bm{e}_z\\
+        \frac{d \Omega_\perp}{dt} &= \frac{5}{7MR^2} \tau_\perp \\
+        \frac{d(q_0,\bm{q})}{dt}&=\frac{1}{2}(0, \bm{\Omega}) \cdot (q_0, \bm{q}).
+\end{aligned}}
+\end{equation}
+\section{Numerical Methods}
+\section{Results}
+\section{References}
+\printbibliography
 \end{document}
