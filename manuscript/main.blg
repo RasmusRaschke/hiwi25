@@ -1,15 +1,18 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'main.blg'
-[47] biber:342> INFO - === Wed Apr 29, 2026, 01:31:17
-[57] Biber.pm:421> INFO - Reading 'main.bcf'
-[96] Biber.pm:1002> INFO - Found 2 citekeys in bib section 0
+[47] biber:342> INFO - === Mon May  4, 2026, 19:17:48
+[56] Biber.pm:421> INFO - Reading 'main.bcf'
+[96] Biber.pm:1002> INFO - Found 5 citekeys in bib section 0
 [104] Biber.pm:4487> INFO - Processing section 0
 [109] Biber.pm:4678> INFO - Looking for bibtex file 'bibliography.bib' for section 0
 [110] bibtex.pm:1713> INFO - LaTeX decoding ...
-[112] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
-[145] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[145] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[145] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[145] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[147] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[147] bbl.pm:779> INFO - Output to main.bbl
+[113] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
+[154] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[155] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[155] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[155] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[158] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[159] bbl.pm:779> INFO - Output to main.bbl
+[159] Biber.pm:132> WARN - BibTeX subsystem: /tmp/biber_tmp_hubv/f4d088b3f9f145b5c3058da33afd57d4_22192.utf8, line 34, warning: undefined macro "June"
+[159] Biber.pm:132> WARN - BibTeX subsystem: /tmp/biber_tmp_hubv/f4d088b3f9f145b5c3058da33afd57d4_22192.utf8, line 49, warning: undefined macro "July"
+[159] Biber.pm:134> INFO - WARNINGS: 2

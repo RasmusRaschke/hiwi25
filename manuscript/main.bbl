@@ -19,6 +19,36 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
+    \entry{Coulomb}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=8862d82eb5e0843b142059b84bdd5bd5}{%
+           family={Coulomb},
+           familyi={C\bibinitperiod},
+           given={C.\bibnamedelimi A.\bibnamedelimi (Charles\bibnamedelima Augustin)},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim (\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {The Hong Kong University of Science}%
+        {Technology Library}%
+      }
+      \strng{namehash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{fullhash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{fullhashraw}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{bibnamehash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{authorbibnamehash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{authornamehash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{authorfullhash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{authorfullhashraw}{8862d82eb5e0843b142059b84bdd5bd5}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Rare &amp; Special e-Zone}
+      \field{title}{Théorie des machines simples : en ayant égard au frottement de leurs parties et à la roideur des cordages}
+      \verb{doi}
+      \verb 10.14711/spcol/b668151
+      \endverb
+    \endentry
     \entry{Crepel2005}{inbook}{}{}
       \name{author}{1}{}{%
         {{hash=dbe5e4e3d35157b739b2bca98218fd36}{%
@@ -50,6 +80,41 @@
       \range{pages}{9}
       \verb{doi}
       \verb 10.1016/b978-044450871-3/50092-9
+      \endverb
+    \endentry
+    \entry{Hayakawa2005}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6fe033b4af4812be4df1dfc2b383d11a}{%
+           family={Hayakawa},
+           familyi={H\bibinitperiod},
+           given={Hisao},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{fullhash}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{fullhashraw}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{bibnamehash}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{authorbibnamehash}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{authornamehash}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{authorfullhash}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{authorfullhashraw}{6fe033b4af4812be4df1dfc2b383d11a}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0167-2789}
+      \field{journaltitle}{Physica D: Nonlinear Phenomena}
+      \field{number}{1-4}
+      \field{title}{Langevin equation with Coulomb friction}
+      \field{volume}{205}
+      \field{year}{2005}
+      \field{pages}{48\bibrangedash 56}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1016/j.physd.2004.12.011
       \endverb
     \endentry
     \entry{Lagrange1788}{book}{}{}
@@ -89,6 +154,39 @@
       \field{year}{1788}
       \verb{doi}
       \verb 10.5479/sil.322586.39088000898585
+      \endverb
+    \endentry
+    \entry{Stokes2009}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{hash=c7199df8b1d221638c4e287d662fb97e}{%
+           family={Stokes},
+           familyi={S\bibinitperiod},
+           given={George\bibnamedelima Gabriel},
+           giveni={G\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{c7199df8b1d221638c4e287d662fb97e}
+      \strng{fullhash}{c7199df8b1d221638c4e287d662fb97e}
+      \strng{fullhashraw}{c7199df8b1d221638c4e287d662fb97e}
+      \strng{bibnamehash}{c7199df8b1d221638c4e287d662fb97e}
+      \strng{authorbibnamehash}{c7199df8b1d221638c4e287d662fb97e}
+      \strng{authornamehash}{c7199df8b1d221638c4e287d662fb97e}
+      \strng{authorfullhash}{c7199df8b1d221638c4e287d662fb97e}
+      \strng{authorfullhashraw}{c7199df8b1d221638c4e287d662fb97e}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Mathematical and Physical Papers}
+      \field{isbn}{9780511702266}
+      \field{title}{On the Effect of the Internal Friction of Fluids on the Motion of Pendulums}
+      \field{year}{2009}
+      \field{pages}{1\bibrangedash 10}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1017/cbo9780511702266.002
       \endverb
     \endentry
   \enddatalist
