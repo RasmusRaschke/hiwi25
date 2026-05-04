@@ -10,6 +10,7 @@
 \usepackage{float}
 \DeclareMathOperator{\SO}{SO}
 \DeclareMathOperator{\so}{\mathfrak{so}}
+\DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\Id}{id}
 \usepackage[
@@ -25,6 +26,7 @@
 \section{Introduction}
 TBD
 \section{Equations of Motion}
+\subsection{Analytical Derivation}
 Consider a ball of radius $R$ and mass $M$ rolling without slipping on a plane
 \begin{equation}
     \label{eq:hypersurface}
@@ -84,11 +86,12 @@ and normal
     \label{eq:normalangularvel}
     \frac{d \Omega_\perp}{dt} = \frac{\tau_\perp}{I_0}
 \end{equation}
-equations for the angular acceleration from Equation \ref{eq:lagrangealembert}. Taking the derivative of Equation \ref{eq:rollingconst}, this fully determines the linear motion. Assuming Coulomb friction\cite{Coulomb}\cite{Hayakawa2005} and aerodynamical drag by Stokes' Law\cite{Stokes2009}, the external force becomes \[
-    \bm{F}_\text{e} = - \nu_r Mg \langle \bm{n},\bm{e}_z\rangle \frac{\dot{\bm{r}}}{\|\dot{\bm{r}}\|}(\Theta(\dot{\bm{r}})+\Theta(-\dot{\bm{r}})) + \frac{\rho C A}{2} \|\dot{\bm{r}}\|^2
-,\] where $\nu_r$ is the rolling resistance coefficient, $\Theta$ is the \emph{Heaviside function}, $\rho$ is the fluid density of air, $C$ is the drag coefficient, and $A$ is the cross-sectional area of the sphere. For numerical reasons, we reparametrize $P(t)=P((q_0(t),\bm{q}(t)))$, where \[
+equations for the angular acceleration from Equation \ref{eq:lagrangealembert}. Taking the derivative of Equation \ref{eq:rollingconst}, this fully determines the linear motion. Assuming Coulomb friction\cite{Coulomb}\cite{Hayakawa2005} and aerodynamical drag by the drag equation\cite{Stokes2009}, the external force becomes \begin{equation}
+    \label{eq:friction}
+    \bm{F}_\text{e} = - \nu_r Mg \langle \bm{n},\bm{e}_z\rangle \sgn (\dot{\bm{r}}) + \frac{\rho C A}{2} \|\dot{\bm{r}}\|^2
+    ,\end{equation} where $\nu_r$ is the rolling resistance coefficient, $\sgn$ is the sign function, $\rho$ is the fluid density of air, $C$ is the drag coefficient, and $A$ is the cross-sectional area of the sphere. For numerical reasons, we reparametrize $P(t)=P((q_0(t),\bm{q}(t)))$, where \[
 (q_0(t), \bm{q}(t)): I \to \mathbb{S}^3
-\] is a time-dependent unit quaternion. Collecting everything, the full eqations of motion are:
+\] is a time-dependent unit quaternion. Subsuming, the full eqations of motion are:
 \begin{equation}
     \label{eq:eom}
     \begin{aligned}
@@ -98,8 +101,15 @@ equations for the angular acceleration from Equation \ref{eq:lagrangealembert}. 
         \frac{d(q_0,\bm{q})}{dt}&=\frac{1}{2}(0, \bm{\Omega}) \cdot (q_0, \bm{q}).
 \end{aligned}
 \end{equation}
-\section{Numerical Methods}
+\subsection{Numerical Solution}
+The equations of motion were solved with our program $\mathtt{magsphere}$\cite{magsphere2026}. We implemented a Runge-Kutta-Munthe-Kaas-4 method, combining a quaternion-adapted integrator with the Runge-Kutta 4 algorithm.\cite{Butcher1996}\cite{MuntheKaas1998} To aviod numerical instability at the discontinuities in Equation \ref{eq:friction}, we approximate \[
+    \sgn(\dot{\bm{r}}) \approx \tanh(k \| \dot{\bm{r}}\|)
+,\] where $k$ is a dimensionless constant describing the steepness of $\tanh$ around the origin. We chose $k=100$. 
 \section{Results}
+\subsection{Influence of the magnetic moment}
+We investigated the influence of the initial magnetic moment vector $\bm{\mu}_0$ on the trajectories for an incline angle of $\varphi = 10^\circ$. Firstly focussing on the influence of the deviation of $\bm{\mu}_0$ from the plane spanned by $\bm{B}$ and the downhill direction, we parametrized \[
+    \bm{\mu}_0 = \mu_0 (\sin \theta, \cos \theta, 0)^\top
+\]  with $\mu_0 := \|\bm{\mu}_0\|$ and the polar angle $\theta$ defined as depicted in Figure \ref{fig:f1}. 
 \section{References}
-\printbibliography
+\printbibliography[heading=none]
 \end{document}

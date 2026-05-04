@@ -19,6 +19,42 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
+    \entry{Butcher1996}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=8243f76db475c19fb4e78a700c85a343}{%
+           family={Butcher},
+           familyi={B\bibinitperiod},
+           given={J.C.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{8243f76db475c19fb4e78a700c85a343}
+      \strng{fullhash}{8243f76db475c19fb4e78a700c85a343}
+      \strng{fullhashraw}{8243f76db475c19fb4e78a700c85a343}
+      \strng{bibnamehash}{8243f76db475c19fb4e78a700c85a343}
+      \strng{authorbibnamehash}{8243f76db475c19fb4e78a700c85a343}
+      \strng{authornamehash}{8243f76db475c19fb4e78a700c85a343}
+      \strng{authorfullhash}{8243f76db475c19fb4e78a700c85a343}
+      \strng{authorfullhashraw}{8243f76db475c19fb4e78a700c85a343}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0168-9274}
+      \field{journaltitle}{Applied Numerical Mathematics}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{A history of Runge-Kutta methods}
+      \field{volume}{20}
+      \field{year}{1996}
+      \field{pages}{247\bibrangedash 260}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1016/0168-9274(95)00108-5
+      \endverb
+    \endentry
     \entry{Coulomb}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=8862d82eb5e0843b142059b84bdd5bd5}{%
@@ -156,40 +192,79 @@
       \verb 10.5479/sil.322586.39088000898585
       \endverb
     \endentry
-    \entry{Stokes2009}{inbook}{}{}
+    \entry{MuntheKaas1998}{article}{}{}
       \name{author}{1}{}{%
-        {{hash=c7199df8b1d221638c4e287d662fb97e}{%
-           family={Stokes},
-           familyi={S\bibinitperiod},
-           given={George\bibnamedelima Gabriel},
-           giveni={G\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=294d482ce791c06ecb290a96f2746f98}{%
+           family={Munthe-Kaas},
+           familyi={M\bibinithyphendelim K\bibinitperiod},
+           given={Hans},
+           giveni={H\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {Cambridge University Press}%
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
       }
-      \strng{namehash}{c7199df8b1d221638c4e287d662fb97e}
-      \strng{fullhash}{c7199df8b1d221638c4e287d662fb97e}
-      \strng{fullhashraw}{c7199df8b1d221638c4e287d662fb97e}
-      \strng{bibnamehash}{c7199df8b1d221638c4e287d662fb97e}
-      \strng{authorbibnamehash}{c7199df8b1d221638c4e287d662fb97e}
-      \strng{authornamehash}{c7199df8b1d221638c4e287d662fb97e}
-      \strng{authorfullhash}{c7199df8b1d221638c4e287d662fb97e}
-      \strng{authorfullhashraw}{c7199df8b1d221638c4e287d662fb97e}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \strng{namehash}{294d482ce791c06ecb290a96f2746f98}
+      \strng{fullhash}{294d482ce791c06ecb290a96f2746f98}
+      \strng{fullhashraw}{294d482ce791c06ecb290a96f2746f98}
+      \strng{bibnamehash}{294d482ce791c06ecb290a96f2746f98}
+      \strng{authorbibnamehash}{294d482ce791c06ecb290a96f2746f98}
+      \strng{authornamehash}{294d482ce791c06ecb290a96f2746f98}
+      \strng{authorfullhash}{294d482ce791c06ecb290a96f2746f98}
+      \strng{authorfullhashraw}{294d482ce791c06ecb290a96f2746f98}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Mathematical and Physical Papers}
-      \field{isbn}{9780511702266}
-      \field{title}{On the Effect of the Internal Friction of Fluids on the Motion of Pendulums}
-      \field{year}{2009}
-      \field{pages}{1\bibrangedash 10}
-      \range{pages}{10}
+      \field{issn}{1572-9125}
+      \field{journaltitle}{BIT Numerical Mathematics}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{Runge-Kutta methods on Lie groups}
+      \field{volume}{38}
+      \field{year}{1998}
+      \field{pages}{92\bibrangedash 111}
+      \range{pages}{20}
       \verb{doi}
-      \verb 10.1017/cbo9780511702266.002
+      \verb 10.1007/bf02510919
       \endverb
     \endentry
+    \entry{magsphere2026}{misc}{}{}
+      \name{author}{3}{}{%
+        {{hash=67e2c22073a61ad02ddae2c6c2e6b908}{%
+           family={Raschke},
+           familyi={R\bibinitperiod},
+           given={Rasmus\bibnamedelima Curt},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=5186fc743250769b17ec602743699ce0}{%
+           family={Matthies},
+           familyi={M\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+        {{hash=6f9eb3f805d7ccbffa5a87021809eab4}{%
+           family={Vedmedenko},
+           familyi={V\bibinitperiod},
+           given={Elena},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{cc82354e9b13ebead4c26d716ca564b9}
+      \strng{fullhash}{cc82354e9b13ebead4c26d716ca564b9}
+      \strng{fullhashraw}{cc82354e9b13ebead4c26d716ca564b9}
+      \strng{bibnamehash}{cc82354e9b13ebead4c26d716ca564b9}
+      \strng{authorbibnamehash}{cc82354e9b13ebead4c26d716ca564b9}
+      \strng{authornamehash}{cc82354e9b13ebead4c26d716ca564b9}
+      \strng{authorfullhash}{cc82354e9b13ebead4c26d716ca564b9}
+      \strng{authorfullhashraw}{cc82354e9b13ebead4c26d716ca564b9}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://github.com/RasmusRaschke/hiwi25}
+      \field{title}{magsphere.cpp}
+      \field{year}{2026}
+    \endentry
   \enddatalist
+  \missing{Stokes2009}
 \endrefsection
 \endinput
 
