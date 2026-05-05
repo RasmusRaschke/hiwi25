@@ -1,18 +1,17 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'main.blg'
-[48] biber:342> INFO - === Tue May  5, 2026, 00:12:56
-[58] Biber.pm:421> INFO - Reading 'main.bcf'
-[98] Biber.pm:1002> INFO - Found 8 citekeys in bib section 0
-[106] Biber.pm:4487> INFO - Processing section 0
-[112] Biber.pm:4678> INFO - Looking for bibtex file 'bibliography.bib' for section 0
-[113] bibtex.pm:1713> INFO - LaTeX decoding ...
-[117] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
-[168] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[168] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[168] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[168] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[173] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[175] bbl.pm:779> INFO - Output to main.bbl
-[175] Biber.pm:132> WARN - BibTeX subsystem: /tmp/biber_tmp_Ro8Z/f4d088b3f9f145b5c3058da33afd57d4_236892.utf8, line 34, warning: undefined macro "June"
-[175] Biber.pm:132> WARN - I didn't find a database entry for 'Stokes2009' (section 0)
-[175] Biber.pm:134> INFO - WARNINGS: 2
+[49] biber:342> INFO - === Tue May  5, 2026, 11:18:05
+[59] Biber.pm:421> INFO - Reading 'main.bcf'
+[101] Biber.pm:1002> INFO - Found 11 citekeys in bib section 0
+[109] Biber.pm:4487> INFO - Processing section 0
+[114] Biber.pm:4678> INFO - Looking for bibtex file 'bibliography.bib' for section 0
+[115] bibtex.pm:1713> INFO - LaTeX decoding ...
+[122] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
+[187] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[187] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[187] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[187] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[191] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[194] bbl.pm:779> INFO - Output to main.bbl
+[194] Biber.pm:132> WARN - BibTeX subsystem: /tmp/biber_tmp_44Eu/f4d088b3f9f145b5c3058da33afd57d4_18932.utf8, line 34, warning: undefined macro "June"
+[194] Biber.pm:134> INFO - WARNINGS: 1

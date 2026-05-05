@@ -19,7 +19,8 @@
     natbib=true,
     url=false, 
     doi=true,
-    eprint=false
+    eprint=false,
+    sorting=none,
 ]{biblatex}
 \addbibresource{bibliography.bib}
 \begin{document}
@@ -63,13 +64,13 @@ and the potential by
     \label{eq:potential}
     U(z, \bm{\Omega})=-Mgz+\langle \hat{\bm{\mu}}(t), \bm{B}\rangle,
 \end{equation}
-where $\hat{\bm{\mu}}(t):=P(t)\bm{\mu}_0$, $I_0$ is the inertia scalar of an ideal ball, and $g$ is the gravitational acceleration. We obtain a \emph{Lagrangian} $L(z,\bm{\Omega},\dot{\bm{r}}) := T - U$. Assuming that there is an external force $\bm{F}_\text{e}=\bm{F}_\text{e}(\bm{r})$ such as friction, the corresponding \emph{Lagrange-d'Alembert principle}\cite{Crepel2005}\cite{Lagrange1788} reads
+where $\hat{\bm{\mu}}(t):=P(t)\bm{\mu}_0$, $I_0$ is the inertia scalar of an ideal ball, and $g$ is the gravitational acceleration. We obtain a Lagrangian $L(z,\bm{\Omega},\dot{\bm{r}}) := T - U$. Assuming that there is an external force $\bm{F}_\text{e}=\bm{F}_\text{e}(\bm{r})$ such as friction, the corresponding Lagrange-d'Alembert principle reads
 \begin{equation}
     \label{eq:lagrangealembert}
     \delta \int_0^t L(z(s),\bm{\Omega}(s), \dot{\bm{r}}(s)) \, ds + \int_0^t \langle \bm{F}_\text{e}(\bm{r}(s)), \delta \bm{r}(s)  \rangle \, ds=0 
     .\end{equation} The torque can be written as \[
 \bm{\tau}= \bm{\tau}_\text{em} + \bm{\tau}_\text{e}
-\] where $\bm{\tau}_\text{em}:=\hat{\bm{\mu}}(t) \times \bm{B}$ is the magnetic torque, and $\bm{\tau}_\text{e} := -R \bm{n} \times \bm{F}_\text{e}$ is the torque induced by external forces.
+\] where $\bm{\tau}_\text{em}:=\hat{\bm{\mu}}(t) \times \bm{B}$ is the magnetic torque, and $\bm{\tau}_\text{e} := -R \bm{n} \times \bm{F}_\text{e}$ is the torque induced by external forces.\cite{Crepel2005}\cite{Lagrange1788}
 The phase space of the linear motion admits an orthogonal decomposition $\mathbb{R}^3 \cong H \oplus H^\perp.$ Thus we can decompose arbitrary $\bm{v} \in \mathbb{R}^3$ as $\bm{v}=\bm{v}_\| + v_\perp \bm{n}$.
 With the rolling constraint
 \begin{equation}
@@ -86,10 +87,10 @@ and normal
     \label{eq:normalangularvel}
     \frac{d \Omega_\perp}{dt} = \frac{\tau_\perp}{I_0}
 \end{equation}
-equations for the angular acceleration from Equation \ref{eq:lagrangealembert}. Taking the derivative of Equation \ref{eq:rollingconst}, this fully determines the linear motion. Assuming Coulomb friction\cite{Coulomb}\cite{Hayakawa2005} and aerodynamical drag by the drag equation\cite{Stokes2009}, the external force becomes \begin{equation}
+equations for the angular acceleration from Equation \ref{eq:lagrangealembert}. Taking the derivative of Equation \ref{eq:rollingconst}, this fully determines the linear motion. Assuming Coulomb friction\cite{Coulomb}\cite{Hayakawa2005} and aerodynamical drag by the drag equation, the external force becomes \begin{equation}
     \label{eq:friction}
-    \bm{F}_\text{e} = - \nu_r Mg \langle \bm{n},\bm{e}_z\rangle \sgn (\dot{\bm{r}}) + \frac{\rho C A}{2} \|\dot{\bm{r}}\|^2
-    ,\end{equation} where $\nu_r$ is the rolling resistance coefficient, $\sgn$ is the sign function, $\rho$ is the fluid density of air, $C$ is the drag coefficient, and $A$ is the cross-sectional area of the sphere. For numerical reasons, we reparametrize $P(t)=P((q_0(t),\bm{q}(t)))$, where \[
+    \bm{F}_\text{e} = - \nu_\text{r} Mg \langle \bm{n},\bm{e}_z\rangle \sgn (\dot{\bm{r}}) + \frac{\rho C A}{2} \|\dot{\bm{r}}\|^2
+    ,\end{equation} where $\nu_\text{r}$ is the rolling resistance coefficient, $\sgn$ is the sign function, $\rho$ is the fluid density of air, $C$ is the drag coefficient, and $A$ is the cross-sectional area of the sphere.\cite{Coulomb}\cite{Hayakawa2005}\cite{Landau2002} For numerical reasons, we reparametrize $P(t)=P((q_0(t),\bm{q}(t)))$, where \[
 (q_0(t), \bm{q}(t)): I \to \mathbb{S}^3
 \] is a time-dependent unit quaternion. Subsuming, the full eqations of motion are:
 \begin{equation}
@@ -102,14 +103,27 @@ equations for the angular acceleration from Equation \ref{eq:lagrangealembert}. 
 \end{aligned}
 \end{equation}
 \subsection{Numerical Solution}
-The equations of motion were solved with our program $\mathtt{magsphere}$\cite{magsphere2026}. We implemented a Runge-Kutta-Munthe-Kaas-4 method, combining a quaternion-adapted integrator with the Runge-Kutta 4 algorithm.\cite{Butcher1996}\cite{MuntheKaas1998} To aviod numerical instability at the discontinuities in Equation \ref{eq:friction}, we approximate \[
+The equations of motion were solved with our program $\mathtt{magsphere}$.\cite{magsphere2026} We implemented a Runge-Kutta-Munthe-Kaas-4 method, combining the quaternion-adapted Munthe-Kaas integrator with the Runge-Kutta 4 algorithm.\cite{Butcher1996}\cite{MuntheKaas1998} To avoid numerical instability at the discontinuities in Equation \ref{eq:friction}, we approximated \[
     \sgn(\dot{\bm{r}}) \approx \tanh(k \| \dot{\bm{r}}\|)
-,\] where $k$ is a dimensionless constant describing the steepness of $\tanh$ around the origin. We chose $k=100$. 
+,\] where $k$ is a dimensionless constant describing the steepness of $\tanh$ around the origin. For the rolling resistance coefficient, we estimated $\nu_\text{r}=0.002$ based on values of $\nu_\text{r}$ for tires on steel and rubber surfaces.\cite{Guba2023}
+Assuming the International Standard Atmosphere and moderate velocities, values of $\rho = 1.2 \, \text{kgm}^{-3}$ and $C=0.47$ were used for simulations.\cite{iso2533}\cite{Baker1983} 
 \section{Results}
 \subsection{Influence of the magnetic moment}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{f1.pdf}
+    \caption{Final deviation $x|_{t=1 \, \text{s}}$ in relation to polar angle $\theta$ and modulus $\mu_0$. Each graph is associated with a fixed modulus $\mu_0$, where (a) shows curves for moduli below $1 \, \text{Am}^2$ and (b) for moduli including and above $1 \, \text{Am}^2$. In the small $\mu_0$-regime (a), the final derviation increases in magnitude with $\theta$ and is antisymmetric around the origin. The high $\mu_0$-regime (b) displays similar antisymmetry, yet different behaviour for high magnitudes of $\theta$. With increasing modulus, critical points shift towards lower absolute values of $\theta$, after which the curves behave erratic.}
+    \label{fig:f1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{f2.pdf}
+    \caption{Trajectories on the $xy$-plane for selected moduli.}
+    \label{fig:f2}
+\end{figure}
 We investigated the influence of the initial magnetic moment vector $\bm{\mu}_0$ on the trajectories for an incline angle of $\varphi = 10^\circ$. Firstly focussing on the influence of the deviation of $\bm{\mu}_0$ from the plane spanned by $\bm{B}$ and the downhill direction, we parametrized \[
     \bm{\mu}_0 = \mu_0 (\sin \theta, \cos \theta, 0)^\top
-\]  with $\mu_0 := \|\bm{\mu}_0\|$ and the polar angle $\theta$ defined as depicted in Figure \ref{fig:f1}. 
+\]  with $\mu_0 := \|\bm{\mu}_0\|$ and the polar angle $\theta$ defined as depicted in Figure \ref{fig:f1}. We chose the value of the $x$-coordinate after $1 \, \text{s}$ as measure for the deviation of the actual trajectory from a straight downhill path. The results are also shown in Figure \ref{fig:f1}. Antisymmetric behaviour in $\theta$ is predicted by $\bm{\mu}(-\theta)=-\bm{\mu}(\theta).$ The deviation from the straight path grows non-linearly with $\mu_0$ until a critical point is reached. Figure \ref{fig:f2} shows representative trajectories demonstrating that the curvature of the trajectories increases with $\mu_0$ and $\theta$.
 \section{References}
 \printbibliography[heading=none]
 \end{document}

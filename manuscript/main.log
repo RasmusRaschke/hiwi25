@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.15)  5 MAY 2026 00:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.15)  5 MAY 2026 13:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -429,20 +429,20 @@ Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
  (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count427
@@ -474,75 +474,75 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
- (./main.bbl
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                Stokes2009
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-)
-Package biblatex Info: Reference section=0 on input line 25.
-Package biblatex Info: Reference segment=0 on input line 25.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
+ (./main.bbl)
+Package biblatex Info: Reference section=0 on input line 26.
+Package biblatex Info: Reference segment=0 on input line 26.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+euf on input line 39.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 40.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 <ramp.pdf, id=1, 273.02pt x 180.675pt>
 File: ramp.pdf Graphic file (type pdf)
 <use ramp.pdf>
-Package pdftex.def Info: ramp.pdf  used on input line 53.
+Package pdftex.def Info: ramp.pdf  used on input line 54.
 (pdftex.def)             Requested size: 292.5pt x 193.57947pt.
  [1
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <./ramp.pdf>]
-
-LaTeX Warning: Citation 'Stokes2009' on page 3 undefined on input line 89.
-
-[3]
-
-LaTeX Warning: Reference `fig:f1' on page 4 undefined on input line 112.
-
-[4]
-Overfull \hbox (26.60681pt too wide) in paragraph at lines 114--114
-[]\OT1/cmr/m/n/12 J. L La-grange, William Thom-son Kelvin, and William and Howie. \OT1/cmr/m/it/12 M^^Sechanique
+Overfull \hbox (4.74869pt too wide) in paragraph at lines 106--106
+\OT1/cmr/m/n/12 ple-mented a Runge-Kutta-Munthe-Kaas-4 method, com-bin-ing the quaternion-
  []
 
-[5] (./main.aux)
+[3]
+<f1.pdf, id=29, 1004.75375pt x 353.32pt>
+File: f1.pdf Graphic file (type pdf)
+<use f1.pdf>
+Package pdftex.def Info: f1.pdf  used on input line 114.
+(pdftex.def)             Requested size: 390.0pt x 137.1419pt.
+<f2.pdf, id=30, 1084.05pt x 361.35pt>
+File: f2.pdf Graphic file (type pdf)
+<use f2.pdf>
+Package pdftex.def Info: f2.pdf  used on input line 120.
+(pdftex.def)             Requested size: 390.0pt x 129.99768pt.
+ [4 <./f1.pdf>] [5 <./f2.pdf>]
+Overfull \hbox (34.50381pt too wide) in paragraph at lines 128--128
+\OT1/cmr/m/n/12 ^^?ubers. Ox-ford [u.a.]: Butterworth-Heinemann, 2002. 539 pp. \OT1/cmr/m/sc/12 isbn\OT1/cmr/m/n/12 : 0080339328. 
+ []
+
+
+Package biblatex Warning: No driver for 'standard'.
+(biblatex)                Using fallback driver on input line 128.
+
+[6] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 11837 strings out of 467533
- 214645 string characters out of 5419495
- 1058311 words of memory out of 5000000
- 40605 multiletter control sequences out of 15000+600000
+ 11874 strings out of 467533
+ 215606 string characters out of 5419495
+ 1058607 words of memory out of 5000000
+ 40642 multiletter control sequences out of 15000+600000
  643371 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,8n,83p,693b,1269s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 63i,8n,83p,793b,1273s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (5 pages, 206323 bytes).
+Output written on main.pdf (6 pages, 287337 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 308 PDF objects out of 1000 (max. 8388607)
+ 182 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

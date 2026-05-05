@@ -18,73 +18,7 @@
 
 
 \refsection{0}
-  \datalist[entry]{nty/global//global/global/global}
-    \entry{Butcher1996}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=8243f76db475c19fb4e78a700c85a343}{%
-           family={Butcher},
-           familyi={B\bibinitperiod},
-           given={J.C.},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier BV}%
-      }
-      \strng{namehash}{8243f76db475c19fb4e78a700c85a343}
-      \strng{fullhash}{8243f76db475c19fb4e78a700c85a343}
-      \strng{fullhashraw}{8243f76db475c19fb4e78a700c85a343}
-      \strng{bibnamehash}{8243f76db475c19fb4e78a700c85a343}
-      \strng{authorbibnamehash}{8243f76db475c19fb4e78a700c85a343}
-      \strng{authornamehash}{8243f76db475c19fb4e78a700c85a343}
-      \strng{authorfullhash}{8243f76db475c19fb4e78a700c85a343}
-      \strng{authorfullhashraw}{8243f76db475c19fb4e78a700c85a343}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{0168-9274}
-      \field{journaltitle}{Applied Numerical Mathematics}
-      \field{month}{3}
-      \field{number}{3}
-      \field{title}{A history of Runge-Kutta methods}
-      \field{volume}{20}
-      \field{year}{1996}
-      \field{pages}{247\bibrangedash 260}
-      \range{pages}{14}
-      \verb{doi}
-      \verb 10.1016/0168-9274(95)00108-5
-      \endverb
-    \endentry
-    \entry{Coulomb}{misc}{}{}
-      \name{author}{1}{}{%
-        {{hash=8862d82eb5e0843b142059b84bdd5bd5}{%
-           family={Coulomb},
-           familyi={C\bibinitperiod},
-           given={C.\bibnamedelimi A.\bibnamedelimi (Charles\bibnamedelima Augustin)},
-           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim (\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-      }
-      \list{publisher}{2}{%
-        {The Hong Kong University of Science}%
-        {Technology Library}%
-      }
-      \strng{namehash}{8862d82eb5e0843b142059b84bdd5bd5}
-      \strng{fullhash}{8862d82eb5e0843b142059b84bdd5bd5}
-      \strng{fullhashraw}{8862d82eb5e0843b142059b84bdd5bd5}
-      \strng{bibnamehash}{8862d82eb5e0843b142059b84bdd5bd5}
-      \strng{authorbibnamehash}{8862d82eb5e0843b142059b84bdd5bd5}
-      \strng{authornamehash}{8862d82eb5e0843b142059b84bdd5bd5}
-      \strng{authorfullhash}{8862d82eb5e0843b142059b84bdd5bd5}
-      \strng{authorfullhashraw}{8862d82eb5e0843b142059b84bdd5bd5}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Rare &amp; Special e-Zone}
-      \field{title}{Théorie des machines simples : en ayant égard au frottement de leurs parties et à la roideur des cordages}
-      \verb{doi}
-      \verb 10.14711/spcol/b668151
-      \endverb
-    \endentry
+  \datalist[entry]{none/global//global/global/global}
     \entry{Crepel2005}{inbook}{}{}
       \name{author}{1}{}{%
         {{hash=dbe5e4e3d35157b739b2bca98218fd36}{%
@@ -104,8 +38,8 @@
       \strng{authornamehash}{dbe5e4e3d35157b739b2bca98218fd36}
       \strng{authorfullhash}{dbe5e4e3d35157b739b2bca98218fd36}
       \strng{authorfullhashraw}{dbe5e4e3d35157b739b2bca98218fd36}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Landmark Writings in Western Mathematics 1640-1940}
@@ -116,41 +50,6 @@
       \range{pages}{9}
       \verb{doi}
       \verb 10.1016/b978-044450871-3/50092-9
-      \endverb
-    \endentry
-    \entry{Hayakawa2005}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=6fe033b4af4812be4df1dfc2b383d11a}{%
-           family={Hayakawa},
-           familyi={H\bibinitperiod},
-           given={Hisao},
-           giveni={H\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier BV}%
-      }
-      \strng{namehash}{6fe033b4af4812be4df1dfc2b383d11a}
-      \strng{fullhash}{6fe033b4af4812be4df1dfc2b383d11a}
-      \strng{fullhashraw}{6fe033b4af4812be4df1dfc2b383d11a}
-      \strng{bibnamehash}{6fe033b4af4812be4df1dfc2b383d11a}
-      \strng{authorbibnamehash}{6fe033b4af4812be4df1dfc2b383d11a}
-      \strng{authornamehash}{6fe033b4af4812be4df1dfc2b383d11a}
-      \strng{authorfullhash}{6fe033b4af4812be4df1dfc2b383d11a}
-      \strng{authorfullhashraw}{6fe033b4af4812be4df1dfc2b383d11a}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{0167-2789}
-      \field{journaltitle}{Physica D: Nonlinear Phenomena}
-      \field{number}{1-4}
-      \field{title}{Langevin equation with Coulomb friction}
-      \field{volume}{205}
-      \field{year}{2005}
-      \field{pages}{48\bibrangedash 56}
-      \range{pages}{9}
-      \verb{doi}
-      \verb 10.1016/j.physd.2004.12.011
       \endverb
     \endentry
     \entry{Lagrange1788}{book}{}{}
@@ -182,8 +81,8 @@
       \strng{authornamehash}{85104eed47bd557fde9007b0167cac17}
       \strng{authorfullhash}{85104eed47bd557fde9007b0167cac17}
       \strng{authorfullhashraw}{85104eed47bd557fde9007b0167cac17}
-      \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Méchanique analitique}
@@ -192,42 +91,111 @@
       \verb 10.5479/sil.322586.39088000898585
       \endverb
     \endentry
-    \entry{MuntheKaas1998}{article}{}{}
+    \entry{Coulomb}{misc}{}{}
       \name{author}{1}{}{%
-        {{hash=294d482ce791c06ecb290a96f2746f98}{%
-           family={Munthe-Kaas},
-           familyi={M\bibinithyphendelim K\bibinitperiod},
-           given={Hans},
-           giveni={H\bibinitperiod}}}%
+        {{hash=8862d82eb5e0843b142059b84bdd5bd5}{%
+           family={Coulomb},
+           familyi={C\bibinitperiod},
+           given={C.\bibnamedelimi A.\bibnamedelimi (Charles\bibnamedelima Augustin)},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim (\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
       }
       \list{publisher}{2}{%
-        {Springer Science}%
-        {Business Media LLC}%
+        {The Hong Kong University of Science}%
+        {Technology Library}%
       }
-      \strng{namehash}{294d482ce791c06ecb290a96f2746f98}
-      \strng{fullhash}{294d482ce791c06ecb290a96f2746f98}
-      \strng{fullhashraw}{294d482ce791c06ecb290a96f2746f98}
-      \strng{bibnamehash}{294d482ce791c06ecb290a96f2746f98}
-      \strng{authorbibnamehash}{294d482ce791c06ecb290a96f2746f98}
-      \strng{authornamehash}{294d482ce791c06ecb290a96f2746f98}
-      \strng{authorfullhash}{294d482ce791c06ecb290a96f2746f98}
-      \strng{authorfullhashraw}{294d482ce791c06ecb290a96f2746f98}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \strng{namehash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{fullhash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{fullhashraw}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{bibnamehash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{authorbibnamehash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{authornamehash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{authorfullhash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{authorfullhashraw}{8862d82eb5e0843b142059b84bdd5bd5}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{issn}{1572-9125}
-      \field{journaltitle}{BIT Numerical Mathematics}
-      \field{month}{3}
-      \field{number}{1}
-      \field{title}{Runge-Kutta methods on Lie groups}
-      \field{volume}{38}
-      \field{year}{1998}
-      \field{pages}{92\bibrangedash 111}
-      \range{pages}{20}
+      \field{journaltitle}{Rare &amp; Special e-Zone}
+      \field{title}{Théorie des machines simples : en ayant égard au frottement de leurs parties et à la roideur des cordages}
       \verb{doi}
-      \verb 10.1007/bf02510919
+      \verb 10.14711/spcol/b668151
       \endverb
+    \endentry
+    \entry{Hayakawa2005}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6fe033b4af4812be4df1dfc2b383d11a}{%
+           family={Hayakawa},
+           familyi={H\bibinitperiod},
+           given={Hisao},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{fullhash}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{fullhashraw}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{bibnamehash}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{authorbibnamehash}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{authornamehash}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{authorfullhash}{6fe033b4af4812be4df1dfc2b383d11a}
+      \strng{authorfullhashraw}{6fe033b4af4812be4df1dfc2b383d11a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0167-2789}
+      \field{journaltitle}{Physica D: Nonlinear Phenomena}
+      \field{number}{1-4}
+      \field{title}{Langevin equation with Coulomb friction}
+      \field{volume}{205}
+      \field{year}{2005}
+      \field{pages}{48\bibrangedash 56}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1016/j.physd.2004.12.011
+      \endverb
+    \endentry
+    \entry{Landau2002}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=4caa6ac5a1a332c845d137218bdff6f1}{%
+           family={Landau},
+           familyi={L\bibinitperiod},
+           given={Lev\bibnamedelima Davidovič},
+           giveni={L\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=2cb2de7bcaecd9a2b4a0db3604107d87}{%
+           family={Lifšic},
+           familyi={L\bibinitperiod},
+           given={Evgenij\bibnamedelima M.},
+           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Oxford [u.a.]}%
+      }
+      \list{publisher}{1}{%
+        {Butterworth-Heinemann}%
+      }
+      \strng{namehash}{666e93a101cafe755363e672a7a98fb2}
+      \strng{fullhash}{666e93a101cafe755363e672a7a98fb2}
+      \strng{fullhashraw}{666e93a101cafe755363e672a7a98fb2}
+      \strng{bibnamehash}{666e93a101cafe755363e672a7a98fb2}
+      \strng{authorbibnamehash}{666e93a101cafe755363e672a7a98fb2}
+      \strng{authornamehash}{666e93a101cafe755363e672a7a98fb2}
+      \strng{authorfullhash}{666e93a101cafe755363e672a7a98fb2}
+      \strng{authorfullhashraw}{666e93a101cafe755363e672a7a98fb2}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2. Engl. ed., rev., repr. with corr.}
+      \field{isbn}{0080339328}
+      \field{note}{Aus d. Russ. übers.}
+      \field{number}{Fluid mechanics}
+      \field{pagetotal}{539}
+      \field{subtitle}{Lev Davidovič}
+      \field{title}{Landau}
+      \field{volume}{6}
+      \field{year}{2002}
     \endentry
     \entry{magsphere2026}{misc}{}{}
       \name{author}{3}{}{%
@@ -255,16 +223,206 @@
       \strng{authornamehash}{cc82354e9b13ebead4c26d716ca564b9}
       \strng{authorfullhash}{cc82354e9b13ebead4c26d716ca564b9}
       \strng{authorfullhashraw}{cc82354e9b13ebead4c26d716ca564b9}
-      \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{https://github.com/RasmusRaschke/hiwi25}
       \field{title}{magsphere.cpp}
       \field{year}{2026}
     \endentry
+    \entry{Butcher1996}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=8243f76db475c19fb4e78a700c85a343}{%
+           family={Butcher},
+           familyi={B\bibinitperiod},
+           given={J.C.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{8243f76db475c19fb4e78a700c85a343}
+      \strng{fullhash}{8243f76db475c19fb4e78a700c85a343}
+      \strng{fullhashraw}{8243f76db475c19fb4e78a700c85a343}
+      \strng{bibnamehash}{8243f76db475c19fb4e78a700c85a343}
+      \strng{authorbibnamehash}{8243f76db475c19fb4e78a700c85a343}
+      \strng{authornamehash}{8243f76db475c19fb4e78a700c85a343}
+      \strng{authorfullhash}{8243f76db475c19fb4e78a700c85a343}
+      \strng{authorfullhashraw}{8243f76db475c19fb4e78a700c85a343}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0168-9274}
+      \field{journaltitle}{Applied Numerical Mathematics}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{A history of Runge-Kutta methods}
+      \field{volume}{20}
+      \field{year}{1996}
+      \field{pages}{247\bibrangedash 260}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1016/0168-9274(95)00108-5
+      \endverb
+    \endentry
+    \entry{MuntheKaas1998}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=294d482ce791c06ecb290a96f2746f98}{%
+           family={Munthe-Kaas},
+           familyi={M\bibinithyphendelim K\bibinitperiod},
+           given={Hans},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{294d482ce791c06ecb290a96f2746f98}
+      \strng{fullhash}{294d482ce791c06ecb290a96f2746f98}
+      \strng{fullhashraw}{294d482ce791c06ecb290a96f2746f98}
+      \strng{bibnamehash}{294d482ce791c06ecb290a96f2746f98}
+      \strng{authorbibnamehash}{294d482ce791c06ecb290a96f2746f98}
+      \strng{authornamehash}{294d482ce791c06ecb290a96f2746f98}
+      \strng{authorfullhash}{294d482ce791c06ecb290a96f2746f98}
+      \strng{authorfullhashraw}{294d482ce791c06ecb290a96f2746f98}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1572-9125}
+      \field{journaltitle}{BIT Numerical Mathematics}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{Runge-Kutta methods on Lie groups}
+      \field{volume}{38}
+      \field{year}{1998}
+      \field{pages}{92\bibrangedash 111}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/bf02510919
+      \endverb
+    \endentry
+    \entry{Guba2023}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=e7e2f09200fa173acf1537e52c6fd985}{%
+           family={Guba},
+           familyi={G\bibinitperiod},
+           given={Sándor},
+           giveni={S\bibinitperiod}}}%
+        {{hash=4b38d2b432b4abe4388031923fbbb5ed}{%
+           family={Kocsor},
+           familyi={K\bibinitperiod},
+           given={Péter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=1c352c420411785c7ec1c353abaa9657}{%
+           family={Vörös},
+           familyi={V\bibinitperiod},
+           given={Bálint},
+           giveni={B\bibinitperiod}}}%
+        {{hash=401b1388ec0f129a4725704bf553be8a}{%
+           family={Horváth},
+           familyi={H\bibinitperiod},
+           given={Barnabás},
+           giveni={B\bibinitperiod}}}%
+        {{hash=f1f0dfe4e0776ab33030e5f514d6ad5a}{%
+           family={Szalai},
+           familyi={S\bibinitperiod},
+           given={István},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {University of Pannonia}%
+      }
+      \strng{namehash}{62708b5b74bce484ab1b65983d61c9ce}
+      \strng{fullhash}{753868e687487dc8e6d2e0f5e41330f2}
+      \strng{fullhashraw}{753868e687487dc8e6d2e0f5e41330f2}
+      \strng{bibnamehash}{62708b5b74bce484ab1b65983d61c9ce}
+      \strng{authorbibnamehash}{62708b5b74bce484ab1b65983d61c9ce}
+      \strng{authornamehash}{62708b5b74bce484ab1b65983d61c9ce}
+      \strng{authorfullhash}{753868e687487dc8e6d2e0f5e41330f2}
+      \strng{authorfullhashraw}{753868e687487dc8e6d2e0f5e41330f2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0133-0276}
+      \field{journaltitle}{Hungarian Journal of Industry and Chemistry}
+      \field{month}{5}
+      \field{number}{1}
+      \field{title}{Laboratory Measurement of Rolling Resistance Coefficient under Different Conditions}
+      \field{volume}{51}
+      \field{year}{2023}
+      \field{pages}{23\bibrangedash 27}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.33927/hjic-2023-04
+      \endverb
+    \endentry
+    \entry{iso2533}{standard}{}{}
+      \name{author}{1}{}{%
+        {{hash=7058e4bd76f877c52b621c942b30613c}{%
+           family={{International Organization for Standardization}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {ISO}%
+      }
+      \list{location}{1}{%
+        {Geneva}%
+      }
+      \strng{namehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{fullhash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{fullhashraw}{7058e4bd76f877c52b621c942b30613c}
+      \strng{bibnamehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{authorbibnamehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{authornamehash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{authorfullhash}{7058e4bd76f877c52b621c942b30613c}
+      \strng{authorfullhashraw}{7058e4bd76f877c52b621c942b30613c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{ISO 2533:1975}
+      \field{title}{Standard Atmosphere}
+      \field{year}{1975}
+    \endentry
+    \entry{Baker1983}{book}{}{}
+      \name{editor}{1}{}{%
+        {{hash=865fb77ce10de8fd041ba40418b2ad22}{%
+           family={Baker},
+           familyi={B\bibinitperiod},
+           given={Wilfred\bibnamedelima E.},
+           giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Amsterdam}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier Scientific Pub. Co}%
+      }
+      \strng{namehash}{865fb77ce10de8fd041ba40418b2ad22}
+      \strng{fullhash}{865fb77ce10de8fd041ba40418b2ad22}
+      \strng{fullhashraw}{865fb77ce10de8fd041ba40418b2ad22}
+      \strng{bibnamehash}{865fb77ce10de8fd041ba40418b2ad22}
+      \strng{editorbibnamehash}{865fb77ce10de8fd041ba40418b2ad22}
+      \strng{editornamehash}{865fb77ce10de8fd041ba40418b2ad22}
+      \strng{editorfullhash}{865fb77ce10de8fd041ba40418b2ad22}
+      \strng{editorfullhashraw}{865fb77ce10de8fd041ba40418b2ad22}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0444599886}
+      \field{note}{Includes bibliographical references (pages 729-798) and index}
+      \field{number}{5}
+      \field{pagetotal}{18073}
+      \field{series}{Fundamental studies in engineering}
+      \field{title}{Explosion hazards and evaluation}
+      \field{year}{1983}
+    \endentry
   \enddatalist
-  \missing{Stokes2009}
 \endrefsection
 \endinput
 
