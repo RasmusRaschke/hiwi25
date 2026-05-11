@@ -2385,25 +2385,3 @@
     <bcf:citekey order="6" intorder="1">Guba2023</bcf:citekey>
     <bcf:citekey order="7" intorder="1">iso2533</bcf:citekey>
     <bcf:citekey order="7" intorder="2">Baker1983</bcf:citekey>
-  </bcf:section>
-  <!-- SORTING TEMPLATES -->
-  <bcf:sortingtemplate name="none">
-    <bcf:sort order="1">
-      <bcf:sortitem order="1">citeorder</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="2">
-      <bcf:sortitem order="1">intciteorder</bcf:sortitem>
-    </bcf:sort>
-  </bcf:sortingtemplate>
-  <!-- DATALISTS -->
-  <bcf:datalist section="0"
-                name="none/global//global/global/global"
-                type="entry"
-                sortingtemplatename="none"
-                sortingnamekeytemplatename="global"
-                labelprefix=""
-                uniquenametemplatename="global"
-                labelalphanametemplatename="global"
-                namehashtemplatename="global">
-  </bcf:datalist>
-</bcf:controlfile>

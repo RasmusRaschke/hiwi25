@@ -19,54 +19,6 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
-    \entry{Bloch2015}{book}{}{}
-      \name{author}{1}{}{%
-        {{hash=9213263a9b8b1e6f03824dc13fd4f5ee}{%
-           family={Bloch},
-           familyi={B\bibinitperiod},
-           given={A.M.},
-           giveni={A\bibinitperiod}}}%
-      }
-      \name{editor}{2}{}{%
-        {{hash=3552d086cdc3ff0685b7504ece2a1004}{%
-           family={Krishnaprasad},
-           familyi={K\bibinitperiod},
-           given={P.\bibnamedelimi S.},
-           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-        {{hash=3fa6b96b5d3506325be293be5131cdde}{%
-           family={Murray},
-           familyi={M\bibinitperiod},
-           given={R.M.},
-           giveni={R\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer New York}%
-      }
-      \strng{namehash}{9213263a9b8b1e6f03824dc13fd4f5ee}
-      \strng{fullhash}{9213263a9b8b1e6f03824dc13fd4f5ee}
-      \strng{fullhashraw}{9213263a9b8b1e6f03824dc13fd4f5ee}
-      \strng{bibnamehash}{9213263a9b8b1e6f03824dc13fd4f5ee}
-      \strng{authorbibnamehash}{9213263a9b8b1e6f03824dc13fd4f5ee}
-      \strng{authornamehash}{9213263a9b8b1e6f03824dc13fd4f5ee}
-      \strng{authorfullhash}{9213263a9b8b1e6f03824dc13fd4f5ee}
-      \strng{authorfullhashraw}{9213263a9b8b1e6f03824dc13fd4f5ee}
-      \strng{editorbibnamehash}{f0cda10fbfa9697ae183671cd8326c9b}
-      \strng{editornamehash}{f0cda10fbfa9697ae183671cd8326c9b}
-      \strng{editorfullhash}{f0cda10fbfa9697ae183671cd8326c9b}
-      \strng{editorfullhashraw}{f0cda10fbfa9697ae183671cd8326c9b}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9781493930173}
-      \field{issn}{2196-9973}
-      \field{journaltitle}{Interdisciplinary Applied Mathematics}
-      \field{title}{Nonholonomic Mechanics and Control}
-      \field{year}{2015}
-      \verb{doi}
-      \verb 10.1007/978-1-4939-3017-3
-      \endverb
-    \endentry
     \entry{Crepel2005}{inbook}{}{}
       \name{author}{1}{}{%
         {{hash=dbe5e4e3d35157b739b2bca98218fd36}{%
@@ -139,31 +91,32 @@
       \verb 10.5479/sil.322586.39088000898585
       \endverb
     \endentry
-    \entry{Coulomb}{book}{}{}
+    \entry{Coulomb}{misc}{}{}
       \name{author}{1}{}{%
-        {{hash=1f6710459a7b00b146dbb49e83ec89d8}{%
+        {{hash=8862d82eb5e0843b142059b84bdd5bd5}{%
            family={Coulomb},
            familyi={C\bibinitperiod},
-           given={Charles\bibnamedelima A.},
-           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+           given={C.\bibnamedelimi A.\bibnamedelimi (Charles\bibnamedelima Augustin)},
+           giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim (\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {München, Bayerische Staatsbibliothek}%
+      \list{publisher}{2}{%
+        {The Hong Kong University of Science}%
+        {Technology Library}%
       }
-      \strng{namehash}{1f6710459a7b00b146dbb49e83ec89d8}
-      \strng{fullhash}{1f6710459a7b00b146dbb49e83ec89d8}
-      \strng{fullhashraw}{1f6710459a7b00b146dbb49e83ec89d8}
-      \strng{bibnamehash}{1f6710459a7b00b146dbb49e83ec89d8}
-      \strng{authorbibnamehash}{1f6710459a7b00b146dbb49e83ec89d8}
-      \strng{authornamehash}{1f6710459a7b00b146dbb49e83ec89d8}
-      \strng{authorfullhash}{1f6710459a7b00b146dbb49e83ec89d8}
-      \strng{authorfullhashraw}{1f6710459a7b00b146dbb49e83ec89d8}
+      \strng{namehash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{fullhash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{fullhashraw}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{bibnamehash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{authorbibnamehash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{authornamehash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{authorfullhash}{8862d82eb5e0843b142059b84bdd5bd5}
+      \strng{authorfullhashraw}{8862d82eb5e0843b142059b84bdd5bd5}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Théorie des machines simples, en ayant égard au frottement de leurs parties, et à la roideur des cordages}
-      \field{year}{1809}
+      \field{journaltitle}{Rare &amp; Special e-Zone}
+      \field{title}{Théorie des machines simples : en ayant égard au frottement de leurs parties et à la roideur des cordages}
       \verb{doi}
       \verb 10.14711/spcol/b668151
       \endverb
@@ -470,6 +423,7 @@
       \field{year}{1983}
     \endentry
   \enddatalist
+  \missing{Bloch2015}
 \endrefsection
 \endinput
 
