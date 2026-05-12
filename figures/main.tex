@@ -191,8 +191,14 @@ The non-standard parameters are
 The goal is to investigate the general behaviour of the ball in roughly realistic settings. We used the NCEI model to derive the magnetic field vector at $53.5501721^\circ$ north and $10.0013165^\circ$ east (Hamburg, Centre) with a mean sea level elevation of $25m$ at the 12th of May, 2026. The total magnitude was rounded to $5 \cdot 10^{-5} T$, close to the actual $50159.3 nT$ of the NCEI. The magnetic field in the East-North-Up-Frame is then given by \[
     \bm{B}=B \cdot (\cos I \sin D, \cos I \cos D, -\sin I)
 ,\] where the NCEI predicts an inclination of $I \approx 68.6^\circ$ and a declination of $D \approx 4.2^\circ$.\footnote{The geographical spherical system is quite counterintuitive from the phycisists standpoint: The inclination is the dip of the field, so $I>0$ means that the field points into the ground.}
-
-\section{\textcolor{red}{Figure Family D-OLD: Replaced by F}}
+\renewcommand{\thefigure}{K1}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{FIGK1_ramp_traj.pdf}
+        \caption{Shown is is the trajectory in the $xy$-plane and the evolution of the magnetic moment vector's direction (i.e. a point on the sphere in the direction of $\bm{\mu}$).}
+    \end{figure}
+\newpage
+    \section{\textcolor{red}{Figure Family D-OLD: Replaced by F}}
 The following figures are the results of running the simulation for $\Delta t = 1 \text{s}$ simulation time with an incline of $\varphi = 10^\circ$ for all possible values of $\mu_x(t=0)$ and $\mu_y(t=0)$ in $[-1,1]$ for increments of $0.1$, meaning these are the results of $441$ calculations. 
 \renewcommand{\thefigure}{D1}
     \begin{figure}[H]

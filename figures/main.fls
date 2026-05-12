@@ -190,6 +190,11 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
+INPUT ./FIGK1_ramp_traj.pdf
+INPUT ./FIGK1_ramp_traj.pdf
+INPUT ./FIGK1_ramp_traj.pdf
+INPUT ./FIGK1_ramp_traj.pdf
+INPUT ./FIGK1_ramp_traj.pdf
 INPUT ./FIGD1_mag_mom_3d.pdf
 INPUT ./FIGD1_mag_mom_3d.pdf
 INPUT ./FIGD1_mag_mom_3d.pdf

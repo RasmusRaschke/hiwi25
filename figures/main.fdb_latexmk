@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1778593157.90529 "main.tex" "main.pdf" "main" 1778593158.26715 0
+["pdflatex"] 1778597582.29626 "main.tex" "main.pdf" "main" 1778597582.67074 0
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -97,10 +97,11 @@
   "FIGH4_magnet_looping.pdf" 1777048554.18414 24514 4a6a3153084b3ac81fb350afd112fe92 ""
   "FIGH5_overlay.pdf" 1777048554.69213 27798 c026099697054c8f21c0dfa1a91c11da ""
   "FIGI_comp_dev.pdf" 1776760090.1451 12743 09de0c44424565a4f23e50f8915cca09 ""
+  "FIGK1_ramp_traj.pdf" 1778597074.16069 119605 2ea7843a2386502e88436dcda9a7d9ad ""
   "flat.pdf" 1775079361.24796 8163 1693e8c3e7a32a4d563c6bb2b2577096 ""
-  "main.aux" 1778593158.22173 11613 dde3d4da23b7a3aa012cf94a314d028f "pdflatex"
-  "main.tex" 1778593154.89341 18046 346fc5f72a5e8c56a709541fe71ff723 ""
-  "main.toc" 1778593158.22233 976 7e2d7a83af31b9539aa04a658a8629bc "pdflatex"
+  "main.aux" 1778597582.6237 11886 7cfe9718cf6d182d9c8c431c5c7d8d21 "pdflatex"
+  "main.tex" 1778597580.9318 18394 82e4d34e5d623b46c7e8b198a77957cb ""
+  "main.toc" 1778597582.62439 976 e71b4b2366623035cd18889a0f6a2537 "pdflatex"
   "ramp.pdf" 1775079417.6306 13005 4ccd7a253bc4bf6916f0414aec870a12 ""
   "xyparam.pdf" 1777923360.13918 3719 d98f538e665a76b4777af14d6f52372c ""
   "yzparam.pdf" 1777923510.71502 4142 4c79091b3fe86d83ad0c13c83fd0a8a5 ""

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.15)  12 MAY 2026 15:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.15)  12 MAY 2026 16:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -298,28 +298,33 @@ File: FIGI_comp_dev.pdf Graphic file (type pdf)
 <use FIGI_comp_dev.pdf>
 Package pdftex.def Info: FIGI_comp_dev.pdf  used on input line 166.
 (pdftex.def)             Requested size: 390.0pt x 278.57669pt.
- [17 <./FIGI_comp_dev.pdf>] [18]
-<FIGD1_mag_mom_3d.pdf, id=492, 650.43pt x 505.89pt>
+ [17 <./FIGI_comp_dev.pdf>]
+<FIGK1_ramp_traj.pdf, id=489, 505.89pt x 361.35pt>
+File: FIGK1_ramp_traj.pdf Graphic file (type pdf)
+<use FIGK1_ramp_traj.pdf>
+Package pdftex.def Info: FIGK1_ramp_traj.pdf  used on input line 197.
+(pdftex.def)             Requested size: 390.0pt x 278.57669pt.
+ [18] [19 <./FIGK1_ramp_traj.pdf>]
+<FIGD1_mag_mom_3d.pdf, id=510, 650.43pt x 505.89pt>
 File: FIGD1_mag_mom_3d.pdf Graphic file (type pdf)
 <use FIGD1_mag_mom_3d.pdf>
-Package pdftex.def Info: FIGD1_mag_mom_3d.pdf  used on input line 200.
+Package pdftex.def Info: FIGD1_mag_mom_3d.pdf  used on input line 206.
 (pdftex.def)             Requested size: 390.0pt x 303.34335pt.
-<FIGD2_mag_mom_2d.pdf, id=493, 939.51pt x 361.35pt>
+<FIGD2_mag_mom_2d.pdf, id=511, 939.51pt x 361.35pt>
 File: FIGD2_mag_mom_2d.pdf Graphic file (type pdf)
 <use FIGD2_mag_mom_2d.pdf>
-Package pdftex.def Info: FIGD2_mag_mom_2d.pdf  used on input line 206.
+Package pdftex.def Info: FIGD2_mag_mom_2d.pdf  used on input line 212.
 (pdftex.def)             Requested size: 390.0pt x 149.99605pt.
- [19]
-<FIGD3_mag_mom_traj.pdf, id=501, 1011.78pt x 1011.78pt>
+<FIGD3_mag_mom_traj.pdf, id=512, 1011.78pt x 1011.78pt>
 File: FIGD3_mag_mom_traj.pdf Graphic file (type pdf)
 <use FIGD3_mag_mom_traj.pdf>
-Package pdftex.def Info: FIGD3_mag_mom_traj.pdf  used on input line 212.
+Package pdftex.def Info: FIGD3_mag_mom_traj.pdf  used on input line 218.
 (pdftex.def)             Requested size: 390.0pt x 390.00737pt.
  [20 <./FIGD1_mag_mom_3d.pdf>] [21 <./FIGD2_mag_mom_2d.pdf>] [22 <./FIGD3_mag_mom_traj.pdf>]
-<FIGE_mag_mom_z.pdf, id=606, 1011.78pt x 361.35pt>
+<FIGE_mag_mom_z.pdf, id=617, 1011.78pt x 361.35pt>
 File: FIGE_mag_mom_z.pdf Graphic file (type pdf)
 <use FIGE_mag_mom_z.pdf>
-Package pdftex.def Info: FIGE_mag_mom_z.pdf  used on input line 223.
+Package pdftex.def Info: FIGE_mag_mom_z.pdf  used on input line 229.
 (pdftex.def)             Requested size: 390.0pt x 139.28835pt.
  [23 <./FIGE_mag_mom_z.pdf>] (./main.aux)
  ***********
@@ -328,18 +333,18 @@ L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3052 strings out of 467533
- 47222 string characters out of 5419495
- 461496 words of memory out of 5000000
- 31933 multiletter control sequences out of 15000+600000
+ 3059 strings out of 467533
+ 47427 string characters out of 5419495
+ 462496 words of memory out of 5000000
+ 31940 multiletter control sequences out of 15000+600000
  638401 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,8n,83p,1492b,299s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on main.pdf (23 pages, 685031 bytes).
+Output written on main.pdf (23 pages, 709885 bytes).
 PDF statistics:
- 700 PDF objects out of 1000 (max. 8388607)
- 313 compressed objects within 4 object streams
+ 711 PDF objects out of 1000 (max. 8388607)
+ 323 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
