@@ -8,13 +8,17 @@ import simutils as su
 from mpl_toolkits.mplot3d import axes3d
 plt.style.use('seaborn-v0_8-paper')
 plt.rcParams.update({
-    "font.size": 16,        # general default
-    "axes.titlesize": 16,
-    "axes.labelsize": 16,
-    "xtick.labelsize": 14,
-    "ytick.labelsize": 14,
-    "legend.fontsize": 14,
+    "text.usetex": True,
+    "text.latex.preamble": r"\usepackage{siunitx}",
+
+    "font.size": 20,          # base size for TeX-rendered text
+    "axes.titlesize": 20,
+    "axes.labelsize": 20,
+    "xtick.labelsize": 18,
+    "ytick.labelsize": 18,
+    "legend.fontsize": 18,
 })
+
 
 g = 9.80665
 B = 5.0e-5
@@ -62,17 +66,17 @@ y_points = y[idx]
 ax1.plot(x_points[0], y_points[0] * 100, "o", color="blue", ms=10)
 ax1.plot(x_points[1], y_points[1] * 100, "o", color="orange", ms=10)
 ax1.plot(x_points[2], y_points[2] * 100, "o", color="red", ms=10)
-ax1.set_xlabel(r"$\vartheta \, [rad]$")
-ax1.set_ylabel(r"$y \, [\text{cm}]$")
+ax1.set_xlabel(r"$\psi \, [\unit{rad}]$")
+ax1.set_ylabel(r"$y|_{t=1 \, \unit{s}} \, [\unit{\centi\metre}]$")
 ax1.set_xlim(-np.pi,np.pi)
 ax1.xaxis.set_major_locator(tck.MultipleLocator(np.pi / 4))
-ax1.grid(True)
-ax2.plot(t, y1*100, label=r"$\vartheta = 1.2 \, \text{rad}$", lw=3.5, color="blue")
-ax2.plot(t, y2*100, label=r"$\vartheta = 0.1 \, \text{rad}$", lw=3.5, color="orange")
-ax2.plot(t, y3*100, label=r"$\vartheta = -1.2 \, \text{rad}$", lw=3.5, color="red")
-ax2.set_xlabel(r"$t \, [\text{s}]$")
-ax2.set_ylabel(r"$y \, [\text{cm}]$")
-ax2.grid(True)
+ax1.grid(True, alpha=0.3)
+ax2.plot(t, y1*100, label=r"$\psi = 1.2 \, \unit{rad}$", lw=3.5, color="blue")
+ax2.plot(t, y2*100, label=r"$\psi = 0.1 \, \unit{rad}$", lw=3.5, color="orange")
+ax2.plot(t, y3*100, label=r"$\psi = -1.2 \, \unit{rad}$", lw=3.5, color="red")
+ax2.set_xlabel(r"$t \, [\unit{\second}]$")
+ax2.set_ylabel(r"$y \, [\unit{\centi\metre}]$")
+ax2.grid(True, alpha=0.3)
 ax2.legend()
 ax2.set_xlim(0,1)
 ax2.set_ylim(-10,1.5)

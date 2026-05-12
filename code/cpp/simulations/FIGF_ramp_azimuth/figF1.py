@@ -8,13 +8,17 @@ from mpl_toolkits.mplot3d import axes3d
 from fractions import Fraction
 plt.style.use('seaborn-v0_8-paper')
 plt.rcParams.update({
-    "font.size": 16,        # general default
-    "axes.titlesize": 16,
-    "axes.labelsize": 16,
-    "xtick.labelsize": 14,
-    "ytick.labelsize": 14,
-    "legend.fontsize": 14,
+    "text.usetex": True,
+    "text.latex.preamble": r"\usepackage{siunitx}",
+
+    "font.size": 20,          # base size for TeX-rendered text
+    "axes.titlesize": 20,
+    "axes.labelsize": 20,
+    "xtick.labelsize": 18,
+    "ytick.labelsize": 18,
+    "legend.fontsize": 18,
 })
+
 
 g = 9.80665
 B = 5.0e-5
@@ -97,15 +101,15 @@ for i, mu in enumerate(plot_mus_2):
 sm = ScalarMappable(norm=norm, cmap=cmap)
 sm.set_array([])
 cbar = plt.colorbar(sm, ax=ax2)
-cbar.set_label(r"$\mu\,[\mathrm{Am}^2]$")
+cbar.set_label(r"$\mu_0\,[\unit{\ampere\metre\squared}]$")
 ax1.xaxis.set_major_locator(tck.MultipleLocator(np.pi / 4))
-ax1.set_xlabel(r"$\varphi \, [\text{rad}]$")
-ax1.set_ylabel(r"$x \, [\text{cm}]$")
+ax1.set_xlabel(r"$\theta \, [\unit{rad}]$")
+ax1.set_ylabel(r"$x|_{t=1 \, \unit{s}} \, [\unit{\centi\metre}]$")
 ax1.set_xlim(0,np.pi)
 ax1.grid(True, alpha=0.3)
 ax2.xaxis.set_major_locator(tck.MultipleLocator(np.pi / 4))
-ax2.set_xlabel(r"$\varphi \, [\text{rad}]$")
-ax2.set_ylabel(r"$x \, [\text{cm}]$")
+ax2.set_xlabel(r"$\theta \, [\unit{rad}]$")
+ax2.set_ylabel(r"$x|_{t=1 \, \unit{s}} \, [\unit{\centi\metre}]$")
 ax2.set_xlim(0,np.pi)
 ax2.grid(True, alpha=0.3)
 ax1.text(

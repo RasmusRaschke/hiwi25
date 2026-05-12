@@ -36,6 +36,12 @@ Standard Parameters of the system:
     \caption{Shown is a sketch of the flat system with sufficiently small initial displacement angle $\beta_0$ between the outer magnetic field $\bm{B}$ and the initial magnetic dipole vector $\bm{\mu}_0$. Note that the system is effectively reduced to two dimensions. The red vectors indicate the oscillation-driving electromagnetic force $\bm{F}_\text{em}$ and the damping frictional force $\bm{F}_\text{fric}$. The frictional force includes aerodynamical drag and rolling resistance.}
     \label{fig:flat}
 \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{xyparam.pdf}
+    \includegraphics[width=0.4\linewidth]{yzparam.pdf}
+    \caption{Parametrizations of $\bm{\mu}_0$ in F and G.}
+\end{figure}
 \newpage
 \section{\textcolor{blue}{Figure Family A: Appendix}}
 These figures are results of a proof-of-concept toy model: The incline without electromagnetic interaction. The goal is to compare numerical results to analytical equations.
@@ -114,7 +120,7 @@ The magnetic moment at $t=0$ was again parametrized by
 \[
     \bm{\mu}=\mu \cdot (\sin \varphi, \cos \varphi, 0)^\top
 .\]
-The goal was to observe the behaviour of the magnetic moment vector in the rotating frame of the sphere. We considered two cases: Downward rolling motion for $\varphi = \frac{\pi}{5}$ and $\mu = 0.1 Am^2$ and looping motion for $\varphi = \frac{\pi}{2}$ and $\mu = 1.5 Am^2$. We lowered the slope and $\mu$ for the first one to obtain slower rotational velocities, making trajectories slightly easier to interpret. For the plots of $\bm{\mu}$ in time, we decomposed $\bm{\mu}=\mu_\| (\bm{e}_1 + \bm{e}_2) + \mu_\perp \bm{e}_3$.  The drawn out trajectories correspond to the $\mu_\|$-component, i.e. the projection of $\bm{\mu}$ onto the $xy$-plane. The origin was shifted against the current $x$- and $y$-values of the sphere (plottet like the mag. moment orbiting the sphere).
+The goal was to observe the behaviour of the magnetic moment vector in the rotating frame of the sphere. We considered two cases: Downward rolling motion for $\varphi = \frac{\pi}{5}$ and $\mu = 0.1 Am^2$ and looping motion for $\varphi = \frac{\pi}{2}$ and $\mu = 1.5 Am^2$. We lowered the slope and $\mu$ for the first one to obtain slower rotational velocities, making trajectories slightly easier to interpret. For the plots of $\bm{\mu}$ in time, we decomposed $$\bm{\mu}=\bm{\mu}_\| + \mu_\perp \bm{e}_z.$$  The drawn out trajectories correspond to the $\mu_\|$-component, i.e. the projection of $\bm{\mu}$ onto the $xy$-plane. The origin of the projected $\bm{\mu}(t)$ is the centre of mass of the sphere at time $t$. The trajectories of the COM were also plotted in arbitrary units, since they have to be scaled up to be visible in relation to the length of $\bm{\mu}$. 
 \renewcommand{\thefigure}{H1}
     \begin{figure}[H]
         \centering
@@ -139,6 +145,12 @@ The goal was to observe the behaviour of the magnetic moment vector in the rotat
         \includegraphics[width=\linewidth]{FIGH4_magnet_looping.pdf}
         \caption{}
     \end{figure}
+\renewcommand{\thefigure}{H5}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{FIGH5_overlay.pdf}
+        \caption{}
+    \end{figure}
 \newpage
 \section{Figure Family I: Not for paper}
 The non-standard parameters are
@@ -155,6 +167,31 @@ Goal of these calculations was to take a closer look at which inputs are close i
         \caption{The paths show that only $\frac{\pi}{200}$ is in the correct range to be close to the experiment quantitatively.}
     \end{figure}
 \newpage
+\section{Figure J}
+The non-standard parameters are
+\begin{itemize}
+    \item $\Delta t = 1s$
+    \item $\phi = 10^\circ$
+\item Rolling resistance on, AD on.
+\end{itemize}
+We compare the influence of the magnetic field with the influence of $\bm{\mu}$ by interchanging their roles from figure F and G. Set $\bm{\mu}_0=(0,0,5 \cdot 10^{-5})^\top Am^2$ and \[
+    \bm{B}_\theta=B(\sin \theta, \cos \theta, 0)^\top
+\]  or \[
+\bm{B}_\psi = B(0, \sin \psi, \cos \psi)^\top
+,\] respectively. Then, we simply compare figure F1 and G with the new figures.
+\section{\textcolor{blue}{Figure K: In paper}}
+The non-standard parameters are 
+\begin{itemize}
+    \item $\Delta t = 1s$
+    \item $\phi = 20^\circ$
+    \item RR on, AD on
+    \item $\mu_0 = 1.0 Am^2$
+    \item No initial deviation: If the moment and field are not coplanar with the rolling direction, the rolling causes the misalignment after a few time steps automatically.
+\end{itemize}
+The goal is to investigate the general behaviour of the ball in roughly realistic settings. We used the NCEI model to derive the magnetic field vector at $53.5501721^\circ$ north and $10.0013165^\circ$ east (Hamburg, Centre) with a mean sea level elevation of $25m$ at the 12th of May, 2026. The total magnitude was rounded to $5 \cdot 10^{-5} T$, close to the actual $50159.3 nT$ of the NCEI. The magnetic field in the East-North-Up-Frame is then given by \[
+    \bm{B}=B \cdot (\cos I \sin D, \cos I \cos D, -\sin I)
+,\] where the NCEI predicts an inclination of $I \approx 68.6^\circ$ and a declination of $D \approx 4.2^\circ$.\footnote{The geographical spherical system is quite counterintuitive from the phycisists standpoint: The inclination is the dip of the field, so $I>0$ means that the field points into the ground.}
+
 \section{\textcolor{red}{Figure Family D-OLD: Replaced by F}}
 The following figures are the results of running the simulation for $\Delta t = 1 \text{s}$ simulation time with an incline of $\varphi = 10^\circ$ for all possible values of $\mu_x(t=0)$ and $\mu_y(t=0)$ in $[-1,1]$ for increments of $0.1$, meaning these are the results of $441$ calculations. 
 \renewcommand{\thefigure}{D1}

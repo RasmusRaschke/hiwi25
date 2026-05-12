@@ -8,12 +8,15 @@ import re
 from collections import defaultdict
 plt.style.use('seaborn-v0_8-paper')
 plt.rcParams.update({
-    "font.size": 16,        # general default
-    "axes.titlesize": 16,
-    "axes.labelsize": 16,
-    "xtick.labelsize": 14,
-    "ytick.labelsize": 14,
-    "legend.fontsize": 14,
+    "text.usetex": True,
+    "text.latex.preamble": r"\usepackage{siunitx}",
+
+    "font.size": 20,          # base size for TeX-rendered text
+    "axes.titlesize": 20,
+    "axes.labelsize": 20,
+    "xtick.labelsize": 18,
+    "ytick.labelsize": 18,
+    "legend.fontsize": 18,
 })
 
 g = 9.80665
@@ -23,7 +26,7 @@ M = 0.004
 
 data = su.extract_intervals("mag_moment_data", n_intervals=10)
 keys = ["c0_5", "c1_0", "c2_0"]
-titles = [r"$\mu = 0.5 \, \text{Am}^2$", r"$\mu = 1 \, \text{Am}^2$", r"$\mu = 2 \, \text{Am}^2$"]
+titles = [r"$\mu_0 = 0.5 \, \unit{\ampere\metre\squared}$", r"$\mu_0 = 1 \, \unit{\ampere\metre\squared}$", r"$\mu_0 = 2 \, \unit{\ampere\metre\squared}$"]
 all_azimuth = np.concatenate([data[k]["angle"] for k in keys])
 norm = Normalize(vmin=all_azimuth.min(), vmax=all_azimuth.max())
 cmap = plt.cm.plasma
@@ -34,9 +37,13 @@ for ax, key, title, panel in zip(axs, keys, titles, panel_labels):
     for azimuth, x, y in zip(d["angle"], d["x"], d["y"]):
         ax.plot(x * 100, y * 100, color=cmap(norm(azimuth)), lw=1.5)
     ax.set_title(title)
-    ax.set_xlabel(r"$x \, [\text{cm}]$")
-    ax.set_ylabel(r"$y \, [\text{cm}]$")
+    ax.set_xlabel(r"$x \, [\unit{\centi\metre}]$")
+    ax.set_ylabel(r"$y \, [\unit{\centi\metre}]$")
+    ax.xaxis.set_major_locator(mticker.MultipleLocator(15))
+    ax.yaxis.set_major_locator(mticker.MultipleLocator(15))
+    ax.set_ylim(-70.0, 2.0)
     ax.grid(True, alpha=0.3)
+    ax.xaxis.set_inverted(True)
     ax.text(
         0.03, 0.97, panel,
         transform=ax.transAxes,
@@ -61,5 +68,5 @@ tick_lab = [
 cbar.set_ticks(tick_pos)
 cbar.set_ticklabels(tick_lab)
 cbar.ax.tick_params(labelsize=14)
-cbar.set_label(r"$\tilde{\varphi} \, [\text{rad}]$")
+cbar.set_label(r"$\theta \, [\unit{rad}]$")
 plt.savefig("FIGF2_mag_mom_traj.pdf", dpi=300)

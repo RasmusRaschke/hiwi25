@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.15)  21 APR 2026 23:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.15)  12 MAY 2026 15:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -209,113 +209,137 @@ File: flat.pdf Graphic file (type pdf)
 <use flat.pdf>
 Package pdftex.def Info: flat.pdf  used on input line 35.
 (pdftex.def)             Requested size: 390.0pt x 188.43742pt.
- [2{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [3 <./ramp.pdf>] [4 <./flat.pdf>]
-<FIGA1_no_mag_traj.pdf, id=30, 462.52798pt x 317.98799pt>
+ [2{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+<xyparam.pdf, id=19, 116.435pt x 68.255pt>
+File: xyparam.pdf Graphic file (type pdf)
+<use xyparam.pdf>
+Package pdftex.def Info: xyparam.pdf  used on input line 41.
+(pdftex.def)             Requested size: 155.99762pt x 91.456pt.
+<yzparam.pdf, id=20, 115.43124pt x 95.35625pt>
+File: yzparam.pdf Graphic file (type pdf)
+<use yzparam.pdf>
+Package pdftex.def Info: yzparam.pdf  used on input line 42.
+(pdftex.def)             Requested size: 155.99762pt x 128.87668pt.
+ [3 <./ramp.pdf>] [4 <./flat.pdf> <./xyparam.pdf
+
+pdfTeX warning: pdflatex (file ./xyparam.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./yzparam.pdf
+
+pdfTeX warning: pdflatex (file ./yzparam.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+<FIGA1_no_mag_traj.pdf, id=34, 462.52798pt x 317.98799pt>
 File: FIGA1_no_mag_traj.pdf Graphic file (type pdf)
 <use FIGA1_no_mag_traj.pdf>
-Package pdftex.def Info: FIGA1_no_mag_traj.pdf  used on input line 45.
+Package pdftex.def Info: FIGA1_no_mag_traj.pdf  used on input line 51.
 (pdftex.def)             Requested size: 390.0pt x 268.13672pt.
-<FIGA2_no_mag_fric_energ.pdf, id=31, 462.52798pt x 317.98799pt>
+<FIGA2_no_mag_fric_energ.pdf, id=35, 462.52798pt x 317.98799pt>
 File: FIGA2_no_mag_fric_energ.pdf Graphic file (type pdf)
 <use FIGA2_no_mag_fric_energ.pdf>
-Package pdftex.def Info: FIGA2_no_mag_fric_energ.pdf  used on input line 51.
+Package pdftex.def Info: FIGA2_no_mag_fric_energ.pdf  used on input line 57.
 (pdftex.def)             Requested size: 175.49881pt x 120.65715pt.
-<FIGA3_no_mag_fric_traj.pdf, id=32, 462.52798pt x 317.98799pt>
+<FIGA3_no_mag_fric_traj.pdf, id=36, 462.52798pt x 317.98799pt>
 File: FIGA3_no_mag_fric_traj.pdf Graphic file (type pdf)
 <use FIGA3_no_mag_fric_traj.pdf>
-Package pdftex.def Info: FIGA3_no_mag_fric_traj.pdf  used on input line 52.
+Package pdftex.def Info: FIGA3_no_mag_fric_traj.pdf  used on input line 58.
 (pdftex.def)             Requested size: 175.49881pt x 120.65715pt.
  [5 <./FIGA1_no_mag_traj.pdf>] [6 <./FIGA2_no_mag_fric_energ.pdf> <./FIGA3_no_mag_fric_traj.pdf>] [7] [8]
-<FIGF1_mag_azimuth.pdf, id=167, 1011.78pt x 361.35pt>
+<FIGF1_mag_azimuth.pdf, id=171, 1011.78pt x 361.35pt>
 File: FIGF1_mag_azimuth.pdf Graphic file (type pdf)
 <use FIGF1_mag_azimuth.pdf>
-Package pdftex.def Info: FIGF1_mag_azimuth.pdf  used on input line 79.
+Package pdftex.def Info: FIGF1_mag_azimuth.pdf  used on input line 85.
 (pdftex.def)             Requested size: 390.0pt x 139.28835pt.
 
-Overfull \hbox (27.82193pt too wide) in paragraph at lines 75--81
+Overfull \hbox (27.82193pt too wide) in paragraph at lines 81--87
 \OT1/cmr/m/n/12 with po-lar an-gle $\OML/cmm/m/it/12 '$ \OT1/cmr/m/n/12 and mod-u-lus $\OML/cmm/m/it/12 ^^V \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 k\OML/cmm/b/it/12 ^^V\OMS/cmsy/m/n/12 k$\OT1/cmr/m/n/12 . For each mod-u-lus $\OML/cmm/m/it/12 ^^V \OMS/cmsy/m/n/12 2 f\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 ; [] ; \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5\OMS/cmsy/m/n/12 g$\OT1/cmr/m/n/12 ,
  []
 
-<FIGF2_mag_mom_traj.pdf, id=168, 1084.05pt x 361.35pt>
+<FIGF2_mag_mom_traj.pdf, id=172, 1084.05pt x 361.35pt>
 File: FIGF2_mag_mom_traj.pdf Graphic file (type pdf)
 <use FIGF2_mag_mom_traj.pdf>
-Package pdftex.def Info: FIGF2_mag_mom_traj.pdf  used on input line 85.
+Package pdftex.def Info: FIGF2_mag_mom_traj.pdf  used on input line 91.
 (pdftex.def)             Requested size: 390.0pt x 129.99768pt.
 [9 <./FIGF1_mag_azimuth.pdf>] [10 <./FIGF2_mag_mom_traj.pdf>]
-<FIGG_polar.pdf, id=258, 1011.78pt x 361.35pt>
+<FIGG_polar.pdf, id=235, 1011.78pt x 361.35pt>
 File: FIGG_polar.pdf Graphic file (type pdf)
 <use FIGG_polar.pdf>
-Package pdftex.def Info: FIGG_polar.pdf  used on input line 102.
+Package pdftex.def Info: FIGG_polar.pdf  used on input line 108.
 (pdftex.def)             Requested size: 390.0pt x 139.28835pt.
  [11] [12 <./FIGG_polar.pdf>]
-<FIGH1_magnet_rolling.pdf, id=309, 1011.78pt x 505.89pt>
+<FIGH1_magnet_rolling.pdf, id=264, 1011.78pt x 505.89pt>
 File: FIGH1_magnet_rolling.pdf Graphic file (type pdf)
 <use FIGH1_magnet_rolling.pdf>
-Package pdftex.def Info: FIGH1_magnet_rolling.pdf  used on input line 121.
+Package pdftex.def Info: FIGH1_magnet_rolling.pdf  used on input line 127.
 (pdftex.def)             Requested size: 390.0pt x 195.00368pt.
-<FIGH2_projection_rolling.pdf, id=310, 505.89pt x 361.35pt>
+<FIGH2_projection_rolling.pdf, id=265, 505.89pt x 361.35pt>
 File: FIGH2_projection_rolling.pdf Graphic file (type pdf)
 <use FIGH2_projection_rolling.pdf>
-Package pdftex.def Info: FIGH2_projection_rolling.pdf  used on input line 127.
+Package pdftex.def Info: FIGH2_projection_rolling.pdf  used on input line 133.
 (pdftex.def)             Requested size: 390.0pt x 278.57669pt.
-<FIGH3_projection_looping.pdf, id=311, 505.89pt x 361.35pt>
+ [13]
+<FIGH3_projection_looping.pdf, id=270, 505.89pt x 361.35pt>
 File: FIGH3_projection_looping.pdf Graphic file (type pdf)
 <use FIGH3_projection_looping.pdf>
-Package pdftex.def Info: FIGH3_projection_looping.pdf  used on input line 133.
+Package pdftex.def Info: FIGH3_projection_looping.pdf  used on input line 139.
 (pdftex.def)             Requested size: 390.0pt x 278.57669pt.
- [13 <./FIGH1_magnet_rolling.pdf>]
-<FIGH4_magnet_looping.pdf, id=358, 1011.78pt x 505.89pt>
+<FIGH4_magnet_looping.pdf, id=271, 1011.78pt x 505.89pt>
 File: FIGH4_magnet_looping.pdf Graphic file (type pdf)
 <use FIGH4_magnet_looping.pdf>
-Package pdftex.def Info: FIGH4_magnet_looping.pdf  used on input line 139.
+Package pdftex.def Info: FIGH4_magnet_looping.pdf  used on input line 145.
 (pdftex.def)             Requested size: 390.0pt x 195.00368pt.
- [14 <./FIGH2_projection_rolling.pdf>] [15 <./FIGH3_projection_looping.pdf> <./FIGH4_magnet_looping.pdf>]
-<FIGI_comp_dev.pdf, id=457, 505.89pt x 361.35pt>
+ [14 <./FIGH1_magnet_rolling.pdf> <./FIGH2_projection_rolling.pdf>]
+<FIGH5_overlay.pdf, id=344, 1011.78pt x 505.89pt>
+File: FIGH5_overlay.pdf Graphic file (type pdf)
+<use FIGH5_overlay.pdf>
+Package pdftex.def Info: FIGH5_overlay.pdf  used on input line 151.
+(pdftex.def)             Requested size: 390.0pt x 195.00368pt.
+ [15 <./FIGH3_projection_looping.pdf> <./FIGH4_magnet_looping.pdf>] [16 <./FIGH5_overlay.pdf>]
+<FIGI_comp_dev.pdf, id=455, 505.89pt x 361.35pt>
 File: FIGI_comp_dev.pdf Graphic file (type pdf)
 <use FIGI_comp_dev.pdf>
-Package pdftex.def Info: FIGI_comp_dev.pdf  used on input line 154.
+Package pdftex.def Info: FIGI_comp_dev.pdf  used on input line 166.
 (pdftex.def)             Requested size: 390.0pt x 278.57669pt.
- [16 <./FIGI_comp_dev.pdf>]
-<FIGD1_mag_mom_3d.pdf, id=490, 650.43pt x 505.89pt>
+ [17 <./FIGI_comp_dev.pdf>] [18]
+<FIGD1_mag_mom_3d.pdf, id=492, 650.43pt x 505.89pt>
 File: FIGD1_mag_mom_3d.pdf Graphic file (type pdf)
 <use FIGD1_mag_mom_3d.pdf>
-Package pdftex.def Info: FIGD1_mag_mom_3d.pdf  used on input line 163.
+Package pdftex.def Info: FIGD1_mag_mom_3d.pdf  used on input line 200.
 (pdftex.def)             Requested size: 390.0pt x 303.34335pt.
-<FIGD2_mag_mom_2d.pdf, id=491, 939.51pt x 361.35pt>
+<FIGD2_mag_mom_2d.pdf, id=493, 939.51pt x 361.35pt>
 File: FIGD2_mag_mom_2d.pdf Graphic file (type pdf)
 <use FIGD2_mag_mom_2d.pdf>
-Package pdftex.def Info: FIGD2_mag_mom_2d.pdf  used on input line 169.
+Package pdftex.def Info: FIGD2_mag_mom_2d.pdf  used on input line 206.
 (pdftex.def)             Requested size: 390.0pt x 149.99605pt.
-<FIGD3_mag_mom_traj.pdf, id=492, 1011.78pt x 1011.78pt>
+ [19]
+<FIGD3_mag_mom_traj.pdf, id=501, 1011.78pt x 1011.78pt>
 File: FIGD3_mag_mom_traj.pdf Graphic file (type pdf)
 <use FIGD3_mag_mom_traj.pdf>
-Package pdftex.def Info: FIGD3_mag_mom_traj.pdf  used on input line 175.
+Package pdftex.def Info: FIGD3_mag_mom_traj.pdf  used on input line 212.
 (pdftex.def)             Requested size: 390.0pt x 390.00737pt.
- [17 <./FIGD1_mag_mom_3d.pdf>] [18 <./FIGD2_mag_mom_2d.pdf>] [19 <./FIGD3_mag_mom_traj.pdf>]
-<FIGE_mag_mom_z.pdf, id=598, 1011.78pt x 361.35pt>
+ [20 <./FIGD1_mag_mom_3d.pdf>] [21 <./FIGD2_mag_mom_2d.pdf>] [22 <./FIGD3_mag_mom_traj.pdf>]
+<FIGE_mag_mom_z.pdf, id=606, 1011.78pt x 361.35pt>
 File: FIGE_mag_mom_z.pdf Graphic file (type pdf)
 <use FIGE_mag_mom_z.pdf>
-Package pdftex.def Info: FIGE_mag_mom_z.pdf  used on input line 186.
+Package pdftex.def Info: FIGE_mag_mom_z.pdf  used on input line 223.
 (pdftex.def)             Requested size: 390.0pt x 139.28835pt.
- [20 <./FIGE_mag_mom_z.pdf>] (./main.aux)
+ [23 <./FIGE_mag_mom_z.pdf>] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3012 strings out of 467533
- 46518 string characters out of 5419495
+ 3052 strings out of 467533
+ 47222 string characters out of 5419495
  461496 words of memory out of 5000000
- 31900 multiletter control sequences out of 15000+600000
- 635190 words of font info for 65 fonts, out of 8000000 for 9000
+ 31933 multiletter control sequences out of 15000+600000
+ 638401 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,7n,83p,1492b,299s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on main.pdf (20 pages, 446903 bytes).
+ 57i,8n,83p,1492b,299s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on main.pdf (23 pages, 685031 bytes).
 PDF statistics:
- 678 PDF objects out of 1000 (max. 8388607)
- 248 compressed objects within 3 object streams
+ 700 PDF objects out of 1000 (max. 8388607)
+ 313 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 86 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

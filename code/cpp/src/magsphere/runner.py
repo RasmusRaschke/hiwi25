@@ -36,12 +36,14 @@ def make_input_file(template, theta, c, out_path):
 #for changing outer magnetic field
 def make_input_file(template, theta, c, out_path):
     lines = template.read_text().splitlines(True)
-    mx = 0.5 * np.sin(np.pi / 200)
-    my = 0.0
-    mz = 0.5 * np.cos(theta)
-    Bx = 0.0
-    By = c * np.sin(theta)
-    Bz = c * np.cos(theta)
+    I = np.deg2rad(68.6)
+    D = np.deg2rad(4.2)
+    Bx = 5e-5 * np.cos(I) * np.sin(D)
+    By = 5e-5 * np.cos(I) * np.cos(D)
+    Bz = -5e-5 * np.sin(I)
+    mx = np.cos(I) * np.sin(D)
+    my = np.cos(I) * np.cos(D)
+    mz = - np.sin(I)
     lines[6] = _replace_leading_number(lines[6], mx)
     lines[7] = _replace_leading_number(lines[7], my)
     lines[8] = _replace_leading_number(lines[8], mz)
@@ -49,7 +51,7 @@ def make_input_file(template, theta, c, out_path):
     lines[10] = _replace_leading_number(lines[10], By)
     lines[11] = _replace_leading_number(lines[11], Bz)
     out_path.write_text("".join(lines))
-
+#"""
 
 def run_one_case(exe, template, theta, c, output_dir, input_name="input.base", angle_digits=6, c_digits=6):
     output_dir = Path(output_dir)
@@ -84,12 +86,10 @@ def sweep_theta_and_c(
     exe = Path(exe).resolve()
     template = Path(template).resolve()
     output_dir = Path(output_dir).resolve()
-    thetas = np.linspace(-np.pi, np.pi, n_steps + 1)
-    #thetas = np.array([np.pi / 2, np.pi / 20, np.pi / 200, np.pi/2000, 0.0])
-    #thetas = np.array([0.0])
-    print(thetas)
+    #thetas = np.linspace(-np.pi / 2, np.pi / 2, n_steps + 1)
+    thetas = np.array([0.0])
     tasks = [
-        (exe, template, float(theta), float(c), output_dir, "input.base", angle_digits)
+        (exe, template, float(theta), float(c), output_dir, "input.base", angle_digits, c_digits)
         for c in c_values
         for theta in thetas
     ]
@@ -104,8 +104,8 @@ if __name__ == "__main__":
     sweep_theta_and_c(
         exe = "./magsphere.out",
         template = "./input.base",
-        c_values = [5.0e-5],
-        n_steps = 400,
+        c_values = [1.0],
+        n_steps = 1,
         output_dir = "./results",
         angle_digits = 6,
         c_digits = 2,
