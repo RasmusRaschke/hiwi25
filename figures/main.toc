@@ -7,6 +7,6 @@
 \contentsline {section}{\numberline {7}Figure Family H}{13}{}%
 \contentsline {section}{\numberline {8}Figure Family I: Not for paper}{17}{}%
 \contentsline {section}{\numberline {9}Figure J}{18}{}%
-\contentsline {section}{\numberline {10}\textcolor {blue}{Figure K: In paper}}{18}{}%
-\contentsline {section}{\numberline {11}\textcolor {red}{Figure Family D-OLD: Replaced by F}}{20}{}%
-\contentsline {section}{\numberline {12}\textcolor {red}{Figure Family E-OLD: Replaced}}{23}{}%
+\contentsline {section}{\numberline {10}\textcolor {blue}{Figure K: In paper}}{19}{}%
+\contentsline {section}{\numberline {11}\textcolor {red}{Figure Family D-OLD: Replaced by F}}{21}{}%
+\contentsline {section}{\numberline {12}\textcolor {red}{Figure Family E-OLD: Replaced}}{24}{}%

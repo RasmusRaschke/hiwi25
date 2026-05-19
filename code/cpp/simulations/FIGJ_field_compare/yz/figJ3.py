@@ -2,15 +2,16 @@ import numpy as np
 import matplotlib.pyplot as plt 
 from matplotlib.colors import Normalize
 from matplotlib.cm import ScalarMappable
-import matplotlib.ticker as tck
-from fractions import Fraction
+from mpl_toolkits.axes_grid1.inset_locator import inset_axes, mark_inset
 import simutils as su
-from mpl_toolkits.mplot3d import axes3d
+import matplotlib.ticker as tck
+import re
+from fractions import Fraction
+from collections import defaultdict
 plt.style.use('seaborn-v0_8-paper')
 plt.rcParams.update({
     "text.usetex": True,
     "text.latex.preamble": r"\usepackage{siunitx}",
-
     "font.size": 20,          # base size for TeX-rendered text
     "axes.titlesize": 20,
     "axes.labelsize": 20,
@@ -66,20 +67,20 @@ ax1.xaxis.set_major_formatter(tck.FuncFormatter(pi_formatter))
 ax1.xaxis.set_major_locator(tck.MultipleLocator(np.pi / 4))
 order = np.argsort(angle)
 ax1.plot(angle[order], y[order]*100, lw=3.5, color="black")
-x_points = np.array([1.178, 0.118, -1.178])
+x_points = np.array([1.178, -0.141, -1.178])
 idx = np.abs(angle[:, None] - x_points).argmin(axis=0)
 y_points = y[idx]
 ax1.plot(x_points[0], y_points[0] * 100, "o", color="blue", ms=10)
 ax1.plot(x_points[1], y_points[1] * 100, "o", color="orange", ms=10)
 ax1.plot(x_points[2], y_points[2] * 100, "o", color="red", ms=10)
-ax1.set_xlabel(r"$\psi \, [\unit{rad}]$")
+ax1.set_xlabel(r"$\overline{\psi} \, [\unit{rad}]$")
 ax1.set_ylabel(r"$y|_{t=1 \, \unit{s}} \, [\unit{\centi\metre}]$")
 ax1.set_xlim(-np.pi,np.pi)
 ax1.xaxis.set_major_locator(tck.MultipleLocator(np.pi / 4))
 ax1.grid(True, alpha=0.3)
-ax2.plot(t, y1*100, label=r"$\psi = 1.2 \, \unit{rad}$", lw=3.5, color="blue")
-ax2.plot(t, y2*100, label=r"$\psi = 0.1 \, \unit{rad}$", lw=3.5, color="orange")
-ax2.plot(t, y3*100, label=r"$\psi = -1.2 \, \unit{rad}$", lw=3.5, color="red")
+ax2.plot(t, y1*100, label=r"$\overline{\psi} = 1.18 \, \unit{rad}$", lw=3.5, color="blue")
+ax2.plot(t, y2*100, label=r"$\overline{\psi} = -0.14 \, \unit{rad}$", lw=3.5, color="orange")
+ax2.plot(t, y3*100, label=r"$\overline{\psi} = -1.18 \, \unit{rad}$", lw=3.5, color="red")
 ax2.set_xlabel(r"$t \, [\unit{\second}]$")
 ax2.set_ylabel(r"$y \, [\unit{\centi\metre}]$")
 ax2.grid(True, alpha=0.3)
@@ -98,5 +99,4 @@ ax2.text(
         ha="left", va="top",
         fontsize=16, fontweight="bold"
 )
-plt.savefig("FIGG_polar.pdf", dpi=300)
-#"""
+plt.savefig("FIGJ3_field_yz.pdf", dpi=300)

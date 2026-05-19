@@ -220,7 +220,7 @@ def extract_intervals(path: PathLike = "mag_moment_data", n_intervals: int = 10)
         One entry per subfolder, e.g. "c0_0".
     """
     folder = Path(path)
-    target_angles = np.linspace(0.0, np.pi, n_intervals + 1)
+    target_angles = np.linspace(-np.pi / 2, np.pi / 2, n_intervals + 1)
 
     result = {}
 
