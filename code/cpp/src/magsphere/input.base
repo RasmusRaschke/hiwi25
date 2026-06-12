@@ -3,7 +3,7 @@
 0.004       # mass in kilograms
 0.005       # radius in meters
 9.80665     # gravitational acceleration in kilograms per second squared
-20.0         # incline angle in degrees
+10.0         # incline angle in degrees
 0.00         # magnetic moment (x component) in Ampere times meter squared
 0.00      # magnetic moment (y component) in Ampere times meter squared
 0.00       # magnetic moment (z component) in Ampere times meter squared 

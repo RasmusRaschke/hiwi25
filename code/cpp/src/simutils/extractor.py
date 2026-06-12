@@ -14,8 +14,9 @@ import numpy as np
 _FILENAME_RE = re.compile(r"data_mx_(?P<mx>.+)_my_(?P<my>.+)\.csv$")
 _MZ_FILENAME_RE = re.compile(r"data_mz_(?P<mz>\d+)\.csv")
 _AZIMUTH_FILENAME_RE = re.compile(r"data_azimuth_(?P<azimuth>[-+]?\d+(?:\.\d+)?)\.csv")
+_AZIMUTH_FILENAME_RE2 = re.compile(r"data_azimuth_(?P<sign>[mp]?)(?P<int>\d+)_(?P<frac>\d+)_?\.csv")
 PathLike = Union[str, Path]
-_NEW_C_DIR_RE = re.compile(r"^c(?P<c>[-+m]?\d+(?:_\d+)?)$")
+_NEW_C_DIR_RE = re.compile(r"^c(?P<c>[-+m]?\d+(?:_\d+)?)$") 
 _NEW_FILE_RE = re.compile(
     r"data_azimuth_(?P<azimuth>[-+m]?\d+(?:_\d+)?)_polar_(?P<polar>[-+m]?\d+(?:_\d+)?)\.csv$"
 )
@@ -215,6 +216,38 @@ def batch_extract_polar(path: PathLike = ".") -> tuple[np.ndarray, np.ndarray]:
             continue
 
         azimuth = float(match.group("azimuth"))
+        cols = load(csv)
+        y = np.asarray(cols["y"])[-1]
+
+        azimuth_list.append(azimuth)
+        y_list.append(float(y))
+
+    return np.array(azimuth_list), np.array(y_list)
+
+def batch_extract_polar2(path: PathLike = ".") -> tuple[np.ndarray, np.ndarray]:
+    """Extract y values and polar tag from a big amount of data
+
+    Parameters
+    ----------
+    path : PathLike
+        Path to the data files
+    
+    Returns
+    -------
+    tuple[np.ndarray, np.ndarray]
+        polar angle and last x value
+    """
+    folder = Path(path)
+    azimuth_list: list[float] = []
+    y_list: list[float] = []
+
+    for csv in folder.glob("data_azimuth_*.csv"):
+        match = _AZIMUTH_FILENAME_RE2.fullmatch(csv.name)
+        if match is None:
+            continue
+
+        sign = -1 if match.group("sign") == "m" else 1
+        azimuth = sign * float(f"{match.group('int')}.{match.group('frac')}")
         cols = load(csv)
         y = np.asarray(cols["y"])[-1]
 

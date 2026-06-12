@@ -68,8 +68,8 @@ These figures are results of a proof-of-concept toy model: The incline without e
 \section{Figure Family C}
 
 \newpage
-
 \section{\textcolor{blue}{Figure Family F: In Paper}}
+\textcolor{red}{Now combined with former figure J.}
 The fixed non-standard parameters were:
 \begin{itemize}
     \item  $\Delta t = 1s$
@@ -82,13 +82,13 @@ while the initial magnetic dipole moment was parametrized as \[
 \renewcommand{\thefigure}{F1}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=\linewidth]{FIGF1_mag_azimuth.pdf}
+        \includegraphics[width=\linewidth]{FIGF1_combined.pdf}
         \caption{Final $x$-deviation w.r.t. polar angle and modulus. Figure (a) and (b) both show the $x$-value of a trajectory after $t=1 \, \text{s}$ depending on the initial polar angle. Each graph represents a modulus of $\bm{\mu}$, indicated by the color bar. The first ten graphs in (a) show that the trajectorial deviation incrases non-linearly with the angular misalignment between $\bm{\mu}$ and the $yz$-plane. As expected, the deviation is antisymmetric about the origin. For increasing values of $\mu$ and $\varphi$, the deviation saturates. In (b), the curves for the remaining moduli $\mu$ can be seen. In this range, the magnetic forces start to dominate over the gravitational force for high polar deviations. The extrema of the curves correspond to the point where trajectories begin to loop around the origin instead of following the incline.}
     \end{figure}
 \renewcommand{\thefigure}{F2}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=\linewidth]{FIGF2_mag_mom_traj.pdf}
+        \includegraphics[width=\linewidth]{FIGF2_combined.pdf}
         \caption{Chosen trajectories for fixed moduli. Figures (a), (b), and (c) show trajectories projected on the $xy$-plane for fixed values of $\mu$ and eleven equally spaced polar angle samples. It can be seen that in all cases, higher angular deviations correspond to stronger deflection of the sphere from a straight path. Increasing the modulus increases the curvature of the trajectories which evolve from almost linear paths to near-circular arcs. Figure (c) also shows the behaviour past the critical points of Figure F1(b) where the outmost paths form closed loops.}
     \end{figure}
 \newpage
@@ -167,33 +167,6 @@ Goal of these calculations was to take a closer look at which inputs are close i
         \caption{The paths show that only $\frac{\pi}{200}$ is in the correct range to be close to the experiment quantitatively.}
     \end{figure}
 \newpage
-\section{Figure J}
-The non-standard parameters are
-\begin{itemize}
-    \item $\Delta t = 1s$
-    \item $\phi = 10^\circ$
-\item Rolling resistance on, AD on.
-\end{itemize}
-We compare the influence of the magnetic field with the influence of $\bm{\mu}$ by interchanging their roles from figure F and G. Set $\bm{\mu}_0=(0,0,5 \cdot 10^{-5})^\top Am^2$ and \[
-    \bm{B}_\theta=B(\sin \overline{\theta}, \cos \overline{\theta}, 0)^\top
-\]  or \[
-\bm{B}_\psi = B(0, \sin \overline{\psi}, \cos \overline{\psi})^\top
-,\] respectively. Then, we simply compare figure F1 and G with the new figures.
-\renewcommand{\thefigure}{J1}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=\linewidth]{FIGJ1_field_azimuth.pdf}
-    \end{figure}
-\renewcommand{\thefigure}{J2}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=\linewidth]{FIGJ2_field_traj.pdf}
-    \end{figure}
-\renewcommand{\thefigure}{J3}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=\linewidth]{FIGJ3_field_yz.pdf}
-    \end{figure}
 \section{\textcolor{blue}{Figure K: In paper}}
 The non-standard parameters are 
 \begin{itemize}
@@ -209,40 +182,7 @@ The goal is to investigate the general behaviour of the ball in roughly realisti
 \renewcommand{\thefigure}{K1}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=\linewidth]{FIGK1_ramp_traj.pdf}
+        \includegraphics[width=\linewidth]{FIGK.pdf}
         \caption{Shown is is the trajectory in the $xy$-plane and the evolution of the magnetic moment vector's direction (i.e. a point on the sphere in the direction of $\bm{\mu}$).}
     \end{figure}
-\newpage
-    \section{\textcolor{red}{Figure Family D-OLD: Replaced by F}}
-The following figures are the results of running the simulation for $\Delta t = 1 \text{s}$ simulation time with an incline of $\varphi = 10^\circ$ for all possible values of $\mu_x(t=0)$ and $\mu_y(t=0)$ in $[-1,1]$ for increments of $0.1$, meaning these are the results of $441$ calculations. 
-\renewcommand{\thefigure}{D1}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=\linewidth]{FIGD1_mag_mom_3d.pdf}
-        \caption{The surface represents the $x$-value the sphere attains after $t=1 \, \text{s}$ as a function of the initial $x$- and $y$-components of the magnetic dipole vector of the sphere. Since the $x$-direction is transverse to the rolling motion induced by gravity, it can be seen as a measure for the influence of the magnetic force on the trajectory. The graphs at the $\mu_y x$-plane are slices of the surface for fixed values of $\mu_x$, and respectively for the graphes on the $\mu_x x$-plane with fixed $\mu_y$.}
-    \end{figure}
-\renewcommand{\thefigure}{D2}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=\linewidth]{FIGD2_mag_mom_2d.pdf}
-        \caption{These plottings are enhanced versions of the slices of figure D1, left for different fixed $\mu_y$ and right for different fixed $\mu_x$. Keeping $\mu_y$ fixed produces symmetrical deviations from the free rolling path depending on sign and magnitude of $\mu_x$, as one would expect. A clear transition from regular sigmoid behaviour to non-smooth responses occures at highly negative values of $\mu_y$, at which the ball no longer rolls down, discussed more rigorously in D3. The slice graphs for fixed $\mu_x$ on the right show a characteristic constant curve for $\mu_x=0$, as there can be no deviation from the purely gravitational path without a torque non-parallel to the $yz$-plane. All other slices display an asymmetry for positive and negative values. This is explained by the fact that for positive $\mu_y$, the direction of rolling increases the misalignment of $\bm{\mu}$ with $\bm{B}$, slowing down the motion and hence also the deviation. On the other hand, negative $\mu_y$-values cause $\bm{\mu}$ to align with $\bm{B}$, accelerating the motion in general and hence also the deviation in particular. A less regular asymmetry occurs for larger negative $\mu_y$-values, which is again the critical region where the magnetic force dominates over and acts against gravity, causing looping paths instead of downward motion.}
-    \end{figure}
-\renewcommand{\thefigure}{D3}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=\linewidth]{FIGD3_mag_mom_traj.pdf}
-        \caption{Visible are different trajectories of the sphere on the $xy$-plane for selected $\mu_y$-slices and all $\mu_x$-values corresponding to these slices. Here, the anomaly in D1 and D2 for large negative $\mu_y$-values can be seen immediately. For smaller negative and all positive $\mu_y$-slices, $\mu_y$ only controls the spread of the trajectories, while $\mu_x$ influences the deviation from a straight path. At $\mu_y=-1$, the magnetic force induced by the $\mu_y$-component as soon as the $\mu_x$-induced torque bends the trajectory out of the $yz$-plane overcompensates gravity and causes an upward motion. After that, the sphere moves in roughly elliptic loops.}
-    \end{figure}
-
-    \newpage
-
-    \section{\textcolor{red}{Figure Family E-OLD: Replaced}}
-The following figure shows the behaviour of the $y$-coordinate for different values of $\mu_z(t=0)$ in $[0,1]$, incremented by $0.01$-steps. The goal was to see the transition point at which the magnetic force overcomes the gravitational force, so $\mu_x(t=0)=\mu_y(t=0)=0$.
-\renewcommand{\thefigure}{E}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=\linewidth]{FIGE_mag_mom_z.pdf}
-        \caption{The graph on the left shows the $y$-projection of the sphere's COM at $t=1 \, \text{s}$ as a function of initial $\mu_z$-values. There are roughly three discernible regions: First, the $y$-value decreases, which is expected as the rolling motion increases the misalignment of $\bm{\mu}$ with $\bm{B}$. On the right, the $y$-trajectory for $\mu_z=0$ is representative for this region. For increasingly high $\mu_z$-values, a transition phase occurs. The representing graph at $\mu_z = 0.95$ shows that in this region, the sphere begins to oscillate slightly at first, but gravity soon overcomes the magnetic force. For $\mu_z \geq 0.96$, the magnetic force fully overcomes the gravitational force which only causes small oscillations around the origin, as seen by the representing graph for $\mu_z=1$.}
-    \end{figure}
-
 \end{document}

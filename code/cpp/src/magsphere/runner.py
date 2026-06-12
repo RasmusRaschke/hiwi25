@@ -47,12 +47,26 @@ def _as_values(x):
 
 def make_input_file(template, c, theta, phi, out_path):
     lines = template.read_text().splitlines(True)
-    mx = c * np.sin(theta) * np.sin(phi)
-    my = c * np.sin(theta) * np.cos(phi)
-    mz = c * np.cos(theta)
+    B = 5e-5
+    """
+    #Hamburg: I=68,6; D=4.29
+    #Jakata: I=-56.5; D=-12.1
+    #Tokyo: I=49.6, D=-7.94
+    I = np.deg2rad(56.6)
+    D = np.deg2rad(4.29)
+    Bx = B * np.cos(I) * np.sin(D)
+    By = B * np.cos(I) * np.cos(D)
+    Bz = - B * np.sin(I)
+    mx = np.cos(I) * np.sin(D)
+    my = np.cos(I) * np.cos(D)
+    mz = - np.sin(I)
+    """
+    mx = 0.0
+    my = 0.0
+    mz = 1.0
     Bx = 0.0
-    By = 0.0
-    Bz = 5e-5
+    By = B * np.sin(theta)
+    Bz = B * np.cos(theta)
     lines[6] = _replace_leading_number(lines[6], mx)
     lines[7] = _replace_leading_number(lines[7], my)
     lines[8] = _replace_leading_number(lines[8], mz)
@@ -144,8 +158,8 @@ if __name__ == "__main__":
     sweep_parameters(
         exe="./magsphere.out",
         template="./input.base",
-        c_values=[0.0],
-        theta_values=[0.0],
+        c_values=[1.0],
+        theta_values=np.linspace(-np.pi, np.pi, 400),
         phi_values=[0.0],
         output_dir="./results",
         angle_digits=6,
