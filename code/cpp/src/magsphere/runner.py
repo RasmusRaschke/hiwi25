@@ -47,19 +47,18 @@ def _as_values(x):
 
 def make_input_file(template, c, theta, phi, out_path):
     lines = template.read_text().splitlines(True)
-    B = 5e-5
-    """
-    #Hamburg: I=68,6; D=4.29
-    #Jakata: I=-56.5; D=-12.1
-    #Tokyo: I=49.6, D=-7.94
-    I = np.deg2rad(56.6)
-    D = np.deg2rad(4.29)
-    Bx = B * np.cos(I) * np.sin(D)
-    By = B * np.cos(I) * np.cos(D)
-    Bz = - B * np.sin(I)
-    mx = np.cos(I) * np.sin(D)
-    my = np.cos(I) * np.cos(D)
-    mz = - np.sin(I)
+    #Hamburg: N=18179.2 nT, E=1356.1 nT, U=-46693.9 nT
+    #Jakarta: N=38900.9 nT, E=435.6 nT, U=21399.7 nT
+    #Tokyo: N=30124.5 nT, E=-4195.3 nT, U=-35677.7 nT
+    #Canberra: N=23064.0 nT, E=5170.6 nT, U=53029.0 nT
+    Bx = 23064.0e-9
+    By = 5170.6e-9
+    Bz = 53029.0e-9
+    B = np.array([Bx, By, Bz])
+    B_norm = B / np.linalg.norm(B)
+    mx = B_norm[0]
+    my = B_norm[1]
+    mz = B_norm[2]
     """
     mx = 0.0
     my = 0.0
@@ -67,6 +66,7 @@ def make_input_file(template, c, theta, phi, out_path):
     Bx = 0.0
     By = B * np.sin(theta)
     Bz = B * np.cos(theta)
+    """
     lines[6] = _replace_leading_number(lines[6], mx)
     lines[7] = _replace_leading_number(lines[7], my)
     lines[8] = _replace_leading_number(lines[8], mz)
@@ -159,7 +159,7 @@ if __name__ == "__main__":
         exe="./magsphere.out",
         template="./input.base",
         c_values=[1.0],
-        theta_values=np.linspace(-np.pi, np.pi, 400),
+        theta_values=[0.0],
         phi_values=[0.0],
         output_dir="./results",
         angle_digits=6,

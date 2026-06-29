@@ -1,2 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/home/lyserg/Documents/hiwi25/code/animation/media/videos/main/1920p30/partial_movie_files/Step1/1821791670_1245880900_1779213087.mp4'

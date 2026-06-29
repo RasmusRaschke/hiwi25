@@ -13,12 +13,12 @@ plt.rcParams.update(
     {
         "text.usetex": True,
         "text.latex.preamble": r"\usepackage{siunitx}",
-        "font.size": 20,  # base size for TeX-rendered text
-        "axes.titlesize": 20,
-        "axes.labelsize": 20,
-        "xtick.labelsize": 18,
-        "ytick.labelsize": 18,
-        "legend.fontsize": 18,
+        "font.size": 22,  # base size for TeX-rendered text
+        "axes.titlesize": 22,
+        "axes.labelsize": 22,
+        "xtick.labelsize": 20,
+        "ytick.labelsize": 20,
+        "legend.fontsize": 20,
     }
 )
 
@@ -89,15 +89,15 @@ ax1.set_ylabel(r"$y|_{t=1 \, \unit{s}} \, [\unit{\centi\metre}]$")
 ax1.set_xlim(-np.pi, np.pi)
 ax1.xaxis.set_major_locator(tck.MultipleLocator(np.pi / 4))
 ax1.grid(True, alpha=0.3)
-ax2.plot(t, y1 * 100, label=r"$\psi = 1.2  \unit{rad}$", lw=3.5, color="blue")
-ax2.plot(t, y2 * 100, label=r"$\psi = 0.1  \unit{rad}$", lw=3.5, color="orange")
-ax2.plot(t, y3 * 100, label=r"$\psi = -1.2  \unit{rad}$", lw=3.5, color="red")
+ax2.plot(t, y1 * 100, label=r"$\psi = 1.2 \, \unit{rad}$", lw=3.5, color="blue")
+ax2.plot(t, y2 * 100, label=r"$\psi = 0.1 \, \unit{rad}$", lw=3.5, color="orange")
+ax2.plot(t, y3 * 100, label=r"$\psi = -1.2 \, \unit{rad}$", lw=3.5, color="red")
 ax2.set_xlabel(r"$t \, [\unit{\second}]$")
 ax2.set_ylabel(r"$y \, [\unit{\centi\metre}]$")
 ax2.grid(True, alpha=0.3)
 ax2.legend(loc="lower left")
 ax2.set_xlim(0, 1)
-ax2.set_ylim(-15, 1.75)
+ax2.set_ylim(-17, 1.80)
 ax1.text(
     0.03,
     0.97,

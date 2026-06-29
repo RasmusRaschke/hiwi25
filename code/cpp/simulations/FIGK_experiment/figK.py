@@ -9,12 +9,12 @@ plt.style.use('seaborn-v0_8-paper')
 plt.rcParams.update({
     "text.usetex": True,
     "text.latex.preamble": r"\usepackage{siunitx} \usepackage{bm}",
-    "font.size": 20,
-    "axes.titlesize": 20,
-    "axes.labelsize": 20,
-    "xtick.labelsize": 18,
-    "ytick.labelsize": 18,
-    "legend.fontsize": 18,
+    "font.size": 22,
+    "axes.titlesize": 22,
+    "axes.labelsize": 22,
+    "xtick.labelsize": 20,
+    "ytick.labelsize": 20,
+    "legend.fontsize": 15,
 })
 
 R = 0.005  # sphere radius
@@ -35,15 +35,33 @@ def colored_line(ax, x, y, c, cmap, norm, lw=2.0, alpha=1.0, zorder=2):
     lc.set_array(c_seg)
     ax.add_collection(lc)
     return lc
+    
+def black_line(ax, x, y, lw=2.0, alpha=1.0, zorder=2):
+    x = np.asarray(x)
+    y = np.asarray(y)
+
+    pts = np.column_stack([x, y]).reshape(-1, 1, 2)
+    segs = np.concatenate([pts[:-1], pts[1:]], axis=1)
+
+    lc = LineCollection(
+        segs,
+        colors="black",
+        linewidths=lw,
+        alpha=alpha,
+        zorder=zorder
+    )
+    ax.add_collection(lc)
+    return lc
 
 datasets = su.extract()
-names = ["hamburg", "jakata", "tokyo"]
+names = ["hamburg", "jakarta", "tokyo", "australia"]
 
 # Marker style per pair
 markers = {
     "hamburg": "o",   # filled circle
-    "jakata": "s",    # filled square
+    "jakarta": "s",    # filled square
     "tokyo": "^",     # filled triangle
+    "australia": "v",     # filled reversed triangle
 }
 
 all_O = []
@@ -86,10 +104,10 @@ all_O = np.concatenate(all_O)
 all_mu = np.concatenate(all_mu)
 
 norm_O = Normalize(vmin=np.nanmin(all_O), vmax=np.nanmax(all_O))
-norm_mu = Normalize(vmin=np.nanmin(all_mu), vmax=np.nanmax(all_mu))
+#norm_mu = Normalize(vmin=np.nanmin(all_mu), vmax=np.nanmax(all_mu))
 
 cmap_O = plt.cm.viridis
-cmap_mu = plt.cm.plasma
+#cmap_mu = plt.cm.plasma
 
 fig, ax = plt.subplots(figsize=(7, 5))
 fig.subplots_adjust(right=0.83)
@@ -122,7 +140,7 @@ for name in names:
     colored_line(ax, x * 100, y * 100, O_norm, cmap_O, norm_O, lw=2.0)
 
     # mu-tip trajectory
-    colored_line(ax, point_x * 100, point_y * 100, mu_norm_plot, cmap_mu, norm_mu, lw=2.0)
+    black_line(ax, point_x * 100, point_y * 100, lw=2.0)
 
     m = markers[name]
 
@@ -151,16 +169,19 @@ from matplotlib.lines import Line2D
 shape_legend = [
     Line2D([0], [0], marker='o', linestyle='None',
            markerfacecolor='black', markeredgecolor='black',
-           markersize=10, label='Hamburg'),
+           markersize=10, label=r"$\textrm{Hamburg}$"),
     Line2D([0], [0], marker='s', linestyle='None',
            markerfacecolor='black', markeredgecolor='black',
-           markersize=10, label='Jakata'),
+           markersize=10, label=r"$\textrm{Jakarta}$"),
     Line2D([0], [0], marker='^', linestyle='None',
            markerfacecolor='black', markeredgecolor='black',
-           markersize=10, label='Tokyo'),
+           markersize=10, label=r"$\textrm{Tokyo}$"),
+    Line2D([0], [0], marker='v', linestyle='None',
+           markerfacecolor='black', markeredgecolor='black',
+           markersize=10, label=r"$\textrm{Canberra}$"),
 ]
 
-ax.legend(handles=shape_legend, loc="best", frameon=True)
+ax.legend(handles=shape_legend, loc="upper left", frameon=True)
 all_xy = np.concatenate(all_xy, axis=0)
 xmin, ymin = np.nanmin(all_xy, axis=0)
 xmax, ymax = np.nanmax(all_xy, axis=0)
@@ -168,7 +189,7 @@ xmax, ymax = np.nanmax(all_xy, axis=0)
 pad_x = 0.05 * (xmax - xmin)
 pad_y = 0.05 * (ymax - ymin)
 
-ax.set_xlim(xmax + pad_x, xmin - pad_x)
+ax.set_xlim(xmax + pad_x, xmin - pad_x - 0.5)
 ax.set_ylim(ymin - pad_y, ymax + pad_y)
 
 ax.set_xlabel(r"$x \, [\unit{\centi\metre}]$")
@@ -177,17 +198,10 @@ ax.grid(True, alpha=0.3)
 
 sm_O = ScalarMappable(norm=norm_O, cmap=cmap_O)
 sm_O.set_array([])
-sm_mu = ScalarMappable(norm=norm_mu, cmap=cmap_mu)
-sm_mu.set_array([])
-
-cax1 = fig.add_axes([0.86, 0.56, 0.025, 0.30])
+cax1 = fig.add_axes([0.86, 0.12, 0.025, 0.76])
 cbar1 = fig.colorbar(sm_O, cax=cax1)
 cbar1.set_label(r"$\| \bm{\Omega} \| \, [\unit{\second^{-1}}]$")
 from matplotlib.ticker import MaxNLocator
-cax2 = fig.add_axes([0.86, 0.14, 0.025, 0.30])
-cbar2 = fig.colorbar(sm_mu, cax=cax2)
-cbar2.set_label(r"$\|\bm{\mu}\| \, [\unit{\ampere\second\squared}]$")
-cbar1.set_ticks([0, 50, 100, 150, 200])
-cbar2.set_ticks([0.9, 1.0, 1.1])
+cbar1.set_ticks([0, 50, 100, 150, 200, 250])
 
 plt.savefig("FIGK.pdf", dpi=300, bbox_inches="tight")
