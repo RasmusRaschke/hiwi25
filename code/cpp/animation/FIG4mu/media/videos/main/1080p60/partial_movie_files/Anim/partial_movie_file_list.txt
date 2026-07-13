@@ -1,0 +1,2 @@
+# This file is used internally by FFMPEG.
+file 'file:/home/lyserg/Documents/hiwi25/code/cpp/animation/FIG4mu/media/videos/main/1080p60/partial_movie_files/Anim/3362093407_3133067862_717051267.mp4'

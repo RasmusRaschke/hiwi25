@@ -268,5 +268,5 @@ def incline(x0: float, y0: float, z0: float, vx0: float, vy0: float, vz0: float,
     phi = np.deg2rad(phi)
     x = vx0 * t + x0
     y = (-5*g / 14) * np.sin(phi) * np.cos(phi) * t**2 + vy0 * t + y0
-    z = (5*g / 14) * (1-np.cos(phi)) * t**2 + vz0 * t + z0
+    z = -(5*g / 14) * (1-np.cos(phi)**2) * t**2 + vz0 * t + z0
     return x, y, z

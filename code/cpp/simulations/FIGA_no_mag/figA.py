@@ -41,7 +41,7 @@ def print_vector_error_stats(name, x_ref, y_ref, z_ref, x_test, y_test, z_test):
     print(f"Min          = {np.min(err):.6e}")
     print(f"Max          = {np.max(err):.6e}")
     print(f"95th pct.    = {np.percentile(err, 95):.6e}")
-"""
+
 print_vector_error_stats(
     "5° Inclination",
     datasets["data5"].x, datasets["data5"].y, datasets["data5"].z,
@@ -59,7 +59,7 @@ print_vector_error_stats(
     datasets["data15"].x, datasets["data15"].y, datasets["data15"].z,
     x_deg15, y_deg15, z_deg15
 )
-"""
+
 fig1, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5), layout="constrained")
 ax1.tick_params(which='both', bottom=True, top=False, left=True, right=False, labelbottom=True, labelleft=True, labelright=False, labeltop=False)
 ax1.plot(t, y_deg5, color='grey', label=r"$\varphi = 5^\circ$", lw=3.5)

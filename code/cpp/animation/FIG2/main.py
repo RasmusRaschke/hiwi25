@@ -46,7 +46,7 @@ mu_display_scale = 0.02
 # ----------------------------
 # Parameters
 # ----------------------------
-EXPORT_STILL = False
+EXPORT_STILL = True
 EXPORT_TIME = 3.7 * t[-1] / 4
 MU_TRAIL_DURATION = 1.5
 SHOW_TIME_TRACKER = False
@@ -110,6 +110,9 @@ class Anim(ThreeDScene):
             v_range=[-0.6, 0.01],
             resolution=15,
             fill_opacity=0.5,
+            checkerboard_colors=False,
+            fill_color=BLACK,
+            #checkerboard_colors=[BLACK, BLUE]
         )
 
         def static_trail(d, t_end, n_points=200):
@@ -141,11 +144,7 @@ class Anim(ThreeDScene):
                 )
 
             # Label
-            if EXPORT_STILL:
-                label = Text(d["name"], font_size=10, color=BLACK)
-                label.next_to(ball, LEFT, buff=0.30)
-                label.add_background_rectangle(color=WHITE, opacity=0.75, buff=0.01)
-            else:
+            if not EXPORT_STILL:
                 label = always_redraw(
                     lambda d=d, b=ball: (
                         Text(d["name"], font_size=5, color=BLACK)
@@ -154,8 +153,8 @@ class Anim(ThreeDScene):
                     )
                 )
 
-            self.add_fixed_orientation_mobjects(label)
-            self.add_foreground_mobjects(label)
+                self.add_fixed_orientation_mobjects(label)
+                self.add_foreground_mobjects(label)
 
 
             # Mu arrow
@@ -190,14 +189,15 @@ class Anim(ThreeDScene):
                 mu_trails.add(mu_trail)
             
             balls.add(ball)
-            labels.add(label)
+            if not EXPORT_STILL:
+                labels.add(label)
             trails.add(trail)
             mu_arrows.add(mu_arrow)
 
-        self.add(surface, balls, labels, mu_arrows, trails)
+        self.add(surface, balls, mu_arrows, trails)
 
         if not EXPORT_STILL:
-            self.add(mu_trails)
+            self.add(mu_trails, labels)
 
         if SHOW_TIME_TRACKER:
             time_value = DecimalNumber(
