@@ -19,6 +19,10 @@
 \contentsline {subsection}{\numberline {2.2.3}Non-Holonomic Mechanics: The Magnetic Sphere}{33}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Non-Holonomic Mechanics: Damping}{34}{subsection.2.2.4}%
 \contentsline {subsection}{\numberline {2.2.5}Analytical Toy Models}{35}{subsection.2.2.5}%
-\contentsline {chapter}{\numberline {3}Numerical Simulation}{39}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Numerics in C++}{39}{section.3.1}%
+\contentsline {subsection}{\numberline {2.2.6}The General Case}{38}{subsection.2.2.6}%
+\contentsline {paragraph}{The Principle of Virtual Work}{38}{paragraph*.4}%
+\contentsline {paragraph}{The Euler-Lagrange Principle}{39}{paragraph*.5}%
+\contentsline {subsection}{\numberline {2.2.7}Magnetic Ball in Vacuum}{39}{subsection.2.2.7}%
+\contentsline {chapter}{\numberline {3}Numerical Simulation}{41}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Numerics in C++}{41}{section.3.1}%
 \contentsfinish 

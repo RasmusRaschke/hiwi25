@@ -417,3 +417,35 @@ While this form of the e. o. m. may be useful for implementation, it is not very
     q(t)=q_0-w_0R+w_0R \exp\left(\frac{i\Omega_0t}{2}\right)\left[ \cos \left( \frac{\Delta t}{2}\right)- i\frac{\Omega_0}{\Delta} \sin\left( \frac{\Delta t}{2}\right)\right]
 .\] This characterizes the expected motion: We have a rotation factor controlled by the initial rotation which is modulated by an oscillatory envelope whose modulation frequency is dertermined by the discriminant of the system. \\
 Also, note that the spin direction introduces a fundamental asymmetry in the equations of motion: The permutation $x \leftrightarrow y$ does not leave the system invariant. However, the more subtle rotational symmetry $(x+iy) \mapsto \exp(i \theta) (x+iy)$ for any $\theta$ persists. Noether's Theorem thus implies that $\Omega_0$ must be conserved.
+\subsection{The General Case}
+We turn our attention to the most general case of a solid sphere of mass $M$, radius $R$, and inertial tensor $I$ without any knowledge of concrete constraints a priori. The velocity phase space is fully characterized by coordinates \[
+    (\bm{r}, \bm{\dot{r}}=\bm{v}, P, \Omega) \in T\mathbb{R}^3 \oplus T\SO (3)
+.\] We show two slightly different approaches to obtain equations of motion.
+\paragraph{The Principle of Virtual Work}
+Assume there is a force $\bm{F}$ and a torque $\bm{\tau}$, possibly time-dependent, acting on the solid sphere. Assume moreover there are $m$ (possibly non-holonomic) constraints represented by $1$-forms $(\alpha^1, \dots, \alpha^m) \in TQ^\ast$, inducing a constraint force \[
+\mathcal{F}_i = \lambda_k \alpha^k = \lambda_k (a^k_i dr_i + b^k_i dP_i)
+,\] where $\lambda_k$ are Lagrangian multipliers and $a_i^k, b_i^k$ are coefficients of the respective coordinate one-forms. Assume that the forces do no virtual work to obtain:
+\[
+    \marginnote{Note that, again, the identification $\so(3)\cong (\mathbb{R}^3, \times)$ allows us to represent the variation $\delta P = P \hat{\eta}$, where $\hat{\eta}$ is a skew-symmetric matrix, simply by the cross-product vector $\eta$. The product of vectors is then defined by $\hat{\eta}(\bm{x}):= \bm{\eta} \times \bm{x}$. }
+    \delta W = 0 = \langle \bm{F}+\bm{\mathcal{F}}, \delta \bm{r}  \rangle + \langle \bm{\tau}+\bm{\mathcal{F}}, \bm{\eta}  \rangle 
+.\] Using that the scalar product is non-degenerate, we obtain three linear equations of motion \[
+\{F_i - M\dot{v}_i + \lambda_k a^k_i = 0\}_{i \in \{x,y,z\}}
+\] and three angular equations of motion \[
+\{\tau_i - I \dot{\omega}_i - \epsilon^{ijk}\omega_jI^l_k \omega_l + \lambda_k b^k_i=0 \}_{i \in \{x,y,z\}}
+.\] Additionally, $m$ constraints yield $m$ equations of form \[
+\{a^k_i v^i + b^k_i \Omega^i = 0\}_{1\leq k\leq m}
+.\]  
+\paragraph{The Euler-Lagrange Principle}
+Now drop the virtual work assumption and instead assume that all forces and torques are conservative forces. The kinetic energy form is given by \[
+    T (\bm{v},\Omega)= \frac{M}{2} \|\bm{v}\|^2 + \bm{\Omega}^\top I \bm{\Omega}
+.\] Conservative forces are induced by a potential function $U(\bm{r},P)$ such that $\bm{F}=-\nabla_{\bm{r}} U$ and $\bm{\tau}=-\nabla_P U$. The corresponding Lagrangian is $\mathcal{L}=T-U$, yielding Euler-Lagrange equations of the second kind \[
+\frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{q}^i} - \frac{\partial \mathcal{L}}{\partial q^i} = \lambda_k\alpha^k_i
+,\] where $\bm{q}=(\bm{r}, P)$ is the generalized coordinate vector. 
+\subsection{Magnetic Ball in Vacuum}
+Assume we have a solid sphere carrying a constant magnetic moment $\bm{\mu}=\mu \bm{n}$ with respect to the intertial coordinate system. Given an arbitrary magnetic field $\bm{B}=\bm{B}(\bm{r})$, the associated potential is $U(\bm{r})=- \mu \langle P \bm{n},\bm{B}  \rangle$. We obtain a force $\bm{F}= - \nabla_{\bm{r}} U = \mu P\bm{n} \nabla_{\bm{r}} \bm{B}$ and a torque $\bm{\tau} = - \mu (\bm{n} \times \bm{B})$. This yields the following equations of motion:
+\[
+    \frac{d^2r_i}{dt^2} = \mu (P\bm{n})_i \partial_i B_i \\
+\]
+\[
+    \frac{d \Omega_i}{dt} = - \frac{\mu}{I} \epsilon_{ijk}n^jB^k
+    \]
