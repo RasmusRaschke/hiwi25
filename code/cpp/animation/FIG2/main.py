@@ -1,8 +1,8 @@
-from manim import *
-from scipy.spatial.transform import Rotation
-from scipy.interpolate import PchipInterpolator
 import numpy as np
 import simutils as su
+from manim import *
+from scipy.interpolate import PchipInterpolator
+from scipy.spatial.transform import Rotation
 
 # ----------------------------
 # Data
@@ -13,26 +13,42 @@ t = data["australia"].t
 datasets = [
     {
         "name": "C",
-        "x": data["australia"].x, "y": data["australia"].y, "z": data["australia"].z,
-        "mu_x": data["australia"].mu_x, "mu_y": data["australia"].mu_y, "mu_z": data["australia"].mu_z,
+        "x": data["australia"].x,
+        "y": data["australia"].y,
+        "z": data["australia"].z,
+        "mu_x": data["australia"].mu_x,
+        "mu_y": data["australia"].mu_y,
+        "mu_z": data["australia"].mu_z,
         "color": RED,
     },
     {
         "name": "H",
-        "x": data["hamburg"].x, "y": data["hamburg"].y, "z": data["hamburg"].z,
-        "mu_x": data["hamburg"].mu_x, "mu_y": data["hamburg"].mu_y, "mu_z": data["hamburg"].mu_z,
+        "x": data["hamburg"].x,
+        "y": data["hamburg"].y,
+        "z": data["hamburg"].z,
+        "mu_x": data["hamburg"].mu_x,
+        "mu_y": data["hamburg"].mu_y,
+        "mu_z": data["hamburg"].mu_z,
         "color": BLUE,
     },
     {
         "name": "J",
-        "x": data["jakarta"].x, "y": data["jakarta"].y, "z": data["jakarta"].z,
-        "mu_x": data["jakarta"].mu_x, "mu_y": data["jakarta"].mu_y, "mu_z": data["jakarta"].mu_z,
+        "x": data["jakarta"].x,
+        "y": data["jakarta"].y,
+        "z": data["jakarta"].z,
+        "mu_x": data["jakarta"].mu_x,
+        "mu_y": data["jakarta"].mu_y,
+        "mu_z": data["jakarta"].mu_z,
         "color": YELLOW,
     },
     {
         "name": "T",
-        "x": data["tokyo"].x, "y": data["tokyo"].y, "z": data["tokyo"].z,
-        "mu_x": data["tokyo"].mu_x, "mu_y": data["tokyo"].mu_y, "mu_z": data["tokyo"].mu_z,
+        "x": data["tokyo"].x,
+        "y": data["tokyo"].y,
+        "z": data["tokyo"].z,
+        "mu_x": data["tokyo"].mu_x,
+        "mu_y": data["tokyo"].mu_y,
+        "mu_z": data["tokyo"].mu_z,
         "color": GREEN,
     },
 ]
@@ -47,7 +63,7 @@ mu_display_scale = 0.02
 # Parameters
 # ----------------------------
 EXPORT_STILL = True
-EXPORT_TIME = 3.7 * t[-1] / 4
+EXPORT_TIME = 3.8 * t[-1] / 4
 MU_TRAIL_DURATION = 1.5
 SHOW_TIME_TRACKER = False
 ZOOM = 0.25
@@ -63,22 +79,26 @@ for d in datasets:
     d["my_s"] = PchipInterpolator(t, d["mu_y"])
     d["mz_s"] = PchipInterpolator(t, d["mu_z"])
 
+
 def quat_mat(q0, q1, q2, q3):
     return Rotation.from_quat([q1, q2, q3, q0]).as_matrix()
+
 
 def state_at(sim_time, d):
     tt = np.clip(sim_time, t[0], t[-1])
 
     x = d["x_s"](tt)
     y = d["y_s"](tt)
-    pos = np.array([x, y, SLOPE * y]) + RADIUS * NORMAL
+    pos = np.array([-x, y, SLOPE * y]) + RADIUS * NORMAL
 
-    mu_body = np.array([d["mx_s"](tt), d["my_s"](tt), d["mz_s"](tt)])
+    mu_body = np.array([-d["mx_s"](tt), d["my_s"](tt), d["mz_s"](tt)])
     return pos, mu_body
+
 
 def hud_point(scene, x, y):
     R = scene.camera.get_rotation_matrix()
     return scene.camera.frame_center + np.linalg.inv(R) @ np.array([x, y, 0.0])
+
 
 class Anim(ThreeDScene):
     def construct(self):
@@ -105,14 +125,14 @@ class Anim(ThreeDScene):
         mu_trails = VGroup()
 
         surface = Surface(
-            lambda u, v: np.array([u, v, v * np.tan(np.deg2rad(20))]) * SCALE - scene_center,
+            lambda u, v: np.array([u, v, v * np.tan(np.deg2rad(20))]) * SCALE
+            - scene_center,
             u_range=[-0.1, 0.1],
             v_range=[-0.6, 0.01],
             resolution=15,
             fill_opacity=0.5,
             checkerboard_colors=False,
             fill_color=BLACK,
-            #checkerboard_colors=[BLACK, BLUE]
         )
 
         def static_trail(d, t_end, n_points=200):
@@ -140,7 +160,9 @@ class Anim(ThreeDScene):
                 ball.move_to(world_pos(com))
             else:
                 ball.add_updater(
-                    lambda m, d=d: m.move_to(world_pos(state_at(time.get_value(), d)[0]))
+                    lambda m, d=d: m.move_to(
+                        world_pos(state_at(time.get_value(), d)[0])
+                    )
                 )
 
             # Label
@@ -156,10 +178,10 @@ class Anim(ThreeDScene):
                 self.add_fixed_orientation_mobjects(label)
                 self.add_foreground_mobjects(label)
 
-
             # Mu arrow
             def make_mu_arrow(d=d):
                 com, mu_body = state_at(time.get_value(), d)
+                mu_body[0] = -mu_body[0]
                 n = np.linalg.norm(mu_body)
                 if n < 1e-8:
                     mu_body = np.array([0, 0, 1.0])
@@ -187,7 +209,7 @@ class Anim(ThreeDScene):
                     dissipating_time=MU_TRAIL_DURATION,
                 )
                 mu_trails.add(mu_trail)
-            
+
             balls.add(ball)
             if not EXPORT_STILL:
                 labels.add(label)

@@ -1,0 +1,11 @@
+S1: theta=0.15
+S2: theta=0.59
+S3: theta=1.2
+S4: theta=1.9
+S5: theta=2.5
+S6: theta=-0.15
+S7: theta=-0.59
+S8: theta=-1.2
+S9: theta=-1.9
+S10: theta=-2.5
+S11: theta=-3.1

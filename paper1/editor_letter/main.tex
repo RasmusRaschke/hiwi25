@@ -1,0 +1,161 @@
+% HKUST-GZ Letter Template
+% Open source at: https://github.com/ViGeng/HKUSTGZ-letter-latex-template
+% Feel free to add issues or pull request.
+
+%----------------------------------------------------------------------------------------
+% CUSTOMIZABLE VARIABLES - Edit these to personalize your letter
+%----------------------------------------------------------------------------------------
+
+\newcommand{\senderName}{Rasmus C. Raschke, Tim Matthies, Roland Wiesendanger, and Elena Y. Vedmedenko}
+\newcommand{\senderTitle}{X Thrust, X Hub}
+\newcommand{\senderInstitution}{University of Hamburg}
+\newcommand{\senderPhone}{00000000}
+\newcommand{\senderEmail}{rasmus.raschke@uni-hamburg.de}
+\newcommand{\recipientName}{Editor}
+\newcommand{\recipientTitle}{Title of Letter}
+\newcommand{\recipientInstitution}{The name of institute / department / school / company / ...}
+\newcommand{\letterDate}{\today} % You can also use specific date like {August 25, 2025}
+\newcommand{\letterSubject}{} % Optional subject line
+\newcommand{\letterClosing}{Yours faithfully,}
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt]{article}
+
+%----------------------------------------------------------------------------------------
+% PACKAGES AND SETTINGS
+%----------------------------------------------------------------------------------------
+
+\usepackage{charter}        % Professional Charter font
+\usepackage[utf8]{inputenc} % UTF-8 encoding for international characters
+\usepackage[T1]{fontenc}    % Better font encoding
+\usepackage{microtype}      % Improved typography and spacing
+\usepackage{xcolor}         % Color support
+\usepackage{ifthen}         % Conditional statements
+
+\usepackage[
+	a4paper,    % Paper size
+	top=1in,    % Top margin
+	bottom=1in, % Bottom margin
+	left=1in,   % Left margin
+	right=1in,  % Right margin
+	%showframe  % Uncomment to show frames around the margins for debugging
+]{geometry}
+
+\setlength{\parindent}{0pt}     % No paragraph indentation 
+\setlength{\parskip}{0.8em}     % Vertical space between paragraphs
+\linespread{1.1}                % Slightly increased line spacing
+
+\usepackage{wallpaper}      % Background images
+\usepackage{graphicx}       % Required for including images
+\usepackage{fancyhdr}       % Required for customizing headers and footers
+\usepackage{array}          % Advanced table column types
+\usepackage{booktabs}       % Professional table formatting
+\usepackage{lastpage}       % Reference to last page number
+
+%----------------------------------------------------------------------------------------
+% HEADER AND FOOTER SETUP
+%----------------------------------------------------------------------------------------
+
+\fancypagestyle{firstpage}{%
+	\fancyhf{} % Clear default headers/footers
+	\renewcommand{\headrulewidth}{0pt} % No header rule on first page
+	\renewcommand{\footrulewidth}{0.5pt} % Subtle footer rule
+	\fancyfoot[C]{\small Page \thepage\ of \pageref{LastPage}} % Centered page numbering
+}
+
+\fancypagestyle{subsequentpages}{%
+	\fancyhf{} % Clear default headers/footers
+	\renewcommand{\headrulewidth}{0.5pt} % Header rule thickness
+	\renewcommand{\footrulewidth}{0.5pt} % Footer rule thickness
+	\fancyhead[L]{\small \senderName} % Sender name in header
+	\fancyhead[R]{\small \letterDate} % Date in header
+	\fancyfoot[C]{\small Page \thepage\ of \pageref{LastPage}} % Centered page numbering
+}
+
+\AtBeginDocument{\thispagestyle{firstpage}} % Use first page style on first page
+\pagestyle{subsequentpages} % Use subsequent pages style on other pages
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+% OPTIONAL BACKGROUND SETUP
+%----------------------------------------------------------------------------------------
+% Uncomment the line below to enable background watermark
+%\newcommand\BackgroundPicture{
+%   \put(0,0){
+%     \parbox[b][\paperheight]{\paperwidth}{
+%       \vfill
+%       \centering\includegraphics[width=0.3\paperwidth,height=0.3\paperheight,keepaspectratio]{background.png}
+%       \vfill
+%     }}}
+%\AddToShipoutPicture{\BackgroundPicture}
+
+%----------------------------------------------------------------------------------------
+% LETTER HEADER
+%----------------------------------------------------------------------------------------
+
+% Header with logo and contact info aligned
+\begin{minipage}[c]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{logo.pdf}
+\end{minipage}\hfill
+%\begin{minipage}[c]{0.48\textwidth}
+    %\raggedleft
+    %\begin{tabular}{@{}l@{}}
+     %   Date: \letterDate\\
+     %   Name: \senderName\\
+     %   Email: \senderEmail
+   % \end{tabular}
+%\end{minipage}
+
+\vspace{3mm}
+\rule{\linewidth}{0.8pt} % Professional horizontal rule
+\vspace{4mm}
+
+%----------------------------------------------------------------------------------------
+% RECIPIENT ADDRESS
+%----------------------------------------------------------------------------------------
+
+%\begin{tabular}{@{}l}
+%	\textbf{\recipientName} \\
+%	\textbf{\recipientInstitution} \\
+%\end{tabular}
+%
+%\vspace{1.5em}
+
+%----------------------------------------------------------------------------------------
+% LETTER CONTENT
+%----------------------------------------------------------------------------------------
+
+Dear \recipientName,
+
+% Optional subject line - uncomment if needed
+%\vspace{0.5em}
+%\textbf{Re: \letterSubject}
+%\vspace{0.5em}
+
+% Main letter content goes here
+hereby we submit our manuscript "Dynamics of a spherical ferromagnet on a non-conducting incline" for publication in Physical Review E.\\
+Ferromagnetic particles of various shapes and sizes are extensively studied for their applications in biomedical physics, robotics, nanomagnetism, and education, among others. However, a proper description of the dynamics of an ideal spherical ferromagnet rolling in a homogeneous magnetic field is still lacking. Non-holonomic constraints as well as highly non-linear differential equations thwarted analytical as well as numerical approaches so far despite the apparent simplicity. \\
+In this work, we investigate the dynamics of ferromagnetic solid spheres constrained to roll without slipping in homogeneous magnetic fields. In the first part, we lay out the mathematical framework of this problem and demonstrate how to obtain equations of motion by the method of Lagrange-d'Alembert. Despite being known since over a century, recent formulations extended its applicability to certain non-holonomic, dissipative systems such as the one described. Based on this description and specialized integrators, we developed an application to simulate the dynamics with high numerical stability. \\
+In the second part, we use our numerical model to predict and analyze the behavior of the system. It is shown that even very weak magnetic fields influence the rolling motion remarkably. Moreover, we were able to generate a world map predicting how the same experiment performed in different geographical locations would lead to different outcomes depending on longitude and latitude. We also investigate the influence of the sphere's magnetization and the external field on the motion in detail.\\
+Additionally, this work presents an exemplary model useful for physics education, where simple non-holonomic systems suited to undergraduate syllabi remain scarce. 
+\\
+We are convinced that our research represents a novel and important contribution to the field and thus hope that our work will be considered for publication in Physical Review E.
+%----------------------------------------------------------------------------------------
+% LETTER CLOSING
+%----------------------------------------------------------------------------------------
+
+\vspace{1.5em}
+
+\letterClosing
+
+\textbf{\senderName} \\
+
+% Optional: Add enclosures or cc lines
+%\vspace{1em}
+%\textbf{Enclosures:} Research proposal, CV
+%\textbf{cc:} Department Head
+
+\end{document}

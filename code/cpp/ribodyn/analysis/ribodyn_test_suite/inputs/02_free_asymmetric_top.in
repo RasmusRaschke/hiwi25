@@ -1,0 +1,17 @@
+# ribodyn regression test
+# Format: key followed by whitespace-separated values.
+mass 1.0
+radius 0.0
+charge 0.0
+magneticMoment 0.0 0.0 0.0
+inertia 1.0 0 0  0 2.0 0  0 0 3.0
+position 0.0 0.0 0.0
+velocity 0.0 0.0 0.0
+omega 0.7 1.1 1.6
+quaternion 1.0 0.0 0.0 0.0
+solverMode dAlembert
+constraint none
+gravityType none
+emType none
+dt 0.0005
+tEnd 4.0

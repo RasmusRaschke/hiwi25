@@ -1,0 +1,111 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.2 distribution.
+%   Version 4.2a of REVTeX, December 2014
+%
+%   Copyright (c) 2014 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.2
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\documentclass[%
+ preprint, linenumbers,
+%superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+%preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps, physrev,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-2}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{float}
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{siunitx}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\so}{\mathfrak{so}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Id}{id}
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\begin{document}
+
+\preprint{UHH}
+
+\title{\textbf{Dynamics of a spherical ferromagnet on a non-conducting incline in an external magnetic field} 
+}% 
+
+
+\author{Rasmus C. Raschke}
+ \email{Contact author: rasmus.raschke@uni-hamburg.de}
+\author{Tim Matthies}
+\author{Roland Wiesendanger}
+\author{Elena Y. Vedmedenko}
+\affiliation{%
+University of Hamburg\\
+Physics Department\\
+Jungiusstraße 11, 20355 Hamburg
+}%
+
+\date{\today}
+
+\begin{abstract}
+Magnetic particles of various shapes and sizes are used in biomedical applications, robotics, nanomagnetism, electrotechnology, and education. Yet despite years of study, a theoretical description of the rolling motion of a solid magnetic sphere still eludes us. One of the reasons is that coupling magnetic fields with mechanical degrees of freedom creates a highly non-linear motion with non-holonomic constraints, which makes modeling these systems analytically or by simulations non-trivial. The Lagrange-d'Alembertian approach to holonomic systems remains one of the most versatile methods to prove central theorems and solve problems in analytical mechanics and electrodynamics. While non-holonomic systems are not accessible by the original theory, recent developments generalize the principle to certain dissipative systems. \newline Here, we present a successful application of these developments to a simple mechanical system comprising a magnetic solid sphere on an incline within an external magnetic field. Using numerical simulations, we characterized how the system depends on its initial parameters. Furthermore, our findings are in line with recent experiments, demonstrating that even very weak magnetic fields can cause unexpected motion of ferromagnetic objects. The simplicity of this example also makes it a promising candidate for undergraduate physics education where the treatment of non-holonomic variational principles is still widely uncommon.
+\end{abstract}
+
+%\keywords{Suggested keywords}%Use showkeys class option if keyword
+                              %display desired
+\maketitle
+
+\include{1introduction}
+\include{2theoretic}
+\include{3results}
+\include{4conclusion}
+
+\begin{acknowledgments}
+E.Y.V., T.M., and R.C.R. acknowledge financial support provided by the Deutsche Forschungsgemeinschaft (DFG) via Project No. 514141286. 
+\end{acknowledgments}
+
+\appendix
+
+\include{5appendix}
+
+\bibliography{apssamp}
+
+\end{document}
+%
+% ****** End of file apssamp.tex ******

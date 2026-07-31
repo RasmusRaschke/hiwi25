@@ -7,18 +7,19 @@ import simutils as su
 from matplotlib.cm import ScalarMappable
 from matplotlib.colors import Normalize
 from mpl_toolkits.mplot3d import axes3d
+from matplotlib.lines import Line2D
 
 plt.style.use("seaborn-v0_8-paper")
 plt.rcParams.update(
     {
         "text.usetex": True,
         "text.latex.preamble": r"\usepackage{siunitx}",
-        "font.size": 22,  # base size for TeX-rendered text
-        "axes.titlesize": 22,
-        "axes.labelsize": 22,
-        "xtick.labelsize": 20,
-        "ytick.labelsize": 20,
-        "legend.fontsize": 20,
+        "font.size": 24,  # base size for TeX-rendered text
+        "axes.titlesize": 24,
+        "axes.labelsize": 24,
+        "xtick.labelsize": 24,
+        "ytick.labelsize": 24,
+        "legend.fontsize": 24,
     }
 )
 
@@ -56,7 +57,7 @@ def pi_formatter(x, pos):
     n, d = frac.numerator, frac.denominator
 
     if n == 0:
-        return "0"
+        return r"$0$"
 
     # integer multiples of pi
     if d == 1:
@@ -89,33 +90,49 @@ ax1.set_ylabel(r"$y|_{t=1 \, \unit{s}} \, [\unit{\centi\metre}]$")
 ax1.set_xlim(-np.pi, np.pi)
 ax1.xaxis.set_major_locator(tck.MultipleLocator(np.pi / 4))
 ax1.grid(True, alpha=0.3)
-ax2.plot(t, y1 * 100, label=r"$\psi = 1.2 \, \unit{rad}$", lw=3.5, color="blue")
-ax2.plot(t, y2 * 100, label=r"$\psi = 0.1 \, \unit{rad}$", lw=3.5, color="orange")
-ax2.plot(t, y3 * 100, label=r"$\psi = -1.2 \, \unit{rad}$", lw=3.5, color="red")
+ax2.plot(t, y1 * 100, label=r"$\psi = 68.8^\circ$", lw=3.5, color="blue")
+ax2.plot(t, y2 * 100, label=r"$\psi = 5.7^\circ$", lw=3.5, color="orange")
+ax2.plot(t, y3 * 100, label=r"$\psi = -68.8^\circ$", lw=3.5, color="red")
 ax2.set_xlabel(r"$t \, [\unit{\second}]$")
 ax2.set_ylabel(r"$y \, [\unit{\centi\metre}]$")
 ax2.grid(True, alpha=0.3)
-ax2.legend(loc="lower left")
+legend_handles = [
+    Line2D([0], [0], marker="o", linestyle="None",
+           markerfacecolor="blue", markeredgecolor="blue",
+           markersize=10, label=r"$\psi \approx \frac{3\pi}{8}$"),
+    Line2D([0], [0], marker="o", linestyle="None",
+           markerfacecolor="orange", markeredgecolor="orange",
+           markersize=10, label=r"$\psi \approx \frac{\pi}{32}$"),
+    Line2D([0], [0], marker="o", linestyle="None",
+           markerfacecolor="red", markeredgecolor="red",
+           markersize=10, label=r"$\psi \approx -\frac{3\pi}{8}$"),
+]
+ax2.legend(
+    handles=legend_handles,
+    loc="lower left",
+    handlelength=0.6,   # default is 2.0
+    handletextpad=0.4,  # space between marker and text
+)
 ax2.set_xlim(0, 1)
-ax2.set_ylim(-17, 1.80)
+ax2.set_ylim(-18, 2.1)
 ax1.text(
-    0.03,
-    0.97,
+    0.01,
+    0.98,
     "(a)",
     transform=ax1.transAxes,
     ha="left",
     va="top",
-    fontsize=16,
+    fontsize=20,
     fontweight="bold",
 )
 ax2.text(
-    0.03,
-    0.97,
+    0.01,
+    0.98,
     "(b)",
     transform=ax2.transAxes,
     ha="left",
     va="top",
-    fontsize=16,
+    fontsize=20,
     fontweight="bold",
 )
 plt.savefig("FIGG_polar.pdf", dpi=300)

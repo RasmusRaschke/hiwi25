@@ -1,13 +1,12 @@
+import multiprocessing as mp
 import re
 import shutil
 import subprocess
 import tempfile
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
-import multiprocessing as mp
 
 import numpy as np
-
 
 _FILENAME_RE = re.compile(
     r"data_azimuth_(?P<psi>[-+]?\d+(?:\.\d+)?)_polar_(?P<phi>[-+]?\d+(?:\.\d+)?)\.csv"
@@ -47,13 +46,13 @@ def _as_values(x):
 
 def make_input_file(template, c, theta, phi, out_path):
     lines = template.read_text().splitlines(True)
-    #Hamburg: N=18179.2 nT, E=1356.1 nT, U=-46693.9 nT
-    #Jakarta: N=38900.9 nT, E=435.6 nT, U=21399.7 nT
-    #Tokyo: N=30124.5 nT, E=-4195.3 nT, U=-35677.7 nT
-    #Canberra: N=23064.0 nT, E=5170.6 nT, U=53029.0 nT
-    Bx = 23064.0e-9
-    By = 5170.6e-9
-    Bz = 53029.0e-9
+    # Hamburg: N=18179.2 nT, E=1356.1 nT, U=-46693.9 nT
+    # Jakarta: N=38900.9 nT, E=435.6 nT, U=21399.7 nT
+    # Tokyo: N=30124.5 nT, E=-4195.3 nT, U=-35677.7 nT
+    # Canberra: N=23064.0 nT, E=5170.6 nT, U=53029.0 nT
+    Bx = 5170.6e-9  # E
+    By = 23064.0e-9  # N
+    Bz = 53029.0e-9  # U
     B = np.array([Bx, By, Bz])
     B_norm = B / np.linalg.norm(B)
     mx = B_norm[0]
@@ -104,14 +103,18 @@ def run_one_case(
         tmpdir = Path(tmp)
         input_path = tmpdir / input_name
 
-        make_input_file(template=template, c=c, theta=theta, phi=phi, out_path=input_path)
+        make_input_file(
+            template=template, c=c, theta=theta, phi=phi, out_path=input_path
+        )
 
         with input_path.open("rb") as f:
             subprocess.run([str(exe)], cwd=tmpdir, stdin=f, check=True)
 
         csvs = list(tmpdir.glob("*.csv"))
         if len(csvs) != 1:
-            raise RuntimeError(f"Expected exactly one CSV output, found {len(csvs)} in {tmpdir}")
+            raise RuntimeError(
+                f"Expected exactly one CSV output, found {len(csvs)} in {tmpdir}"
+            )
 
         shutil.move(str(csvs[0]), str(final_csv))
 

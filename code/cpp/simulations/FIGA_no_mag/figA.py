@@ -6,12 +6,12 @@ plt.style.use('seaborn-v0_8-paper')
 plt.rcParams.update({
     "text.usetex": True,
     "text.latex.preamble": r"\usepackage{siunitx} \usepackage{bm}",
-    "font.size": 22,
-    "axes.titlesize": 22,
-    "axes.labelsize": 22,
-    "xtick.labelsize": 20,
-    "ytick.labelsize": 20,
-    "legend.fontsize": 20,
+    "font.size": 24,
+    "axes.titlesize": 24,
+    "axes.labelsize": 24,
+    "xtick.labelsize": 24,
+    "ytick.labelsize": 24,
+    "legend.fontsize": 24,
 })
 
 g = 9.80665
@@ -75,13 +75,13 @@ ax1.set_ylim([-60,7.5])
 ax1.grid(True, alpha=0.3)
 ax1.legend(loc="lower left")
 ax1.text(
-    0.03,
-    0.97,
+    0.01,
+    0.98,
     "(a)",
     transform=ax1.transAxes,
     ha="left",
     va="top",
-    fontsize=16,
+    fontsize=20,
     fontweight="bold",
 )
 ax2.tick_params(which='both', bottom=True, top=False, left=True, right=False, labelbottom=True, labelleft=True, labelright=False, labeltop=False)
@@ -97,13 +97,13 @@ ax2.set_ylabel(r"$y \, [\unit{m}]$")
 ax2.grid(True, alpha=0.3)
 ax2.legend(loc="lower left")
 ax2.text(
-    0.03,
-    0.97,
+    0.01,
+    0.98,
     "(b)",
     transform=ax2.transAxes,
     ha="left",
     va="top",
-    fontsize=16,
+    fontsize=20,
     fontweight="bold",
 )
 plt.savefig("FIGA_apdx.pdf", dpi=300)
