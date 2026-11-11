@@ -257,7 +257,8 @@ int main(){
     p.rho = get_next<double>();
     p.drag = get_next<double>(); //fixed value for sphere
 
-    int steps = int(t_end / dt);
+    int steps = int(lround(t_end / dt));
+    int save_every = (dt >= 1e-3) ? 1 : int(lround(1e-3 / dt));
 
     State s;
     double x0 = get_next<double>();
@@ -267,14 +268,14 @@ int main(){
     s.q = quat::Identity();
     
     ofstream out("data.csv");
-    out << scientific << setprecision(9);
+    out << scientific << setprecision(16);
     out << "t,x,y,z,Ox,Oy,Oz,q0,q1,q2,q3,";
     out << "vx, vy, vz, T_trans, T_rot, U_gr, U_em, E, q_norm,";
     out << "Frx, Fry, Frz, Fdx, Fdy, Fdz, Fextx, Fexty, Fextz, mu_x, mu_y, mu_z\n";
-    for (int i=0; i <= steps; ++i){
+    for (int i=0; i < steps; ++i){
         vec3 Fr, Fd, Fext;
         s = integrator(s, dt, p, Fr, Fd, Fext);
-        if ((i % 10) == 0){
+        if (((i+1) % save_every) == 0 || i == steps-1){
             vec3 v = getr(s.Omega, p);
             double T_trans = 0.5 * p.M * v.squaredNorm();
             double T_rot = 0.5 * p.I * s.Omega.squaredNorm();
@@ -283,7 +284,7 @@ int main(){
             double U_em = - mu_rot.dot(p.B_inert);
             double E = T_trans + T_rot + U_gr + U_em;
             double q_norm = s.q.norm();
-            out << t << "," << s.r.x() << "," << s.r.y() << "," << s.r.z() << ","
+            out << (i+1)*dt << "," << s.r.x() << "," << s.r.y() << "," << s.r.z() << ","
             << s.Omega.x() << "," << s.Omega.y() << "," << s.Omega.z() << ","
             << s.q.w() << "," << s.q.x() << "," << s.q.y() << "," << s.q.z() << ","
             << v.x() << "," << v.y() << "," << v.z() << "," << T_trans << "," << T_rot << "," << U_gr << "," << U_em << "," << E << "," << q_norm << ","

@@ -1,3 +1,0 @@
-/home/lyserg/Documents/hiwi25/code/cpp/ribodyn/build/CMakeFiles/solver.dir
-/home/lyserg/Documents/hiwi25/code/cpp/ribodyn/build/CMakeFiles/edit_cache.dir
-/home/lyserg/Documents/hiwi25/code/cpp/ribodyn/build/CMakeFiles/rebuild_cache.dir
